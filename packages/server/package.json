@@ -1,0 +1,11 @@
+{
+	"name": "@move/server",
+	"private": true,
+	"description": "",
+	"version": "0.0.1",
+	"author": {
+		"name": "Oluwakorede Fashokun",
+		"email": "korede@overt.dev",
+		"url": "https://overt.dev"
+	}
+}
