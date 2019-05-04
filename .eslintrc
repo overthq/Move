@@ -14,12 +14,13 @@
 		"node": true
 	},
 	"extends": [
-		"prettier",
-		"plugin:prettier/recommended",
+    "prettier",
+		"plugin:@typescript-eslint/recommended",
 		"plugin:react/recommended",
-		"prettier/react",
-		"prettier/@typescript-eslint"
-	],
+		"plugin:react-native/recommended",
+    "prettier/@typescript-eslint",
+    "prettier/react"
+  ],
 	"rules": {
 		"indent": 0,
 		"no-tabs": 0,
