@@ -3,6 +3,7 @@
 .history
 .jest
 .vscode
+dist
 Pods
 node_modules/
 npm-debug.log

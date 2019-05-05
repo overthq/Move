@@ -8,6 +8,11 @@
 		"email": "korede@overt.dev",
 		"url": "https://overt.dev"
 	},
+	"main": "dist/index.js",
+	"module": "dist/index.js",
+	"scripts": {
+		"build": "tsc -b"
+	},
 	"dependencies": {
 		"react": "^16.8.6",
 		"react-native": "^0.59.5"

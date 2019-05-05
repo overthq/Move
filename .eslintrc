@@ -1,11 +1,6 @@
 {
 	"parser": "@typescript-eslint/parser",
-	"plugins": [
-		"@typescript-eslint",
-		"react",
-		"react-native",
-		"import"
-	],
+	"plugins": ["@typescript-eslint", "react", "react-native", "import"],
 	"parserOptions": {
 		"sourceType": "module"
 	},
@@ -14,13 +9,12 @@
 		"node": true
 	},
 	"extends": [
-    "prettier",
+		"prettier",
 		"plugin:@typescript-eslint/recommended",
 		"plugin:react/recommended",
-		"plugin:react-native/recommended",
-    "prettier/@typescript-eslint",
-    "prettier/react"
-  ],
+		"prettier/@typescript-eslint",
+		"prettier/react"
+	],
 	"rules": {
 		"indent": 0,
 		"no-tabs": 0,
