@@ -1,8 +1,7 @@
-import React from 'react';
-import { View } from 'react-native';
+import { createBottomTabNavigator } from 'react-navigation';
 
-const Main = (): JSX.Element => {
-	return <View />;
-};
+import Account from './Account';
 
-export default Main;
+const MainNavigator = createBottomTabNavigator({ Account });
+
+export default MainNavigator;

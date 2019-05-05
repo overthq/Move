@@ -1,12 +1,27 @@
 import React from 'react';
-import { Text as NormalText } from 'react-native';
+import {
+	Text as NormalText,
+	TextProps as NormalTextProps,
+	StyleProp,
+	TextStyle
+} from 'react-native';
+import colors from './colors';
 
-interface TextProps {
+interface TextProps extends NormalTextProps {
 	children: string;
+	bold?: boolean;
 }
 
-const Text = ({ children }: TextProps): JSX.Element => {
-	return <NormalText>{children}</NormalText>;
+const Text = ({ children, style, bold }: TextProps): JSX.Element => {
+	const styles: StyleProp<TextStyle> = [
+		{
+			fontFamily: bold ? 'Rubik Bold' : 'Rubik Regular',
+			color: colors.black.primary,
+			fontSize: 16
+		},
+		style
+	];
+	return <NormalText style={styles}>{children}</NormalText>;
 };
 
 export default Text;

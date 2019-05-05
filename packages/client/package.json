@@ -5,6 +5,7 @@
 	"scripts": {
 		"format": "prettier --write '{.,src/**}/*.{js,jsx,ts,tsx}'",
 		"lint": "eslint . --ext .ts,.tsx",
+		"build": "tsc",
 		"start": "node ../../node_modules/react-native/local-cli/cli.js start --projectRoot ../../",
 		"test": "jest"
 	},
@@ -12,6 +13,7 @@
 		"@move/components": "0.0.1",
 		"react": "16.8.6",
 		"react-native": "0.59.5",
+		"react-native-gesture-handler": "^1.2.1",
 		"react-native-screens": "^1.0.0-alpha.22",
 		"react-navigation": "^3.9.1",
 		"react-navigation-fluid-transitions": "^0.3.2"
