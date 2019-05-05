@@ -1,12 +1,9 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import AppNavigator from './src/screens';
+import { useScreens } from 'react-native-screens';
 
-const App = (): JSX.Element => {
-	return (
-		<View>
-			<Text>Move</Text>
-		</View>
-	);
-};
+useScreens();
+
+const App = (): JSX.Element => <AppNavigator />;
 
 export default App;
