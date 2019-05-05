@@ -4,7 +4,7 @@ interface UserType extends Document {
 	firstName: string;
 	lastName: string;
 	email: string;
-	password: string;
+	verified: boolean;
 }
 
 const UserSchema = new Schema(
@@ -25,6 +25,10 @@ const UserSchema = new Schema(
 		password: {
 			type: String,
 			required: true
+		},
+		verified: {
+			type: Boolean,
+			default: false
 		}
 	},
 	{ timestamps: true }

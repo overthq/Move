@@ -949,6 +949,11 @@
   dependencies:
     "@types/node" "*"
 
+"@types/ejs@^2.6.3":
+  version "2.6.3"
+  resolved "https://registry.yarnpkg.com/@types/ejs/-/ejs-2.6.3.tgz#b6509e9925d7eb5e95c8c73b6492e5baae7c1e6a"
+  integrity sha512-/F+qQ0Fr0Dr1YvHjX+FCvbba4sQ27RdCPDqmP/si0e1v1GOkbQ3VRBvZPSQM7NoQ3iz3SyiJVscCP2f0vKuIhQ==
+
 "@types/express-serve-static-core@*":
   version "4.16.4"
   resolved "https://registry.yarnpkg.com/@types/express-serve-static-core/-/express-serve-static-core-4.16.4.tgz#56bb8be4559401d68af4a3624ae9dd3166103e60"
@@ -1013,6 +1018,13 @@
   version "12.0.0"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.0.0.tgz#d11813b9c0ff8aaca29f04cbc12817f4c7d656e5"
   integrity sha512-Jrb/x3HT4PTJp6a4avhmJCDEVrPdqLfl3e8GGMbpkGGdwAV5UGlIs4vVEfsHHfylZVOKZWpOqmqFH8CbfOZ6kg==
+
+"@types/nodemailer@^4.6.8":
+  version "4.6.8"
+  resolved "https://registry.yarnpkg.com/@types/nodemailer/-/nodemailer-4.6.8.tgz#c14356e799fe1d4ee566126f901bc6031cc7b1b5"
+  integrity sha512-IX1P3bxDP1VIdZf6/kIWYNmSejkYm9MOyMEtoDFi4DVzKjJ3kY4GhOcOAKs6lZRjqVVmF9UjPOZXuQczlpZThw==
+  dependencies:
+    "@types/node" "*"
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.0"
@@ -2515,6 +2527,11 @@ ee-first@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
+
+ejs@^2.6.1:
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/ejs/-/ejs-2.6.1.tgz#498ec0d495655abc6f23cd61868d926464071aa0"
+  integrity sha512-0xy4A/twfrRCnkhfk8ErDi5DqdAsAqeGxht4xkCUrsvhhbQNs7E+4jV0CN7+NKIY0aHE72+XvqtBIXzD31ZbXQ==
 
 elegant-spinner@^1.0.1:
   version "1.0.1"
@@ -5874,6 +5891,11 @@ node-pre-gyp@0.12.0, node-pre-gyp@^0.12.0:
     rimraf "^2.6.1"
     semver "^5.3.0"
     tar "^4"
+
+nodemailer@^6.1.1:
+  version "6.1.1"
+  resolved "https://registry.yarnpkg.com/nodemailer/-/nodemailer-6.1.1.tgz#09e88ef4b3646f01089c5d84d007b872141fb575"
+  integrity sha512-/x5MRIh56VyuuhLfcz+DL2SlBARpZpgQIf2A4Ao4hMb69MHSgDIMPwYmFwesGT1lkRDZ0eBSoym5+JoIZ3N+cQ==
 
 nodemon@^1.19.0:
   version "1.19.0"
