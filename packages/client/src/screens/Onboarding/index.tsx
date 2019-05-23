@@ -1,19 +1,83 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-
+import {
+	FlatList,
+	Dimensions,
+	Animated,
+	SafeAreaView,
+	TouchableOpacity,
+	Text,
+	View,
+	StyleSheet
+} from 'react-native';
+import Slide from './Slide';
+import Pagination from './Pagination';
 import slides from './slides';
 
-const Onboarding = (): JSX.Element => {
+const { width } = Dimensions.get('window');
+
+const Onboarding = () => {
+	const scrollX = new Animated.Value(0);
+
+	const skip = () => {};
+	const goToNext = () => {};
+
 	return (
-		<View>
-			{slides.map(({ title, description }) => (
-				<View key={title.toLowerCase()}>
-					<Text>{title}</Text>
-					<Text>{description}</Text>
+		<>
+			<FlatList
+				data={slides}
+				keyExtractor={item => item.title}
+				horizontal
+				showsHorizontalScrollIndicator={false}
+				snapToInterval={width}
+				snapToAlignment='center'
+				decelerationRate={0}
+				pagingEnabled
+				onScroll={Animated.event([
+					{
+						nativeEvent: {
+							contentOffset: { x: scrollX }
+						}
+					}
+				])}
+				renderItem={({ item, index }) => <Slide {...item} key={index} />}
+			/>
+			<Pagination tabs={slides} {...{ scrollX }} />
+			<SafeAreaView style={styles.bottomBarContainer}>
+				<View style={styles.bottomBar}>
+					<TouchableOpacity onPress={skip}>
+						<Text style={[styles.bottomBarLink, { color: '#505050' }]}>
+							Skip
+						</Text>
+					</TouchableOpacity>
+					<TouchableOpacity onPress={goToNext}>
+						<Text style={[styles.bottomBarLink, { color: '#56C4E7' }]}>
+							{'Next >'}
+						</Text>
+					</TouchableOpacity>
 				</View>
-			))}
-		</View>
+			</SafeAreaView>
+		</>
 	);
 };
+
+const styles = StyleSheet.create({
+	bottomBarContainer: {
+		width,
+		bottom: 0,
+		position: 'absolute'
+	},
+	bottomBar: {
+		position: 'relative',
+		flex: 1,
+		flexDirection: 'row',
+		paddingHorizontal: 20,
+		justifyContent: 'space-between'
+	},
+	bottomBarLink: {
+		textTransform: 'uppercase',
+		fontFamily: 'Rubik-Bold',
+		fontSize: 16
+	}
+});
 
 export default Onboarding;
