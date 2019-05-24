@@ -4,7 +4,7 @@ import variants from './variants';
 
 interface InputProps extends TextInputProps {
 	variant?: string;
-	full: boolean;
+	full?: boolean;
 }
 
 const Input = (props: InputProps): JSX.Element => {

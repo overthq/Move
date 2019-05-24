@@ -48,7 +48,8 @@ const Button = ({
 						{
 							color: variants[variant].textColor
 						},
-						defaultTextStyle
+						defaultTextStyle,
+						textStyle
 					]}
 				>
 					{children}
