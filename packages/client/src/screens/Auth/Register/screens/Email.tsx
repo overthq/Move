@@ -19,19 +19,21 @@ const Email = (props: NavigationScreenProps) => {
 	return (
 		<KeyboardAvoidingView style={styles.container} behavior='padding'>
 			<TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-				<Text style={styles.pageHeader}>Your email address?</Text>
-				<Input
-					value={email}
-					placeholder='Email Address'
-					onChangeText={(value: string) => setEmail(value)}
-					autoCapitalize='none'
-					autoCorrect={false}
-					full
-					style={{ marginBottom: 15 }}
-				/>
-				<Button onPress={handleSubmit} full>
-					Next
-				</Button>
+				<>
+					<Text style={styles.pageHeader}>Your email address?</Text>
+					<Input
+						value={email}
+						placeholder='Email Address'
+						onChangeText={(value: string) => setEmail(value)}
+						autoCapitalize='none'
+						autoCorrect={false}
+						full
+						style={{ marginBottom: 15 }}
+					/>
+					<Button onPress={handleSubmit} full>
+						Next
+					</Button>
+				</>
 			</TouchableWithoutFeedback>
 		</KeyboardAvoidingView>
 	);
