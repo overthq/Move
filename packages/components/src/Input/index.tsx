@@ -18,7 +18,7 @@ const Input = (props: InputProps): JSX.Element => {
 					color: variants[variant].textColor
 				},
 				full && { width: '100%' },
-				defaultStyles,
+				defaultStyle,
 				style
 			]}
 			{...rest}
@@ -26,7 +26,7 @@ const Input = (props: InputProps): JSX.Element => {
 	);
 };
 
-const defaultStyles: StyleProp<TextStyle> = {
+const defaultStyle: StyleProp<TextStyle> = {
 	padding: 15,
 	borderRadius: 4,
 	fontFamily: 'Rubik-Regular',

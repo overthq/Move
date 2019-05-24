@@ -4,7 +4,8 @@ import {
 	TouchableOpacityProps,
 	StyleProp,
 	ViewStyle,
-	ActivityIndicator
+	ActivityIndicator,
+	TextStyle
 } from 'react-native';
 import Text from '../Text';
 import variants from './variants';
@@ -14,12 +15,14 @@ interface ButtonProps extends TouchableOpacityProps {
 	variant?: 'primary' | 'secondary' | 'clearPrimary' | 'clearSecondary';
 	loading?: boolean;
 	full?: boolean;
+	textStyle?: StyleProp<TextStyle>;
 }
 
 const Button = ({
 	children,
 	variant = 'primary',
 	style,
+	textStyle,
 	disabled,
 	loading,
 	full,
@@ -41,11 +44,12 @@ const Button = ({
 			{loading && <ActivityIndicator color={variants[variant].textColor} />}
 			{typeof children === 'string' ? (
 				<Text
-					style={{
-						color: variants[variant].textColor,
-						fontFamily: 'Rubik-Medium',
-						fontSize: 18
-					}}
+					style={[
+						{
+							color: variants[variant].textColor
+						},
+						defaultTextStyle
+					]}
 				>
 					{children}
 				</Text>
@@ -62,6 +66,11 @@ const defaultStyles: StyleProp<ViewStyle> = {
 	display: 'flex',
 	alignItems: 'center',
 	justifyContent: 'center'
+};
+
+const defaultTextStyle: StyleProp<TextStyle> = {
+	fontFamily: 'Rubik-Medium',
+	fontSize: 18
 };
 
 export default Button;
