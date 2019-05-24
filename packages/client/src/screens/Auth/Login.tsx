@@ -1,6 +1,7 @@
 import React from 'react';
-import { Alert, KeyboardAvoidingView } from 'react-native';
+import { Alert, KeyboardAvoidingView, Text } from 'react-native';
 import { Button, Input } from '@move/components';
+import styles from './styles';
 
 const Login = (): JSX.Element => {
 	const [email, setEmail] = React.useState('');
@@ -15,15 +16,8 @@ const Login = (): JSX.Element => {
 	};
 
 	return (
-		<KeyboardAvoidingView
-			style={{
-				flex: 1,
-				alignItems: 'center',
-				justifyContent: 'center',
-				paddingHorizontal: 20
-			}}
-			behavior='padding'
-		>
+		<KeyboardAvoidingView style={styles.container} behavior='padding'>
+			<Text style={styles.pageHeader}>Welcome back.</Text>
 			<Input
 				value={email}
 				placeholder='Email'
