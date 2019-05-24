@@ -15,7 +15,7 @@ interface TextProps extends NormalTextProps {
 const Text = ({ children, style, bold }: TextProps): JSX.Element => {
 	const styles: StyleProp<TextStyle> = [
 		{
-			fontFamily: bold ? 'Rubik Bold' : 'Rubik Regular',
+			fontFamily: bold ? 'Rubik-Bold' : 'Rubik-Regular',
 			color: colors.black.primary,
 			fontSize: 16
 		},

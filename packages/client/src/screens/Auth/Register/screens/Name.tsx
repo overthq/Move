@@ -1,8 +1,8 @@
 import React from 'react';
 import { View } from 'react-native';
 
-const Register = (): JSX.Element => {
+const Name = () => {
 	return <View />;
 };
 
-export default Register;
+export default Name;
