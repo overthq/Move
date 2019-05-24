@@ -16,7 +16,7 @@ const colors: Colors = {
 	grey: {
 		primary: '#505050',
 		secondary: '#D3D3D3',
-		tertiary: ''
+		tertiary: '#939393'
 	},
 	black: {
 		primary: '#000000',

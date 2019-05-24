@@ -3,7 +3,8 @@ import {
 	TouchableOpacity,
 	TouchableOpacityProps,
 	StyleProp,
-	ViewStyle
+	ViewStyle,
+	ActivityIndicator
 } from 'react-native';
 import Text from '../Text';
 import variants from './variants';
@@ -11,6 +12,7 @@ import variants from './variants';
 interface ButtonProps extends TouchableOpacityProps {
 	children?: React.ReactNode;
 	variant?: 'primary' | 'secondary' | 'clearPrimary' | 'clearSecondary';
+	loading?: boolean;
 	full?: boolean;
 }
 
@@ -19,6 +21,7 @@ const Button = ({
 	variant = 'primary',
 	style,
 	disabled,
+	loading,
 	full,
 	...rest
 }: ButtonProps): JSX.Element => {
@@ -35,6 +38,7 @@ const Button = ({
 			]}
 			{...rest}
 		>
+			{loading && <ActivityIndicator color={variants[variant].textColor} />}
 			{typeof children === 'string' ? (
 				<Text
 					style={{

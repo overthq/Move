@@ -11,6 +11,7 @@
 	"main": "dist/index.js",
 	"module": "dist/index.js",
 	"scripts": {
+		"dev": "nodemon",
 		"build": "tsc -b"
 	},
 	"dependencies": {
@@ -19,6 +20,7 @@
 	},
 	"devDependencies": {
 		"@types/react": "^16.8.16",
-		"@types/react-native": "^0.57.51"
+		"@types/react-native": "^0.57.51",
+		"nodemon": "^1.19.0"
 	}
 }
