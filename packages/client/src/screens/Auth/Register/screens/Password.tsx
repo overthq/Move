@@ -8,19 +8,18 @@ import {
 	Keyboard,
 	Dimensions
 } from 'react-native';
-import { NavigationScreenProps } from 'react-navigation';
 import { Button, Input } from '@move/components';
 import styles from '../../styles';
 
 const { width } = Dimensions.get('window');
 
-const Name = (props: NavigationScreenProps) => {
-	const [firstName, setFirstName] = React.useState('');
-	const [lastName, setLastName] = React.useState('');
+const Name = () => {
+	const [password, setPassword] = React.useState('');
+	const [confirmPassword, setConfirmPassword] = React.useState('');
 
 	const handleSubmit = async () => {
 		try {
-			props.navigation.navigate('Email');
+			// Create the account
 		} catch (error) {
 			Alert.alert(error.message);
 		}
@@ -32,23 +31,27 @@ const Name = (props: NavigationScreenProps) => {
 				<View style={[styles.container, { width }]}>
 					<Text style={styles.pageHeader}>{`What's your name?`}</Text>
 					<Input
-						value={firstName}
-						placeholder='First Name'
-						onChangeText={(value: string) => setFirstName(value)}
+						value={password}
+						placeholder='Password'
+						onChangeText={(value: string) => setPassword(value)}
+						autoCapitalize='none'
 						autoCorrect={false}
+						secureTextEntry
 						full
 						style={{ marginBottom: 15 }}
 					/>
 					<Input
-						value={lastName}
-						placeholder='Last Name'
-						onChangeText={(value: string) => setLastName(value)}
+						value={confirmPassword}
+						placeholder='Confirm password'
+						onChangeText={(value: string) => setConfirmPassword(value)}
+						autoCapitalize='none'
 						autoCorrect={false}
+						secureTextEntry
 						full
 						style={{ marginBottom: 15 }}
 					/>
 					<Button onPress={handleSubmit} full>
-						Next
+						Create Account
 					</Button>
 				</View>
 			</TouchableWithoutFeedback>
