@@ -8,7 +8,7 @@ export interface AuthScreenInfo extends NavigationScreenProps {
 	header: string;
 	fields: AuthScreenField[];
 	onSubmit(...args: string[]): Promise<void>;
-	onSuccess(): void;
+	onSuccess?: () => void;
 	onError(error: Error): void;
 	nextScreenName?: string;
 	initialState?: { [key: string]: string };

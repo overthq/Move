@@ -19,6 +19,7 @@ const AuthScreen = (props: AuthScreenInfo) => {
 		header,
 		navigation,
 		nextScreenName,
+		onSubmit,
 		onSuccess,
 		onError,
 		initialState,
@@ -36,7 +37,8 @@ const AuthScreen = (props: AuthScreenInfo) => {
 
 	const handleSubmit = async () => {
 		try {
-			await onSuccess();
+			await onSubmit();
+			onSuccess && (await onSuccess());
 			nextScreenName && navigation.navigate(nextScreenName);
 		} catch (error) {
 			onError(error);
