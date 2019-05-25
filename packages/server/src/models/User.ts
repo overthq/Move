@@ -3,7 +3,7 @@ import { model, Schema, Document } from 'mongoose';
 interface UserType extends Document {
 	firstName: string;
 	lastName: string;
-	email: string;
+	phoneNumber: string;
 	verified: boolean;
 }
 
@@ -17,14 +17,10 @@ const UserSchema = new Schema(
 			type: String,
 			required: true
 		},
-		email: {
+		phoneNumber: {
 			type: String,
 			required: true,
 			unique: true
-		},
-		password: {
-			type: String,
-			required: true
 		},
 		verified: {
 			type: Boolean,

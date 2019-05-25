@@ -1,13 +1,13 @@
 import { model, Schema, Document } from 'mongoose';
 
 interface CodeType extends Document {
-	email: string;
+	phoneNumber: string;
 	code: string;
 }
 
 const CodeSchema = new Schema(
 	{
-		email: {
+		phoneNumber: {
 			type: String,
 			required: true
 		},

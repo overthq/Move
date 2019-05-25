@@ -1,28 +1,22 @@
-import ejs from 'ejs';
 import { Request, Response } from 'express';
 import { User, Code } from '../models';
-import { sendMail } from '../helpers';
 
 export const logIn = async (req: Request, res: Response): Promise<Response> => {
-	const { email } = req.body;
+	const { phoneNumber } = req.body;
 	try {
-		const user = await User.findOne({ email });
+		const user = await User.findOne({ phoneNumber });
 		if (!user) {
 			return res.status(404).json({
 				success: false,
 				message: 'No user found with the provided email address.'
 			});
 		}
-		const code = Math.floor(Math.random() * 999999) + 100000;
-		// Save code to database
-		const newCode = new Code({ email, code });
+		const code = Math.floor(100000 + Math.random() * 900000);
+
+		const newCode = new Code({ phoneNumber, code });
 		await newCode.save();
-		const html = await ejs.renderFile<string>('../templates/login.ejs', {
-			user,
-			code
-		});
-		// Use html to send email with nodemailer
-		await sendMail('Log In | Move', user.email, html);
+
+		// TODO: Send the code in a text message with Twilio.
 
 		return res.status(200).json({
 			success: true,
@@ -43,16 +37,13 @@ export const validateLogin = async (
 	req: Request,
 	res: Response
 ): Promise<Response> => {
-	const { email, code } = req.body;
+	const { phoneNumber, code } = req.body;
 	try {
-		// Validate code authenticity
-		// If code is valid, generate auth token
-		// Delete code entry in the database
-		const lCode = await Code.findOne({ email });
+		const lCode = await Code.findOne({ phoneNumber });
 		if (!lCode) {
 			return res.status(404).json({
 				success: false,
-				message: 'No code exists with this email e-mail address.'
+				message: 'No code exists with this address.'
 			});
 		}
 		if (lCode.code === code) {
@@ -72,17 +63,24 @@ export const register = async (
 	req: Request,
 	res: Response
 ): Promise<Response> => {
-	const { firstName, lastName, email } = req.body;
+	const { firstName, lastName, phoneNumber } = req.body;
+	// Validate data being passed
 	try {
 		const user = new User({
 			firstName,
 			lastName,
-			email
+			phoneNumber
 		});
 		await user.save();
+
+		// Send code to the phoneNumber
+		// To verify authenticity
+
 		return res.status(201).json({
 			success: true,
-			message: 'User created'
+			message: 'User created',
+			user
+			// We should probably return the accessToken and refreshToken only
 		});
 	} catch (error) {
 		return res.status(500).json({
