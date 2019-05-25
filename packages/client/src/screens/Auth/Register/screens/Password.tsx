@@ -3,17 +3,14 @@ import {
 	Alert,
 	KeyboardAvoidingView,
 	Text,
-	View,
 	TouchableWithoutFeedback,
 	Keyboard,
-	Dimensions
+	View
 } from 'react-native';
 import { Button, Input } from '@move/components';
 import styles from '../../styles';
 
-const { width } = Dimensions.get('window');
-
-const Name = () => {
+const Password = () => {
 	const [password, setPassword] = React.useState('');
 	const [confirmPassword, setConfirmPassword] = React.useState('');
 
@@ -27,9 +24,9 @@ const Name = () => {
 
 	return (
 		<KeyboardAvoidingView style={styles.container} behavior='padding'>
-			<TouchableWithoutFeedback style={{ flex: 1 }} onPress={Keyboard.dismiss}>
-				<View style={[styles.container, { width }]}>
-					<Text style={styles.pageHeader}>{`What's your name?`}</Text>
+			<TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+				<View style={[styles.formContainer]}>
+					<Text style={styles.pageHeader}>Set your password</Text>
 					<Input
 						value={password}
 						placeholder='Password'
@@ -38,7 +35,6 @@ const Name = () => {
 						autoCorrect={false}
 						secureTextEntry
 						full
-						style={{ marginBottom: 15 }}
 					/>
 					<Input
 						value={confirmPassword}
@@ -48,7 +44,6 @@ const Name = () => {
 						autoCorrect={false}
 						secureTextEntry
 						full
-						style={{ marginBottom: 15 }}
 					/>
 					<Button onPress={handleSubmit} full>
 						Create Account
@@ -59,4 +54,4 @@ const Name = () => {
 	);
 };
 
-export default Name;
+export default Password;

@@ -1,4 +1,6 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
+
+const { height } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
 	container: {
@@ -7,12 +9,18 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		paddingHorizontal: 20
 	},
+	formContainer: {
+		display: 'flex',
+		width: '100%',
+		height: height / 3,
+		justifyContent: 'space-around',
+		alignItems: 'center'
+	},
 	pageHeader: {
 		fontFamily: 'Rubik-Bold',
 		fontSize: 35,
 		color: '#505050',
-		textAlign: 'center',
-		marginBottom: 25
+		textAlign: 'center'
 	}
 });
 

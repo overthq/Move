@@ -3,16 +3,13 @@ import {
 	Alert,
 	KeyboardAvoidingView,
 	Text,
-	View,
 	TouchableWithoutFeedback,
 	Keyboard,
-	Dimensions
+	View
 } from 'react-native';
 import { NavigationScreenProps } from 'react-navigation';
 import { Button, Input } from '@move/components';
 import styles from '../../styles';
-
-const { width } = Dimensions.get('window');
 
 const Name = (props: NavigationScreenProps) => {
 	const [firstName, setFirstName] = React.useState('');
@@ -28,8 +25,8 @@ const Name = (props: NavigationScreenProps) => {
 
 	return (
 		<KeyboardAvoidingView style={styles.container} behavior='padding'>
-			<TouchableWithoutFeedback style={{ flex: 1 }} onPress={Keyboard.dismiss}>
-				<View style={[styles.container, { width }]}>
+			<TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+				<View style={[styles.formContainer]}>
 					<Text style={styles.pageHeader}>{`What's your name?`}</Text>
 					<Input
 						value={firstName}
@@ -37,7 +34,6 @@ const Name = (props: NavigationScreenProps) => {
 						onChangeText={(value: string) => setFirstName(value)}
 						autoCorrect={false}
 						full
-						style={{ marginBottom: 15 }}
 					/>
 					<Input
 						value={lastName}
@@ -45,7 +41,6 @@ const Name = (props: NavigationScreenProps) => {
 						onChangeText={(value: string) => setLastName(value)}
 						autoCorrect={false}
 						full
-						style={{ marginBottom: 15 }}
 					/>
 					<Button onPress={handleSubmit} full>
 						Next
