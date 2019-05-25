@@ -11,6 +11,8 @@ export interface AuthScreenInfo extends NavigationScreenProps {
 	onSuccess(): void;
 	onError(error: Error): void;
 	nextScreenName?: string;
+	initialState?: { [key: string]: string };
+	buttonText?: string;
 }
 
 interface AuthScreenField {
@@ -19,8 +21,17 @@ interface AuthScreenField {
 	props?: TextInputProps;
 }
 
+const createInitialState = (fields: AuthScreenField[]) => {
+	const state: { [key: string]: string } = {};
+	fields.forEach(key => (state[key.name] = ''));
+	return state;
+};
+
 const createAuthScreen = (info: AuthScreenInfo) => {
-	return React.createElement(AuthScreen, { ...info });
+	return React.createElement(AuthScreen, {
+		...info,
+		initialState: createInitialState(info.fields)
+	});
 };
 
 export default createAuthScreen;

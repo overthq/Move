@@ -20,8 +20,19 @@ const AuthScreen = (props: AuthScreenInfo) => {
 		navigation,
 		nextScreenName,
 		onSuccess,
-		onError
+		onError,
+		initialState,
+		buttonText
 	} = props;
+
+	const [state, dispatch] = React.useReducer(
+		(prev, next) => ({ ...prev, ...next }),
+		initialState
+	);
+
+	const handleChange = (name: string, value: string) => {
+		return dispatch({ [name]: value });
+	};
 
 	const handleSubmit = async () => {
 		try {
@@ -40,12 +51,14 @@ const AuthScreen = (props: AuthScreenInfo) => {
 					{fields.map(field => (
 						<Input
 							key={field.name}
+							value={state[field.name]}
+							onChangeText={(value: string) => handleChange(field.name, value)}
 							placeholder={field.placeholder}
 							{...field.props}
 						/>
 					))}
 					<Button onPress={handleSubmit} full>
-						{nextScreenName ? 'Next' : 'Submit'}
+						{buttonText || 'Next'}
 					</Button>
 				</View>
 			</TouchableWithoutFeedback>
