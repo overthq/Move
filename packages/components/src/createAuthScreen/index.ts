@@ -1,13 +1,13 @@
 import React from 'react';
 import { TextInputProps } from 'react-native';
-import { NavigationScreenProps } from 'react-navigation';
+import { NavigationScreenProps, withNavigation } from 'react-navigation';
 import AuthScreen from './AuthScreen';
 
-export interface AuthScreenInfo extends NavigationScreenProps {
+interface AuthScreenInfo {
 	title: string;
 	header: string;
 	fields: AuthScreenField[];
-	onSubmit(...args: string[]): Promise<void>;
+	onSubmit(state: { [key: string]: string }): Promise<void>;
 	onSuccess?: () => void;
 	onError(error: Error): void;
 	nextScreenName?: string;
@@ -21,6 +21,8 @@ interface AuthScreenField {
 	props?: TextInputProps;
 }
 
+export type AuthScreenProps = AuthScreenInfo & NavigationScreenProps;
+
 const createInitialState = (fields: AuthScreenField[]) => {
 	const state: { [key: string]: string } = {};
 	fields.forEach(key => (state[key.name] = ''));
@@ -28,10 +30,13 @@ const createInitialState = (fields: AuthScreenField[]) => {
 };
 
 const createAuthScreen = (info: AuthScreenInfo) => {
-	return React.createElement(AuthScreen, {
-		...info,
-		initialState: createInitialState(info.fields)
-	});
+	const AuthScreenWithNav = withNavigation(AuthScreen);
+	const newAuthScreen = () =>
+		React.createElement(AuthScreenWithNav, {
+			...info,
+			initialState: createInitialState(info.fields)
+		});
+	return newAuthScreen;
 };
 
 export default createAuthScreen;

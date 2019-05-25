@@ -7,13 +7,14 @@ import {
 	Keyboard,
 	Dimensions
 } from 'react-native';
-import Button from '../../Button';
-import Input from '../../Input';
+import Button from '../Button';
+import Input from '../Input';
 import styles from './styles';
-import { AuthScreenInfo } from '.';
+import { AuthScreenProps } from '.';
+
 const { width } = Dimensions.get('window');
 
-const AuthScreen = (props: AuthScreenInfo) => {
+const AuthScreen = (props: AuthScreenProps) => {
 	const {
 		fields,
 		header,
@@ -37,7 +38,7 @@ const AuthScreen = (props: AuthScreenInfo) => {
 
 	const handleSubmit = async () => {
 		try {
-			await onSubmit();
+			await onSubmit(state);
 			onSuccess && (await onSuccess());
 			nextScreenName && navigation.navigate(nextScreenName);
 		} catch (error) {
@@ -48,20 +49,29 @@ const AuthScreen = (props: AuthScreenInfo) => {
 	return (
 		<KeyboardAvoidingView style={styles.container} behavior='padding'>
 			<TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-				<View style={[styles.container, { width }]}>
-					<Text style={styles.pageHeader}>{header}</Text>
-					{fields.map(field => (
-						<Input
-							key={field.name}
-							value={state[field.name]}
-							onChangeText={(value: string) => handleChange(field.name, value)}
-							placeholder={field.placeholder}
-							{...field.props}
-						/>
-					))}
-					<Button onPress={handleSubmit} full>
-						{buttonText || 'Next'}
-					</Button>
+				<View style={styles.avoidContainer}>
+					<View style={styles.formContainer}>
+						<Text style={styles.pageHeader}>{header}</Text>
+						<>
+							{fields.map((field, index) => (
+								<Input
+									key={field.name}
+									value={state[field.name]}
+									placeholder={field.placeholder}
+									onChangeText={(value: string) =>
+										handleChange(field.name, value)
+									}
+									autoFocus={index == 0}
+									autoCorrect={false}
+									full
+									{...field.props}
+								/>
+							))}
+						</>
+						<Button onPress={handleSubmit} full>
+							{buttonText || 'Next'}
+						</Button>
+					</View>
 				</View>
 			</TouchableWithoutFeedback>
 		</KeyboardAvoidingView>

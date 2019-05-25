@@ -1,7 +1,7 @@
 {
 	"name": "@move/components",
 	"private": true,
-	"description": "",
+	"description": "Component library and UI helpers for Move",
 	"version": "0.0.1",
 	"author": {
 		"name": "Oluwakorede Fashokun",

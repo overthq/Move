@@ -2,21 +2,21 @@ import { createAuthScreen } from '@move/components';
 import { Alert } from 'react-native';
 
 const Name = createAuthScreen({
-	title: 'Password',
-	header: 'Set your password',
+	title: 'Name',
+	header: `What's your name?`,
+	onSubmit: async () => {},
 	fields: [
 		{
-			name: 'password',
-			placeholder: 'Password'
+			name: 'firstName',
+			placeholder: 'Your first name'
 		},
 		{
-			name: 'confirmPassword',
-			placeholder: 'Confirm password'
+			name: 'lastName',
+			placeholder: 'Your last name'
 		}
 	],
-	onSubmit: async () => {},
 	onError: error => Alert.alert(error.message),
-	buttonText: 'Create Account'
+	nextScreenName: 'Email'
 });
 
 export default Name;
