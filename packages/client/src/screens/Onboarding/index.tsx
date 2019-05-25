@@ -9,16 +9,20 @@ import {
 	View,
 	StyleSheet
 } from 'react-native';
+import { NavigationScreenProps } from 'react-navigation';
+
 import Slide from './Slide';
 import Pagination from './Pagination';
 import slides from './slides';
 
 const { width } = Dimensions.get('window');
 
-const Onboarding = () => {
+const Onboarding = (props: NavigationScreenProps) => {
 	const scrollX = new Animated.Value(0);
 
-	const skip = () => {};
+	const skip = () => {
+		props.navigation.navigate('Auth');
+	};
 	const goToNext = () => {};
 
 	return (
