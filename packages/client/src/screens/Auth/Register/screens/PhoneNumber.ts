@@ -1,9 +1,9 @@
 import { createAuthScreen } from '@move/components';
 import { Alert } from 'react-native';
 
-const Login = createAuthScreen({
-	title: 'Login',
-	header: 'Welcome back',
+const PhoneNumber = createAuthScreen({
+	title: 'Phone Number',
+	header: 'Your phone number',
 	fields: [
 		{
 			name: 'phoneNumber',
@@ -15,4 +15,4 @@ const Login = createAuthScreen({
 	nextScreenName: 'Code'
 });
 
-export default Login;
+export default PhoneNumber;

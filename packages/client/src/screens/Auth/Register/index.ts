@@ -1,9 +1,9 @@
 import { createStackNavigator } from 'react-navigation';
 
-import { Name, Email, Password } from './screens';
+import { Name, PhoneNumber, Code } from './screens';
 
 const Register = createStackNavigator(
-	{ Name, Email, Password },
+	{ Name, PhoneNumber, Code },
 	{
 		headerMode: 'none'
 	}
