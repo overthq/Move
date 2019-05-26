@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import { Request, Response, RequestHandler } from 'express';
 import { User, VerificationCode } from '../models';
 import { sendVerificationCode, createVerificationCode } from '../helpers';
 
@@ -29,9 +29,9 @@ export const logIn = async (req: Request, res: Response): Promise<Response> => {
 	}
 };
 
-export const validateCode = async (
-	req: Request,
-	res: Response
+export const validateCode: RequestHandler = async (
+	req,
+	res
 ): Promise<Response> => {
 	const { code } = req.body;
 	try {
@@ -55,10 +55,7 @@ export const validateCode = async (
 	}
 };
 
-export const register = async (
-	req: Request,
-	res: Response
-): Promise<Response> => {
+export const register: RequestHandler = async (req, res): Promise<Response> => {
 	const { firstName, lastName, phoneNumber } = req.body;
 	// Validate data being passed
 	try {
@@ -67,10 +64,10 @@ export const register = async (
 			lastName,
 			phoneNumber
 		});
-		await user.save();
 
-		// Send code to the phoneNumber
-		// To verify authenticity
+		// Check if user with that info already exists
+
+		await user.save();
 
 		const code = await createVerificationCode(phoneNumber);
 		await sendVerificationCode(phoneNumber, code);
@@ -79,7 +76,6 @@ export const register = async (
 			success: true,
 			message: 'User created',
 			user
-			// We should probably return the accessToken and refreshToken only
 		});
 	} catch (error) {
 		return res.status(500).json({
