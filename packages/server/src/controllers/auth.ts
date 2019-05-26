@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
-import { User, Code } from '../models';
+import { User, VerificationCode } from '../models';
+import { sendVerificationCode, createVerificationCode } from '../helpers';
 
 export const logIn = async (req: Request, res: Response): Promise<Response> => {
 	const { phoneNumber } = req.body;
@@ -11,12 +12,9 @@ export const logIn = async (req: Request, res: Response): Promise<Response> => {
 				message: 'No user found with the provided email address.'
 			});
 		}
-		const code = Math.floor(100000 + Math.random() * 900000);
 
-		const newCode = new Code({ phoneNumber, code });
-		await newCode.save();
-
-		// TODO: Send the code in a text message with Twilio.
+		const code = await createVerificationCode(phoneNumber);
+		await sendVerificationCode(user.phoneNumber, code);
 
 		return res.status(200).json({
 			success: true,
@@ -31,22 +29,20 @@ export const logIn = async (req: Request, res: Response): Promise<Response> => {
 	}
 };
 
-// TODO: Create route for actually logging in
-
-export const validateLogin = async (
+export const validateCode = async (
 	req: Request,
 	res: Response
 ): Promise<Response> => {
-	const { phoneNumber, code } = req.body;
+	const { code } = req.body;
 	try {
-		const lCode = await Code.findOne({ phoneNumber });
-		if (!lCode) {
+		const verificationCode = await VerificationCode.findOne({ code });
+		if (!verificationCode) {
 			return res.status(404).json({
 				success: false,
 				message: 'No code exists with this address.'
 			});
 		}
-		if (lCode.code === code) {
+		if (verificationCode.code === code) {
 			return res.status(200).json({
 				success: true,
 				message: 'Valid code',
@@ -75,6 +71,9 @@ export const register = async (
 
 		// Send code to the phoneNumber
 		// To verify authenticity
+
+		const code = await createVerificationCode(phoneNumber);
+		await sendVerificationCode(phoneNumber, code);
 
 		return res.status(201).json({
 			success: true,

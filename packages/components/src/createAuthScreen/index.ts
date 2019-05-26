@@ -1,27 +1,7 @@
 import React from 'react';
-import { TextInputProps } from 'react-native';
-import { NavigationScreenProps, withNavigation } from 'react-navigation';
+import { withNavigation } from 'react-navigation';
 import AuthScreen from './AuthScreen';
-
-interface AuthScreenInfo {
-	title: string;
-	header: string;
-	fields: AuthScreenField[];
-	onSubmit(state: { [key: string]: string }): Promise<void>;
-	onSuccess?: () => void;
-	onError(error: Error): void;
-	nextScreenName?: string;
-	initialState?: { [key: string]: string };
-	buttonText?: string;
-}
-
-interface AuthScreenField {
-	name: string;
-	placeholder: string;
-	props?: TextInputProps;
-}
-
-export type AuthScreenProps = AuthScreenInfo & NavigationScreenProps;
+import { AuthScreenField, AuthScreenInfo } from './types';
 
 const createInitialState = (fields: AuthScreenField[]) => {
 	const state: { [key: string]: string } = {};
@@ -31,12 +11,12 @@ const createInitialState = (fields: AuthScreenField[]) => {
 
 const createAuthScreen = (info: AuthScreenInfo) => {
 	const AuthScreenWithNav = withNavigation(AuthScreen);
-	const newAuthScreen = () =>
+	const AuthenticationScreen = () =>
 		React.createElement(AuthScreenWithNav, {
 			...info,
 			initialState: createInitialState(info.fields)
 		});
-	return newAuthScreen;
+	return AuthenticationScreen;
 };
 
 export default createAuthScreen;

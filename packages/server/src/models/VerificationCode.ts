@@ -1,11 +1,11 @@
 import { model, Schema, Document } from 'mongoose';
 
-interface CodeType extends Document {
+interface VerificationCodeType extends Document {
 	phoneNumber: string;
 	code: string;
 }
 
-const CodeSchema = new Schema(
+const VerificationCodeSchema = new Schema(
 	{
 		phoneNumber: {
 			type: String,
@@ -19,5 +19,8 @@ const CodeSchema = new Schema(
 	{ timestamps: true }
 );
 
-const Code = model<CodeType>('Code', CodeSchema);
-export default Code;
+const VerificationCode = model<VerificationCodeType>(
+	'VerificationCode',
+	VerificationCodeSchema
+);
+export default VerificationCode;
