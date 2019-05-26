@@ -1,6 +1,10 @@
 import { Request, Response, RequestHandler } from 'express';
 import { User, VerificationCode } from '../models';
-import { sendVerificationCode, createVerificationCode } from '../helpers';
+import {
+	sendVerificationCode,
+	createVerificationCode,
+	signAccessToken
+} from '../helpers';
 
 export const logIn = async (req: Request, res: Response): Promise<Response> => {
 	const { phoneNumber } = req.body;
@@ -29,29 +33,41 @@ export const logIn = async (req: Request, res: Response): Promise<Response> => {
 	}
 };
 
-export const validateCode: RequestHandler = async (
-	req,
-	res
-): Promise<Response> => {
+export const validate: RequestHandler = async (req, res): Promise<Response> => {
 	const { code } = req.body;
 	try {
 		const verificationCode = await VerificationCode.findOne({ code });
-		if (!verificationCode) {
+		if (!verificationCode || !verificationCode.code) {
 			return res.status(404).json({
 				success: false,
 				message: 'No code exists with this address.'
 			});
 		}
-		if (verificationCode.code === code) {
-			return res.status(200).json({
-				success: true,
-				message: 'Valid code',
-				accessToken: 'xxxxx-xxxxx-xxxxx-xxxxxx'
+		const user = await User.findOne({
+			phoneNumber: verificationCode.phoneNumber
+		});
+		if (!user) {
+			return res.status(404).json({
+				success: false,
+				message: 'No user found with specified details'
 			});
 		}
-		return res.status(200);
+		const accessToken = await signAccessToken({
+			id: user.id,
+			firstName: user.firstName,
+			lastName: user.lastName,
+			phoneNumber: user.phoneNumber
+		});
+		return res.status(200).json({
+			success: true,
+			message: 'Phone number verified',
+			accessToken
+		});
 	} catch (error) {
-		return res.status(500);
+		return res.status(500).json({
+			success: false,
+			error: error.message
+		});
 	}
 };
 
