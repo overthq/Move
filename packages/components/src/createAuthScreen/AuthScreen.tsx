@@ -12,8 +12,6 @@ import Input from '../Input';
 import styles from './styles';
 import { AuthScreenProps } from './types';
 
-const { width } = Dimensions.get('window');
-
 const AuthScreen = (props: AuthScreenProps) => {
 	const {
 		fields,
