@@ -81,7 +81,13 @@ export const register: RequestHandler = async (req, res): Promise<Response> => {
 			phoneNumber
 		});
 
-		// Check if user with that info already exists
+		const checkUser = await User.findOne({ phoneNumber });
+		if (checkUser) {
+			return res.status(409).json({
+				success: 'false',
+				message: 'User already registered with this phone number.'
+			});
+		}
 
 		await user.save();
 
