@@ -1,5 +1,6 @@
 import { createAuthScreen } from '@move/components';
 import { Alert } from 'react-native';
+import { logIn } from '../../utils';
 
 const PhoneNumber = createAuthScreen({
 	title: 'Welcome back',
@@ -10,7 +11,9 @@ const PhoneNumber = createAuthScreen({
 			placeholder: 'Your phone number'
 		}
 	],
-	onSubmit: async () => {},
+	onSubmit: ({ phoneNumber }) => {
+		logIn(phoneNumber);
+	},
 	onError: error => Alert.alert(error.message),
 	nextScreenName: 'Code'
 });

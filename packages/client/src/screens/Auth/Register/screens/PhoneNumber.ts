@@ -1,7 +1,7 @@
 import { createAuthScreen } from '@move/components';
 import { Alert } from 'react-native';
 import state from './state';
-import { register } from './utils';
+import { register } from '../../utils';
 
 const PhoneNumber = createAuthScreen({
 	title: 'Phone Number',
