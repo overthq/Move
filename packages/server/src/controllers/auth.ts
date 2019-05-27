@@ -52,15 +52,17 @@ export const validate: RequestHandler = async (req, res): Promise<Response> => {
 				message: 'No user found with specified details'
 			});
 		}
-		const accessToken = await signAccessToken({
+		const userPayload = {
 			id: user.id,
 			firstName: user.firstName,
 			lastName: user.lastName,
 			phoneNumber: user.phoneNumber
-		});
+		};
+		const accessToken = await signAccessToken(userPayload);
 		return res.status(200).json({
 			success: true,
 			message: 'Phone number verified',
+			user: userPayload,
 			accessToken
 		});
 	} catch (error) {

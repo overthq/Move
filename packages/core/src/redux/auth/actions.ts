@@ -15,7 +15,7 @@ type Dispatcher = ThunkAction<void, AuthReducerState, null, Action<string>>;
 const login = (code: string): Dispatcher => async dispatch => {
 	dispatch({ type: AUTH_LOADING });
 	try {
-		const { user, accessToken } = await post('auth/verify-code', { code });
+		const { user, accessToken } = await post('auth/validate-code', { code });
 		return dispatch({
 			type: AUTH_LOGIN,
 			payload: { user, accessToken }

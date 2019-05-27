@@ -15,7 +15,8 @@ const Code = createAuthScreen({
 		store.dispatch(AuthActions.login(code));
 	},
 	onSuccess: () => {},
-	onError: error => Alert.alert(error.message)
+	onError: error => Alert.alert(error.message),
+	nextScreenName: 'Main'
 });
 
 export default Code;

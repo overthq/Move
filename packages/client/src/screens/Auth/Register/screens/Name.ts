@@ -20,7 +20,7 @@ const Name = createAuthScreen({
 		}
 	],
 	onError: error => Alert.alert(error.message),
-	nextScreenName: 'Email'
+	nextScreenName: 'PhoneNumber'
 });
 
 export default Name;
