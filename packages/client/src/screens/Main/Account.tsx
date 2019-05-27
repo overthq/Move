@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 
-const Account = (): JSX.Element => {
+const Account = () => {
 	return <View style={{ flex: 1 }} />;
 };
 

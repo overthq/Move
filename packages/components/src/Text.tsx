@@ -12,7 +12,7 @@ interface TextProps extends NormalTextProps {
 	bold?: boolean;
 }
 
-const Text = ({ children, style, bold }: TextProps): JSX.Element => {
+const Text = ({ children, style, bold }: TextProps) => {
 	const styles: StyleProp<TextStyle> = [
 		{
 			fontFamily: bold ? 'Rubik-Bold' : 'Rubik-Regular',

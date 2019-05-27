@@ -27,7 +27,7 @@ const Button = ({
 	loading,
 	full,
 	...rest
-}: ButtonProps): JSX.Element => {
+}: ButtonProps) => {
 	return (
 		<TouchableOpacity
 			style={[

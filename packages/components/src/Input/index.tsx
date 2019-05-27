@@ -7,7 +7,7 @@ interface InputProps extends TextInputProps {
 	full?: boolean;
 }
 
-const Input = (props: InputProps): JSX.Element => {
+const Input = (props: InputProps) => {
 	const { variant = 'primary', full, style, ...rest } = props;
 	return (
 		<TextInput

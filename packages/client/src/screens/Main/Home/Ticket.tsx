@@ -5,7 +5,7 @@ import Animated from 'react-native-reanimated';
 
 const { height } = Dimensions.get('window');
 
-const Ticket = (): JSX.Element => {
+const Ticket = () => {
 	const topHeight = new Animated.Value(0);
 	React.useEffect((): void => {
 		topHeight.interpolate({
