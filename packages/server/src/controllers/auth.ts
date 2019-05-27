@@ -73,7 +73,7 @@ export const validate: RequestHandler = async (req, res): Promise<Response> => {
 
 export const register: RequestHandler = async (req, res): Promise<Response> => {
 	const { firstName, lastName, phoneNumber } = req.body;
-	// Validate data being passed
+	// TODO: Validate data being passed
 	try {
 		const user = new User({
 			firstName,
