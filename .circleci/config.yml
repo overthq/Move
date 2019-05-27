@@ -1,0 +1,6 @@
+version: 2
+
+jobs:
+
+workflows:
+  version: 2

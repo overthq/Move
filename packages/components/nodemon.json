@@ -1,6 +1,0 @@
-{
-	"watch": ["src"],
-	"ext": "ts, tsx",
-	"ignore": ["dist"],
-	"exec": "yarn build"
-}

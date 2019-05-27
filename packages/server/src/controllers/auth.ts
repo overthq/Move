@@ -1,28 +1,24 @@
-import ejs from 'ejs';
-import { Request, Response } from 'express';
-import { User, Code } from '../models';
-import { sendMail } from '../helpers';
+import { Request, Response, RequestHandler } from 'express';
+import { User, VerificationCode } from '../models';
+import {
+	sendVerificationCode,
+	createVerificationCode,
+	signAccessToken
+} from '../helpers';
 
 export const logIn = async (req: Request, res: Response): Promise<Response> => {
-	const { email } = req.body;
+	const { phoneNumber } = req.body;
 	try {
-		const user = await User.findOne({ email });
+		const user = await User.findOne({ phoneNumber });
 		if (!user) {
 			return res.status(404).json({
 				success: false,
 				message: 'No user found with the provided email address.'
 			});
 		}
-		const code = Math.floor(Math.random() * 999999) + 100000;
-		// Save code to database
-		const newCode = new Code({ email, code });
-		await newCode.save();
-		const html = await ejs.renderFile<string>('../templates/login.ejs', {
-			user,
-			code
-		});
-		// Use html to send email with nodemailer
-		await sendMail('Log In | Move', user.email, html);
+
+		const code = await createVerificationCode(phoneNumber);
+		await sendVerificationCode(user.phoneNumber, code);
 
 		return res.status(200).json({
 			success: true,
@@ -37,52 +33,71 @@ export const logIn = async (req: Request, res: Response): Promise<Response> => {
 	}
 };
 
-// TODO: Create route for actually logging in
-
-export const validateLogin = async (
-	req: Request,
-	res: Response
-): Promise<Response> => {
-	const { email, code } = req.body;
+export const validate: RequestHandler = async (req, res): Promise<Response> => {
+	const { code } = req.body;
 	try {
-		// Validate code authenticity
-		// If code is valid, generate auth token
-		// Delete code entry in the database
-		const lCode = await Code.findOne({ email });
-		if (!lCode) {
+		const verificationCode = await VerificationCode.findOne({ code });
+		if (!verificationCode || !verificationCode.code) {
 			return res.status(404).json({
 				success: false,
-				message: 'No code exists with this email e-mail address.'
+				message: 'No code exists with this address.'
 			});
 		}
-		if (lCode.code === code) {
-			return res.status(200).json({
-				success: true,
-				message: 'Valid code',
-				accessToken: 'xxxxx-xxxxx-xxxxx-xxxxxx'
+		const user = await User.findOne({
+			phoneNumber: verificationCode.phoneNumber
+		});
+		if (!user) {
+			return res.status(404).json({
+				success: false,
+				message: 'No user found with specified details'
 			});
 		}
-		return res.status(200);
+		const accessToken = await signAccessToken({
+			id: user.id,
+			firstName: user.firstName,
+			lastName: user.lastName,
+			phoneNumber: user.phoneNumber
+		});
+		return res.status(200).json({
+			success: true,
+			message: 'Phone number verified',
+			accessToken
+		});
 	} catch (error) {
-		return res.status(500);
+		return res.status(500).json({
+			success: false,
+			error: error.message
+		});
 	}
 };
 
-export const register = async (
-	req: Request,
-	res: Response
-): Promise<Response> => {
-	const { firstName, lastName, email } = req.body;
+export const register: RequestHandler = async (req, res): Promise<Response> => {
+	const { firstName, lastName, phoneNumber } = req.body;
+	// TODO: Validate data being passed
 	try {
 		const user = new User({
 			firstName,
 			lastName,
-			email
+			phoneNumber
 		});
+
+		const checkUser = await User.findOne({ phoneNumber });
+		if (checkUser) {
+			return res.status(409).json({
+				success: 'false',
+				message: 'User already registered with this phone number.'
+			});
+		}
+
 		await user.save();
+
+		const code = await createVerificationCode(phoneNumber);
+		await sendVerificationCode(phoneNumber, code);
+
 		return res.status(201).json({
 			success: true,
-			message: 'User created'
+			message: 'User created',
+			user
 		});
 	} catch (error) {
 		return res.status(500).json({

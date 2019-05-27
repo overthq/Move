@@ -1,7 +1,9 @@
 import dotenv from 'dotenv';
 
-dotenv.load();
+dotenv.config();
 
-const { PORT, DB_URI } = process.env;
+const { PORT, DB_URI, ACCESS_TOKEN_SECRET } = process.env as {
+	[key: string]: string;
+};
 
-export { PORT, DB_URI };
+export { PORT, DB_URI, ACCESS_TOKEN_SECRET };

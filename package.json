@@ -7,7 +7,7 @@
 		"url": "https://overt.dev"
 	},
 	"private": true,
-	"description": "Transportation ticket management",
+	"description": "Transportation ticket management app",
 	"repository": "https://github.com/overthq/Move",
 	"workspaces": {
 		"packages": [
@@ -17,7 +17,7 @@
 	},
 	"scripts": {
 		"clean": "yarn workspaces run clean",
-		"dev": "",
+		"dev": "echo \"Add command to start all packages concurrently\"",
 		"lint": "yarn workspaces run lint",
 		"format": "yarn workspaces run format"
 	},
