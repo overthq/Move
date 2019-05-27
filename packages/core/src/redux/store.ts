@@ -10,9 +10,11 @@ const appReducer = combineReducers({
 	auth: persistReducer({ key: 'auth', storage }, authReducer)
 });
 
+export type AppState = ReturnType<typeof appReducer>;
+
 const middlewares = applyMiddleware(thunk, logger);
-const rootReducer = (state: any, action: any) => {
-	if (action.type === 'AUTH_LOGOUT') {
+const rootReducer = (state: AppState | undefined, action: any) => {
+	if (action.type === 'AUTH_LOGOUT' && !!state) {
 		Object.keys(state).forEach(key => {
 			storage.removeItem(`persist:${key}`);
 		});
@@ -21,6 +23,5 @@ const rootReducer = (state: any, action: any) => {
 	return appReducer(state, action);
 };
 
-export type AppState = ReturnType<typeof rootReducer>;
 export const store = createStore(rootReducer, middlewares);
 export const persistor = persistStore(store);
