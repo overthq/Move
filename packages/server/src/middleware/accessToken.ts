@@ -18,7 +18,7 @@ export const accessTokenMiddleware = async (
 	}
 	const token = req.headers.authorization.split(' ')[1];
 	const decoded = await verifyAccessToken(token);
-	if (!token || !decoded) {
+	if (!token || !decoded || typeof decoded !== 'string') {
 		return res.status(401).json({
 			success: false,
 			message: 'Invalid authorization token'
