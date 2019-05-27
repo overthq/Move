@@ -12,10 +12,10 @@ import { post } from '../../request';
 
 type Dispatcher = ThunkAction<void, AuthReducerState, null, Action<string>>;
 
-const login = (phoneNumber: string): Dispatcher => async dispatch => {
+const login = (code: string): Dispatcher => async dispatch => {
 	dispatch({ type: AUTH_LOADING });
 	try {
-		const { user, accessToken } = await post('auth/login', { phoneNumber });
+		const { user, accessToken } = await post('auth/verify-code', { code });
 		return dispatch({
 			type: AUTH_LOGIN,
 			payload: { user, accessToken }
@@ -23,7 +23,7 @@ const login = (phoneNumber: string): Dispatcher => async dispatch => {
 	} catch (error) {
 		return dispatch({
 			type: AUTH_ERROR,
-			payload: {}
+			payload: { errorMessage: error.message }
 		});
 	}
 };
