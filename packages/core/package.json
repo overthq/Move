@@ -8,12 +8,13 @@
 		"email": "korede@overt.dev",
 		"url": "https://overt.dev"
 	},
+	"main": "dist/index.js",
+	"module": "dist/index.js",
 	"scripts": {
 		"clean": "rimraf dist",
 		"lint": "eslint . --ext .ts,.tsx",
 		"build": "tsc -b",
-		"dev": "nodemon",
-		"start": "node dist/app"
+		"dev": "nodemon"
 	},
 	"dependencies": {},
 	"devDependencies": {
