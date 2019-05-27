@@ -12,7 +12,7 @@ import { post } from '../../request';
 
 type Dispatcher = ThunkAction<void, AuthReducerState, null, Action<string>>;
 
-export const login = (phoneNumber: string): Dispatcher => async dispatch => {
+const login = (phoneNumber: string): Dispatcher => async dispatch => {
 	dispatch({ type: AUTH_LOADING });
 	try {
 		const { user, accessToken } = await post('auth/login', { phoneNumber });
@@ -28,4 +28,6 @@ export const login = (phoneNumber: string): Dispatcher => async dispatch => {
 	}
 };
 
-export const logout = (): AuthActionType => ({ type: AUTH_LOGOUT });
+const logout = (): AuthActionType => ({ type: AUTH_LOGOUT });
+
+export default { login, logout };
