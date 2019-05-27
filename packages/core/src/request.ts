@@ -1,7 +1,10 @@
-// TODO: Add main endpoint url
+// TODO: Add enviroment variables
+// Auto-switch between dev, staging and prod.
+
+const API_URL = 'http://localhost:4000';
 
 export const post = async (endpoint: string, body: object) => {
-	const response = await fetch(endpoint, {
+	const response = await fetch(`${API_URL}/${endpoint}`, {
 		method: 'POST',
 		headers: {
 			Accept: 'application/json',
@@ -14,7 +17,7 @@ export const post = async (endpoint: string, body: object) => {
 };
 
 export const get = async (endpoint: string) => {
-	const response = await fetch(endpoint, {
+	const response = await fetch(`${API_URL}/${endpoint}`, {
 		method: 'GET',
 		headers: {
 			Accept: 'application/json',

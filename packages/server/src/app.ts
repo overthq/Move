@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import { PORT } from './config/env';
+import './config/database';
 import router from './routes';
 import { notFoundMiddleware, errorMiddleware } from './middleware';
 
@@ -13,6 +14,6 @@ app.use('/', router);
 app.use(errorMiddleware);
 app.all('*', notFoundMiddleware);
 
-app.listen(PORT, (): string => `Server listening on port ${PORT}.`);
+app.listen(PORT, () => console.log(`Server listening on port ${PORT}.`));
 
 export default app;
