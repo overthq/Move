@@ -1,6 +1,6 @@
 import { createAuthScreen } from '@move/components';
 import { Alert } from 'react-native';
-import { AuthActions } from '@move/core';
+import { store, AuthActions } from '@move/core';
 
 const Code = createAuthScreen({
 	title: 'Code',
@@ -12,7 +12,7 @@ const Code = createAuthScreen({
 		}
 	],
 	onSubmit: ({ code }) => {
-		AuthActions.login(code);
+		store.dispatch(AuthActions.login(code));
 	},
 	onSuccess: () => {},
 	onError: error => Alert.alert(error.message)
