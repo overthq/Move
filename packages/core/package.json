@@ -16,11 +16,17 @@
 		"build": "tsc -b",
 		"dev": "nodemon"
 	},
-	"dependencies": {},
+	"dependencies": {
+		"redux": "^4.0.1",
+		"redux-logger": "^3.0.6",
+		"redux-persist": "^5.10.0",
+		"redux-thunk": "^2.3.0"
+	},
 	"devDependencies": {
 		"@types/chai": "^4.1.7",
 		"@types/chai-http": "^4.2.0",
 		"@types/mocha": "^5.2.6",
+		"@types/redux-logger": "^3.0.7",
 		"chai": "^4.2.0",
 		"eslint": "^5.16.0",
 		"mocha": "^6.1.4",
