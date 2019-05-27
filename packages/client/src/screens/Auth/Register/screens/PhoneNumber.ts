@@ -1,5 +1,7 @@
 import { createAuthScreen } from '@move/components';
 import { Alert } from 'react-native';
+import state from './state';
+import { register } from './utils';
 
 const PhoneNumber = createAuthScreen({
 	title: 'Phone Number',
@@ -10,7 +12,10 @@ const PhoneNumber = createAuthScreen({
 			placeholder: 'Your phone number'
 		}
 	],
-	onSubmit: async () => {},
+	onSubmit: ({ phoneNumber }) => {
+		state.phoneNumber = phoneNumber;
+		register(state);
+	},
 	onError: error => Alert.alert(error.message),
 	nextScreenName: 'Code'
 });

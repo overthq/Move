@@ -4,8 +4,7 @@ import {
 	Text,
 	View,
 	TouchableWithoutFeedback,
-	Keyboard,
-	Dimensions
+	Keyboard
 } from 'react-native';
 import Button from '../Button';
 import Input from '../Input';

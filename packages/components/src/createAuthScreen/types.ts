@@ -5,7 +5,7 @@ export interface AuthScreenInfo {
 	title: string;
 	header: string;
 	fields: AuthScreenField[];
-	onSubmit(state: { [key: string]: string }): Promise<void>;
+	onSubmit(state: { [key: string]: string }): Promise<void> | void;
 	onSuccess?: () => void;
 	onError(error: Error): void;
 	nextScreenName?: string;

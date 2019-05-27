@@ -19,7 +19,8 @@
 		"react-native-screens": "^1.0.0-alpha.22",
 		"react-native-vector-icons": "^6.4.2",
 		"react-navigation": "^3.9.1",
-		"react-navigation-fluid-transitions": "^0.3.2"
+		"react-navigation-fluid-transitions": "^0.3.2",
+		"react-redux": "^7.0.3"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.4.4",
@@ -28,6 +29,7 @@
 		"@types/react": "^16.8.16",
 		"@types/react-native": "^0.57.51",
 		"@types/react-navigation": "^3.0.6",
+		"@types/react-redux": "^7.0.9",
 		"@types/react-test-renderer": "^16.8.1",
 		"babel-jest": "^24.7.1",
 		"eslint": "^5.16.0",
