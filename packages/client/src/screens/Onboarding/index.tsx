@@ -9,9 +9,7 @@ import {
 	View,
 	StyleSheet
 } from 'react-native';
-import { connect } from 'react-redux';
 import { NavigationScreenProps } from 'react-navigation';
-import { AppState } from '@move/core';
 
 import Slide from './Slide';
 import Pagination from './Pagination';
@@ -19,17 +17,7 @@ import slides from './slides';
 
 const { width } = Dimensions.get('window');
 
-interface OnboardingProps extends NavigationScreenProps {
-	accessToken: string;
-}
-
-const Onboarding = (props: OnboardingProps) => {
-	React.useEffect(() => {
-		if (!!props.accessToken) {
-			props.navigation.navigate('Main');
-		}
-	}, []);
-
+const Onboarding = (props: NavigationScreenProps) => {
 	const scrollX = new Animated.Value(0);
 
 	const skip = () => {
@@ -96,8 +84,4 @@ const styles = StyleSheet.create({
 	}
 });
 
-const mapStateToProps = ({ auth }: AppState) => ({
-	accessToken: auth.accessToken
-});
-
-export default connect(mapStateToProps)(Onboarding);
+export default Onboarding;
