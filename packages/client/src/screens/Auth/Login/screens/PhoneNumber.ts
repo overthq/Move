@@ -3,8 +3,8 @@ import { Alert } from 'react-native';
 import { logIn } from '../../utils';
 
 const PhoneNumber = createAuthScreen({
-	title: 'Welcome back',
-	header: 'Your phone number',
+	title: 'Phone Number',
+	header: 'Welcome back',
 	fields: [
 		{
 			name: 'phoneNumber',
@@ -15,6 +15,7 @@ const PhoneNumber = createAuthScreen({
 		logIn(phoneNumber);
 	},
 	onError: error => Alert.alert(error.message),
+	buttonText: 'Log In',
 	nextScreenName: 'Code'
 });
 

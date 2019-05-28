@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 
+// Basically, this screen should show the user their tickets
+// and the list of upcoming rides.
 const Overview = () => {
 	return (
 		<View style={styles.container}>
