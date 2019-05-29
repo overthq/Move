@@ -19,8 +19,9 @@ const CreateTicket = () => {
 	return (
 		<div>
 			<input name='zone' placeholder='Zone' onChange={handleChange} />
+			<input name='expiryDate' placeholder='Expiry Date' />
 			<div>
-				<p>Your ticket will look like this:</p>
+				<p>This ticket will look like this:</p>
 				<Ticket zone={state.zone} />
 			</div>
 		</div>
