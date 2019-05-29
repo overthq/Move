@@ -1,7 +1,13 @@
 {
 	"name": "@move/client",
 	"version": "0.0.1",
+	"description": "Move mobile app",
 	"private": true,
+	"author": {
+		"name": "Oluwakorede Fashokun",
+		"email": "korede@overt.dev",
+		"url": "https://overt.dev"
+	},
 	"scripts": {
 		"format": "prettier --write '{.,src/**}/*.{js,jsx,ts,tsx}'",
 		"lint": "eslint . --ext .ts,.tsx",
