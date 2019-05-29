@@ -19,7 +19,10 @@ const CreateTicket = () => {
 	return (
 		<div>
 			<input name='zone' placeholder='Zone' onChange={handleChange} />
-			<Ticket zone={state.zone} />
+			<div>
+				<p>Your ticket will look like this:</p>
+				<Ticket zone={state.zone} />
+			</div>
 		</div>
 	);
 };
