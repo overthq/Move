@@ -1,14 +1,16 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import AppNavigator from './src/screens';
+import Root from './src/Root';
 import { useScreens } from 'react-native-screens';
-import { store } from '@move/core';
+import { store, persistor, PersistGate } from '@move/core';
 
 useScreens();
 
 const App = () => (
 	<Provider store={store}>
-		<AppNavigator />
+		<PersistGate persistor={persistor}>
+			<Root />
+		</PersistGate>
 	</Provider>
 );
 

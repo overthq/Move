@@ -4,11 +4,13 @@ import Onboarding from './Onboarding';
 import Auth from './Auth';
 import Main from './Main';
 
-const AppNavigator = createAppContainer(
-	createSwitchNavigator(
-		{ Onboarding, Auth, Main },
-		{ initialRouteName: 'Onboarding' }
-	)
-);
+const createRootNavigator = (authenticated: boolean) => {
+	return createAppContainer(
+		createSwitchNavigator(
+			{ Onboarding, Auth, Main },
+			{ initialRouteName: authenticated ? 'Main' : 'Onboarding' }
+		)
+	);
+};
 
-export default AppNavigator;
+export default createRootNavigator;

@@ -3,6 +3,7 @@ import thunk from 'redux-thunk';
 import { persistReducer, persistStore } from 'redux-persist';
 import logger from 'redux-logger';
 import storage from 'redux-persist/lib/storage';
+export { PersistGate } from 'redux-persist/integration/react';
 
 import authReducer from './auth/reducer';
 

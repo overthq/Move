@@ -9,3 +9,7 @@ interface RegisterDetails {
 export const register = async (details: RegisterDetails) => {
 	await post('auth/register', details);
 };
+
+export const logIn = async (phoneNumber: string) => {
+	await post('auth/login', { phoneNumber });
+};

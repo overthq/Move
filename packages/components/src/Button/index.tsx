@@ -27,7 +27,7 @@ const Button = ({
 	loading,
 	full,
 	...rest
-}: ButtonProps): JSX.Element => {
+}: ButtonProps) => {
 	return (
 		<TouchableOpacity
 			style={[
@@ -42,7 +42,7 @@ const Button = ({
 			{...rest}
 		>
 			{loading && <ActivityIndicator color={variants[variant].textColor} />}
-			{typeof children === 'string' ? (
+			{!loading && typeof children === 'string' ? (
 				<Text
 					style={[
 						{
