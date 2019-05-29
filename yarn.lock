@@ -1127,6 +1127,14 @@
   resolved "https://registry.yarnpkg.com/@types/range-parser/-/range-parser-1.2.3.tgz#7ee330ba7caafb98090bece86a5ee44115904c2c"
   integrity sha512-ewFXqrQHlFsgc09MK5jP5iR7vumV/BYayNC6PgJO2LPe8vrnNFyjQjSppfEngITi0qvfKtzFvgKymGheFM9UOA==
 
+"@types/react-native-vector-icons@^6.4.0":
+  version "6.4.0"
+  resolved "https://registry.yarnpkg.com/@types/react-native-vector-icons/-/react-native-vector-icons-6.4.0.tgz#3ff6b29c8e831f11364c12801ae7966dab8dcbe0"
+  integrity sha512-UNRMIMbqeryNDQvZVZoPyqXIKLWmLRInhN5gDySxquJcZvWNW+1NSm4lXQlRdzC9Da3mSU1QEppoeI438f2JRw==
+  dependencies:
+    "@types/react" "*"
+    "@types/react-native" "*"
+
 "@types/react-native@*", "@types/react-native@^0.57.51":
   version "0.57.51"
   resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.57.51.tgz#adcb02141734b72822848351be734971e508f5f1"

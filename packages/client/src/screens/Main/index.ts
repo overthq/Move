@@ -1,8 +1,13 @@
-import { createBottomTabNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation';
 
 import Overview from './Overview';
-import Account from './Account';
+import Settings from './Settings';
 
-const MainNavigator = createBottomTabNavigator({ Overview, Account });
+const Main = createStackNavigator(
+	{ Overview, Settings },
+	{
+		headerMode: 'none'
+	}
+);
 
-export default MainNavigator;
+export default Main;
