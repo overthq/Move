@@ -15,9 +15,9 @@ const styles = StyleSheet.create({
 		marginHorizontal: 20,
 		backgroundColor: colors.white.primary,
 		shadowColor: '#505050',
-		shadowOffset: { width: 0, height: 4 },
+		shadowOffset: { width: 4, height: 4 },
 		shadowOpacity: 0.2,
-		shadowRadius: 50,
+		shadowRadius: 10,
 		elevation: 1
 	},
 	text: {
@@ -28,12 +28,14 @@ const styles = StyleSheet.create({
 		fontSize: 16,
 		letterSpacing: 5,
 		textTransform: 'uppercase',
-		color: '#7B96A5'
+		color: '#7B96A5',
+		textAlign: 'center'
 	},
 	validity: {
 		fontSize: 32,
 		color: '#7BA591',
-		letterSpacing: 5
+		letterSpacing: 5,
+		textAlign: 'center'
 	}
 });
 

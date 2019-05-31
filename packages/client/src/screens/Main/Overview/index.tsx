@@ -6,6 +6,7 @@ import {
 	Dimensions,
 	FlatList
 } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 import Feather from 'react-native-vector-icons/Feather';
 import { NavigationScreenProps } from 'react-navigation';
 import { Ticket, COLORS } from '@move/components';
@@ -15,7 +16,10 @@ const { height, width } = Dimensions.get('window');
 const Overview = ({ navigation }: NavigationScreenProps) => {
 	return (
 		<View style={styles.container}>
-			<View style={styles.topHalf}>
+			<LinearGradient
+				colors={[COLORS.blue.primary, COLORS.blue.secondary]}
+				style={styles.topHalf}
+			>
 				<View style={{ flexDirection: 'row', height: '50%' }}>
 					<TouchableOpacity onPress={() => navigation.navigate('Settings')}>
 						<Feather name='settings' />
@@ -31,7 +35,7 @@ const Overview = ({ navigation }: NavigationScreenProps) => {
 					horizontal
 					showsHorizontalScrollIndicator={false}
 				/>
-			</View>
+			</LinearGradient>
 			{/* Add a FAB button */}
 		</View>
 	);
@@ -46,8 +50,7 @@ const styles = StyleSheet.create({
 		flexDirection: 'column',
 		justifyContent: 'space-between',
 		height: height / 2,
-		width,
-		backgroundColor: COLORS.blue.secondary
+		width
 	}
 });
 
