@@ -10,15 +10,14 @@ const styles = StyleSheet.create({
 		justifyContent: 'space-between',
 		height: '80%',
 		padding: 15,
-		borderRadius: 8,
+		borderRadius: 10,
 		width: width - 100,
 		marginHorizontal: 20,
 		backgroundColor: colors.white.primary,
 		shadowColor: '#505050',
-		shadowOffset: { width: 4, height: 4 },
-		shadowOpacity: 0.2,
-		shadowRadius: 10,
-		elevation: 1
+		shadowOffset: { width: 0, height: 4 },
+		shadowOpacity: 0.3,
+		shadowRadius: 15
 	},
 	text: {
 		color: '#7B96A5',

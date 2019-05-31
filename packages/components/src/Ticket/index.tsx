@@ -20,9 +20,16 @@ const Ticket = ({ zone }: TicketProps) => {
 			</View>
 			<View>
 				<View style={{ flexGrow: 1 }}>
-					<QRCode value='fjagndfnjdfd' size={90} color='#7B96A5' />
+					{/* This works best, since we want to declare the value of the qrcode on the fly, */}
+					<QRCode value='thisistheticketid' size={90} color='#7B96A5' />
 				</View>
-				<View style={{ flexGrow: 1 }}>
+				<View
+					style={{
+						flexGrow: 1,
+						alignItems: 'center',
+						justifyContent: 'center'
+					}}
+				>
 					<Text bold style={styles.text}>
 						{`Zone ${zone}`}
 					</Text>
