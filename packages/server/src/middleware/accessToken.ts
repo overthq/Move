@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction, RequestHandler } from 'express';
+import { Request, Response, NextFunction } from 'express';
 import { verifyAccessToken } from '../helpers';
 
 interface TokenRequest extends Request {
