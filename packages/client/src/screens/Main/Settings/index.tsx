@@ -1,11 +1,32 @@
 import React from 'react';
-import { SafeAreaView, View, TouchableOpacity } from 'react-native';
+import {
+	SafeAreaView,
+	View,
+	TouchableOpacity,
+	StyleSheet,
+	Dimensions
+} from 'react-native';
+import { connect } from 'react-redux';
 import Feather from 'react-native-vector-icons/Feather';
 import { NavigationScreenProps } from 'react-navigation';
 import { Text } from '@move/components';
 import Row from './components/Row';
+import { AppState } from '@move/core';
 
-const Settings = ({ navigation }: NavigationScreenProps) => {
+const { width } = Dimensions.get('window');
+
+interface SettingsProps extends NavigationScreenProps {
+	firstName: string | null;
+	lastName: string | null;
+	phoneNumber: string | null;
+}
+
+const Settings = ({
+	navigation,
+	firstName,
+	lastName,
+	phoneNumber
+}: SettingsProps) => {
 	return (
 		<SafeAreaView style={{ flex: 1 }}>
 			<View
@@ -31,12 +52,35 @@ const Settings = ({ navigation }: NavigationScreenProps) => {
 				</TouchableOpacity>
 			</View>
 			<View>
-				<Row label='Manage Credit Card' />
-				<Row label='Manage Credit Card' />
+				<View style={styles.profileCard}>
+					<Text
+						bold
+						style={{ color: '#505050', fontSize: 20 }}
+					>{`${firstName} ${lastName}`}</Text>
+					<Text style={{ color: '#777777', fontSize: 14 }}>
+						{`${phoneNumber}`}
+					</Text>
+				</View>
+				<Row label='Edit Account' />
 				<Row label='Manage Credit Card' />
 			</View>
 		</SafeAreaView>
 	);
 };
 
-export default Settings;
+const styles = StyleSheet.create({
+	profileCard: {
+		alignSelf: 'center',
+		width,
+		paddingHorizontal: 20,
+		paddingVertical: 5
+	}
+});
+
+const mapStateToProps = ({ auth }: AppState) => ({
+	firstName: auth.user && auth.user.firstName,
+	lastName: auth.user && auth.user.lastName,
+	phoneNumber: auth.user && auth.user.phoneNumber
+});
+
+export default connect(mapStateToProps)(Settings);

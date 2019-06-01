@@ -33,8 +33,8 @@ const styles = StyleSheet.create({
 		borderBottomColor: '#F2F2F2'
 	},
 	labelText: {
-		fontFamily: 'Rubik-Medium',
-		fontSize: 20,
+		// fontFamily: 'Rubik-Medium',
+		fontSize: 18,
 		color: '#7B96A5'
 	}
 });

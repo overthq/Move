@@ -10,43 +10,21 @@ import LinearGradient from 'react-native-linear-gradient';
 import Feather from 'react-native-vector-icons/Feather';
 import { NavigationScreenProps } from 'react-navigation';
 import { Text, Ticket, COLORS } from '@move/components';
-import { AppState } from '@move/core';
+import FAB from './components/FAB';
 import mocks from './mocks.json';
-import { connect } from 'react-redux';
 
 const { height, width } = Dimensions.get('window');
 
-interface OverviewProps extends NavigationScreenProps {
-	firstName: string | null;
-	lastName: string | null;
-}
-
-const Overview = ({ navigation, firstName, lastName }: OverviewProps) => {
+const Overview = ({ navigation }: NavigationScreenProps) => {
 	return (
 		<View style={styles.container}>
 			<LinearGradient
 				colors={[COLORS.blue.primary, COLORS.blue.secondary]}
 				style={styles.topHalf}
 			>
-				<View
-					style={{
-						flexDirection: 'row',
-						justifyContent: 'space-between',
-						alignItems: 'center',
-						height: '30%',
-						paddingHorizontal: 20,
-						paddingVertical: 20
-					}}
-				>
-					<Text
-						style={{
-							color: '#F2F2F2',
-							fontSize: 20,
-							fontFamily: 'Rubik-Medium',
-							letterSpacing: 1
-						}}
-					>
-						{`${firstName} ${lastName}`}
+				<View style={styles.metaContainer}>
+					<Text bold style={styles.name}>
+						Tickets
 					</Text>
 					<TouchableOpacity onPress={() => navigation.navigate('Settings')}>
 						<Feather name='settings' color='#FFFFFF' size={30} />
@@ -66,7 +44,7 @@ const Overview = ({ navigation, firstName, lastName }: OverviewProps) => {
 					/>
 				</View>
 			</LinearGradient>
-			{/* Add a FAB button */}
+			<FAB onPress={() => navigation.navigate('Purchase')} />
 		</View>
 	);
 };
@@ -81,12 +59,20 @@ const styles = StyleSheet.create({
 		justifyContent: 'space-between',
 		height: height / 2,
 		width
+	},
+	metaContainer: {
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+		alignItems: 'center',
+		height: '30%',
+		paddingHorizontal: 20,
+		paddingVertical: 20
+	},
+	name: {
+		color: '#FFFFFF',
+		fontSize: 30,
+		letterSpacing: 1
 	}
 });
 
-const mapStateToProps = ({ auth }: AppState) => ({
-	firstName: auth.user && auth.user.firstName,
-	lastName: auth.user && auth.user.lastName
-});
-
-export default connect(mapStateToProps)(Overview);
+export default Overview;
