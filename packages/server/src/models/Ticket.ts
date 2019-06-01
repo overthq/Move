@@ -3,6 +3,7 @@ import { model, Schema, Document } from 'mongoose';
 interface TicketType extends Document {
 	zone: string;
 	price: string;
+	expiryDate: Date;
 }
 
 const TicketSchema = new Schema({
@@ -12,6 +13,10 @@ const TicketSchema = new Schema({
 	},
 	price: {
 		type: String,
+		required: true
+	},
+	expiryDate: {
+		type: Date,
 		required: true
 	}
 });
