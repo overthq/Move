@@ -40,7 +40,7 @@ const Overview = ({ navigation, firstName, lastName }: OverviewProps) => {
 				>
 					<Text
 						style={{
-							color: '#FFFFFF',
+							color: '#F2F2F2',
 							fontSize: 20,
 							fontFamily: 'Rubik-Medium',
 							letterSpacing: 1

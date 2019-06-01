@@ -3,6 +3,7 @@ import { SafeAreaView, View, TouchableOpacity } from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 import { NavigationScreenProps } from 'react-navigation';
 import { Text } from '@move/components';
+import Row from './components/Row';
 
 const Settings = ({ navigation }: NavigationScreenProps) => {
 	return (
@@ -28,6 +29,11 @@ const Settings = ({ navigation }: NavigationScreenProps) => {
 				<TouchableOpacity onPress={() => navigation.goBack()}>
 					<Feather name='x' size={30} color='#7B96A5' />
 				</TouchableOpacity>
+			</View>
+			<View>
+				<Row label='Manage Credit Card' />
+				<Row label='Manage Credit Card' />
+				<Row label='Manage Credit Card' />
 			</View>
 		</SafeAreaView>
 	);
