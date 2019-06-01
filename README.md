@@ -8,4 +8,4 @@ Follow the following steps to get the application running in your local developm
 
 ## Author
 
-Oluwakorede Fashokun <korede@overt.dev> for [Overt](https://overt.dev)
+Oluwakorede Fashokun (<korede@overt.dev>) for [Overt](https://overt.dev)
