@@ -13,7 +13,7 @@ export const logIn = async (req: Request, res: Response): Promise<Response> => {
 		if (!user) {
 			return res.status(404).json({
 				success: false,
-				message: 'No user found with the provided email address.'
+				message: 'No user found with the provided phone number.'
 			});
 		}
 
@@ -40,7 +40,7 @@ export const validate: RequestHandler = async (req, res): Promise<Response> => {
 		if (!verificationCode || !verificationCode.code) {
 			return res.status(404).json({
 				success: false,
-				message: 'No code exists with this address.'
+				message: 'This verification code does not exist.'
 			});
 		}
 		const user = await User.findOne({

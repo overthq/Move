@@ -17,8 +17,8 @@ const Root = ({ accessToken }: RootProps) => {
 	);
 };
 
-const mapStateToProps = ({ auth }: AppState) => ({
-	accessToken: auth.accessToken
+const mapStateToProps = ({ auth: { accessToken } }: AppState) => ({
+	accessToken
 });
 
 export default connect(mapStateToProps)(Root);
