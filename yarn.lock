@@ -1727,10 +1727,10 @@
     "@types/react" "*"
     "@types/react-native" "*"
 
-"@types/react-native@*", "@types/react-native@^0.57.51":
-  version "0.57.51"
-  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.57.51.tgz#adcb02141734b72822848351be734971e508f5f1"
-  integrity sha512-0LkXPeV1Hn+5zZ0BE6RBrBJTpM2P4S+306H9lKdi220PHFwMtHt1k8SiQpqUA2yjpi+c6pFIq6H2zZGusPHT9w==
+"@types/react-native@*", "@types/react-native@^0.57.61":
+  version "0.57.61"
+  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.57.61.tgz#126580a9bb9c5dcb0150bdce816aefafe24be12e"
+  integrity sha512-w4hEbLfRSmQaiaDxwZKxm3BtvOf+IC3iCtq/QXT/67yTdV2EXiIiMco2lSs/rJO2T/cr9K68OCnzfv7KQ7rlZw==
   dependencies:
     "@types/prop-types" "*"
     "@types/react" "*"
@@ -1760,15 +1760,7 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^16.8.16":
-  version "16.8.16"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.8.16.tgz#2bf980b4fb29cceeb01b2c139b3e185e57d3e08e"
-  integrity sha512-A0+6kS6zwPtvubOLiCJmZ8li5bm3wKIkoKV0h3RdMDOnCj9cYkUnj3bWbE03/lcICdQmwBmUfoFiHeNhbFiyHQ==
-  dependencies:
-    "@types/prop-types" "*"
-    csstype "^2.2.0"
-
-"@types/react@16.8.19":
+"@types/react@*", "@types/react@16.8.19", "@types/react@^16.8.16":
   version "16.8.19"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.8.19.tgz#629154ef05e2e1985cdde94477deefd823ad9be3"
   integrity sha512-QzEzjrd1zFzY9cDlbIiFvdr+YUmefuuRYrPxmkwG0UQv5XF35gFIi7a95m1bNVcFU0VimxSZ5QVGSiBmlggQXQ==
