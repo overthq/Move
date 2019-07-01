@@ -1,6 +1,7 @@
 import { createStackNavigator } from 'react-navigation';
 
-import { PhoneNumber, Code } from './screens';
+import PhoneNumber from './PhoneNumber';
+import Code from './Code';
 
 const Login = createStackNavigator(
 	{ PhoneNumber, Code },

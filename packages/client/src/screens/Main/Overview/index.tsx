@@ -10,7 +10,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import Feather from 'react-native-vector-icons/Feather';
 import { NavigationScreenProps } from 'react-navigation';
 import { Text, Ticket, COLORS } from '@move/components';
-import FAB from './components/FAB';
+import FAB from './FAB';
 import mocks from './mocks.json';
 
 const { height, width } = Dimensions.get('window');

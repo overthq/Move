@@ -1,11 +1,11 @@
 import { createStackNavigator } from 'react-navigation';
 
-import Overview from './Overview';
+import Home from './Home';
 import Settings from './Settings';
 import Purchase from './Purchase';
 
 const Main = createStackNavigator(
-	{ Overview, Settings, Purchase },
+	{ Home, Settings, Purchase },
 	{
 		headerMode: 'none',
 		mode: 'modal'
