@@ -25,13 +25,13 @@
 	"devDependencies": {
 		"@types/chai": "^4.1.7",
 		"@types/chai-http": "^4.2.0",
-		"@types/mocha": "^5.2.6",
+		"@types/mocha": "^5.2.7",
 		"@types/redux-logger": "^3.0.7",
 		"chai": "^4.2.0",
 		"eslint": "^5.16.0",
 		"mocha": "^6.1.4",
-		"nodemon": "^1.19.0",
+		"nodemon": "^1.19.1",
 		"rimraf": "^2.6.3",
-		"typescript": "^3.4.5"
+		"typescript": "^3.5.1"
 	}
 }

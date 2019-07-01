@@ -17,12 +17,17 @@ import slides from './slides';
 
 const { width } = Dimensions.get('window');
 
-const Onboarding = (props: NavigationScreenProps) => {
+const Onboarding = ({ navigation }: NavigationScreenProps) => {
 	const scrollX = new Animated.Value(0);
+	const handleScroll = Animated.event([
+		{
+			nativeEvent: {
+				contentOffset: { x: scrollX }
+			}
+		}
+	]);
 
-	const skip = () => {
-		props.navigation.navigate('Auth');
-	};
+	const skip = () => navigation.navigate('Auth');
 	const goToNext = () => {};
 
 	return (
@@ -36,13 +41,7 @@ const Onboarding = (props: NavigationScreenProps) => {
 				snapToAlignment='center'
 				decelerationRate={0}
 				pagingEnabled
-				onScroll={Animated.event([
-					{
-						nativeEvent: {
-							contentOffset: { x: scrollX }
-						}
-					}
-				])}
+				onScroll={handleScroll}
 				renderItem={({ item, index }) => <Slide {...item} key={index} />}
 			/>
 			<Pagination tabs={slides} {...{ scrollX }} />
