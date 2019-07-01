@@ -14,8 +14,12 @@ export const ThemeContext = React.createContext<ThemeContextParams>({
 type ThemeConstantsType = Record<ThemeVariants, { [key: string]: string }>;
 
 export const ThemeConstants: ThemeConstantsType = {
-	light: {},
-	dark: {}
+	light: {
+		backgroundColor: ''
+	},
+	dark: {
+		backgroundColor: ''
+	}
 };
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
