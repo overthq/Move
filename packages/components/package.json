@@ -23,7 +23,7 @@
 	},
 	"devDependencies": {
 		"@types/react": "^16.8.16",
-		"@types/react-native": "^0.57.51",
+		"@types/react-native": "^0.57.64",
 		"eslint": "^5.16.0",
 		"nodemon": "^1.19.0",
 		"rimraf": "^2.6.3",
