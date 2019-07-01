@@ -28,7 +28,7 @@
 		"react-native-vector-icons": "^6.4.2",
 		"react-navigation": "^3.11.0",
 		"react-navigation-fluid-transitions": "^0.3.2",
-		"react-redux": "^7.0.3"
+		"react-redux": "^7.1.0"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.4.5",
