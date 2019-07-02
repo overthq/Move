@@ -41,7 +41,7 @@
 		"@types/react-redux": "^7.0.9",
 		"@types/react-test-renderer": "^16.8.1",
 		"babel-jest": "^24.8.0",
-		"eslint": "^5.16.0",
+		"eslint": "^6.0.1",
 		"jest": "^24.8.0",
 		"metro-react-native-babel-preset": "^0.54.1",
 		"react-test-renderer": "16.8.6",
