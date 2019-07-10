@@ -9,7 +9,7 @@ export interface AuthScreenInfo {
 	onSuccess?: () => void;
 	onError(error: Error): void;
 	nextScreenName?: string;
-	initialState?: { [key: string]: string };
+	initialState: { [key: string]: string };
 	buttonText?: string;
 }
 

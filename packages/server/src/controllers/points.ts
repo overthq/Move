@@ -1,5 +1,4 @@
 import { RequestHandler } from 'express';
-import { User } from '../models';
 
 export const purchasePoints: RequestHandler = async (req, res) => {
 	const { userId, amount } = req.body;
@@ -12,7 +11,7 @@ export const purchasePoints: RequestHandler = async (req, res) => {
 };
 
 export const getUserPoints: RequestHandler = async (req, res) => {
-	const { userId } = req.query;
+	// const { userId } = req.query;
 	try {
 		// Get the points based on userId
 		return res.status(200).json({

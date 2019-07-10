@@ -17,7 +17,7 @@ const Code = createAuthScreen({
 	onSuccess: () => {},
 	onError: error => Alert.alert(error.message),
 	buttonText: 'Verify Code',
-	nextScreenName: 'Main'
+	nextScreenName: 'CreditCard'
 });
 
 export default Code;
