@@ -2,6 +2,11 @@
 
 Transportation ticketing app.
 
+
+## Motivation
+
+This service is being developed to be a solution that enhances the public transportation scene in Nigeria.
+
 ## Installation and Setup
 
 Follow the following steps to get the application running in your local development environment:
