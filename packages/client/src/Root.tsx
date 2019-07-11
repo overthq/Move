@@ -1,14 +1,15 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { AppState } from '@move/core';
 import { ThemeProvider } from './contexts/ThemeContext';
 import createRootNavigator from './screens';
 
-interface RootProps {
-	accessToken: string;
-}
+const stateMapper = ({ auth: { accessToken } }: AppState) => ({
+	accessToken
+});
 
-const Root = ({ accessToken }: RootProps) => {
+const Root = () => {
+	const { accessToken } = useSelector(stateMapper);
 	const AppNavigator = createRootNavigator(!!accessToken);
 	return (
 		<ThemeProvider>
@@ -17,8 +18,4 @@ const Root = ({ accessToken }: RootProps) => {
 	);
 };
 
-const mapStateToProps = ({ auth: { accessToken } }: AppState) => ({
-	accessToken
-});
-
-export default connect(mapStateToProps)(Root);
+export default Root;
