@@ -27,8 +27,7 @@ target 'Move' do
   pod 'glog', :podspec => '../../../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../../../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-  pod 'react-native-mapbox-gl', :path => '../../../node_modules/@react-native-mapbox-gl/maps'
-
+  pod 'react-native-camera', path: '../../../node_modules/react-native-camera'
 
   use_native_modules!
 end
