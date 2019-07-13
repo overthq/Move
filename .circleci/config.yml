@@ -48,5 +48,5 @@ workflows:
     jobs:
       - checkout_environment
       - test_static:
-        requires:
-          - checkout_environment
+          requires:
+            - checkout_environment
