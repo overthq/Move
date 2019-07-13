@@ -3,7 +3,7 @@ import { model, Schema, Document } from 'mongoose';
 interface TripType extends Document {
 	driverId: string;
 	fare: number;
-	status: 'Boarding' | 'Progress' | 'Ended';
+	status: 'Boarding' | 'En-Route' | 'Ended';
 	origin: string;
 	destination: string;
 }
@@ -20,7 +20,7 @@ const TripSchema = new Schema(
 		},
 		status: {
 			type: String,
-			enum: ['Boarding', 'Progress', 'Ended'],
+			enum: ['Boarding', 'En-Route', 'Ended'],
 			default: 'Boarding'
 		},
 		origin: {

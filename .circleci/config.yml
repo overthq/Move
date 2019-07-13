@@ -50,7 +50,3 @@ workflows:
       - test_static:
         requires:
           - checkout_environment
-  build:
-    jobs:
-  deploy:
-    jobs:

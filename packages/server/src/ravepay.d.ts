@@ -15,7 +15,7 @@ declare module 'ravepay' {
 	}
 
 	export default class RavePay {
-		private constructor(
+		public constructor(
 			PUBLICK_KEY: string,
 			SECRET_KEY: string,
 			PRODUCTION_FLAG: string | boolean

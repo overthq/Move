@@ -5,3 +5,4 @@ export { default as CreditCard } from './CreditCard';
 export { default as Ride } from './Ride';
 export { default as VerificationCode } from './VerificationCode';
 export { default as Ticket } from './Ticket';
+export { default as Wallet } from './Wallet';
