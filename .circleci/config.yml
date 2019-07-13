@@ -23,7 +23,7 @@ jobs:
     steps:
       - checkout
       - restore_cache: *restore-yarn-cache
-      - run: yarn
+      - run: yarn && yarn workspaces run build
       - save_cache: *save-yarn-cache
 
       - persist_to_workspace:
