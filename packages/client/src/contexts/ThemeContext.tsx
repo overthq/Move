@@ -1,32 +1,29 @@
 import React from 'react';
-import MapboxGL from '@react-native-mapbox-gl/maps';
+// import MapboxGL from '@react-native-mapbox-gl/maps';
 
 type ThemeVariants = 'light' | 'dark';
 
 interface ThemeContextParams {
 	theme: ThemeVariants;
-	mapTheme: MapboxGL.StyleURL;
+	// mapTheme: MapboxGL.StyleURL;
 	toggleTheme?: () => void;
 }
 
 export const ThemeContext = React.createContext<ThemeContextParams>({
-	theme: 'light',
-	mapTheme: MapboxGL.StyleURL.Light
+	theme: 'light'
+	// mapTheme: MapboxGL.StyleURL.Light
 });
 
-type ThemeConstantsType = Record<
-	ThemeVariants,
-	{ backgroundColor: string; mapTheme: MapboxGL.StyleURL }
->;
+type ThemeConstantsType = Record<ThemeVariants, { backgroundColor: string }>;
 
 export const ThemeConstants: ThemeConstantsType = {
 	light: {
-		backgroundColor: '',
-		mapTheme: MapboxGL.StyleURL.Light
+		backgroundColor: ''
+		// mapTheme: MapboxGL.StyleURL.Light
 	},
 	dark: {
-		backgroundColor: '',
-		mapTheme: MapboxGL.StyleURL.Dark
+		backgroundColor: ''
+		// mapTheme: MapboxGL.StyleURL.Dark
 	}
 };
 
@@ -35,9 +32,9 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 	const toggleTheme = () => {
 		return setTheme(theme => (theme === 'light' ? 'dark' : 'light'));
 	};
-	const { mapTheme } = ThemeConstants[theme];
+	// const { mapTheme } = ThemeConstants[theme];
 	return (
-		<ThemeContext.Provider value={{ theme, mapTheme, toggleTheme }}>
+		<ThemeContext.Provider value={{ theme, toggleTheme }}>
 			{children}
 		</ThemeContext.Provider>
 	);
