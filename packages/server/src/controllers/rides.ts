@@ -1,5 +1,6 @@
 import { RequestHandler } from 'express';
 import { Ride, Trip, Wallet } from '../models';
+import { purchase } from '../helpers';
 
 export const newRide: RequestHandler = async (req, res) => {
 	const { tripId } = req.query;
@@ -14,6 +15,9 @@ export const newRide: RequestHandler = async (req, res) => {
 		if (!wallet) return;
 		// On the frontend, show the user that they MUST create a wallet,
 		// or redirect them to the wallet creation page.
+
+		// Carry out the purchase with Rave
+		await purchase(userId, trip.fare);
 
 		if (wallet.points < trip.fare) {
 			throw new Error(
