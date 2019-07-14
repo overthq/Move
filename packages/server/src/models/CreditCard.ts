@@ -6,7 +6,11 @@ enum CreditCardEnum {
 }
 
 interface CreditCardType extends Document {
+	userId: string;
 	cardDigits: string;
+	cardBIN: string;
+	expiryMonth: string;
+	expiryYear: string;
 	cardType: CreditCardEnum;
 }
 
@@ -21,9 +25,22 @@ const CreditCardSchema = new Schema(
 			type: String,
 			required: true
 		},
+		cardBIN: {
+			type: String,
+			required: true
+		},
+		expiryMonth: {
+			type: String,
+			required: true
+		},
+		expiryYear: {
+			type: String,
+			required: true
+		},
 		cardType: {
 			type: String,
-			enum: Object.values(CreditCardEnum)
+			enum: Object.values(CreditCardEnum),
+			default: 'MasterCard'
 		}
 	},
 	{ timestamps: true }
