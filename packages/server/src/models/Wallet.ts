@@ -2,6 +2,7 @@ import { model, Schema, Document } from 'mongoose';
 
 interface WalletType extends Document {
 	userId: string;
+	points: number;
 }
 
 const WalletSchema = new Schema(

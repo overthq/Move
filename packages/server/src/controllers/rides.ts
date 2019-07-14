@@ -1,5 +1,5 @@
 import { RequestHandler } from 'express';
-import { Ride, Trip } from '../models';
+import { Ride, Trip, Wallet } from '../models';
 
 export const newRide: RequestHandler = async (req, res) => {
 	const { tripId } = req.query;
@@ -9,15 +9,42 @@ export const newRide: RequestHandler = async (req, res) => {
 
 		const trip = await Trip.findById(tripId);
 		if (!trip) throw new Error('Specified trip does not exist.');
-		console.log(trip.fare);
-		// TODO: Find the user and remove the credits of the trip from their wallet
 
-		// TODO: Add payment stuff (Not that fast)
+		const wallet = await Wallet.findOne({ userId });
+		if (!wallet) return;
+		// On the frontend, show the user that they MUST create a wallet,
+		// or redirect them to the wallet creation page.
+
+		if (wallet.points < trip.fare) {
+			throw new Error(
+				'You do not possess the required number of points to pay for this trip'
+			);
+		}
+
+		wallet.points -= trip.fare;
+		await wallet.save();
 
 		return res.status(201).json({
 			success: true,
 			message: 'Ride joined',
 			ride
+		});
+	} catch (error) {
+		return res.status(500).json({
+			success: false,
+			message: error.message
+		});
+	}
+};
+
+export const listUserRides: RequestHandler = async (req, res) => {
+	const { userId } = req.params;
+	try {
+		const rides = await Ride.find({ userId });
+		return res.status(200).json({
+			success: true,
+			message: `Previous rides for user ${userId} fetched successfully`,
+			rides
 		});
 	} catch (error) {
 		return res.status(500).json({
