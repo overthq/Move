@@ -12,6 +12,11 @@ aliases:
       - ~/.cache/yarn
     key: v1-yarn-{{ arch }}-{{ checksum "package.json" }}
 
+  - &yarn
+    |
+      yarn
+      yarn workspaces run build
+
 defaults: &defaults
   working_directory: ~/move
   docker:
@@ -23,7 +28,7 @@ jobs:
     steps:
       - checkout
       - restore_cache: *restore-yarn-cache
-      - run: yarn && yarn workspaces run build
+      - run: *yarn
       - save_cache: *save-yarn-cache
 
       - persist_to_workspace:
