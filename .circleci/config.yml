@@ -12,10 +12,10 @@ aliases:
       - ~/.cache/yarn
     key: v1-yarn-{{ arch }}-{{ checksum "package.json" }}
 
-  - &yarn
-    |
-      yarn
-      yarn workspaces run build
+  - &yarn |
+    yarn
+    yarn workspace @move/components run build
+    yarn workspace @move/core run build
 
 defaults: &defaults
   working_directory: ~/move
