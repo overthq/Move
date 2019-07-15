@@ -53,13 +53,12 @@ export const purchase = async (userId: string, amount: number) => {
 
 		const { status, data } = await response.json();
 
-		if (status === 'success') {
-			console.log(data);
-			wallet.points += amount;
-			wallet.save();
-		}
+		if (status !== 'success') throw new Error(data.toString());
 
-		throw new Error(data.toString());
+		console.log(data);
+		wallet.points += amount;
+		wallet.save();
+		return wallet;
 	} catch (error) {
 		throw new Error('Error while making payment: ' + error.message);
 	}
