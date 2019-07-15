@@ -1,11 +1,11 @@
 import { RequestHandler } from 'express';
-import { Wallet } from '../models';
-import { purchase } from '../helpers';
+import { purchase, tokenizeCard } from '../helpers';
 
 export const createWallet: RequestHandler = async (req, res) => {
-	const { userId } = req.body;
+	// const { userId, cardNumber, cvv, expiryMonth, expiryYear } = req.body;
 	try {
-		const wallet = new Wallet({ userId });
+		const wallet = await tokenizeCard(req.body);
+
 		return res.status(201).json({
 			success: true,
 			message: 'Wallet successfully created',
@@ -14,6 +14,20 @@ export const createWallet: RequestHandler = async (req, res) => {
 	} catch (error) {
 		return res.status(500).json({
 			success: false,
+			message: error.message
+		});
+	}
+};
+
+export const verifyWallet: RequestHandler = async (req, res) => {
+	// Not sure how this works, does the tokenizeCard function return the accurate amount?
+	const { otp } = req.body;
+	try {
+		// Validate card things with OTP
+		console.log(otp);
+	} catch (error) {
+		return res.status(500).json({
+			success: true,
 			message: error.message
 		});
 	}
