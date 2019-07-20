@@ -46,6 +46,7 @@ export const purchase = async (userId: string, amount: number) => {
 					firstname: firstName,
 					lastname: lastName,
 					// IP: 'user_ip_address',
+					// Do I need to request the user's email because of Rave's constraints?
 					txRef: `MC-${Date.now()}`
 				})
 			}
@@ -103,6 +104,7 @@ export const tokenizeCard: TokenizeCard = async ({
 		};
 
 		const body = await rave.TokenCharge.card(cardDetails);
+		console.log(body);
 
 		// Initialize the user's wallet with this information.
 		const {
