@@ -6,10 +6,22 @@ interface RegisterDetails {
 	phoneNumber: string;
 }
 
-export const register = async (details: RegisterDetails) => {
-	await post('auth/register', details);
+interface CardDetails {
+	userId: string;
+	cardNumber: string;
+	cvv: string;
+	expiryMonth: string;
+	expiryYear: string;
+}
+
+export const register = (details: RegisterDetails) => {
+	post('auth/register', details);
 };
 
-export const logIn = async (phoneNumber: string) => {
-	await post('auth/login', { phoneNumber });
+export const logIn = (phoneNumber: string) => {
+	post('auth/login', { phoneNumber });
+};
+
+export const tokenizeCard = (cardDetails: CardDetails) => {
+	post('credit-cards/save', cardDetails);
 };

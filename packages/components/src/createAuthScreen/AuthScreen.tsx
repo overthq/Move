@@ -55,9 +55,7 @@ const AuthScreen = (props: AuthScreenProps) => {
 									key={field.name}
 									value={state[field.name]}
 									placeholder={field.placeholder}
-									onChangeText={(value: string) =>
-										handleChange(field.name, value)
-									}
+									onChangeText={value => handleChange(field.name, value)}
 									autoFocus={index == 0}
 									autoCorrect={false}
 									full

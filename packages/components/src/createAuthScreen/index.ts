@@ -9,7 +9,7 @@ const createInitialState = (fields: AuthScreenField[]) => {
 	return state;
 };
 
-const createAuthScreen = (info: AuthScreenInfo) => {
+const createAuthScreen = (info: Omit<AuthScreenInfo, 'initialState'>) => {
 	const AuthScreenWithNav = withNavigation(AuthScreen);
 	const AuthenticationScreen = () =>
 		React.createElement(AuthScreenWithNav, {
