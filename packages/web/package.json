@@ -27,7 +27,7 @@
 		"@types/react": "^16.8.23",
 		"@types/react-dom": "^16.8.4",
 		"@types/styled-components": "^4.1.16",
-		"eslint": "^6.0.1",
+		"eslint": "^6.1.0",
 		"react-scripts": "^3.0.1",
 		"typescript": "^3.5.3"
 	},
