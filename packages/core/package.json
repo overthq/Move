@@ -1,0 +1,37 @@
+{
+	"name": "@move/core",
+	"private": true,
+	"description": "Core functionality for Move",
+	"version": "0.0.1",
+	"author": {
+		"name": "Oluwakorede Fashokun",
+		"email": "korede@overt.dev",
+		"url": "https://overt.dev"
+	},
+	"main": "dist/index.js",
+	"module": "dist/index.js",
+	"scripts": {
+		"clean": "rimraf dist",
+		"lint": "eslint . --ext .ts,.tsx",
+		"build": "tsc -b",
+		"dev": "nodemon"
+	},
+	"dependencies": {
+		"redux": "^4.0.4",
+		"redux-logger": "^3.0.6",
+		"redux-persist": "^5.10.0",
+		"redux-thunk": "^2.3.0"
+	},
+	"devDependencies": {
+		"@types/chai": "^4.2.0",
+		"@types/chai-http": "^4.2.0",
+		"@types/mocha": "^5.2.7",
+		"@types/redux-logger": "^3.0.7",
+		"chai": "^4.2.0",
+		"eslint": "^6.2.0",
+		"mocha": "^6.2.0",
+		"nodemon": "^1.19.1",
+		"rimraf": "^3.0.0",
+		"typescript": "^3.5.3"
+	}
+}
