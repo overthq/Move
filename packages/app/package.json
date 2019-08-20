@@ -1,0 +1,30 @@
+{
+  "name": "@move/app",
+  "version": "0.0.1",
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "preinstall": "node ./patch-yarn.js",
+    "postinstall": "expo-yarn-workspaces postinstall",
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "eject": "expo eject"
+  },
+  "dependencies": {
+    "expo": "^34.0.1",
+    "expo-camera": "~6.0.0",
+    "react": "16.8.3",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-34.0.0.tar.gz",
+    "react-native-modalize": "^1.2.1"
+  },
+  "devDependencies": {
+    "@types/react": "^16.8.23",
+    "@types/react-native": "^0.57.65",
+    "babel-preset-expo": "^6.0.0",
+    "eslint": "^6.2.0",
+    "expo-yarn-workspaces": "^1.2.0",
+    "prettier": "^1.18.2",
+    "typescript": "^3.5.3"
+  },
+  "private": true
+}

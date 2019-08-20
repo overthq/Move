@@ -1,0 +1,40 @@
+{
+  "name": "move",
+  "description": "Transport payments app",
+  "version": "0.0.1",
+  "private": true,
+  "license": "GNU GPL V3",
+  "repository": "https://github.com/overthq/Move",
+  "author": {
+    "name": "Oluwakorede Fashokun",
+    "email": "korede@overt.dev",
+    "url": "https://overt.dev"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.0.0",
+    "@typescript-eslint/parser": "^2.0.0",
+    "eslint": "^6.2.0",
+    "eslint-config-prettier": "^6.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
+    "husky": "^3.0.4",
+    "lint-staged": "^9.2.3",
+    "prettier": "^1.18.2"
+  }
+}
