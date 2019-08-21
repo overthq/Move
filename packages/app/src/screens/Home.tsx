@@ -1,16 +1,19 @@
 import React from 'react';
 import { View, StyleSheet, Dimensions } from 'react-native';
+import Modalize from 'react-native-modalize';
 import { Camera } from 'expo-camera';
 import PaymentModal from '../components/PaymentModal';
+import { BarCodeScanningResult } from 'expo-camera/build/Camera.types';
 
 const { height, width } = Dimensions.get('window');
 
 const Home = () => {
+	const [tripId, setTripId] = React.useState('');
 	const modalRef = React.useRef<Modalize>(null);
 
-	const handleBarcodeScanned = ({ data }) => {
-		// Actually use the data to open the next page with the data fetched from the server
+	const handleBarCodeScanned = ({ data }: BarCodeScanningResult) => {
 		console.log(data);
+		setTripId(data);
 		modalRef && modalRef.current.open();
 	};
 
@@ -18,10 +21,10 @@ const Home = () => {
 		<View style={{ flex: 1 }}>
 			<Camera
 				type={Camera.Constants.Type.Back}
-				onBarcodeScanned={handleBarcodeScanned}
+				onBarCodeScanned={handleBarCodeScanned}
 				style={styles.camera}
 			/>
-			<PaymentModal {...{ modalRef }} />
+			<PaymentModal {...{ modalRef, tripId }} />
 		</View>
 	);
 };

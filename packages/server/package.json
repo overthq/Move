@@ -1,0 +1,6 @@
+{
+  "name": "@move/server",
+  "version": "0.0.1",
+  "main": "dist/app.js",
+  "license": "MIT"
+}
