@@ -3,6 +3,11 @@
   "version": "0.0.1",
   "main": "dist/app.js",
   "license": "MIT",
+  "scripts": {
+		"start": "node dist",
+		"dev": "ts-node src",
+		"build": "tsc -b"
+  },
   "devDependencies": {
     "@types/express": "^4.17.1",
     "@types/node": "^12.7.2",
