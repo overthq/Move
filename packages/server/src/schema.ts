@@ -1,7 +1,8 @@
 import { makeExecutableSchema } from 'graphql-tools';
 import { User } from './types';
 import userMutation from './mutations/users';
-
+import userQuery from './queries/users';
+j;
 const RootType = `
 	type Query {
 		default: String
@@ -17,7 +18,9 @@ const resolvers = {
 	Mutation: {
 		...userMutation
 	},
-	Query: {}
+	Query: {
+		...userQuery
+	}
 };
 
 const schema = makeExecutableSchema({
