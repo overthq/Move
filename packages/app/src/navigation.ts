@@ -1,4 +1,4 @@
-import { createSwitchNavigator } from 'react-navigation';
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { Home } from './screens';
 import { getUserData } from '@move/core';
 import prepare from './prepare';
@@ -8,9 +8,8 @@ import prepare from './prepare';
 const user = getUserData();
 prepare();
 
-const RootNavigator = createSwitchNavigator(
-	{ Home },
-	{ initialRouteName: user ? 'Home' : 'Auth' }
+const RootNavigator = createAppContainer(
+	createSwitchNavigator({ Home }, { initialRouteName: user ? 'Home' : 'Auth' })
 );
 
 export default RootNavigator;
