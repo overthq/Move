@@ -14,7 +14,7 @@ const client = createClient({
 
 const App = () => (
 	<Provider value={client}>
-		<RootNavigator />;
+		<RootNavigator />
 	</Provider>
 );
 
