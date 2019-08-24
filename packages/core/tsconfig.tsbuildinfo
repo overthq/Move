@@ -138,8 +138,8 @@
         "signature": "63b66918290d794f73832a6d0325be5026236674fe8c0cb0b68d162000d7bbe8"
       },
       "/users/korede/projects/move/packages/core/src/queries/auth.ts": {
-        "version": "a8bed25296b11e23b4583c700a84c3fecde1486b0238e74df468484fe6a36f2b",
-        "signature": "a96c9bbf23e76ac060f284dba392584f74db43cb746bacaeaf9b733f3476c6fa"
+        "version": "5ba281a938156b0959370118e3b788c02430f7098c94d5f894574d526da297f4",
+        "signature": "99f561389b82a8f3a040ce9222a684f827abee9aac2224d733de0c2869c099ea"
       },
       "/users/korede/projects/move/packages/core/src/queries/index.ts": {
         "version": "0d1e9013237428428f2c4b8c4c64e3b5fce66d8140bc75629c0cc320c85c4925",
@@ -186,8 +186,8 @@
         "signature": "ee2b2c7ed0c7b95e91dec2378345b483df2671de5cf6cff1e21c3a5bae487605"
       },
       "/users/korede/projects/move/packages/core/src/actions/auth.ts": {
-        "version": "39846ac8870d8654042112fa43afc0e23b08ed418646c5570a7dac6f21460fda",
-        "signature": "9ee001bcfcdd4e2b0f044e4c1c970c0e2c02f8f910c940702380e0a0f3943c0a"
+        "version": "516c4997dbdef042413118a455b46ecfbbe52b0aa1e9ea59f6528b0df51df40a",
+        "signature": "e78af2391bc050a6845a5591254e15a1f10a8affcaaddd1217ae38208bd56049"
       },
       "/users/korede/projects/move/packages/core/src/actions/index.ts": {
         "version": "0d1e9013237428428f2c4b8c4c64e3b5fce66d8140bc75629c0cc320c85c4925",
@@ -197,25 +197,33 @@
         "version": "79a2345b2c54ce272d8a7a0edd8331d1d7d6ed2fef6de4c1adff23dd07b249e5",
         "signature": "79a2345b2c54ce272d8a7a0edd8331d1d7d6ed2fef6de4c1adff23dd07b249e5"
       },
-      "/users/korede/projects/move/node_modules/@types/chai/index.d.ts": {
-        "version": "b26b3829d52ebdc82a2b9f4fa8051890dc953003382b4411fe4ec6f05351dcf4",
-        "signature": "b26b3829d52ebdc82a2b9f4fa8051890dc953003382b4411fe4ec6f05351dcf4"
+      "/users/korede/projects/move/packages/core/src/queries/trips.ts": {
+        "version": "dc5c773352d2cf9e8a53e61b1a60afbf952222c44fbe2f19649f298b920585be",
+        "signature": "a6b223b5e46ad41060c7b293f90c752578f612e6705fd2c4ef0eed98581ee43b"
       },
-      "/users/korede/projects/move/node_modules/@types/cookiejar/index.d.ts": {
-        "version": "16b7fb094ffaa5d270f934e7406e8baee2f8245cfabf6dcc20f693389f005f56",
-        "signature": "16b7fb094ffaa5d270f934e7406e8baee2f8245cfabf6dcc20f693389f005f56"
+      "/users/korede/projects/move/node_modules/@babel/types/lib/index.d.ts": {
+        "version": "bc12492fa90cd2ad3f73c10efa597503dbf59ebac0e3c9728cc10adaad6b0b87",
+        "signature": "bc12492fa90cd2ad3f73c10efa597503dbf59ebac0e3c9728cc10adaad6b0b87"
       },
-      "/users/korede/projects/move/node_modules/@types/eslint-visitor-keys/index.d.ts": {
-        "version": "725d9be2fd48440256f4deb00649adffdbc5ecd282b09e89d4e200663792c34c",
-        "signature": "725d9be2fd48440256f4deb00649adffdbc5ecd282b09e89d4e200663792c34c"
+      "/users/korede/projects/move/node_modules/@types/babel__generator/index.d.ts": {
+        "version": "19fb2161edf60fbe73ee3650c1cee889df0525ed852eff2d5fa6e5480c132ae3",
+        "signature": "19fb2161edf60fbe73ee3650c1cee889df0525ed852eff2d5fa6e5480c132ae3"
       },
-      "/users/korede/projects/move/node_modules/@types/events/index.d.ts": {
-        "version": "400db42c3a46984118bff14260d60cec580057dc1ab4c2d7310beb643e4f5935",
-        "signature": "400db42c3a46984118bff14260d60cec580057dc1ab4c2d7310beb643e4f5935"
+      "/users/korede/projects/move/node_modules/@types/babel__traverse/index.d.ts": {
+        "version": "44d81327b8fbb2d7ca0701f5b7bb73e48036eb99a87356acf95f19ed96e907aa",
+        "signature": "44d81327b8fbb2d7ca0701f5b7bb73e48036eb99a87356acf95f19ed96e907aa"
       },
-      "/users/korede/projects/move/node_modules/@types/fbemitter/index.d.ts": {
-        "version": "97529c4f2e717c9d900b8c48be0f1a9fb90fd666d04af60e5410fbe9b9a98cef",
-        "signature": "97529c4f2e717c9d900b8c48be0f1a9fb90fd666d04af60e5410fbe9b9a98cef"
+      "/users/korede/projects/move/node_modules/@babel/parser/typings/babel-parser.d.ts": {
+        "version": "67fb81fcd13edc5410665fa72892dd0878654b54946e8b0f10af5adc234bfe8f",
+        "signature": "67fb81fcd13edc5410665fa72892dd0878654b54946e8b0f10af5adc234bfe8f"
+      },
+      "/users/korede/projects/move/node_modules/@types/babel__template/index.d.ts": {
+        "version": "3e0a34f7207431d967dc32d593d1cda0c23975e9484bc8895b39d96ffca4a0d8",
+        "signature": "3e0a34f7207431d967dc32d593d1cda0c23975e9484bc8895b39d96ffca4a0d8"
+      },
+      "/users/korede/projects/move/node_modules/@types/babel__core/index.d.ts": {
+        "version": "8f279d393b3572c5c0a8428d46d00281c38a5ef52dc9dd513fc861c31a5d6420",
+        "signature": "8f279d393b3572c5c0a8428d46d00281c38a5ef52dc9dd513fc861c31a5d6420"
       },
       "/users/korede/projects/move/node_modules/@types/node/globals.d.ts": {
         "version": "e4461b72726848da76a31153b6b01af5e0be3b08dbfa2ec5741ad302eb20f2ed",
@@ -232,6 +240,10 @@
       "/users/korede/projects/move/node_modules/@types/node/buffer.d.ts": {
         "version": "61215c1a376bbe8f51cab4cc4ddbf3746387015113c37a84d981d4738c21b878",
         "signature": "61215c1a376bbe8f51cab4cc4ddbf3746387015113c37a84d981d4738c21b878"
+      },
+      "/users/korede/projects/move/node_modules/@types/events/index.d.ts": {
+        "version": "400db42c3a46984118bff14260d60cec580057dc1ab4c2d7310beb643e4f5935",
+        "signature": "400db42c3a46984118bff14260d60cec580057dc1ab4c2d7310beb643e4f5935"
       },
       "/users/korede/projects/move/node_modules/@types/node/child_process.d.ts": {
         "version": "123366127434e33eade36f3d06653dbc7457397fc93cfdd100776cfc12b6734c",
@@ -393,6 +405,54 @@
         "version": "765fc34423b93c2ab763670d8d11d99e5f47387c13c161d6f1640dd6d91b7d1c",
         "signature": "765fc34423b93c2ab763670d8d11d99e5f47387c13c161d6f1640dd6d91b7d1c"
       },
+      "/users/korede/projects/move/node_modules/@types/connect/index.d.ts": {
+        "version": "c3be42b83b5f57ae2f65280fa395f6d31f61304ac1a29b7b406b6a0e71da8c82",
+        "signature": "c3be42b83b5f57ae2f65280fa395f6d31f61304ac1a29b7b406b6a0e71da8c82"
+      },
+      "/users/korede/projects/move/node_modules/@types/body-parser/index.d.ts": {
+        "version": "599abfa56230d73afc30a3bde749c2efd90acb58301b446835d5e235b35e2768",
+        "signature": "599abfa56230d73afc30a3bde749c2efd90acb58301b446835d5e235b35e2768"
+      },
+      "/users/korede/projects/move/node_modules/@types/bson/index.d.ts": {
+        "version": "64118c8a43189b10dfe9d96a9478bcf7cd5b01c9d0f7838ee1454ece8a687253",
+        "signature": "64118c8a43189b10dfe9d96a9478bcf7cd5b01c9d0f7838ee1454ece8a687253"
+      },
+      "/users/korede/projects/move/node_modules/@types/chai/index.d.ts": {
+        "version": "b26b3829d52ebdc82a2b9f4fa8051890dc953003382b4411fe4ec6f05351dcf4",
+        "signature": "b26b3829d52ebdc82a2b9f4fa8051890dc953003382b4411fe4ec6f05351dcf4"
+      },
+      "/users/korede/projects/move/node_modules/@types/cookiejar/index.d.ts": {
+        "version": "16b7fb094ffaa5d270f934e7406e8baee2f8245cfabf6dcc20f693389f005f56",
+        "signature": "16b7fb094ffaa5d270f934e7406e8baee2f8245cfabf6dcc20f693389f005f56"
+      },
+      "/users/korede/projects/move/node_modules/@types/eslint-visitor-keys/index.d.ts": {
+        "version": "725d9be2fd48440256f4deb00649adffdbc5ecd282b09e89d4e200663792c34c",
+        "signature": "725d9be2fd48440256f4deb00649adffdbc5ecd282b09e89d4e200663792c34c"
+      },
+      "/users/korede/projects/move/node_modules/@types/range-parser/index.d.ts": {
+        "version": "4e88b833be14c7f384e0dcd57bb30acd799e8e34d212635d693e41a75a71164b",
+        "signature": "4e88b833be14c7f384e0dcd57bb30acd799e8e34d212635d693e41a75a71164b"
+      },
+      "/users/korede/projects/move/node_modules/@types/express-serve-static-core/index.d.ts": {
+        "version": "d73f61d755e6f17b9dc315cbd8e6522a47c2153a07b67fd8295ef48b40ad6344",
+        "signature": "d73f61d755e6f17b9dc315cbd8e6522a47c2153a07b67fd8295ef48b40ad6344"
+      },
+      "/users/korede/projects/move/node_modules/@types/mime/index.d.ts": {
+        "version": "be27a64e821a3e5af838650e4aa25805c60f057d0c37a9762c378d19d364b3e6",
+        "signature": "be27a64e821a3e5af838650e4aa25805c60f057d0c37a9762c378d19d364b3e6"
+      },
+      "/users/korede/projects/move/node_modules/@types/serve-static/index.d.ts": {
+        "version": "cdbae5083ef8f786069519405ca1f1e2ce72b9efebdf5e1931584fba747f3bc0",
+        "signature": "cdbae5083ef8f786069519405ca1f1e2ce72b9efebdf5e1931584fba747f3bc0"
+      },
+      "/users/korede/projects/move/node_modules/@types/express/index.d.ts": {
+        "version": "1f92cdebe2b1e0e6309ccdb6e8700cfd2d3e7131c7842f91b38ed1e4ff2a7090",
+        "signature": "1f92cdebe2b1e0e6309ccdb6e8700cfd2d3e7131c7842f91b38ed1e4ff2a7090"
+      },
+      "/users/korede/projects/move/node_modules/@types/fbemitter/index.d.ts": {
+        "version": "97529c4f2e717c9d900b8c48be0f1a9fb90fd666d04af60e5410fbe9b9a98cef",
+        "signature": "97529c4f2e717c9d900b8c48be0f1a9fb90fd666d04af60e5410fbe9b9a98cef"
+      },
       "/users/korede/projects/move/node_modules/@types/minimatch/index.d.ts": {
         "version": "1d1e6bd176eee5970968423d7e215bfd66828b6db8d54d17afec05a831322633",
         "signature": "1d1e6bd176eee5970968423d7e215bfd66828b6db8d54d17afec05a831322633"
@@ -404,6 +464,34 @@
       "/users/korede/projects/move/node_modules/@types/invariant/index.d.ts": {
         "version": "987248017d05678b16a0eff2c323fc3700411b9094ece88ba886c1d006732f8a",
         "signature": "987248017d05678b16a0eff2c323fc3700411b9094ece88ba886c1d006732f8a"
+      },
+      "/users/korede/projects/move/node_modules/@types/istanbul-lib-coverage/index.d.ts": {
+        "version": "9e951ec338c4232d611552a1be7b4ecec79a8c2307a893ce39701316fe2374bd",
+        "signature": "9e951ec338c4232d611552a1be7b4ecec79a8c2307a893ce39701316fe2374bd"
+      },
+      "/users/korede/projects/move/node_modules/@types/istanbul-lib-report/index.d.ts": {
+        "version": "70c61ff569aabdf2b36220da6c06caaa27e45cd7acac81a1966ab4ee2eadc4f2",
+        "signature": "70c61ff569aabdf2b36220da6c06caaa27e45cd7acac81a1966ab4ee2eadc4f2"
+      },
+      "/users/korede/projects/move/node_modules/@types/istanbul-reports/index.d.ts": {
+        "version": "93b59bc67329d5add033e3198583c39aa939cef891e6a2b763e0bea2b514ea9b",
+        "signature": "93b59bc67329d5add033e3198583c39aa939cef891e6a2b763e0bea2b514ea9b"
+      },
+      "/users/korede/projects/move/node_modules/@types/jest-diff/index.d.ts": {
+        "version": "6ecb326999da47034eff85653423767152858fbb7acf0433f7603c9abf1e3f06",
+        "signature": "6ecb326999da47034eff85653423767152858fbb7acf0433f7603c9abf1e3f06"
+      },
+      "/users/korede/projects/move/node_modules/jest-diff/build/types.d.ts": {
+        "version": "71ba0678a3c647f5c0706ae975c031ace0d464e60f9ce56eaa7f1678d065aab7",
+        "signature": "71ba0678a3c647f5c0706ae975c031ace0d464e60f9ce56eaa7f1678d065aab7"
+      },
+      "/users/korede/projects/move/node_modules/jest-diff/build/index.d.ts": {
+        "version": "162c6f2951bd80ae6e16679378f382200b26bba9de8f255af3a2895fbfa670b4",
+        "signature": "162c6f2951bd80ae6e16679378f382200b26bba9de8f255af3a2895fbfa670b4"
+      },
+      "/users/korede/projects/move/node_modules/@types/jest/index.d.ts": {
+        "version": "fa957aac96a5a1b31eab2ad478219b9559d1ab7d0668920817614a8384d8965b",
+        "signature": "fa957aac96a5a1b31eab2ad478219b9559d1ab7d0668920817614a8384d8965b"
       },
       "/users/korede/projects/move/node_modules/@types/json-schema/index.d.ts": {
         "version": "751b8d5b85eee82bd38964a6ff43e89e61a586c64f653e3d1eb8fa7eb372ed30",
@@ -469,13 +557,29 @@
         "version": "c4c03cf65951d980ba618ae9601d10438730803fc9c8a1f7b34af8739981e205",
         "signature": "c4c03cf65951d980ba618ae9601d10438730803fc9c8a1f7b34af8739981e205"
       },
+      "/users/korede/projects/move/node_modules/@types/mongodb/index.d.ts": {
+        "version": "e71f36dd7238aa07e111015a00dd2dff0c37b91558e68559ddb9dbdf11ccd478",
+        "signature": "e71f36dd7238aa07e111015a00dd2dff0c37b91558e68559ddb9dbdf11ccd478"
+      },
+      "/users/korede/projects/move/node_modules/@types/mongoose/index.d.ts": {
+        "version": "985cebe2a5f6ce01456858766de255880dfd68c8e2bdc8b8e302bc7baf659c7c",
+        "signature": "985cebe2a5f6ce01456858766de255880dfd68c8e2bdc8b8e302bc7baf659c7c"
+      },
       "/users/korede/projects/move/node_modules/@types/normalize-package-data/index.d.ts": {
         "version": "c9ad058b2cc9ce6dc2ed92960d6d009e8c04bef46d3f5312283debca6869f613",
         "signature": "c9ad058b2cc9ce6dc2ed92960d6d009e8c04bef46d3f5312283debca6869f613"
       },
+      "/users/korede/projects/move/node_modules/@types/q/index.d.ts": {
+        "version": "57427a9a368f8f0ee4ce03c36a762e19166756b95ab688948b29be553b24a78a",
+        "signature": "57427a9a368f8f0ee4ce03c36a762e19166756b95ab688948b29be553b24a78a"
+      },
       "/users/korede/projects/move/node_modules/@types/qs/index.d.ts": {
         "version": "dca5da58652b1b26ae6daf225335a7afebb435dd7fd378174b74c9e13cd4224b",
         "signature": "dca5da58652b1b26ae6daf225335a7afebb435dd7fd378174b74c9e13cd4224b"
+      },
+      "/users/korede/projects/move/node_modules/@types/react-dom/index.d.ts": {
+        "version": "66a69dbb56cb094e025c78b4620615e9b8a432487e2c242a955626ce85ebe7de",
+        "signature": "66a69dbb56cb094e025c78b4620615e9b8a432487e2c242a955626ce85ebe7de"
       },
       "/users/korede/projects/move/node_modules/@types/redux-logger/node_modules/redux/index.d.ts": {
         "version": "143f5a2fabc5562679cc1993328c4581ad851279a067e81ce40495e2084760c7",
@@ -484,6 +588,10 @@
       "/users/korede/projects/move/node_modules/@types/redux-logger/index.d.ts": {
         "version": "e800ed2d2b14320acfe517d3c89e01a196d6c0ffcdcfac14937ffec556f4d486",
         "signature": "e800ed2d2b14320acfe517d3c89e01a196d6c0ffcdcfac14937ffec556f4d486"
+      },
+      "/users/korede/projects/move/node_modules/@types/stack-utils/index.d.ts": {
+        "version": "41422586881bcd739b4e62d9b91cd29909f8572aa3e3cdf316b7c50f14708d49",
+        "signature": "41422586881bcd739b4e62d9b91cd29909f8572aa3e3cdf316b7c50f14708d49"
       },
       "/users/korede/projects/move/node_modules/@types/superagent/index.d.ts": {
         "version": "29bd8d65c775cc98ffc54c52d9e9636a9dff425b155860797afac168b4bc931a",
@@ -496,6 +604,14 @@
       "/users/korede/projects/move/node_modules/@types/websql/index.d.ts": {
         "version": "100a7612840f1cc2f3a6b3cb0d605424c4d160e294bd44b397de6afb8ff6d3ce",
         "signature": "100a7612840f1cc2f3a6b3cb0d605424c4d160e294bd44b397de6afb8ff6d3ce"
+      },
+      "/users/korede/projects/move/node_modules/@types/yargs-parser/index.d.ts": {
+        "version": "7b48555954a556ad80cc5fda89473d339f570eeac7a7b4d99c88ff5e646c24f7",
+        "signature": "7b48555954a556ad80cc5fda89473d339f570eeac7a7b4d99c88ff5e646c24f7"
+      },
+      "/users/korede/projects/move/node_modules/@types/yargs/index.d.ts": {
+        "version": "6f15cf4b24659aa2b9f957dc0b4254b89f35a77978f9da1f161587b66ef75663",
+        "signature": "6f15cf4b24659aa2b9f957dc0b4254b89f35a77978f9da1f161587b66ef75663"
       }
     },
     "options": {
@@ -742,23 +858,41 @@
         "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/users/korede/projects/move/node_modules/@types/chai/index.d.ts": [
+      "/users/korede/projects/move/packages/core/src/queries/trips.ts": [
         "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/users/korede/projects/move/node_modules/@types/cookiejar/index.d.ts": [
+      "/users/korede/projects/move/node_modules/@babel/types/lib/index.d.ts": [
         "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/users/korede/projects/move/node_modules/@types/eslint-visitor-keys/index.d.ts": [
+      "/users/korede/projects/move/node_modules/@types/babel__generator/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@babel/types/lib/index.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/users/korede/projects/move/node_modules/@types/events/index.d.ts": [
+      "/users/korede/projects/move/node_modules/@types/babel__traverse/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@babel/types/lib/index.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/users/korede/projects/move/node_modules/@types/fbemitter/index.d.ts": [
+      "/users/korede/projects/move/node_modules/@babel/parser/typings/babel-parser.d.ts": [
+        "/users/korede/projects/move/node_modules/@babel/types/lib/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/babel__template/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@babel/parser/typings/babel-parser.d.ts",
+        "/users/korede/projects/move/node_modules/@babel/types/lib/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/babel__core/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/babel__generator/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/babel__traverse/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/babel__template/index.d.ts",
+        "/users/korede/projects/move/node_modules/@babel/types/lib/index.d.ts",
+        "/users/korede/projects/move/node_modules/@babel/parser/typings/babel-parser.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -775,6 +909,10 @@
         "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "/users/korede/projects/move/node_modules/@types/node/buffer.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/events/index.d.ts": [
         "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -1028,6 +1166,69 @@
         "/users/korede/projects/move/node_modules/@types/node/ts3.2/globals.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/util.d.ts"
       ],
+      "/users/korede/projects/move/node_modules/@types/connect/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/http.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/body-parser/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/connect/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/http.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/bson/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/chai/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/cookiejar/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/eslint-visitor-keys/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/range-parser/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/express-serve-static-core/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/http.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/events.d.ts",
+        "/users/korede/projects/move/node_modules/@types/range-parser/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/mime/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/serve-static/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/express-serve-static-core/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/mime/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/express/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/body-parser/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/serve-static/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/express-serve-static-core/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/fbemitter/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "/users/korede/projects/move/node_modules/@types/minimatch/index.d.ts": [
         "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
@@ -1040,6 +1241,40 @@
         "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "/users/korede/projects/move/node_modules/@types/invariant/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/istanbul-lib-coverage/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/istanbul-lib-report/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/istanbul-lib-coverage/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/istanbul-reports/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/istanbul-lib-report/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/istanbul-lib-coverage/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/jest-diff/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/jest-diff/build/types.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/jest-diff/build/index.d.ts": [
+        "/users/korede/projects/move/node_modules/jest-diff/build/types.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/jest/index.d.ts": [
+        "/users/korede/projects/move/node_modules/jest-diff/build/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/jest-diff/index.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -1264,11 +1499,38 @@
         "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "/users/korede/projects/move/node_modules/@types/mongodb/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/bson/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/events.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/stream.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/tls.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/mongoose/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/events.d.ts",
+        "/users/korede/projects/move/node_modules/@types/mongodb/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/stream.d.ts",
+        "/users/korede/projects/move/node_modules/@types/mongoose/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "/users/korede/projects/move/node_modules/@types/normalize-package-data/index.d.ts": [
         "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "/users/korede/projects/move/node_modules/@types/q/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "/users/korede/projects/move/node_modules/@types/qs/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/react-dom/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/react/index.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -1278,6 +1540,10 @@
       ],
       "/users/korede/projects/move/node_modules/@types/redux-logger/index.d.ts": [
         "/users/korede/projects/move/node_modules/@types/redux-logger/node_modules/redux/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/stack-utils/index.d.ts": [
         "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -1295,6 +1561,15 @@
         "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "/users/korede/projects/move/node_modules/@types/websql/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/yargs-parser/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/yargs/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/yargs-parser/index.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
       ]
@@ -1439,17 +1714,40 @@
       "/users/korede/projects/move/packages/core/src/queries/index.ts": [
         "/users/korede/projects/move/packages/core/src/queries/auth.ts"
       ],
-      "/users/korede/projects/move/packages/core/src/index.ts": [
-        "/users/korede/projects/move/packages/core/src/queries/index.ts",
-        "/users/korede/projects/move/packages/core/src/actions/index.ts",
-        "/users/korede/projects/move/packages/core/src/types.ts"
-      ],
       "/users/korede/projects/move/node_modules/@types/react-native/globals.d.ts": [
         "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "/users/korede/projects/move/node_modules/@types/react-native/legacy-properties.d.ts": [
         "/users/korede/projects/move/node_modules/@types/react-native/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/react-native/batchedbridge.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/react-native/devtools.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/react-native/devtools.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/prop-types/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/react/global.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/csstype/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/react/index.d.ts": [
+        "/users/korede/projects/move/node_modules/csstype/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/prop-types/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/react/global.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -1469,52 +1767,24 @@
       "/users/korede/projects/move/packages/core/src/actions/index.ts": [
         "/users/korede/projects/move/packages/core/src/actions/auth.ts"
       ],
-      "/users/korede/projects/move/node_modules/@types/react-native/batchedbridge.d.ts": [
+      "/users/korede/projects/move/packages/core/src/index.ts": [
+        "/users/korede/projects/move/packages/core/src/queries/index.ts",
+        "/users/korede/projects/move/packages/core/src/actions/index.ts",
+        "/users/korede/projects/move/packages/core/src/types.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/node/globals.d.ts": [
         "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/users/korede/projects/move/node_modules/@types/react-native/devtools.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/react-native/devtools.d.ts",
+      "/users/korede/projects/move/node_modules/@types/node/assert.d.ts": [
         "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/users/korede/projects/move/node_modules/@types/prop-types/index.d.ts": [
+      "/users/korede/projects/move/node_modules/@types/node/async_hooks.d.ts": [
         "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/users/korede/projects/move/node_modules/@types/react/index.d.ts": [
-        "/users/korede/projects/move/node_modules/csstype/index.d.ts",
-        "/users/korede/projects/move/node_modules/@types/prop-types/index.d.ts",
-        "/users/korede/projects/move/node_modules/@types/react/global.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/react/global.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/csstype/index.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/chai/index.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/cookiejar/index.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/superagent/index.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/fs.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/https.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/stream.d.ts",
-        "/users/korede/projects/move/node_modules/@types/cookiejar/index.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/index.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/eslint-visitor-keys/index.d.ts": [
+      "/users/korede/projects/move/node_modules/@types/node/buffer.d.ts": [
         "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -1522,15 +1792,196 @@
         "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/users/korede/projects/move/node_modules/@types/fbemitter/index.d.ts": [
+      "/users/korede/projects/move/node_modules/@types/node/child_process.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/events.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/net.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/stream.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/users/korede/projects/move/node_modules/@types/node/globals.d.ts": [
+      "/users/korede/projects/move/node_modules/@types/node/cluster.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/child_process.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/events.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/net.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/users/korede/projects/move/node_modules/@types/node/assert.d.ts": [
+      "/users/korede/projects/move/node_modules/@types/node/console.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/node/constants.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/node/crypto.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/stream.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/node/dgram.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/net.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/dns.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/events.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/node/dns.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/node/domain.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/events.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/node/events.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/node/fs.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/stream.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/events.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/url.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/node/http.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/events.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/stream.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/url.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/net.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/node/http2.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/events.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/fs.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/net.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/stream.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/tls.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/url.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/http.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/node/https.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/tls.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/events.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/http.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/url.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/node/inspector.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/events.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/node/module.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/node/net.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/stream.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/events.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/dns.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/node/os.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/node/path.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/node/perf_hooks.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/async_hooks.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/node/process.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/node/punycode.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/node/querystring.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/node/readline.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/events.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/stream.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/node/repl.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/readline.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/vm.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/node/stream.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/events.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/node/string_decoder.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/node/timers.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/node/tls.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/crypto.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/dns.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/net.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/stream.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/node/trace_events.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/node/tty.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/net.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/node/url.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/querystring.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/node/util.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/node/v8.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/stream.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/node/vm.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/node/worker_threads.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/vm.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/events.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/stream.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/node/zlib.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/stream.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -1577,11 +2028,39 @@
         "/users/korede/projects/move/node_modules/@types/node/zlib.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/node/ts3.2/globals.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/globals.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "/users/korede/projects/move/node_modules/@types/node/ts3.2/index.d.ts": [
         "/users/korede/projects/move/node_modules/@types/node/base.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/ts3.2/globals.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/chai/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/cookiejar/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/eslint-visitor-keys/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/fbemitter/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/minimatch/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "/users/korede/projects/move/node_modules/@types/glob/index.d.ts": [
         "/users/korede/projects/move/node_modules/@types/node/events.d.ts",
@@ -1590,401 +2069,18 @@
         "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/users/korede/projects/move/node_modules/@types/node/async_hooks.d.ts": [
+      "/users/korede/projects/move/node_modules/@types/invariant/index.d.ts": [
         "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/users/korede/projects/move/node_modules/@types/node/perf_hooks.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/async_hooks.d.ts",
+      "/users/korede/projects/move/node_modules/@types/json-schema/index.d.ts": [
         "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/users/korede/projects/move/node_modules/@types/node/buffer.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/node/child_process.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/events.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/net.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/stream.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/node/cluster.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/child_process.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/events.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/net.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/node/console.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/node/constants.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/node/crypto.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/stream.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/node/tls.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/crypto.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/dns.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/net.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/stream.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/node/https.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/tls.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/events.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/http.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/url.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/node/http2.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/events.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/fs.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/net.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/stream.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/tls.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/url.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/http.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/node/dgram.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/net.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/dns.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/events.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/node/dns.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/node/net.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/stream.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/events.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/dns.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/node/tty.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/net.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/node/http.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/events.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/stream.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/url.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/net.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/node/domain.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/events.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/node/events.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/node/worker_threads.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/vm.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/events.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/stream.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/node/stream.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/events.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/node/zlib.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/stream.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/node/v8.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/stream.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/node/readline.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/events.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/stream.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/node/repl.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/readline.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/vm.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/node/fs.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/stream.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/events.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/url.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/node/inspector.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/events.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/node/module.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/node/os.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/node/path.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/node/process.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/node/punycode.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/node/querystring.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/node/url.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/querystring.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/node/string_decoder.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/node/timers.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/node/trace_events.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/node/util.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/websql/index.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/uuid-js/index.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/redux-logger/index.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/redux-logger/node_modules/redux/index.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/redux-logger/node_modules/redux/index.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/qs/index.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/normalize-package-data/index.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/mocha/index.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/lodash.zipobject/index.d.ts": [
+      "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/common.d.ts": [
         "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/index.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/index.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/common.d.ts",
         "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/array.d.ts",
         "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/collection.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/date.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/function.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/lang.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/math.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/number.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/object.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/seq.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/string.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/util.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/index.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/common.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/array.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/collection.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/date.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/function.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/lang.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/math.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/number.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/object.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/seq.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/string.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/string.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/index.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/common.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/array.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/collection.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/date.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/function.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/lang.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/math.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/number.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/object.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/seq.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/seq.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/index.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/common.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/array.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/collection.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/date.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/function.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/lang.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/math.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/number.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/object.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/string.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/object.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/index.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/common.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/array.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/collection.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/date.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/function.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/lang.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/math.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/number.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/seq.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/string.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/number.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/index.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/common.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/array.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/collection.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/date.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/function.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/lang.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/math.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/object.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/seq.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/string.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/math.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/index.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/common.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/array.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/collection.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/date.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/function.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/lang.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/number.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/object.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/seq.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/string.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/lang.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/index.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/common.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/array.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/collection.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/date.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/function.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/math.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/number.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/object.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/seq.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/string.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/function.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/index.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/common.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/array.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/collection.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/date.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/lang.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/math.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/number.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/object.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/seq.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/string.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/date.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/index.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/common.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/array.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/collection.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/function.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/lang.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/math.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/number.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/object.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/seq.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/string.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
-        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/collection.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/index.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/common.d.ts",
-        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/array.d.ts",
         "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/date.d.ts",
         "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/function.d.ts",
         "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/lang.d.ts",
@@ -2013,8 +2109,168 @@
         "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/common.d.ts": [
+      "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/collection.d.ts": [
         "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/common.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/array.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/date.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/function.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/lang.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/math.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/number.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/object.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/seq.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/string.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/date.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/common.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/array.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/collection.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/function.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/lang.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/math.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/number.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/object.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/seq.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/string.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/function.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/common.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/array.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/collection.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/date.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/lang.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/math.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/number.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/object.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/seq.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/string.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/lang.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/common.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/array.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/collection.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/date.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/function.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/math.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/number.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/object.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/seq.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/string.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/math.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/common.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/array.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/collection.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/date.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/function.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/lang.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/number.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/object.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/seq.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/string.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/number.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/common.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/array.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/collection.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/date.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/function.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/lang.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/math.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/object.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/seq.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/string.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/object.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/common.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/array.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/collection.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/date.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/function.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/lang.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/math.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/number.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/seq.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/string.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/seq.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/common.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/array.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/collection.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/date.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/function.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/lang.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/math.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/number.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/object.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/string.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/string.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/common.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/array.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/collection.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/date.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/function.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/lang.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/math.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/number.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/object.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/seq.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/util.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/common.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/array.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/collection.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/date.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/function.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/lang.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/math.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/number.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/object.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/seq.d.ts",
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/string.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/common.d.ts",
         "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/array.d.ts",
         "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/collection.d.ts",
         "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/common/date.d.ts",
@@ -2029,27 +2285,201 @@
         "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/users/korede/projects/move/node_modules/@types/json-schema/index.d.ts": [
+      "/users/korede/projects/move/node_modules/@types/lodash.zipobject/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/lodash/ts3.1/index.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/users/korede/projects/move/node_modules/@types/invariant/index.d.ts": [
+      "/users/korede/projects/move/node_modules/@types/mocha/index.d.ts": [
         "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/users/korede/projects/move/node_modules/@types/minimatch/index.d.ts": [
+      "/users/korede/projects/move/node_modules/@types/normalize-package-data/index.d.ts": [
         "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/users/korede/projects/move/node_modules/@types/node/ts3.2/globals.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/globals.d.ts",
+      "/users/korede/projects/move/node_modules/@types/qs/index.d.ts": [
         "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts": [
-        "/users/korede/projects/move/node_modules/@types/node/util.d.ts"
+      "/users/korede/projects/move/node_modules/@types/redux-logger/node_modules/redux/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/users/korede/projects/move/node_modules/@types/node/vm.d.ts": [
+      "/users/korede/projects/move/node_modules/@types/redux-logger/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/redux-logger/node_modules/redux/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/superagent/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/fs.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/https.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/stream.d.ts",
+        "/users/korede/projects/move/node_modules/@types/cookiejar/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/uuid-js/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/websql/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@babel/types/lib/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/babel__core/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/babel__generator/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/babel__traverse/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/babel__template/index.d.ts",
+        "/users/korede/projects/move/node_modules/@babel/types/lib/index.d.ts",
+        "/users/korede/projects/move/node_modules/@babel/parser/typings/babel-parser.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/babel__template/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@babel/parser/typings/babel-parser.d.ts",
+        "/users/korede/projects/move/node_modules/@babel/types/lib/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@babel/parser/typings/babel-parser.d.ts": [
+        "/users/korede/projects/move/node_modules/@babel/types/lib/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/babel__traverse/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@babel/types/lib/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/babel__generator/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@babel/types/lib/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/connect/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/http.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/body-parser/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/connect/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/http.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/express/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/body-parser/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/serve-static/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/express-serve-static-core/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/bson/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/mongodb/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/bson/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/events.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/stream.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/tls.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/mongoose/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/events.d.ts",
+        "/users/korede/projects/move/node_modules/@types/mongodb/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/stream.d.ts",
+        "/users/korede/projects/move/node_modules/@types/mongoose/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/range-parser/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/express-serve-static-core/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/http.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/events.d.ts",
+        "/users/korede/projects/move/node_modules/@types/range-parser/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/serve-static/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/express-serve-static-core/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/mime/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/mime/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/istanbul-lib-coverage/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/istanbul-reports/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/istanbul-lib-report/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/istanbul-lib-coverage/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/istanbul-lib-report/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/istanbul-lib-coverage/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/jest-diff/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/jest/index.d.ts": [
+        "/users/korede/projects/move/node_modules/jest-diff/build/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/jest-diff/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/jest-diff/build/types.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/jest-diff/build/index.d.ts": [
+        "/users/korede/projects/move/node_modules/jest-diff/build/types.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/q/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/react-dom/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/react/index.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/stack-utils/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/yargs-parser/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
+        "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/korede/projects/move/node_modules/@types/yargs/index.d.ts": [
+        "/users/korede/projects/move/node_modules/@types/yargs-parser/index.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/util.d.ts",
         "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts"
       ]
@@ -2089,8 +2519,6 @@
       "/users/korede/projects/move/node_modules/typescript/lib/lib.es2019.symbol.d.ts",
       "/users/korede/projects/move/node_modules/typescript/lib/lib.esnext.intl.d.ts",
       "/users/korede/projects/move/node_modules/typescript/lib/lib.esnext.bigint.d.ts",
-      "/users/korede/projects/move/packages/core/src/queries/auth.ts",
-      "/users/korede/projects/move/packages/core/src/queries/index.ts",
       "/users/korede/projects/move/node_modules/@types/react-native/globals.d.ts",
       "/users/korede/projects/move/node_modules/@types/react-native/legacy-properties.d.ts",
       "/users/korede/projects/move/node_modules/@types/react-native/batchedbridge.d.ts",
@@ -2101,18 +2529,11 @@
       "/users/korede/projects/move/node_modules/@types/react/index.d.ts",
       "/users/korede/projects/move/node_modules/@types/react-native/index.d.ts",
       "/users/korede/projects/move/packages/core/src/types.ts",
-      "/users/korede/projects/move/packages/core/src/actions/auth.ts",
-      "/users/korede/projects/move/packages/core/src/actions/index.ts",
-      "/users/korede/projects/move/packages/core/src/index.ts",
-      "/users/korede/projects/move/node_modules/@types/chai/index.d.ts",
-      "/users/korede/projects/move/node_modules/@types/cookiejar/index.d.ts",
-      "/users/korede/projects/move/node_modules/@types/eslint-visitor-keys/index.d.ts",
-      "/users/korede/projects/move/node_modules/@types/events/index.d.ts",
-      "/users/korede/projects/move/node_modules/@types/fbemitter/index.d.ts",
       "/users/korede/projects/move/node_modules/@types/node/globals.d.ts",
       "/users/korede/projects/move/node_modules/@types/node/assert.d.ts",
       "/users/korede/projects/move/node_modules/@types/node/async_hooks.d.ts",
       "/users/korede/projects/move/node_modules/@types/node/buffer.d.ts",
+      "/users/korede/projects/move/node_modules/@types/events/index.d.ts",
       "/users/korede/projects/move/node_modules/@types/node/child_process.d.ts",
       "/users/korede/projects/move/node_modules/@types/node/cluster.d.ts",
       "/users/korede/projects/move/node_modules/@types/node/console.d.ts",
@@ -2153,6 +2574,10 @@
       "/users/korede/projects/move/node_modules/@types/node/ts3.2/util.d.ts",
       "/users/korede/projects/move/node_modules/@types/node/ts3.2/globals.d.ts",
       "/users/korede/projects/move/node_modules/@types/node/ts3.2/index.d.ts",
+      "/users/korede/projects/move/node_modules/@types/chai/index.d.ts",
+      "/users/korede/projects/move/node_modules/@types/cookiejar/index.d.ts",
+      "/users/korede/projects/move/node_modules/@types/eslint-visitor-keys/index.d.ts",
+      "/users/korede/projects/move/node_modules/@types/fbemitter/index.d.ts",
       "/users/korede/projects/move/node_modules/@types/minimatch/index.d.ts",
       "/users/korede/projects/move/node_modules/@types/glob/index.d.ts",
       "/users/korede/projects/move/node_modules/@types/invariant/index.d.ts",
@@ -2178,7 +2603,41 @@
       "/users/korede/projects/move/node_modules/@types/redux-logger/index.d.ts",
       "/users/korede/projects/move/node_modules/@types/superagent/index.d.ts",
       "/users/korede/projects/move/node_modules/@types/uuid-js/index.d.ts",
-      "/users/korede/projects/move/node_modules/@types/websql/index.d.ts"
+      "/users/korede/projects/move/node_modules/@types/websql/index.d.ts",
+      "/users/korede/projects/move/packages/core/src/queries/auth.ts",
+      "/users/korede/projects/move/packages/core/src/queries/index.ts",
+      "/users/korede/projects/move/packages/core/src/actions/auth.ts",
+      "/users/korede/projects/move/packages/core/src/actions/index.ts",
+      "/users/korede/projects/move/packages/core/src/index.ts",
+      "/users/korede/projects/move/packages/core/src/queries/trips.ts",
+      "/users/korede/projects/move/node_modules/@babel/types/lib/index.d.ts",
+      "/users/korede/projects/move/node_modules/@types/babel__generator/index.d.ts",
+      "/users/korede/projects/move/node_modules/@types/babel__traverse/index.d.ts",
+      "/users/korede/projects/move/node_modules/@babel/parser/typings/babel-parser.d.ts",
+      "/users/korede/projects/move/node_modules/@types/babel__template/index.d.ts",
+      "/users/korede/projects/move/node_modules/@types/babel__core/index.d.ts",
+      "/users/korede/projects/move/node_modules/@types/connect/index.d.ts",
+      "/users/korede/projects/move/node_modules/@types/body-parser/index.d.ts",
+      "/users/korede/projects/move/node_modules/@types/bson/index.d.ts",
+      "/users/korede/projects/move/node_modules/@types/range-parser/index.d.ts",
+      "/users/korede/projects/move/node_modules/@types/express-serve-static-core/index.d.ts",
+      "/users/korede/projects/move/node_modules/@types/mime/index.d.ts",
+      "/users/korede/projects/move/node_modules/@types/serve-static/index.d.ts",
+      "/users/korede/projects/move/node_modules/@types/express/index.d.ts",
+      "/users/korede/projects/move/node_modules/@types/istanbul-lib-coverage/index.d.ts",
+      "/users/korede/projects/move/node_modules/@types/istanbul-lib-report/index.d.ts",
+      "/users/korede/projects/move/node_modules/@types/istanbul-reports/index.d.ts",
+      "/users/korede/projects/move/node_modules/@types/jest-diff/index.d.ts",
+      "/users/korede/projects/move/node_modules/jest-diff/build/types.d.ts",
+      "/users/korede/projects/move/node_modules/jest-diff/build/index.d.ts",
+      "/users/korede/projects/move/node_modules/@types/jest/index.d.ts",
+      "/users/korede/projects/move/node_modules/@types/mongodb/index.d.ts",
+      "/users/korede/projects/move/node_modules/@types/mongoose/index.d.ts",
+      "/users/korede/projects/move/node_modules/@types/q/index.d.ts",
+      "/users/korede/projects/move/node_modules/@types/react-dom/index.d.ts",
+      "/users/korede/projects/move/node_modules/@types/stack-utils/index.d.ts",
+      "/users/korede/projects/move/node_modules/@types/yargs-parser/index.d.ts",
+      "/users/korede/projects/move/node_modules/@types/yargs/index.d.ts"
     ]
   },
   "version": "3.5.3"
