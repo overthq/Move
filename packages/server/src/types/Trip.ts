@@ -1,21 +1,22 @@
 const Trip = `
 	type Trip {
+		_id: ID!
 		origin: String!
-		description: String!
+		destination: String!
 		fare: Int!
 	}
 
-	input type TripInput {
+	input TripInput {
 		origin: String!
-		description: String!
+		destination: String!
 		fare: Int!
 	}
 
-	extends type Mutation {
+	extend type Mutation {
 		createTrip(input: TripInput): Trip
 	}
 
-	extends type Query {
+	extend type Query {
 		trips: [Trip]
 		trip(id: ID!): Trip
 	}
