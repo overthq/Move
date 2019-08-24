@@ -3,6 +3,7 @@ import { model, Schema, Document } from 'mongoose';
 export interface TripType extends Document {
 	origin: string;
 	destination: string;
+	fare: number;
 }
 
 const TripSchema = new Schema(
