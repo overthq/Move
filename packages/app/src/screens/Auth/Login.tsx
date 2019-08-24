@@ -12,13 +12,16 @@ const Login = () => {
 	};
 
 	const handleSubmit = async () => {
-		await executeMutation({ phoneNumber });
-		console.log(res);
+		await executeMutation({ input: { phoneNumber } });
+		if (res.error && res.error.message) console.log(res.error.message);
 	};
 
 	return (
-		<View style={{ flex: 1 }}>
-			<TextInput onChangeText={handleTextChange} />
+		<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+			<TextInput
+				placeholder='Your phone number'
+				onChangeText={handleTextChange}
+			/>
 			<TouchableOpacity onPress={handleSubmit}>
 				<Text>Next</Text>
 			</TouchableOpacity>

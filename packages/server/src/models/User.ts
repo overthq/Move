@@ -18,7 +18,8 @@ const UserSchema = new Schema(
 		},
 		phoneNumber: {
 			type: String,
-			required: true
+			required: true,
+			unique: true
 		}
 	},
 	{ timestamps: true }
