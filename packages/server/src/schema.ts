@@ -5,6 +5,7 @@ import userMutation from './mutations/users';
 import tripMutation from './mutations/trips';
 
 import userQuery from './queries/users';
+import tripQuery from './queries/trips';
 
 const RootType = `
 	type Query {
@@ -23,7 +24,8 @@ const resolvers = {
 		...tripMutation
 	},
 	Query: {
-		...userQuery
+		...userQuery,
+		...tripQuery
 	}
 };
 
