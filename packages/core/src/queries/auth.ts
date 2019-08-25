@@ -19,7 +19,7 @@ export const AUTH_REGISTER = `
 `;
 
 export const AUTH_VERIFY_CODE = `
-	query VerifyCode($code: String!) {
+	mutation VerifyCode($code: String!) {
 		verifyCode(code: $code) {
 			firstName
 			lastName

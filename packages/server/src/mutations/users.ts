@@ -22,6 +22,18 @@ const userMutations = {
 		if (!user) throw new Error('The specified user does not exist');
 		await sendVerificationCode(phoneNumber);
 		return `Verification message sent to ${phoneNumber}`;
+	},
+	verifyCode: async (_, { code }) => {
+		const verificationCode = await VerificationCode.findOne({ code });
+		if (!verificationCode || verificationCode.code !== code) {
+			throw new Error('The verification code entered is invalid');
+		}
+		const user = await User.findOne({
+			phoneNumber: verificationCode.phoneNumber
+		});
+		if (!user) throw new Error('No user found with the specified details');
+		await verificationCode.remove();
+		return user; // This should obviously go along with some sort of access token in the future.
 	}
 };
 

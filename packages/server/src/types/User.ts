@@ -16,13 +16,12 @@ const User = `
 		phoneNumber: String!
 	}
 
-	extend type Query {
-		verifyCode(code: String!): User!
-	}
+	extend type Query {}
 
 	extend type Mutation {
 		login(input: LoginInput!): String!
 		register(input: RegisterInput!): String!
+		verifyCode(code: String!): User!
 	}
 `;
 
