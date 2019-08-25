@@ -11,7 +11,6 @@ interface PaymentModalProps {
 
 const PaymentModal = ({ modalRef, tripId }: PaymentModalProps) => {
 	console.log(tripId);
-	// Fetch the trip details by id
 
 	const [{ data, error }] = useQuery({
 		query: TRIP,
@@ -19,9 +18,11 @@ const PaymentModal = ({ modalRef, tripId }: PaymentModalProps) => {
 	});
 
 	if (!data || error) {
-		console.log(error, data);
+		console.log(error);
 		return <View />;
 	}
+
+	console.log(data);
 
 	return (
 		<Modalize ref={modalRef} adjustToContentHeight>

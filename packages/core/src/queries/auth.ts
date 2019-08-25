@@ -1,6 +1,6 @@
 export const AUTH_LOGIN = `
   mutation Login($phoneNumber: String!) {
-		login(phoneNumber: $phoneNumber)
+		login(input: { phoneNumber: $phoneNumber })
 	}
 `;
 
