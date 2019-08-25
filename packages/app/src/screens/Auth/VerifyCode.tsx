@@ -5,20 +5,25 @@ import {
 	TouchableOpacity,
 	KeyboardAvoidingView
 } from 'react-native';
-import { useMutation } from 'urql';
+import { useQuery } from 'urql';
 import { NavigationScreenProps } from 'react-navigation';
 import { AUTH_VERIFY_CODE } from '@move/core';
 import styles from './styles';
 
 const VerifyCode = ({ navigation }: NavigationScreenProps) => {
 	const [code, setCode] = React.useState('');
-	const [, executeMutation] = useMutation(AUTH_VERIFY_CODE);
+	const [{ fetching, data, error }, executeQuery] = useQuery({
+		query: AUTH_VERIFY_CODE
+	});
 
 	const handleTextChange = (text: string) => setCode(text);
 
 	const handleSubmit = async () => {
 		const phoneNumber: string = navigation.getParam('phoneNumber', '');
-		await executeMutation({ phoneNumber, code });
+		// Research if this approach works, because there is no explicit passing of variables here.
+		// How do I defer the running of the variable till I am ready?
+		await executeQuery({ phoneNumber, code });
+		console.log(fetching, error, data);
 	};
 
 	return (
