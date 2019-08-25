@@ -1,14 +1,14 @@
 import React from 'react';
 import {
-	View,
 	Text,
 	TextInput,
 	TouchableOpacity,
-	StyleSheet
+	KeyboardAvoidingView
 } from 'react-native';
 import { useMutation } from 'urql';
 import { AUTH_LOGIN } from '@move/core';
 import { NavigationScreenProps } from 'react-navigation';
+import styles from './styles';
 
 const Login = ({ navigation }: NavigationScreenProps) => {
 	const [phoneNumber, setPhoneNumber] = React.useState('');
@@ -27,7 +27,7 @@ const Login = ({ navigation }: NavigationScreenProps) => {
 	}, [executeMutation, res]);
 
 	return (
-		<View style={styles.container}>
+		<KeyboardAvoidingView style={styles.container} behavior='padding'>
 			<Text>Your phone number</Text>
 			<TextInput
 				style={styles.input}
@@ -37,26 +37,8 @@ const Login = ({ navigation }: NavigationScreenProps) => {
 			<TouchableOpacity onPress={handleSubmit}>
 				<Text>Next</Text>
 			</TouchableOpacity>
-		</View>
+		</KeyboardAvoidingView>
 	);
 };
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		alignItems: 'center',
-		justifyContent: 'center',
-		paddingHorizontal: 20
-	},
-	input: {
-		height: 40,
-		width: '100%',
-		backgroundColor: '#D3D3D3',
-		color: '#505050',
-		marginVertical: 20,
-		paddingLeft: 10,
-		borderRadius: 6
-	}
-});
 
 export default Login;
