@@ -7,6 +7,7 @@ const tripQuery = {
 	},
 	trip: async (_, { id }) => {
 		const matchedTrip = await Trip.findById(id);
+		if (!matchedTrip) throw new Error('Specified trip does not exist');
 		return matchedTrip;
 	}
 };
