@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import { useMutation } from 'urql';
 import { NavigationScreenProps } from 'react-navigation';
-import { AUTH_VERIFY_CODE } from '@move/core';
+import { AUTH_VERIFY_CODE, storeUserData } from '@move/core';
 import styles from './styles';
 
 const VerifyCode = ({ navigation }: NavigationScreenProps) => {
@@ -18,7 +18,11 @@ const VerifyCode = ({ navigation }: NavigationScreenProps) => {
 	const handleSubmit = async () => {
 		const phoneNumber: string = navigation.getParam('phoneNumber', '');
 		await executeMutation({ phoneNumber, code });
-		console.log(res); // And save the auth data in AsyncStorage.
+		console.log(res);
+		// And save the auth data in AsyncStorage.
+		if (res && res.data && res.data.verifyCode) {
+			await storeUserData(res.data.verifyCode);
+		}
 		navigation.navigate('Home');
 	};
 
