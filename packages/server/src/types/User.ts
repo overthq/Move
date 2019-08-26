@@ -16,7 +16,9 @@ const User = `
 		phoneNumber: String!
 	}
 
-	extend type Query {}
+	extend type Query {
+		users: [User]
+	}
 
 	extend type Mutation {
 		login(input: LoginInput!): String!
