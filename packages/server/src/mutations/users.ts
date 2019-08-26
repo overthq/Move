@@ -2,7 +2,7 @@ import { User, VerificationCode } from '../models';
 
 // Note: This has to be extracted into an helper soon.
 const sendVerificationCode = async (phoneNumber: string) => {
-	const randomCode = Math.floor(100000 + Math.random() + 900000).toString();
+	const randomCode = Math.floor(100000 + Math.random() * 900000).toString();
 	await new VerificationCode({ phoneNumber, code: randomCode }).save();
 	// Send it to the user's phone number via SMS, maybe with Twilio?
 	console.log(phoneNumber, randomCode);
