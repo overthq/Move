@@ -3,9 +3,11 @@ import { User, Trip } from './types';
 
 import userMutation from './mutations/users';
 import tripMutation from './mutations/trips';
+import busStopMutation from './mutations/busStops';
 
 import userQuery from './queries/users';
 import tripQuery from './queries/trips';
+import busStopQuery from './queries/busStops';
 
 const RootType = `
 	type Query {
@@ -21,11 +23,13 @@ const typeDefs = [RootType, User, Trip];
 const resolvers = {
 	Mutation: {
 		...userMutation,
-		...tripMutation
+		...tripMutation,
+		...busStopMutation
 	},
 	Query: {
 		...userQuery,
-		...tripQuery
+		...tripQuery,
+		...busStopQuery
 	}
 };
 
