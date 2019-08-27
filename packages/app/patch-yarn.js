@@ -4,29 +4,29 @@
 // GitHub issue: https://github.com/yarnpkg/yarn/issues/4564#issuecomment-414613939,
 // Pull Request: https://github.com/mullvad/mullvadvpn-app/pull/369
 
-const path = require("path");
-const fs = require("fs");
+const path = require('path');
+const fs = require('fs');
 
-if (process.platform !== "win32") {
-  return;
+if (process.platform !== 'win32') {
+	return;
 }
 
-const sourcePath = path.resolve(path.join(__dirname, "../../node_modules"));
-const symlinkPath = path.join(__dirname, "../../node_modules/node_modules");
+const sourcePath = path.resolve(path.join(__dirname, '../../node_modules'));
+const symlinkPath = path.join(__dirname, '../../node_modules/node_modules');
 
 try {
-  console.log("Removing a symlink to node_modules/node_modules");
-  fs.unlinkSync(symlinkPath);
+	console.log('Removing a symlink to node_modules/node_modules');
+	fs.unlinkSync(symlinkPath);
 } catch (error) {
-  if (error.code !== "ENOENT") {
-    throw error;
-  }
+	if (error.code !== 'ENOENT') {
+		throw error;
+	}
 }
 
 try {
-  console.log("Applying yarn workspaces patch for node_modules/node_modules");
-  fs.symlinkSync(sourcePath, symlinkPath, "junction");
-  console.log("Done");
+	console.log('Applying yarn workspaces patch for node_modules/node_modules');
+	fs.symlinkSync(sourcePath, symlinkPath, 'junction');
+	console.log('Done');
 } catch (error) {
-  console.error("Cannot symlink node_modules/node_modules: " + error.message);
+	console.error('Cannot symlink node_modules/node_modules: ' + error.message);
 }

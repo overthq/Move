@@ -6,9 +6,8 @@
 		"preinstall": "node ./patch-yarn.js",
 		"postinstall": "expo-yarn-workspaces postinstall",
 		"start": "expo start",
-		"android": "expo start --android",
-		"ios": "expo start --ios",
-		"eject": "expo eject"
+		"format": "prettier --write '{.,src/**}/*.{js,jsx,ts,tsx}'",
+		"lint": "eslint --fix . --ext .tsx,.ts"
 	},
 	"dependencies": {
 		"expo": "^34.0.1",
