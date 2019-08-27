@@ -14,9 +14,8 @@ const BusStop = `
 	}
 
 	extend type Mutation {
-		createBusStop(input: BusStopInput): BusStop
+		createBusStop(input: BusStopInput!): BusStop
 	}
-
 `;
 
 export default BusStop;

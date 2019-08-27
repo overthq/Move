@@ -1,5 +1,5 @@
 import { makeExecutableSchema } from 'graphql-tools';
-import { User, Trip } from './types';
+import { User, Trip, BusStop } from './types';
 
 import userMutation from './mutations/users';
 import tripMutation from './mutations/trips';
@@ -18,7 +18,7 @@ const RootType = `
 	}
 `;
 
-const typeDefs = [RootType, User, Trip];
+const typeDefs = [RootType, User, Trip, BusStop];
 
 const resolvers = {
 	Mutation: {
