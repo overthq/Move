@@ -23,6 +23,7 @@
 		"redux-thunk": "^2.3.0"
 	},
 	"devDependencies": {
+		"@move/types": "0.0.1",
 		"@types/chai": "^4.2.0",
 		"@types/chai-http": "^4.2.0",
 		"@types/mocha": "^5.2.7",
