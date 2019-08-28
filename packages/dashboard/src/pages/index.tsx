@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import Sidebar from '../components/Sidebar';
 import Stops from './Stops';
+import Stop from './Stop';
 
 const AppContainer = styled.main`
 	height: 100%;
@@ -13,16 +14,23 @@ const AppContainer = styled.main`
 	background-color: #f2f5fa;
 `;
 
+const AppWrapper = styled.div`
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+`;
+
 const AppRouter = () => (
 	<BrowserRouter>
-		<div style={{ height: '100vh', width: '100vw', display: 'flex' }}>
+		<AppWrapper>
 			<Sidebar />
 			<AppContainer>
 				<Switch>
-					<Route path='/stops' component={Stops} />
+					<Route exact path='/stops' component={Stops} />
+					<Route path='/stops/:stopId' component={Stop} />
 				</Switch>
 			</AppContainer>
-		</div>
+		</AppWrapper>
 	</BrowserRouter>
 );
 
