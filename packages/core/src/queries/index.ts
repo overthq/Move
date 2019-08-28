@@ -1,3 +1,3 @@
 export * from './auth';
-export * from './trips';
+export * from './routes';
 export * from './busStops';
