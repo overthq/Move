@@ -1,7 +1,7 @@
-import { Trip, BusStop } from '../models';
+import { Route, BusStop } from '../models';
 
-const tripsMutation = {
-	createTrip: async (_, { input }) => {
+const routesMutation = {
+	createRoute: async (_, { input }) => {
 		const { origin, destination, fare } = input;
 
 		const originBusStop = await BusStop.findById(origin);
@@ -11,7 +11,7 @@ const tripsMutation = {
 			throw new Error('Origin or destination bus stop is invalid');
 		}
 
-		const trip = await new Trip({ origin, destination, fare }).save();
+		const trip = await new Route({ origin, destination, fare }).save();
 		return Object.assign(trip, {
 			origin: originBusStop,
 			destination: destinationBusStop
@@ -19,4 +19,5 @@ const tripsMutation = {
 	}
 };
 
-export default tripsMutation;
+export default routesMutation;
+

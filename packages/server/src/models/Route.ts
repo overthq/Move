@@ -1,12 +1,12 @@
 import { model, Schema, Document } from 'mongoose';
 
-export interface TripType extends Document {
+export interface RouteType extends Document {
 	origin: string;
 	destination: string;
 	fare: number;
 }
 
-const TripSchema = new Schema(
+const RouteSchema = new Schema(
 	{
 		origin: {
 			type: Schema.Types.ObjectId,
@@ -26,4 +26,5 @@ const TripSchema = new Schema(
 	{ timestamps: true }
 );
 
-export const Trip = model<TripType>('Trip', TripSchema);
+export const Route = model<RouteType>('Route', RouteSchema);
+

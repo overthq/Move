@@ -1,25 +1,26 @@
-const Trip = `
-	type Trip {
+const Route = `
+	type Route {
 		_id: ID!
 		origin: BusStop!
 		destination: BusStop!
 		fare: Int!
 	}
 
-	input TripInput {
+	input RouteInput {
 		origin: ID!
 		destination: ID!
 		fare: Int!
 	}
 
 	extend type Mutation {
-		createTrip(input: TripInput): Trip!
+		createRoute(input: RouteInput): Route!
 	}
 
 	extend type Query {
-		trips: [Trip]
-		trip(id: ID!): Trip
+		routes: [Route]
+		route(id: ID!): Route
 	}
 `;
 
-export default Trip;
+export default Route;
+

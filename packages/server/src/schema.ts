@@ -1,12 +1,12 @@
 import { makeExecutableSchema } from 'graphql-tools';
-import { User, Trip, BusStop } from './types';
+import { User, Route, BusStop } from './types';
 
 import userMutation from './mutations/users';
-import tripMutation from './mutations/trips';
+import routeMutation from './mutations/routes';
 import busStopMutation from './mutations/busStops';
 
 import userQuery from './queries/users';
-import tripQuery from './queries/trips';
+import routeQuery from './queries/routes';
 import busStopQuery from './queries/busStops';
 
 const RootType = `
@@ -18,17 +18,17 @@ const RootType = `
 	}
 `;
 
-const typeDefs = [RootType, User, Trip, BusStop];
+const typeDefs = [RootType, User, Route, BusStop];
 
 const resolvers = {
 	Mutation: {
 		...userMutation,
-		...tripMutation,
+		...routeMutation,
 		...busStopMutation
 	},
 	Query: {
 		...userQuery,
-		...tripQuery,
+		...routeQuery,
 		...busStopQuery
 	}
 };
