@@ -1,5 +1,4 @@
 import { BusStop, Route } from '../models';
-import console = require('console');
 
 const busStopQuery = {
 	busStops: async () => {
@@ -10,8 +9,7 @@ const busStopQuery = {
 					{ origin: busStop.id },
 					{ destination: busStop.id }
 				];
-				const routes = await Route.find({ $or: routeConditions });
-				console.log(routes);
+				busStop.routes = await Route.find({ $or: routeConditions });
 				return busStop;
 			})
 		);

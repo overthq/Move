@@ -2,7 +2,7 @@ const BusStop = `
 	type BusStop {
 		_id: ID!
 		name: String!
-		routes: [Route!]!
+		routes: [Route!]
 	}
 
 	input BusStopInput {
