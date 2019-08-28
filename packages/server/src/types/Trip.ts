@@ -1,19 +1,19 @@
 const Trip = `
 	type Trip {
 		_id: ID!
-		origin: String!
-		destination: String!
+		origin: BusStop!
+		destination: BusStop!
 		fare: Int!
 	}
 
 	input TripInput {
-		origin: String!
-		destination: String!
+		origin: ID!
+		destination: ID!
 		fare: Int!
 	}
 
 	extend type Mutation {
-		createTrip(input: TripInput): Trip
+		createTrip(input: TripInput): Trip!
 	}
 
 	extend type Query {

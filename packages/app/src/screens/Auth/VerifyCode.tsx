@@ -7,7 +7,8 @@ import {
 } from 'react-native';
 import { useMutation } from 'urql';
 import { NavigationScreenProps } from 'react-navigation';
-import { AUTH_VERIFY_CODE, storeUserData } from '@move/core';
+import { AUTH_VERIFY_CODE } from '@move/core';
+import { storeUserData } from '../../helpers';
 import styles from './styles';
 
 const VerifyCode = ({ navigation }: NavigationScreenProps) => {

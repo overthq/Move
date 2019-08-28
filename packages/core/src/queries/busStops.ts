@@ -18,7 +18,7 @@ export const BUS_STOP = `
 
 export const CREATE_BUS_STOP = `
 	mutation CreateBusStop($name: String!) {
-		createBusStop(name: $name) {
+		createBusStop(input: { name: $name }) {
 			_id
 			name
 		}

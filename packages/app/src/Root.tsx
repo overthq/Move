@@ -1,7 +1,7 @@
 import React from 'react';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { Home, Auth } from './screens';
-import { getUserData } from '@move/core';
+import { getUserData } from './helpers';
 import NavigationService from './NavigationService';
 import prepare from './prepare';
 

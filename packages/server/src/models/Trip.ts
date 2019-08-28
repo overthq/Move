@@ -9,11 +9,13 @@ export interface TripType extends Document {
 const TripSchema = new Schema(
 	{
 		origin: {
-			type: String,
+			type: Schema.Types.ObjectId,
+			ref: 'BusStop',
 			required: true
 		},
 		destination: {
-			type: String,
+			type: Schema.Types.ObjectId,
+			ref: 'BusStop',
 			required: true
 		},
 		fare: {

@@ -1,5 +1,5 @@
 import { AsyncStorage } from 'react-native';
-import { User } from '../types';
+import { User } from '@move/types';
 
 export const storeUserData = (user: User) => {
 	return AsyncStorage.setItem('user', JSON.stringify(user));
@@ -15,3 +15,4 @@ export const getUserData = async () => {
 		throw new Error(error.message);
 	}
 };
+
