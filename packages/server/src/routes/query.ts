@@ -1,4 +1,5 @@
-import { Route, BusStop } from '../models';
+import { Route } from '../models';
+import { verifyStops } from './helpers';
 
 const routeQuery = {
 	routes: async () => {
@@ -9,18 +10,15 @@ const routeQuery = {
 		const matchedRoute = await Route.findById(id);
 		if (!matchedRoute) throw new Error('Specified trip does not exist');
 
-		const matchedRouteOrigin = await BusStop.findById(matchedRoute.origin);
-		const matchedRouteDestination = await BusStop.findById(
-			matchedRoute.destination
+		const { origin, destination } = matchedRoute;
+		const { originBusStop, destinationBusStop } = await verifyStops(
+			origin,
+			destination
 		);
 
-		if (!matchedRouteOrigin || !matchedRouteDestination) {
-			throw new Error('Destination is invalid');
-		}
-
 		return Object.assign(matchedRoute, {
-			origin: matchedRouteOrigin,
-			destination: matchedRouteDestination
+			origin: originBusStop,
+			destination: destinationBusStop
 		});
 	}
 };
