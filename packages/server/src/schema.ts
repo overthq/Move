@@ -1,13 +1,16 @@
 import { makeExecutableSchema } from 'graphql-tools';
-import { User, Route, BusStop } from './types';
 
-import userMutation from './mutations/users';
-import routeMutation from './mutations/routes';
-import busStopMutation from './mutations/busStops';
+import User from './users/types';
+import userMutation from './users/mutation';
+import userQuery from './users/query';
 
-import userQuery from './queries/users';
-import routeQuery from './queries/routes';
-import busStopQuery from './queries/busStops';
+import Route from './routes/types';
+import routeMutation from './routes/mutation';
+import routeQuery from './routes/query';
+
+import BusStop from './busStops/types';
+import busStopMutation from './busStops/mutation';
+import busStopQuery from './busStops/query';
 
 const RootType = `
 	type Query {
