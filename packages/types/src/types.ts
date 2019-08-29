@@ -12,6 +12,7 @@ export type BusStop = {
 	__typename?: 'BusStop';
 	_id: Scalars['ID'];
 	name: Scalars['String'];
+	routes: Array<Route>;
 };
 
 export type BusStopInput = {
@@ -28,8 +29,8 @@ export type Mutation = {
 	login: Scalars['String'];
 	register: Scalars['String'];
 	verifyCode: User;
-	createTrip?: Maybe<Trip>;
-	createBusStop?: Maybe<BusStop>;
+	createRoute: Route;
+	createBusStop: BusStop;
 };
 
 export type MutationLoginArgs = {
@@ -44,8 +45,8 @@ export type MutationVerifyCodeArgs = {
 	code: Scalars['String'];
 };
 
-export type MutationCreateTripArgs = {
-	input?: Maybe<TripInput>;
+export type MutationCreateRouteArgs = {
+	input?: Maybe<RouteInput>;
 };
 
 export type MutationCreateBusStopArgs = {
@@ -56,13 +57,13 @@ export type Query = {
 	__typename?: 'Query';
 	default?: Maybe<Scalars['String']>;
 	users?: Maybe<Array<Maybe<User>>>;
-	trips?: Maybe<Array<Maybe<Trip>>>;
-	trip?: Maybe<Trip>;
-	busStops?: Maybe<Array<Maybe<BusStop>>>;
-	busStop?: Maybe<BusStop>;
+	routes?: Maybe<Array<Maybe<Route>>>;
+	route?: Maybe<Route>;
+	busStops: Array<BusStop>;
+	busStop: BusStop;
 };
 
-export type QueryTripArgs = {
+export type QueryRouteArgs = {
 	id: Scalars['ID'];
 };
 
@@ -76,17 +77,17 @@ export type RegisterInput = {
 	phoneNumber: Scalars['String'];
 };
 
-export type Trip = {
-	__typename?: 'Trip';
+export type Route = {
+	__typename?: 'Route';
 	_id: Scalars['ID'];
-	origin: Scalars['String'];
-	destination: Scalars['String'];
+	origin: BusStop;
+	destination: BusStop;
 	fare: Scalars['Int'];
 };
 
-export type TripInput = {
-	origin: Scalars['String'];
-	destination: Scalars['String'];
+export type RouteInput = {
+	origin: Scalars['ID'];
+	destination: Scalars['ID'];
 	fare: Scalars['Int'];
 };
 

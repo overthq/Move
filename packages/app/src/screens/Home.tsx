@@ -24,7 +24,7 @@ const Home = () => {
 				onBarCodeScanned={handleBarCodeScanned}
 				style={styles.camera}
 			/>
-			<PaymentModal {...{ modalRef, tripId }} />
+			{/* <PaymentModal {...{ modalRef, tripId }} /> */}
 		</View>
 	);
 };

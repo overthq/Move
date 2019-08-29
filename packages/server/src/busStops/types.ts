@@ -2,7 +2,7 @@ const BusStop = `
 	type BusStop {
 		_id: ID!
 		name: String!
-		routes: [Route!]
+		routes: [Route!]!
 	}
 
 	input BusStopInput {
@@ -10,12 +10,12 @@ const BusStop = `
 	}
 
 	extend type Query {
-		busStops: [BusStop]
-		busStop(id: ID!): BusStop
+		busStops: [BusStop!]!
+		busStop(id: ID!): BusStop!
 	}
 
 	extend type Mutation {
-		createBusStop(input: BusStopInput!): BusStop
+		createBusStop(input: BusStopInput!): BusStop!
 	}
 `;
 

@@ -1,5 +1,18 @@
-import { BusStop, Route } from '../models';
+import { BusStop, Route, RouteType } from '../models';
 import { verifyStops } from '../routes/helpers';
+
+const completeRoutes = async (routes: RouteType[]) => {
+	const fullRoutes = await Promise.all(
+		routes.map(async ({ origin, destination }) => {
+			const { originBusStop, destinationBusStop } = await verifyStops(
+				origin,
+				destination
+			);
+			return { origin: originBusStop, destination: destinationBusStop };
+		})
+	);
+	return fullRoutes;
+};
 
 const busStopQuery = {
 	busStops: async () => {
@@ -11,15 +24,7 @@ const busStopQuery = {
 					{ destination: busStop.id }
 				];
 				const routes = await Route.find({ $or: routeConditions });
-				const routesWithBusStops = await Promise.all(
-					routes.map(async route => {
-						const { originBusStop, destinationBusStop } = await verifyStops(
-							route.origin,
-							route.destination
-						);
-						return { origin: originBusStop, destination: destinationBusStop };
-					})
-				);
+				const routesWithBusStops = await completeRoutes(routes);
 				return Object.assign(busStop, { routes: routesWithBusStops });
 			})
 		);
@@ -33,7 +38,8 @@ const busStopQuery = {
 			{ destination: matchedBusStop.id }
 		];
 		const routes = await Route.find({ $or: routeConditions });
-		return Object.assign(matchedBusStop, { routes });
+		const routesWithBusStops = await completeRoutes(routes);
+		return Object.assign(matchedBusStop, { routes: routesWithBusStops });
 	}
 };
 

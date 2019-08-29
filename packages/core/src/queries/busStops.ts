@@ -12,6 +12,14 @@ export const BUS_STOP = `
 		busStop(id: $id) {
 			_id
 			name
+			routes {
+				origin {
+					name
+				}
+				destination {
+					name
+				}
+			}
 		}
 	}
 `;

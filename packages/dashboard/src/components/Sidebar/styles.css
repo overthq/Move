@@ -1,6 +1,7 @@
 nav {
 	height: 100%;
 	width: 15%;
+	max-width: 250px;
 	background-color: #FFFFFF;
 	display: flex;
 	flex-direction: column;
