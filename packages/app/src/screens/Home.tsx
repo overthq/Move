@@ -8,12 +8,11 @@ import { BarCodeScanningResult } from 'expo-camera/build/Camera.types';
 const { height, width } = Dimensions.get('window');
 
 const Home = () => {
-	const [tripId, setTripId] = React.useState('');
+	const [routeId, setRouteId] = React.useState('');
 	const modalRef = React.useRef<Modalize>(null);
 
 	const handleBarCodeScanned = ({ data }: BarCodeScanningResult) => {
-		console.log(data);
-		setTripId(data);
+		setRouteId(data);
 		modalRef && modalRef.current.open();
 	};
 
@@ -24,7 +23,7 @@ const Home = () => {
 				onBarCodeScanned={handleBarCodeScanned}
 				style={styles.camera}
 			/>
-			{/* <PaymentModal {...{ modalRef, tripId }} /> */}
+			<PaymentModal {...{ modalRef, routeId }} />
 		</View>
 	);
 };

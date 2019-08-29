@@ -2,19 +2,19 @@ import React from 'react';
 import Modalize from 'react-native-modalize';
 import { View } from 'react-native';
 import { useQuery } from 'urql';
-import { TRIP } from '@move/core';
+import { ROUTE } from '@move/core';
 
 interface PaymentModalProps {
 	modalRef: React.RefObject<Modalize>;
-	tripId: string;
+	routeId: string;
 }
 
-const PaymentModal = ({ modalRef, tripId }: PaymentModalProps) => {
-	console.log(tripId);
+const PaymentModal = ({ modalRef, routeId }: PaymentModalProps) => {
+	console.log(routeId);
 
 	const [{ data, error }] = useQuery({
-		query: TRIP,
-		variables: { id: tripId }
+		query: ROUTE,
+		variables: { id: routeId }
 	});
 
 	if (!data || error) {
