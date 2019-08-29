@@ -1,4 +1,5 @@
 import { BusStop, Route } from '../models';
+import { verifyStops } from '../routes/helpers';
 
 const busStopQuery = {
 	busStops: async () => {
@@ -9,8 +10,17 @@ const busStopQuery = {
 					{ origin: busStop.id },
 					{ destination: busStop.id }
 				];
-				busStop.routes = await Route.find({ $or: routeConditions });
-				return busStop;
+				const routes = await Route.find({ $or: routeConditions });
+				const routesWithBusStops = await Promise.all(
+					routes.map(async route => {
+						const { originBusStop, destinationBusStop } = await verifyStops(
+							route.origin,
+							route.destination
+						);
+						return { origin: originBusStop, destination: destinationBusStop };
+					})
+				);
+				return Object.assign(busStop, { routes: routesWithBusStops });
 			})
 		);
 		return allBusStopsWithRoutes;
