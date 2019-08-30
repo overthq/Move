@@ -9,22 +9,27 @@ import { useMutation } from 'urql';
 import { AUTH_LOGIN } from '@move/core';
 import { NavigationScreenProps } from 'react-navigation';
 import styles from './styles';
+import { User } from '@move/types';
 
 const Login = ({ navigation }: NavigationScreenProps) => {
 	const [phoneNumber, setPhoneNumber] = React.useState('');
-	const [res, executeMutation] = useMutation(AUTH_LOGIN);
+	const [res, execute] = useMutation<{ verifyCode: User }>(AUTH_LOGIN);
 
 	const handleTextChange = (text: string) => {
 		setPhoneNumber(text);
 	};
 
+	const goToRegister = () => {
+		navigation.navigate('Register');
+	};
+
 	const handleSubmit = React.useCallback(async () => {
-		await executeMutation({ phoneNumber });
+		await execute({ phoneNumber });
 		if (res && res.data) {
 			console.log(res.data);
 			navigation.navigate('VerifyCode', { phoneNumber });
 		}
-	}, [executeMutation, res]);
+	}, [execute, res]);
 
 	return (
 		<KeyboardAvoidingView style={styles.container} behavior='padding'>
@@ -36,6 +41,9 @@ const Login = ({ navigation }: NavigationScreenProps) => {
 			/>
 			<TouchableOpacity onPress={handleSubmit}>
 				<Text>Next</Text>
+			</TouchableOpacity>
+			<TouchableOpacity onPress={goToRegister}>
+				<Text>{`Don't have an account?`}</Text>
 			</TouchableOpacity>
 		</KeyboardAvoidingView>
 	);
