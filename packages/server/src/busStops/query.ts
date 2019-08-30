@@ -1,14 +1,27 @@
+import DataLoader from 'dataloader';
 import { BusStop, Route, RouteType } from '../models';
 import { verifyStops } from '../routes/helpers';
 
-const completeRoutes = async (routes: RouteType[]) => {
+const routesLoader = new DataLoader(async routeConditions => {
+	const routes = await routeConditions.map(async routeCondition => {
+		const routes = await Route.find({ $or: routeCondition });
+		const routesWithBusStops = await completeRoutes(routes);
+		return routesWithBusStops;
+	});
+	return routes;
+});
+
+const completeRoutes = async (routes: RouteType[]): Promise<RouteType[]> => {
 	const fullRoutes = await Promise.all(
-		routes.map(async ({ origin, destination }) => {
+		routes.map(async route => {
 			const { originBusStop, destinationBusStop } = await verifyStops(
-				origin,
-				destination
+				route.origin,
+				route.destination
 			);
-			return { origin: originBusStop, destination: destinationBusStop };
+			return Object.assign(route, {
+				origin: originBusStop,
+				destination: destinationBusStop
+			});
 		})
 	);
 	return fullRoutes;
@@ -23,9 +36,8 @@ const busStopQuery = {
 					{ origin: busStop.id },
 					{ destination: busStop.id }
 				];
-				const routes = await Route.find({ $or: routeConditions });
-				const routesWithBusStops = await completeRoutes(routes);
-				return Object.assign(busStop, { routes: routesWithBusStops });
+				const routes = await routesLoader.load(routeConditions);
+				return Object.assign(busStop, { routes });
 			})
 		);
 		return allBusStopsWithRoutes;
