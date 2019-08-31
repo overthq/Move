@@ -10,8 +10,6 @@ interface PaymentModalProps {
 }
 
 const PaymentModal = ({ modalRef, routeId }: PaymentModalProps) => {
-	console.log(routeId);
-
 	const [{ data, error }] = useQuery({
 		query: ROUTE,
 		variables: { id: routeId }
