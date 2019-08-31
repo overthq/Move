@@ -21,13 +21,13 @@ const Register = ({ navigation }: NavigationScreenProps) => {
 		setPhoneNumber(text);
 	};
 
-	const handleSubmit = React.useCallback(async () => {
+	const handleSubmit = async () => {
 		await execute({ firstName, lastName, phoneNumber });
 		if (res && res.data) {
 			console.log(res.data);
 			navigation.navigate('VerifyCode', { phoneNumber });
 		}
-	}, [execute, res]);
+	};
 
 	return (
 		<KeyboardAvoidingView style={styles.container} behavior='padding'>

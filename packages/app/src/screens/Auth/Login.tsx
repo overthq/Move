@@ -15,21 +15,16 @@ const Login = ({ navigation }: NavigationScreenProps) => {
 	const [phoneNumber, setPhoneNumber] = React.useState('');
 	const [res, execute] = useMutation<{ verifyCode: User }>(AUTH_LOGIN);
 
-	const handleTextChange = (text: string) => {
-		setPhoneNumber(text);
-	};
+	const handleTextChange = (text: string) => setPhoneNumber(text);
+	const goToRegister = () => navigation.navigate('Register');
 
-	const goToRegister = () => {
-		navigation.navigate('Register');
-	};
-
-	const handleSubmit = React.useCallback(async () => {
+	const handleSubmit = async () => {
 		await execute({ phoneNumber });
 		if (res && res.data) {
 			console.log(res.data);
 			navigation.navigate('VerifyCode', { phoneNumber });
 		}
-	}, [execute, res]);
+	};
 
 	return (
 		<KeyboardAvoidingView style={styles.container} behavior='padding'>
