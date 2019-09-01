@@ -3,7 +3,7 @@ import { User, VerificationCode } from '../models';
 // Note: This has to be extracted into an helper soon.
 const sendVerificationCode = async (phoneNumber: string) => {
 	const randomCode = Math.floor(100000 + Math.random() * 900000).toString();
-	await new VerificationCode({ phoneNumber, code: randomCode }).save();
+	await VerificationCode.create({ phoneNumber, code: randomCode });
 	// Send it to the user's phone number via SMS, maybe with Twilio?
 	console.log(phoneNumber, randomCode);
 };
@@ -24,10 +24,12 @@ const userMutations = {
 		return `Verification message sent to ${phoneNumber}`;
 	},
 	verifyCode: async (_, { phoneNumber, code }) => {
+		console.log(phoneNumber, code);
 		const verificationCode = await VerificationCode.findOne({
 			phoneNumber,
 			code
 		});
+		console.log(verificationCode);
 		if (!verificationCode) {
 			throw new Error('The verification code entered is invalid');
 		}

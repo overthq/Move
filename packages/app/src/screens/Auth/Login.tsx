@@ -21,7 +21,8 @@ const Login = ({ navigation }: NavigationScreenProps) => {
 	const handleSubmit = async () => {
 		await execute({ phoneNumber });
 		if (res && res.data) {
-			console.log(res.data);
+			// console.log(res.data);
+			console.log(phoneNumber);
 			navigation.navigate('VerifyCode', { phoneNumber });
 		}
 	};

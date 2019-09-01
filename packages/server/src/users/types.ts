@@ -23,7 +23,7 @@ const User = `
 	extend type Mutation {
 		login(input: LoginInput!): String!
 		register(input: RegisterInput!): String!
-		verifyCode(code: String!): User!
+		verifyCode(phoneNumber: String! code: String!): User!
 	}
 `;
 

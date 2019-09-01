@@ -17,7 +17,7 @@ const VerifyCode = ({ navigation }: NavigationScreenProps) => {
 	const handleTextChange = (text: string) => setCode(text);
 
 	const handleSubmit = async () => {
-		const phoneNumber: string = navigation.getParam('phoneNumber', '');
+		const phoneNumber: string = await navigation.getParam('phoneNumber');
 		await executeMutation({ phoneNumber, code });
 		console.log(res);
 		// And save the auth data in AsyncStorage.
