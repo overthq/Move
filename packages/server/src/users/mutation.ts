@@ -24,12 +24,10 @@ const userMutations = {
 		return `Verification message sent to ${phoneNumber}`;
 	},
 	verifyCode: async (_, { phoneNumber, code }) => {
-		console.log(phoneNumber, code);
 		const verificationCode = await VerificationCode.findOne({
 			phoneNumber,
 			code
 		});
-		console.log(verificationCode);
 		if (!verificationCode) {
 			throw new Error('The verification code entered is invalid');
 		}

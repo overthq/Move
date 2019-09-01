@@ -1,6 +1,7 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { useQuery } from 'urql';
+import QRCode from 'qrcode.react';
 import { BUS_STOP } from '@move/core';
 import { Route, BusStop } from '@move/types';
 
@@ -26,9 +27,15 @@ const Stop = ({ match }: RouteComponentProps<{ stopId: string }>) => {
 	return (
 		<div>
 			<h1>{data.busStop.name}</h1>
-			{data.busStop.routes.map(route => (
-				<p key={route._id}>{getAccurateName(data.busStop, route)}</p>
-			))}
+			{data.busStop.routes.map(route => {
+				console.log(route._id);
+				return (
+					<>
+						<p key={route._id}>{getAccurateName(data.busStop, route)}</p>
+						<QRCode value={route._id} />
+					</>
+				);
+			})}
 		</div>
 	);
 };

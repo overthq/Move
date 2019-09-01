@@ -13,6 +13,7 @@ export const BUS_STOP = `
 			_id
 			name
 			routes {
+				_id
 				origin {
 					name
 				}

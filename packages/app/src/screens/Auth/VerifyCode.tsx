@@ -19,12 +19,11 @@ const VerifyCode = ({ navigation }: NavigationScreenProps) => {
 	const handleSubmit = async () => {
 		const phoneNumber: string = await navigation.getParam('phoneNumber');
 		await executeMutation({ phoneNumber, code });
-		console.log(res);
-		// And save the auth data in AsyncStorage.
 		if (res && res.data && res.data.verifyCode) {
+			console.log(res.data.verifyCode);
 			await storeUserData(res.data.verifyCode);
+			navigation.navigate('Home');
 		}
-		navigation.navigate('Home');
 	};
 
 	return (

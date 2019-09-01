@@ -1,8 +1,9 @@
 import React from 'react';
 import Modalize from 'react-native-modalize';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import { useQuery } from 'urql';
 import { ROUTE } from '@move/core';
+import { Route } from '@move/types';
 
 interface PaymentModalProps {
 	modalRef: React.RefObject<Modalize>;
@@ -10,7 +11,7 @@ interface PaymentModalProps {
 }
 
 const PaymentModal = ({ modalRef, routeId }: PaymentModalProps) => {
-	const [{ data, error }] = useQuery({
+	const [{ data, error }] = useQuery<{ route: Route }>({
 		query: ROUTE,
 		variables: { id: routeId }
 	});
@@ -20,11 +21,15 @@ const PaymentModal = ({ modalRef, routeId }: PaymentModalProps) => {
 		return <View />;
 	}
 
-	console.log(data);
+	const { route } = data;
 
 	return (
 		<Modalize ref={modalRef} adjustToContentHeight>
-			<View></View>
+			<View>
+				<Text>{route.origin.name}</Text>
+				<Text>{route.destination.name}</Text>
+				<Text>{route.fare}</Text>
+			</View>
 		</Modalize>
 	);
 };
