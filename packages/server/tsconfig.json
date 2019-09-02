@@ -9,6 +9,7 @@
 		"module": "commonjs",
 		"lib": ["dom", "es2017"],
 		"target": "es5",
+		"typeRoots": ["../../@types", "../../node_modules/@types"],
 		"esModuleInterop": true
 	},
 	"include": ["src"]

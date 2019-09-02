@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 import RavePay, { CardDetails } from 'ravepay';
-import { RAVE_API_PUBLIC_KEY, RAVE_API_SECRET_KEY } from '../config/env';
-import { User, CreditCard } from '../models';
+const { RAVE_API_PUBLIC_KEY, RAVE_API_SECRET_KEY } = process.env;
+import { User, CreditCard, CreditCardType } from '../models';
 
 const rave = new RavePay(
 	RAVE_API_PUBLIC_KEY,
@@ -18,7 +18,11 @@ export const purchase = async (userId: string, amount: number) => {
 			);
 		}
 
-		// Exchange rate for points?
+		const creditCard = await CreditCard.findOne({ userId: user.id });
+		if (!creditCard) {
+			throw new Error('You have not linked your credit card this app.');
+		}
+
 		const { firstName, lastName, phoneNumber } = user;
 
 		const response = await fetch(
@@ -31,7 +35,7 @@ export const purchase = async (userId: string, amount: number) => {
 				body: JSON.stringify({
 					currency: 'NGN',
 					SECKEY: RAVE_API_SECRET_KEY,
-					token: wallet.token,
+					token: creditCard.token,
 					country: 'NG',
 					amount,
 					phonenumber: phoneNumber,
@@ -62,7 +66,7 @@ interface TokenizeCardInfo {
 	expiryYear: string;
 }
 
-type TokenizeCard = (info: TokenizeCardInfo) => Promise<string>;
+type TokenizeCard = (info: TokenizeCardInfo) => Promise<CreditCardType>;
 
 export const tokenizeCard: TokenizeCard = async ({
 	userId,
@@ -98,17 +102,18 @@ export const tokenizeCard: TokenizeCard = async ({
 			data: { card }
 		} = body;
 		const { last4digits, expirymonth, expiryyear, cardBIN } = card;
-		// const token = card.card_tokens[0].embedtoken;
+		const token = card.card_tokens[0].embedtoken;
 
 		const creditCard = await CreditCard.create({
 			userId,
 			cardDigits: last4digits,
 			expiryMonth: expirymonth,
 			expiryYear: expiryyear,
-			cardBIN
+			cardBIN,
+			token
 		});
 
-		return `Card successfully tokenized`;
+		return creditCard;
 	} catch (error) {
 		throw new Error('Error while making payment: ' + error.message);
 	}

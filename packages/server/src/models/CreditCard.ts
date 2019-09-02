@@ -5,13 +5,14 @@ enum CreditCardEnum {
 	MASTERCARD = 'MasterCard'
 }
 
-interface CreditCardType extends Document {
+export interface CreditCardType extends Document {
 	userId: string;
 	cardDigits: string;
 	cardBIN: string;
 	expiryMonth: string;
 	expiryYear: string;
 	cardType: CreditCardEnum;
+	token: string;
 }
 
 const CreditCardSchema = new Schema(
@@ -41,6 +42,10 @@ const CreditCardSchema = new Schema(
 			type: String,
 			enum: Object.values(CreditCardEnum),
 			default: 'MasterCard'
+		},
+		token: {
+			type: String,
+			required: true
 		}
 	},
 	{ timestamps: true }

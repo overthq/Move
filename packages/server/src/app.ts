@@ -2,14 +2,13 @@ import express from 'express';
 import graphqlHTTP from 'express-graphql';
 import cors from 'cors';
 import schema from './schema';
-import './config/env';
 import './config/database';
 
+const { PORT } = process.env;
 const app = express();
 
 app.use(express.json());
 app.use(cors());
-
 app.use(
 	'/',
 	graphqlHTTP({
@@ -23,4 +22,4 @@ app.use(
 	})
 );
 
-app.listen(4000, () => console.log(`Server started at port 4000`));
+app.listen(Number(PORT), () => console.log(`Server started on port ${PORT}`));
