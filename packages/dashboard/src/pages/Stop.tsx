@@ -32,7 +32,7 @@ const Stop = ({ match }: RouteComponentProps<{ stopId: string }>) => {
 				return (
 					<>
 						<p key={route._id}>{getAccurateName(data.busStop, route)}</p>
-						<QRCode value={route._id} />
+						<QRCode value={route._id} bgColor='transparent' />
 					</>
 				);
 			})}

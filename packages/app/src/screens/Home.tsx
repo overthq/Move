@@ -11,7 +11,7 @@ const Home = () => {
 	const [routeId, setRouteId] = React.useState('');
 	const [modal, setModal] = React.useState<Modalize>(null);
 
-	const modalRef = React.useCallback(node => {
+	const modalRef = React.useCallback((node: Modalize) => {
 		if (node !== null) setModal(node);
 	}, []);
 
