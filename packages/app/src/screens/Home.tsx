@@ -1,25 +1,20 @@
 import React from 'react';
 import { View, StyleSheet, Dimensions } from 'react-native';
 import Modalize from 'react-native-modalize';
-import PaymentModal from '../components/PaymentModal';
 import { BarCodeScanner } from 'expo-barcode-scanner';
+import PaymentModal from '../components/PaymentModal';
 
 const { height, width } = Dimensions.get('window');
-
-interface BarCodeScanningResult {
-	type: typeof BarCodeScanner.Constants.BarCodeType;
-	data: string;
-}
 
 const Home = () => {
 	const [scanned, setScanned] = React.useState(false);
 	const [routeId, setRouteId] = React.useState('');
 	const modalRef = React.useRef<Modalize>(null);
 
-	const handleBarCodeScanned = ({ data }: BarCodeScanningResult) => {
+	const handleBarCodeScanned = ({ data }: { data: string }) => {
 		setScanned(true);
 		setRouteId(data);
-		modalRef && modalRef.current && modalRef.current.open();
+		modalRef.current && modalRef.current.open();
 	};
 
 	return (

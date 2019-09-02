@@ -16,10 +16,7 @@ const PaymentModal = ({ modalRef, routeId }: PaymentModalProps) => {
 		variables: { id: routeId }
 	});
 
-	if (!data || error) {
-		console.log(error);
-		return <View />;
-	}
+	if (!data || error) return <View />;
 
 	const { route } = data;
 
