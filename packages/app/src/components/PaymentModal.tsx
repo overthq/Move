@@ -6,7 +6,7 @@ import { ROUTE } from '@move/core';
 import { Route } from '@move/types';
 
 interface PaymentModalProps {
-	modalRef: React.RefObject<Modalize>;
+	modalRef: any;
 	routeId: string;
 }
 

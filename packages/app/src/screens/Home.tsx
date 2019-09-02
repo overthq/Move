@@ -9,13 +9,22 @@ const { height, width } = Dimensions.get('window');
 const Home = () => {
 	const [scanned, setScanned] = React.useState(false);
 	const [routeId, setRouteId] = React.useState('');
-	const modalRef = React.useRef<Modalize>(null);
+	const [modal, setModal] = React.useState<Modalize>(null);
+
+	const modalRef = React.useCallback(node => {
+		if (node !== null) setModal(node);
+	}, []);
 
 	const handleBarCodeScanned = ({ data }: { data: string }) => {
 		setScanned(true);
 		setRouteId(data);
-		modalRef.current && modalRef.current.open();
 	};
+
+	React.useEffect(() => {
+		if (scanned && !!routeId) {
+			modal && modal.open();
+		}
+	}, [scanned, routeId, modal]);
 
 	return (
 		<View style={{ flex: 1 }}>
