@@ -28,7 +28,7 @@
 		"@types/chai": "^4.2.0",
 		"@types/chai-http": "^4.2.0",
 		"@types/mocha": "^5.2.7",
-		"@types/react-native": "^0.57.65",
+		"@types/react-native": "^0.60.9",
 		"@types/redux-logger": "^3.0.7",
 		"chai": "^4.2.0",
 		"eslint": "^6.2.0",
