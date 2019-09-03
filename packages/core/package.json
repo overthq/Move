@@ -31,7 +31,7 @@
 		"@types/react-native": "^0.57.65",
 		"@types/redux-logger": "^3.0.7",
 		"chai": "^4.2.0",
-		"eslint": "^6.2.0",
+		"eslint": "^6.3.0",
 		"mocha": "^6.2.0",
 		"nodemon": "^1.19.1",
 		"rimraf": "^3.0.0",
