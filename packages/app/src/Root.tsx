@@ -1,27 +1,20 @@
 import React from 'react';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { Home, Auth, Settings } from './screens';
-import { getUserData } from './helpers';
 import NavigationService from './NavigationService';
 import prepare from './prepare';
+import { UserContext } from './contexts/UserContext';
 
 const Root = () => {
-	const [loggedIn, setLoggedIn] = React.useState(false);
-
+	const user = React.useContext(UserContext);
 	React.useEffect(() => {
-		checkAuthState();
 		prepare();
 	}, []);
-
-	const checkAuthState = async () => {
-		const user = await getUserData();
-		setLoggedIn(!!user);
-	};
 
 	const AppNavigator = createAppContainer(
 		createSwitchNavigator(
 			{ Auth, Home, Settings },
-			{ initialRouteName: loggedIn ? 'Home' : 'Auth', backBehavior: 'none' }
+			{ initialRouteName: user ? 'Home' : 'Auth', backBehavior: 'none' }
 		)
 	);
 

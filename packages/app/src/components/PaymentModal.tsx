@@ -3,18 +3,17 @@ import {
 	View,
 	Text,
 	TouchableOpacity,
+	ActivityIndicator,
 	StyleSheet,
-	ActivityIndicator
+	Dimensions
 } from 'react-native';
 import Modalize from 'react-native-modalize';
+import { BarCodeScanner } from 'expo-barcode-scanner';
 import { useQuery } from 'urql';
 import { ROUTE } from '@move/core';
 import { Route } from '@move/types';
 
-interface PaymentModalProps {
-	modalRef(node: Modalize): void;
-	routeId: string;
-}
+const { height } = Dimensions.get('window');
 
 interface PaymentButtonProps {
 	loading?: boolean;
@@ -35,7 +34,7 @@ const PaymentButton = ({ loading }: PaymentButtonProps) => {
 	);
 };
 
-const PaymentModal = ({ modalRef, routeId }: PaymentModalProps) => {
+const PaymentInfo = ({ routeId }: { routeId: string }) => {
 	const [{ data, error }] = useQuery<{ route: Route }>({
 		query: ROUTE,
 		variables: { id: routeId }
@@ -46,18 +45,40 @@ const PaymentModal = ({ modalRef, routeId }: PaymentModalProps) => {
 	const { route } = data;
 
 	return (
-		<Modalize ref={modalRef} adjustToContentHeight>
-			<View style={styles.container}>
-				<View style={styles.routeContainer}>
-					<Text style={styles.routeText}>{route.origin.name}</Text>
-					<Text style={{ fontSize: 14, fontWeight: 'bold' }}>TO</Text>
-					<Text style={styles.routeText}>{route.destination.name}</Text>
-				</View>
-				<Text style={styles.paymentInfo}>
-					This trip will cost you {route.fare} naira
-				</Text>
-				<PaymentButton loading />
+		<View style={styles.container}>
+			<View style={styles.routeContainer}>
+				<Text style={styles.routeText}>{route.origin.name}</Text>
+				<Text style={{ fontSize: 14, fontWeight: 'bold' }}>TO</Text>
+				<Text style={styles.routeText}>{route.destination.name}</Text>
 			</View>
+			<Text style={styles.paymentInfo}>
+				This trip will cost you {route.fare} naira
+			</Text>
+			<PaymentButton loading />
+		</View>
+	);
+};
+
+interface PaymentModalProps {
+	modalRef: React.RefObject<Modalize>;
+}
+
+const PaymentModal = ({ modalRef }: PaymentModalProps) => {
+	const [routeId, setRouteId] = React.useState('');
+	const handleBarCodeScanned = ({ data }: { data: string }) => {
+		setRouteId(data);
+	};
+
+	return (
+		<Modalize ref={modalRef} adjustToContentHeight>
+			{routeId ? (
+				<PaymentInfo {...{ routeId }} />
+			) : (
+				<BarCodeScanner
+					onBarCodeScanned={handleBarCodeScanned}
+					style={{ height: 0.7 * height, width: '100%' }}
+				/>
+			)}
 		</Modalize>
 	);
 };

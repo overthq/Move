@@ -15,3 +15,7 @@ export const getUserData = async () => {
 		throw new Error(error.message);
 	}
 };
+
+export const removeUserData = () => {
+	return AsyncStorage.removeItem('user');
+};

@@ -1,48 +1,67 @@
 import React from 'react';
-import { View, StyleSheet, Dimensions } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import Modalize from 'react-native-modalize';
-import { BarCodeScanner } from 'expo-barcode-scanner';
+import { Ionicons } from '@expo/vector-icons';
+import { UserContext } from '../contexts/UserContext';
 import PaymentModal from '../components/PaymentModal';
 
-const { height, width } = Dimensions.get('window');
-
 const Home = () => {
-	const [scanned, setScanned] = React.useState(false);
-	const [routeId, setRouteId] = React.useState('');
-	const [modal, setModal] = React.useState<Modalize>(null);
+	const { firstName } = React.useContext(UserContext);
+	const modalRef = React.useRef<Modalize>(null);
 
-	const modalRef = React.useCallback((node: Modalize) => {
-		if (node !== null) setModal(node);
-	}, []);
-
-	const handleBarCodeScanned = ({ data }: { data: string }) => {
-		setScanned(true);
-		setRouteId(data);
+	const handleModalOpen = () => {
+		modalRef.current && modalRef.current.open();
 	};
 
-	React.useEffect(() => {
-		if (scanned && !!routeId) {
-			modal && modal.open();
-		}
-	}, [scanned, routeId, modal]);
-
 	return (
-		<View style={{ flex: 1 }}>
-			<BarCodeScanner
-				type={BarCodeScanner.Constants.Type.Back}
-				barCodeTypes={[BarCodeScanner.Constants.BarCodeType.qr]}
-				onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
-				style={styles.camera}
-			/>
-			<PaymentModal {...{ modalRef, routeId }} />
+		<View style={styles.container}>
+			<View style={styles.welcomeContainer}>
+				<Text style={styles.welcomeText}>Hello, {firstName}.</Text>
+				<Ionicons
+					size={24}
+					name='ios-qr-scanner'
+					style={styles.welcomeAction}
+					onPress={handleModalOpen}
+				/>
+			</View>
+			<View>
+				<Text style={styles.sectionHeader}>Upcoming Trips</Text>
+				<Text style={styles.sectionContent}>
+					You do not have any upcoming trips.
+				</Text>
+			</View>
+			<PaymentModal {...{ modalRef }} />
 		</View>
 	);
 };
 
 const styles = StyleSheet.create({
-	camera: {
-		height: height / 2,
-		width
+	container: {
+		flex: 1,
+		padding: 15
+	},
+	welcomeContainer: {
+		flexDirection: 'row',
+		marginVertical: 10,
+		justifyContent: 'space-between',
+		alignItems: 'center'
+	},
+	welcomeText: {
+		fontSize: 22,
+		fontWeight: 'bold',
+		color: '#505050'
+	},
+	welcomeAction: {
+		padding: 5
+	},
+	sectionHeader: {
+		fontSize: 18,
+		fontWeight: '500',
+		color: '#505050',
+		marginVertical: 5
+	},
+	sectionContent: {
+		color: '#777777'
 	}
 });
 

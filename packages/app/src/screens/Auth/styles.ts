@@ -7,6 +7,11 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		paddingHorizontal: 20
 	},
+	title: {
+		fontSize: 40,
+		fontWeight: 'bold',
+		marginVertical: 10
+	},
 	input: {
 		height: 40,
 		width: '100%',

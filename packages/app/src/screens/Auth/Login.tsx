@@ -25,7 +25,7 @@ const Login = ({ navigation }: NavigationScreenProps) => {
 
 	return (
 		<KeyboardAvoidingView style={styles.container} behavior='padding'>
-			<Text>Your phone number</Text>
+			<Text style={styles.title}>Your phone number</Text>
 			<TextInput
 				style={styles.input}
 				placeholder='Your phone number'

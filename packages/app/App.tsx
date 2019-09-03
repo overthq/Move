@@ -3,6 +3,7 @@ import { Provider, createClient } from 'urql';
 import { useScreens } from 'react-native-screens';
 import * as Constants from 'expo-constants';
 import RootNavigator from './src/Root';
+import { UserProvider } from './src/contexts/UserContext';
 
 useScreens();
 
@@ -15,7 +16,9 @@ const client = createClient({ url: devApiUrl });
 
 const App = () => (
 	<Provider value={client}>
-		<RootNavigator />
+		<UserProvider>
+			<RootNavigator />
+		</UserProvider>
 	</Provider>
 );
 
