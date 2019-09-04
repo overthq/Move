@@ -20,19 +20,17 @@ interface PaymentButtonProps {
 	onPress?: () => void;
 }
 
-const PaymentButton = ({ loading }: PaymentButtonProps) => {
-	return (
-		<TouchableOpacity activeOpacity={0.5} style={styles.button}>
-			{loading ? (
-				<ActivityIndicator color='#FFFFFF' />
-			) : (
-				<Text style={{ color: '#FFFFFF', fontSize: 16, fontWeight: '500' }}>
-					Make trip payment
-				</Text>
-			)}
-		</TouchableOpacity>
-	);
-};
+const PaymentButton = ({ loading }: PaymentButtonProps) => (
+	<TouchableOpacity activeOpacity={0.5} style={styles.button}>
+		{loading ? (
+			<ActivityIndicator color='#FFFFFF' />
+		) : (
+			<Text style={{ color: '#FFFFFF', fontSize: 16, fontWeight: '500' }}>
+				Make trip payment
+			</Text>
+		)}
+	</TouchableOpacity>
+);
 
 const PaymentInfo = ({ routeId }: { routeId: string }) => {
 	const [{ data, error }] = useQuery<{ route: Route }>({
@@ -46,11 +44,9 @@ const PaymentInfo = ({ routeId }: { routeId: string }) => {
 
 	return (
 		<View style={styles.container}>
-			<View style={styles.routeContainer}>
-				<Text style={styles.routeText}>{route.origin.name}</Text>
-				<Text style={{ fontSize: 14, fontWeight: 'bold' }}>TO</Text>
-				<Text style={styles.routeText}>{route.destination.name}</Text>
-			</View>
+			<Text style={styles.routeText}>
+				{route.origin.name} to {route.destination.name}
+			</Text>
 			<Text style={styles.paymentInfo}>
 				This trip will cost you {route.fare} naira
 			</Text>
@@ -85,14 +81,8 @@ const PaymentModal = ({ modalRef }: PaymentModalProps) => {
 
 const styles = StyleSheet.create({
 	container: {
-		padding: 15
-	},
-	routeContainer: {
-		width: '100%',
-		flexDirection: 'row',
-		justifyContent: 'space-between',
-		alignItems: 'center',
-		marginVertical: 10
+		padding: 15,
+		height: 0.7 * height
 	},
 	routeText: {
 		fontSize: 24,

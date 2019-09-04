@@ -12,6 +12,9 @@ import BusStop from './busStops/types';
 import busStopMutation from './busStops/mutation';
 import busStopQuery from './busStops/query';
 
+import CreditCard from './creditCards/types';
+import creditCardMutation from './creditCards/mutation';
+
 const RootType = `
 	type Query {
 		default: String
@@ -21,13 +24,14 @@ const RootType = `
 	}
 `;
 
-const typeDefs = [RootType, User, Route, BusStop];
+const typeDefs = [RootType, User, Route, BusStop, CreditCard];
 
 const resolvers = {
 	Mutation: {
 		...userMutation,
 		...routeMutation,
-		...busStopMutation
+		...busStopMutation,
+		...creditCardMutation
 	},
 	Query: {
 		...userQuery,

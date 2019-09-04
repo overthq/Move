@@ -1,10 +1,16 @@
-import { CreditCard } from '../models';
+// import { CreditCard } from '../models';
+import { tokenizeCard } from './helpers';
 
 const creditCardMutation = {
 	saveCard: async (_, { input }) => {
-		const {} = input;
-		const creditCard = CreditCard.create({});
-		// We have to tokenize the card first
+		const { userId, cardNumber, cvv, expiryMonth, expiryYear } = input;
+		const creditCard = await tokenizeCard({
+			userId,
+			cardNumber,
+			cvv,
+			expiryMonth,
+			expiryYear
+		});
 		return creditCard;
 	}
 };
