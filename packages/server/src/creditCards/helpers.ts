@@ -99,12 +99,11 @@ export const tokenizeCard: TokenizeCard = async ({
 		console.log(body);
 
 		// Does this action not require an OTP?
-
 		const {
 			data: { card }
 		} = body;
 		const { last4digits, expirymonth, expiryyear, cardBIN } = card;
-		const token = card.card_tokens[0].embedtoken;
+		const [{ embedtoken: token }] = card.card_tokens;
 
 		const creditCard = await CreditCard.create({
 			userId,
