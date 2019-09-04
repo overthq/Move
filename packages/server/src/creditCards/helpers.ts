@@ -48,8 +48,8 @@ export const purchase = async (userId: string, amount: number) => {
 			}
 		);
 
-		const { status, data } = await response.json();
-		if (status !== 'success') throw new Error(data.toString());
+		const { data } = await response.json();
+		if (data.status !== 'successful') throw new Error(data.toString());
 
 		console.log(data);
 		return `Amount ${amount} has been paid by user ${userId}`;
