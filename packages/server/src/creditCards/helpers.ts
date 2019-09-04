@@ -1,8 +1,8 @@
 import fetch from 'node-fetch';
 import RavePay, { CardDetails } from 'ravepay';
-const { RAVE_API_PUBLIC_KEY, RAVE_API_SECRET_KEY } = process.env;
 import { User, CreditCard, CreditCardType } from '../models';
 
+const { RAVE_API_PUBLIC_KEY, RAVE_API_SECRET_KEY } = process.env;
 const rave = new RavePay(
 	RAVE_API_PUBLIC_KEY,
 	RAVE_API_SECRET_KEY,
@@ -97,6 +97,8 @@ export const tokenizeCard: TokenizeCard = async ({
 
 		const body = await rave.TokenCharge.card(cardDetails);
 		console.log(body);
+
+		// Does this action not require an OTP?
 
 		const {
 			data: { card }
