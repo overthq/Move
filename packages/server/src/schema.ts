@@ -14,6 +14,7 @@ import busStopQuery from './busStops/query';
 
 import CreditCard from './creditCards/types';
 import creditCardMutation from './creditCards/mutation';
+import creditCardQuery from './creditCards/query';
 
 const RootType = `
 	type Query {
@@ -36,7 +37,8 @@ const resolvers = {
 	Query: {
 		...userQuery,
 		...routeQuery,
-		...busStopQuery
+		...busStopQuery,
+		...creditCardQuery
 	}
 };
 
