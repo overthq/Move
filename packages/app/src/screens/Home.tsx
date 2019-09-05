@@ -4,9 +4,10 @@ import Modalize from 'react-native-modalize';
 import { Ionicons } from '@expo/vector-icons';
 import { UserContext } from '../contexts/UserContext';
 import PaymentModal from '../components/PaymentModal';
+import Tickets from '../components/Tickets';
 
 const Home = () => {
-	const { firstName } = React.useContext(UserContext);
+	const { firstName, _id } = React.useContext(UserContext);
 	const modalRef = React.useRef<Modalize>(null);
 
 	const handleModalOpen = () => {
@@ -30,6 +31,7 @@ const Home = () => {
 					You do not have any upcoming trips.
 				</Text>
 			</View>
+			<Tickets userId={_id} />
 			<PaymentModal {...{ modalRef }} />
 		</View>
 	);

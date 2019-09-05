@@ -16,6 +16,10 @@ import CreditCard from './creditCards/types';
 import creditCardMutation from './creditCards/mutation';
 import creditCardQuery from './creditCards/query';
 
+import Ticket from './tickets/types';
+import ticketMutation from './tickets/mutation';
+import ticketQuery from './tickets/query';
+
 const RootType = `
 	type Query {
 		default: String
@@ -25,20 +29,22 @@ const RootType = `
 	}
 `;
 
-const typeDefs = [RootType, User, Route, BusStop, CreditCard];
+const typeDefs = [RootType, User, Route, BusStop, CreditCard, Ticket];
 
 const resolvers = {
 	Mutation: {
 		...userMutation,
 		...routeMutation,
 		...busStopMutation,
-		...creditCardMutation
+		...creditCardMutation,
+		...ticketMutation
 	},
 	Query: {
 		...userQuery,
 		...routeQuery,
 		...busStopQuery,
-		...creditCardQuery
+		...creditCardQuery,
+		...ticketQuery
 	}
 };
 
