@@ -1,5 +1,6 @@
 const Ticket = `
 	type Ticket {
+		_id: ID!
 		userId: ID!
 		route: Route!
 		quantity: Int!

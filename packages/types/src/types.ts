@@ -1,29 +1,49 @@
 export type Maybe<T> = T | null;
 /** All built-in and custom scalars, mapped to their actual values */
-export type Scalars = {
+export interface Scalars {
 	ID: string;
 	String: string;
 	Boolean: boolean;
 	Int: number;
 	Float: number;
-};
+}
 
-export type BusStop = {
+export interface BusStop {
 	__typename?: 'BusStop';
 	_id: Scalars['ID'];
 	name: Scalars['String'];
-	routes: Array<Route>;
-};
+	routes: Route[];
+}
 
-export type BusStopInput = {
+export interface BusStopInput {
 	name: Scalars['String'];
-};
+}
 
-export type LoginInput = {
+export interface CreditCard {
+	__typename?: 'CreditCard';
+	_id: Scalars['ID'];
+	userId: Scalars['ID'];
+	cardDigits: Scalars['String'];
+	cardBIN: Scalars['String'];
+	expiryMonth: Scalars['String'];
+	expiryYear: Scalars['String'];
+	cardType: Scalars['String'];
+	token: Scalars['String'];
+}
+
+export interface CreditCardInput {
+	userId: Scalars['ID'];
+	cardNumber: Scalars['String'];
+	cvv: Scalars['String'];
+	expiryMonth: Scalars['String'];
+	expiryYear: Scalars['String'];
+}
+
+export interface LoginInput {
 	phoneNumber: Scalars['String'];
-};
+}
 
-export type Mutation = {
+export interface Mutation {
 	__typename?: 'Mutation';
 	default?: Maybe<Scalars['String']>;
 	login: Scalars['String'];
@@ -31,70 +51,105 @@ export type Mutation = {
 	verifyCode: User;
 	createRoute: Route;
 	createBusStop: BusStop;
-};
+	saveCard: CreditCard;
+	purchaseTicket: Ticket;
+}
 
-export type MutationLoginArgs = {
+export interface MutationLoginArgs {
 	input: LoginInput;
-};
+}
 
-export type MutationRegisterArgs = {
+export interface MutationRegisterArgs {
 	input: RegisterInput;
-};
+}
 
-export type MutationVerifyCodeArgs = {
+export interface MutationVerifyCodeArgs {
+	phoneNumber: Scalars['String'];
 	code: Scalars['String'];
-};
+}
 
-export type MutationCreateRouteArgs = {
+export interface MutationCreateRouteArgs {
 	input?: Maybe<RouteInput>;
-};
+}
 
-export type MutationCreateBusStopArgs = {
+export interface MutationCreateBusStopArgs {
 	input: BusStopInput;
-};
+}
 
-export type Query = {
+export interface MutationSaveCardArgs {
+	input: CreditCardInput;
+}
+
+export interface MutationPurchaseTicketArgs {
+	input: TicketInput;
+}
+
+export interface Query {
 	__typename?: 'Query';
 	default?: Maybe<Scalars['String']>;
-	users?: Maybe<Array<Maybe<User>>>;
-	routes?: Maybe<Array<Maybe<Route>>>;
+	users?: Maybe<Maybe<User>[]>;
+	routes?: Maybe<Maybe<Route>[]>;
 	route?: Maybe<Route>;
-	busStops: Array<BusStop>;
+	busStops: BusStop[];
 	busStop: BusStop;
-};
+	creditCards: CreditCard[];
+	tickets: Ticket[];
+}
 
-export type QueryRouteArgs = {
+export interface QueryRouteArgs {
 	id: Scalars['ID'];
-};
+}
 
-export type QueryBusStopArgs = {
+export interface QueryBusStopArgs {
 	id: Scalars['ID'];
-};
+}
 
-export type RegisterInput = {
+export interface QueryCreditCardsArgs {
+	userId: Scalars['ID'];
+}
+
+export interface QueryTicketsArgs {
+	userId: Scalars['ID'];
+}
+
+export interface RegisterInput {
 	firstName: Scalars['String'];
 	lastName: Scalars['String'];
 	phoneNumber: Scalars['String'];
-};
+}
 
-export type Route = {
+export interface Route {
 	__typename?: 'Route';
 	_id: Scalars['ID'];
 	origin: BusStop;
 	destination: BusStop;
 	fare: Scalars['Int'];
-};
+}
 
-export type RouteInput = {
+export interface RouteInput {
 	origin: Scalars['ID'];
 	destination: Scalars['ID'];
 	fare: Scalars['Int'];
-};
+}
 
-export type User = {
+export interface Ticket {
+	__typename?: 'Ticket';
+	_id: Scalars['ID'];
+	userId: Scalars['ID'];
+	route: Route;
+	quantity: Scalars['Int'];
+}
+
+export interface TicketInput {
+	userId: Scalars['ID'];
+	routeId: Scalars['ID'];
+	quantity: Scalars['Int'];
+}
+
+export interface User {
 	__typename?: 'User';
 	_id: Scalars['String'];
 	firstName: Scalars['String'];
 	lastName: Scalars['String'];
 	phoneNumber: Scalars['String'];
-};
+}
