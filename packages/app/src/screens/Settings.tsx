@@ -1,6 +1,12 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 
-const Settings = () => <View></View>;
+const Settings = () => {
+	return (
+		<View>
+			<Text>Settings</Text>
+		</View>
+	);
+};
 
 export default Settings;
