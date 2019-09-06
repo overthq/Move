@@ -1,8 +1,13 @@
 import React from 'react';
 import { User } from '@move/types';
-import { getUserData } from '../helpers';
+import { getUserData, removeUserData } from '../helpers';
 
-export const UserContext = React.createContext<User | null>(null);
+interface UserContextValue {
+	user: User | null;
+	logOut(): void;
+}
+
+export const UserContext = React.createContext<UserContextValue | null>(null);
 
 export const UserProvider = ({ children }: { children: React.ReactNode }) => {
 	const [user, setUser] = React.useState<User | null>(null);
@@ -15,7 +20,16 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
 		fetchUser();
 	}, []);
 
-	if (!user) return null;
+	const logOut = async () => {
+		await removeUserData();
+		return setUser(null);
+	};
 
-	return <UserContext.Provider value={user}>{children}</UserContext.Provider>;
+	// if (!user) return null;
+
+	return (
+		<UserContext.Provider value={{ user, logOut }}>
+			{children}
+		</UserContext.Provider>
+	);
 };

@@ -10,7 +10,9 @@ const Ticket = ({ route }: TicketProps) => (
 );
 
 const styles = StyleSheet.create({
-	container: {}
+	container: {
+		borderRadius: 6
+	}
 });
 
 export default Ticket;

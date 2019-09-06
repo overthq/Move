@@ -27,6 +27,7 @@ export const AUTH_VERIFY_CODE = `
 			phoneNumber: $phoneNumber
 			code: $code
 		) {
+			_id
 			firstName
 			lastName
 			phoneNumber

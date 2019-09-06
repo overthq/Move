@@ -7,7 +7,8 @@ import PaymentModal from '../components/PaymentModal';
 import Tickets from '../components/Tickets';
 
 const Home = () => {
-	const { firstName, _id } = React.useContext(UserContext);
+	const { user } = React.useContext(UserContext);
+	const { firstName, _id: userId } = user;
 	const modalRef = React.useRef<Modalize>(null);
 
 	const handleModalOpen = () => {
@@ -25,13 +26,13 @@ const Home = () => {
 					onPress={handleModalOpen}
 				/>
 			</View>
-			<View>
+			<Tickets {...{ userId }} />
+			<View style={{ marginBottom: 15 }}>
 				<Text style={styles.sectionHeader}>Upcoming Trips</Text>
 				<Text style={styles.sectionContent}>
 					You do not have any upcoming trips.
 				</Text>
 			</View>
-			<Tickets userId={_id} />
 			<PaymentModal {...{ modalRef }} />
 		</View>
 	);

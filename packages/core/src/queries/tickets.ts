@@ -4,14 +4,24 @@ export const PURCHASE_TICKET = `
 		$routeId: $ID!
 		$quantity: Int
 	) {
-		purchaseTicket(
+		purchaseTicket(input: {
 			userId: $userId
 			routeId: $routeId
 			quantity: $quantity
-		) {
+		}) {
 			_id
 			userId
-			routeId
+			route {
+				_id
+				origin {
+					_id
+					name
+				}
+				destination {
+					_id
+					name
+				}
+			}
 			quantity
 		} 
 	}
@@ -22,7 +32,17 @@ export const TICKETS = `
 		tickets(userId: $userId) {
 			_id
 			userId
-			routeId
+			route {
+				_id
+				origin {
+					_id
+					name
+				}
+				destination {
+					_id
+					name
+				}
+			}
 			quantity
 		}
 	}

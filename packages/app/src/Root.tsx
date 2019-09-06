@@ -6,7 +6,7 @@ import prepare from './prepare';
 import { UserContext } from './contexts/UserContext';
 
 const Root = () => {
-	const user = React.useContext(UserContext);
+	const { user } = React.useContext(UserContext);
 	React.useEffect(() => {
 		prepare();
 	}, []);
