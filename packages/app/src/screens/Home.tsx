@@ -27,12 +27,6 @@ const Home = () => {
 				/>
 			</View>
 			<Tickets {...{ userId }} />
-			<View style={{ marginBottom: 15 }}>
-				<Text style={styles.sectionHeader}>Upcoming Trips</Text>
-				<Text style={styles.sectionContent}>
-					You do not have any upcoming trips.
-				</Text>
-			</View>
 			<PaymentModal {...{ modalRef }} />
 		</View>
 	);
@@ -56,15 +50,6 @@ const styles = StyleSheet.create({
 	},
 	welcomeAction: {
 		padding: 5
-	},
-	sectionHeader: {
-		fontSize: 18,
-		fontWeight: '500',
-		color: '#505050',
-		marginVertical: 5
-	},
-	sectionContent: {
-		color: '#777777'
 	}
 });
 
