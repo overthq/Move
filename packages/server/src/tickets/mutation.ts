@@ -13,7 +13,7 @@ const ticketsMutation = {
 		const [route] = await routesLoader.load(routeConditions);
 		const { fare } = route;
 		// Make payment of the fare
-		// await purchase(userId, fare);
+		await purchase(userId, fare);
 
 		const ticket = await Ticket.create({ userId, routeId: route.id, quantity });
 		if (typeof route.origin !== 'string' && route.origin.id === destination) {
