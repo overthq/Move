@@ -13,14 +13,19 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    - name: Setup Node ${{ matrix.node_version }}
+    - name: Setup Node
       uses: actions/setup-node@v1
       with:
         version: ${{ matrix.node_version }}
 
-    - name: Run static tests
-      run: |
-        yarn install
-        yarn workspace @move/core build
-        yarn workspaces run tsc
-        yarn workspaces run lint
+    - name: Install dependencies
+      run: yarn install
+
+    - name: Setup generated types
+      run: yarn workspace @move/core build
+
+    - name: Run lint
+      run: yarn workspaces run lint
+
+    - name: Run typecheck
+      run: yarn workspaces run tsc
