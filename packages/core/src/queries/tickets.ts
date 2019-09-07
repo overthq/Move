@@ -21,6 +21,7 @@ export const PURCHASE_TICKET = `
 					_id
 					name
 				}
+				fare
 			}
 			quantity
 		} 
@@ -42,6 +43,7 @@ export const TICKETS = `
 					_id
 					name
 				}
+				fare
 			}
 			quantity
 		}

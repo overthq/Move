@@ -53,6 +53,9 @@ const Tickets = ({ userId }: { userId: string }) => {
 					keyExtractor={ticket => ticket._id}
 					renderItem={({ item, index }) => <Ticket key={index} {...item} />}
 					horizontal
+					showsHorizontalScrollIndicator={false}
+					contentContainerStyle={{ marginVertical: 5 }}
+					style={{ marginHorizontal: -15 }}
 					ListEmptyComponent={
 						<View>
 							<Text style={styles.sectionContent}>

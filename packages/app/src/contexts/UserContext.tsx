@@ -25,8 +25,6 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
 		return setUser(null);
 	};
 
-	// if (!user) return null;
-
 	return (
 		<UserContext.Provider value={{ user, logOut }}>
 			{children}

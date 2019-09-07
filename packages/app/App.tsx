@@ -15,11 +15,11 @@ const devApiUrl = `http://${Constants.default.manifest.debuggerHost
 const client = createClient({ url: devApiUrl });
 
 const App = () => (
-	<Provider value={client}>
-		<UserProvider>
+	<UserProvider>
+		<Provider value={client}>
 			<RootNavigator />
-		</UserProvider>
-	</Provider>
+		</Provider>
+	</UserProvider>
 );
 
 export default App;
