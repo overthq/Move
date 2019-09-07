@@ -1,0 +1,6 @@
+mutation CreateBusStop($name: String!) {
+  createBusStop(input: { name: $name }) {
+    _id
+    name
+  }
+}

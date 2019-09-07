@@ -5,15 +5,14 @@ import {
 	TouchableOpacity,
 	KeyboardAvoidingView
 } from 'react-native';
-import { useMutation } from 'urql';
+import { useVerifyCodeMutation } from '@move/core';
 import { NavigationScreenProps } from 'react-navigation';
-import { AUTH_VERIFY_CODE } from '@move/core';
 import { storeUserData } from '../../helpers';
 import styles from './styles';
 
 const VerifyCode = ({ navigation }: NavigationScreenProps) => {
 	const [code, setCode] = React.useState('');
-	const [res, executeMutation] = useMutation(AUTH_VERIFY_CODE);
+	const [res, executeMutation] = useVerifyCodeMutation();
 	const handleTextChange = (text: string) => setCode(text);
 
 	const handleSubmit = async () => {

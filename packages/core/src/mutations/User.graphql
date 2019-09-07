@@ -1,0 +1,31 @@
+mutation Login($phoneNumber: String!) {
+  login(input: { phoneNumber: $phoneNumber })
+}
+
+mutation Register(
+  $firstName: String!
+  $lastName: String!
+  $phoneNumber: String!
+) {
+  register(input: {
+    firstName: $firstName
+    lastName: $lastName
+    phoneNumber: $phoneNumber
+  })
+}
+
+
+mutation VerifyCode(
+  $phoneNumber: String!
+  $code: String!
+) {
+  verifyCode(
+    phoneNumber: $phoneNumber
+    code: $code
+  ) {
+    _id
+    firstName
+    lastName
+    phoneNumber
+  }
+}

@@ -1,12 +1,9 @@
 import React from 'react';
 import { View, Text, ActivityIndicator, FlatList } from 'react-native';
-import { useQuery } from 'urql';
-import { CREDIT_CARDS } from '@move/core';
-import { CreditCard } from '@move/types';
+import { useCreditCardsQuery } from '@move/core';
 
 const CreditCards = ({ userId }: { userId: string }) => {
-	const [{ fetching, data, error }] = useQuery<{ creditCards: CreditCard[] }>({
-		query: CREDIT_CARDS,
+	const [{ fetching, data, error }] = useCreditCardsQuery({
 		variables: { userId }
 	});
 	if (fetching) return <ActivityIndicator />;

@@ -5,17 +5,15 @@ import {
 	TouchableOpacity,
 	KeyboardAvoidingView
 } from 'react-native';
-import { useMutation } from 'urql';
-import { AUTH_REGISTER } from '@move/core';
+import { useRegisterMutation } from '@move/core';
 import { NavigationScreenProps } from 'react-navigation';
 import styles from './styles';
-import { User } from '@move/types';
 
 const Register = ({ navigation }: NavigationScreenProps) => {
 	const [firstName, setFirstName] = React.useState('');
 	const [lastName, setLastName] = React.useState('');
 	const [phoneNumber, setPhoneNumber] = React.useState('');
-	const [res, execute] = useMutation<{ register: User }>(AUTH_REGISTER);
+	const [res, execute] = useRegisterMutation();
 
 	const handleTextChange = (text: string) => {
 		setPhoneNumber(text);

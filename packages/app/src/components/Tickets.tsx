@@ -8,14 +8,11 @@ import {
 	StyleSheet
 } from 'react-native';
 import { Feather } from '@expo/vector-icons';
-import { useQuery } from 'urql';
-import { TICKETS } from '@move/core';
-import { Ticket as TicketType } from '@move/types';
+import { useTicketsQuery } from '@move/core';
 import Ticket from './Ticket';
 
 const Tickets = ({ userId }: { userId: string }) => {
-	const [{ fetching, error, data }] = useQuery<{ tickets: TicketType[] }>({
-		query: TICKETS,
+	const [{ fetching, error, data }] = useTicketsQuery({
 		variables: { userId }
 	});
 

@@ -9,9 +9,7 @@ import {
 } from 'react-native';
 import Modalize from 'react-native-modalize';
 import { BarCodeScanner } from 'expo-barcode-scanner';
-import { useQuery } from 'urql';
-import { ROUTE } from '@move/core';
-import { Route } from '@move/types';
+import { useRouteQuery } from '@move/core';
 
 const { height } = Dimensions.get('window');
 
@@ -33,8 +31,7 @@ const PaymentButton = ({ loading }: PaymentButtonProps) => (
 );
 
 const PaymentInfo = ({ routeId }: { routeId: string }) => {
-	const [{ data, error }] = useQuery<{ route: Route }>({
-		query: ROUTE,
+	const [{ data, error }] = useRouteQuery({
 		variables: { id: routeId }
 	});
 

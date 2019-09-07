@@ -1,5 +1,5 @@
 import React from 'react';
-import { User } from '@move/types';
+import { User } from '@move/core';
 import { getUserData, removeUserData } from '../helpers';
 
 interface UserContextValue {

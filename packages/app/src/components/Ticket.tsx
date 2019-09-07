@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { Ticket as TicketProps } from '@move/types';
+import { Ticket as TicketProps } from '@move/core';
 
-const Ticket = ({ route, quantity }: TicketProps) => (
+const Ticket = ({ route, quantity }: Omit<TicketProps, 'reverse'>) => (
 	<View style={styles.container}>
 		<View style={styles.ticketTitleContainer}>
 			<Text style={styles.ticketTitle}>

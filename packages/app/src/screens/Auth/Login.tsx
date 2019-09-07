@@ -5,15 +5,13 @@ import {
 	TouchableOpacity,
 	KeyboardAvoidingView
 } from 'react-native';
-import { useMutation } from 'urql';
-import { AUTH_LOGIN } from '@move/core';
+import { useLoginMutation } from '@move/core';
 import { NavigationScreenProps } from 'react-navigation';
 import styles from './styles';
-import { User } from '@move/types';
 
 const Login = ({ navigation }: NavigationScreenProps) => {
 	const [phoneNumber, setPhoneNumber] = React.useState('');
-	const [res, execute] = useMutation<{ verifyCode: User }>(AUTH_LOGIN);
+	const [res, execute] = useLoginMutation();
 
 	const handleTextChange = (text: string) => setPhoneNumber(text);
 	const goToRegister = () => navigation.navigate('Register');

@@ -1,12 +1,10 @@
 import React from 'react';
-import { useQuery } from 'urql';
 import { Link, RouteComponentProps } from 'react-router-dom';
-import { BUS_STOPS } from '@move/core';
-import { BusStop } from '@move/types';
+import { useBusStopsQuery } from '@move/core';
 import CreateStop from './CreateStop';
 
 const Stops = ({ match }: RouteComponentProps) => {
-	const [{ fetching, data, error }] = useQuery({ query: BUS_STOPS });
+	const [{ fetching, data, error }] = useBusStopsQuery();
 
 	if (fetching || !data) return null;
 	if (error) console.error(error);
@@ -16,7 +14,7 @@ const Stops = ({ match }: RouteComponentProps) => {
 			<h1>Bus Stops</h1>
 			<CreateStop />
 			<div>
-				{data.busStops.map((busStop: BusStop) => (
+				{data.busStops.map(busStop => (
 					<Link key={busStop._id} to={`${match.url}/${busStop._id}`}>
 						{busStop.name}
 					</Link>
