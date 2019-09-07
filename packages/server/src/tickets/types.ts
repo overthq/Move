@@ -10,7 +10,7 @@ const Ticket = `
 		userId: ID!
 		origin: ID!
 		destination: ID!
-		quantity: Int!
+		quantity: Int
 	}
 
 	extend type Query {

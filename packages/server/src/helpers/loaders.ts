@@ -33,7 +33,7 @@ export const completeRoutes = async (
 	const fullRoutes = await Promise.all(
 		routes.map(async route => {
 			const { originBusStop, destinationBusStop } = await verifyStops(
-				route.origin,
+				route.origin as string,
 				route.destination
 			);
 			return Object.assign(route, {
