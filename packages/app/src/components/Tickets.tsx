@@ -23,24 +23,11 @@ const Tickets = ({ userId }: { userId: string }) => {
 
 	return (
 		<View>
-			<View
-				style={{
-					flexDirection: 'row',
-					justifyContent: 'space-between',
-					alignItems: 'center'
-				}}
-			>
-				<Text style={styles.sectionHeader}>Tickets</Text>
+			<View style={styles.sectionHeader}>
+				<Text style={styles.sectionHeaderText}>Tickets</Text>
 				<TouchableOpacity
 					activeOpacity={0.7}
-					style={{
-						height: 24,
-						width: 24,
-						backgroundColor: '#161616',
-						borderRadius: 12,
-						justifyContent: 'center',
-						alignItems: 'center'
-					}}
+					style={styles.sectionActionButton}
 				>
 					<Feather name='plus' color='#FFFFFF' size={16} />
 				</TouchableOpacity>
@@ -54,8 +41,7 @@ const Tickets = ({ userId }: { userId: string }) => {
 					renderItem={({ item, index }) => <Ticket key={index} {...item} />}
 					horizontal
 					showsHorizontalScrollIndicator={false}
-					contentContainerStyle={{ marginVertical: 5 }}
-					style={{ marginHorizontal: -15 }}
+					style={{ marginHorizontal: -15, marginVertical: 5 }}
 					ListEmptyComponent={
 						<View>
 							<Text style={styles.sectionContent}>
@@ -71,10 +57,23 @@ const Tickets = ({ userId }: { userId: string }) => {
 
 const styles = StyleSheet.create({
 	sectionHeader: {
-		fontSize: 18,
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+		alignItems: 'center'
+	},
+	sectionHeaderText: {
+		fontSize: 20,
 		fontWeight: '500',
 		color: '#505050',
 		marginVertical: 5
+	},
+	sectionActionButton: {
+		height: 24,
+		width: 24,
+		backgroundColor: '#161616',
+		borderRadius: 12,
+		justifyContent: 'center',
+		alignItems: 'center'
 	},
 	sectionContent: {
 		color: '#777777'
