@@ -13,7 +13,7 @@ const routeQuery = {
 		const { origin, destination } = matchedRoute;
 		const { originBusStop, destinationBusStop } = await verifyStops(
 			origin as string,
-			destination
+			destination as string
 		);
 
 		return Object.assign(matchedRoute, {

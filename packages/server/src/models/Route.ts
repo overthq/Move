@@ -3,7 +3,7 @@ import { BusStopType } from './BusStop';
 
 export interface RouteType extends Document {
 	origin: string | BusStopType;
-	destination: string;
+	destination: string | BusStopType;
 	fare: number;
 }
 
