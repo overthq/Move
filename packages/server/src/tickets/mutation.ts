@@ -1,23 +1,22 @@
-import { Ticket, Route } from '../models';
+import { Ticket } from '../models';
 import { purchase } from '../creditCards/helpers';
+import { routesLoader } from '../helpers/loaders';
 
 const ticketsMutation = {
 	purchaseTicket: async (_, { input }) => {
-		const { userId, routeId, quantity } = input;
-		// Check if the user wants to go on the trip, or the reverse.
-		// e.g. Fagba - Agege / Agege - Fagba
+		const { userId, origin, destination, quantity } = input;
 
-		const route = await Route.findById(routeId);
-		if (!route) throw new Error('Specified route does not exist');
+		const routeConditions = [
+			{ origin, destination },
+			{ origin: destination, destination: origin }
+		];
+		const [route] = await routesLoader.load(routeConditions);
 		const { fare } = route;
-
 		// Make payment of the fare
 		await purchase(userId, fare);
-		// Make sure that the payment creates an invoice entry with the trip information, date and other details.
-		// I'm not sure this is possible because the trip has to be created before the invoice can be created
 
-		const ticket = await Ticket.create({ userId, routeId, quantity });
-		return ticket;
+		const ticket = await Ticket.create({ userId, routeId: route.id, quantity });
+		return Object.assign(ticket, { route });
 	}
 };
 

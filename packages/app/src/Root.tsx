@@ -1,6 +1,6 @@
 import React from 'react';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
-import { Home, Auth, Settings } from './screens';
+import { Home, Auth } from './screens';
 import NavigationService from './NavigationService';
 import prepare from './prepare';
 import { UserContext } from './contexts/UserContext';
@@ -13,7 +13,7 @@ const Root = () => {
 
 	const AppNavigator = createAppContainer(
 		createSwitchNavigator(
-			{ Auth, Home, Settings },
+			{ Auth, Home },
 			{ initialRouteName: user ? 'Home' : 'Auth', backBehavior: 'none' }
 		)
 	);

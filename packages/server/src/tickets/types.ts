@@ -8,7 +8,8 @@ const Ticket = `
 
 	input TicketInput {
 		userId: ID!
-		routeId: ID!
+		origin: ID!
+		destination: ID!
 		quantity: Int!
 	}
 
