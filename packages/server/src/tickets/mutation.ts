@@ -13,7 +13,7 @@ const ticketsMutation = {
 		const [route] = await routesLoader.load(routeConditions);
 		const { fare } = route;
 		// Make payment of the fare
-		await purchase(userId, fare);
+		// await purchase(userId, fare);
 		const reverse =
 			typeof route.origin !== 'string' && route.origin.id === destination;
 
@@ -24,10 +24,10 @@ const ticketsMutation = {
 			reverse
 		});
 		if (reverse) {
-			const newRoute = {
+			const newRoute = Object.assign(route, {
 				origin: route.destination,
 				destination: route.origin
-			};
+			});
 			return Object.assign(ticket, { route: newRoute });
 		}
 		return Object.assign(ticket, { route });

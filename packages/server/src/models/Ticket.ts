@@ -3,6 +3,7 @@ import { model, Schema, Document } from 'mongoose';
 export interface TicketType extends Document {
 	userId: string;
 	routeId: string;
+	reverse: boolean;
 	quantity: number;
 }
 
