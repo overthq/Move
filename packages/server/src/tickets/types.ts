@@ -4,6 +4,7 @@ const Ticket = `
 		userId: ID!
 		route: Route!
 		quantity: Int!
+		reverse: Boolean!
 	}
 
 	input TicketInput {

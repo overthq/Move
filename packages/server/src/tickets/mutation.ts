@@ -14,9 +14,16 @@ const ticketsMutation = {
 		const { fare } = route;
 		// Make payment of the fare
 		await purchase(userId, fare);
+		const reverse =
+			typeof route.origin !== 'string' && route.origin.id === destination;
 
-		const ticket = await Ticket.create({ userId, routeId: route.id, quantity });
-		if (typeof route.origin !== 'string' && route.origin.id === destination) {
+		const ticket = await Ticket.create({
+			userId,
+			routeId: route.id,
+			quantity,
+			reverse
+		});
+		if (reverse) {
 			const newRoute = {
 				origin: route.destination,
 				destination: route.origin

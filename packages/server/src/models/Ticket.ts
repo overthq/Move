@@ -18,9 +18,12 @@ const TicketSchema = new Schema(
 			ref: 'Route',
 			required: true
 		},
+		reverse: {
+			type: Boolean,
+			default: false
+		},
 		quantity: {
 			type: Number,
-			required: true,
 			default: 1
 		}
 	},
