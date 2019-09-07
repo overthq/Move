@@ -1,4 +1,4 @@
-name: CI
+name: Lint and Test
 
 on: [push, pull_request]
 
@@ -21,7 +21,6 @@ jobs:
     - name: Run static tests
       run: |
         yarn install
-        yarn workspace @move/types build
         yarn workspace @move/core build
         yarn workspaces run tsc
         yarn workspaces run lint
