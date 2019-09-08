@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import './styles.css';
 
@@ -18,8 +19,17 @@ const links = [
 	}
 ];
 
+const SidebarLinkWrapper = styled(NavLink)`
+	color: rgb(4, 34, 85);
+	font-weight: 500;
+	text-decoration: none;
+	&:not(last-of-type) {
+		margin-bottom: 5px;
+	}
+`;
+
 const SidebarLink = ({ label, path }: SidebarLinkProps) => (
-	<NavLink to={path}>{label}</NavLink>
+	<SidebarLinkWrapper to={path}>{label}</SidebarLinkWrapper>
 );
 
 const Sidebar = () => (
