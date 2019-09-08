@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import './styles.css';
 
 interface SidebarLinkProps {
 	label: string;
@@ -28,16 +27,27 @@ const SidebarLinkWrapper = styled(NavLink)`
 	}
 `;
 
+const SidebarNav = styled.nav`
+	height: 100%;
+	width: 15%;
+	max-width: 250px;
+	background-color: #FFFFFF;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+`;
+
 const SidebarLink = ({ label, path }: SidebarLinkProps) => (
 	<SidebarLinkWrapper to={path}>{label}</SidebarLinkWrapper>
 );
 
 const Sidebar = () => (
-	<nav>
+	<SidebarNav>
 		{links.map(link => (
 			<SidebarLink key={link.label} {...link} />
 		))}
-	</nav>
+	</SidebarNav>
 );
 
 export default Sidebar;
