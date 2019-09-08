@@ -1,5 +1,5 @@
 import { Ticket } from '../models';
-import { purchase } from '../creditCards/helpers';
+// import { purchase } from '../creditCards/helpers';
 import { routesLoader } from '../helpers/loaders';
 
 const ticketsMutation = {
@@ -11,7 +11,7 @@ const ticketsMutation = {
 			{ origin: destination, destination: origin }
 		];
 		const [route] = await routesLoader.load(routeConditions);
-		const { fare } = route;
+		// const { fare } = route;
 		// Make payment of the fare
 		// await purchase(userId, fare);
 		const reverse =
@@ -23,6 +23,7 @@ const ticketsMutation = {
 			quantity,
 			reverse
 		});
+
 		if (reverse) {
 			const newRoute = Object.assign(route, {
 				origin: route.destination,
@@ -31,6 +32,11 @@ const ticketsMutation = {
 			return Object.assign(ticket, { route: newRoute });
 		}
 		return Object.assign(ticket, { route });
+	},
+	useTicket: async (_, { userId, routeId }) => {
+		const ticket = await Ticket.findOneAndDelete({ routeId, userId });
+		if (!ticket) throw new Error('The ticket does not exist.');
+		return 'Ticket successfully verified.';
 	}
 };
 

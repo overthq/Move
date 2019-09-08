@@ -56,6 +56,7 @@ export type Mutation = {
 	createBusStop: BusStop;
 	saveCard: CreditCard;
 	purchaseTicket: Ticket;
+	useTicket: Scalars['String'];
 };
 
 export type MutationLoginArgs = {
@@ -85,6 +86,11 @@ export type MutationSaveCardArgs = {
 
 export type MutationPurchaseTicketArgs = {
 	input: TicketInput;
+};
+
+export type MutationUseTicketArgs = {
+	routeId: Scalars['ID'];
+	userId: Scalars['ID'];
 };
 
 export type Query = {
@@ -209,6 +215,16 @@ export type PurchaseTicketMutation = { __typename?: 'Mutation' } & {
 				};
 		};
 };
+
+export type UseTicketMutationVariables = {
+	routeId: Scalars['ID'];
+	userId: Scalars['ID'];
+};
+
+export type UseTicketMutation = { __typename?: 'Mutation' } & Pick<
+	Mutation,
+	'useTicket'
+>;
 
 export type LoginMutationVariables = {
 	phoneNumber: Scalars['String'];
@@ -402,6 +418,17 @@ export function usePurchaseTicketMutation() {
 		PurchaseTicketMutation,
 		PurchaseTicketMutationVariables
 	>(PurchaseTicketDocument);
+}
+export const UseTicketDocument = gql`
+	mutation UseTicket($routeId: ID!, $userId: ID!) {
+		useTicket(routeId: $routeId, userId: $userId)
+	}
+`;
+
+export function useUseTicketMutation() {
+	return Urql.useMutation<UseTicketMutation, UseTicketMutationVariables>(
+		UseTicketDocument
+	);
 }
 export const LoginDocument = gql`
 	mutation Login($phoneNumber: String!) {

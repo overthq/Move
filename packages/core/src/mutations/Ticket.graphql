@@ -27,3 +27,7 @@ mutation PurchaseTicket(
     quantity
   } 
 }
+
+mutation UseTicket($routeId: ID! $userId: ID!) {
+  useTicket(routeId: $routeId userId: $userId)
+}

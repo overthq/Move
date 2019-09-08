@@ -20,6 +20,7 @@ const Ticket = `
 
 	extend type Mutation {
 		purchaseTicket(input: TicketInput!): Ticket!
+		useTicket(routeId: ID! userId: ID!): String!
 	}
 `;
 

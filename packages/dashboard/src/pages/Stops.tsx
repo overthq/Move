@@ -6,7 +6,8 @@ import CreateStop from './CreateStop';
 const Stops = ({ match }: RouteComponentProps) => {
 	const [{ fetching, data, error }] = useBusStopsQuery();
 
-	if (fetching || !data) return null;
+	if (fetching) return <p>Loading</p>;
+	if (!data) return null;
 	if (error) console.error(error);
 
 	return (

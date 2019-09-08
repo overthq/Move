@@ -3,7 +3,7 @@ import { RouteComponentProps } from 'react-router-dom';
 import QRCode from 'qrcode.react';
 import { useBusStopQuery, BusStop, Route } from '@move/core';
 
-const getAccurateName = (busStop: BusStop, route: Route) => {
+const getAccurateName = (busStop: BusStop | any, route: Route | any) => {
 	if (busStop.name === route.origin.name) return route.destination.name;
 	else if (busStop.name === route.destination.name) return route.origin.name;
 	else throw new Error('Impossible to have reached this point');

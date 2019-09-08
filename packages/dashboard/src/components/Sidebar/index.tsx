@@ -22,14 +22,12 @@ const SidebarLink = ({ label, path }: SidebarLinkProps) => (
 	<NavLink to={path}>{label}</NavLink>
 );
 
-const Sidebar = () => {
-	return (
-		<nav>
-			{links.map(link => (
-				<SidebarLink key={link.label} {...link} />
-			))}
-		</nav>
-	);
-};
+const Sidebar = () => (
+	<nav>
+		{links.map(link => (
+			<SidebarLink key={link.label} {...link} />
+		))}
+	</nav>
+);
 
 export default Sidebar;
