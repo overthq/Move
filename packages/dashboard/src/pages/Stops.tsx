@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link, RouteComponentProps } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useBusStopsQuery } from '@move/core';
 import CreateStop from './CreateStop';
 
-const Stops = ({ match }: RouteComponentProps) => {
+const Stops: React.FC = () => {
 	const [{ fetching, data, error }] = useBusStopsQuery();
 
 	if (fetching) return <p>Loading</p>;
@@ -16,7 +16,7 @@ const Stops = ({ match }: RouteComponentProps) => {
 			<CreateStop />
 			<div>
 				{data.busStops.map(busStop => (
-					<Link key={busStop._id} to={`${match.url}/${busStop._id}`}>
+					<Link key={busStop._id} to={`/stops/${busStop._id}`}>
 						{busStop.name}
 					</Link>
 				))}

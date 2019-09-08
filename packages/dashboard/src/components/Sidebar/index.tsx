@@ -2,6 +2,11 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './styles.css';
 
+interface SidebarLinkProps {
+	label: string;
+	path: string;
+}
+
 const links = [
 	{
 		label: 'Home',
@@ -12,11 +17,6 @@ const links = [
 		path: '/stops'
 	}
 ];
-
-interface SidebarLinkProps {
-	label: string;
-	path: string;
-}
 
 const SidebarLink = ({ label, path }: SidebarLinkProps) => (
 	<NavLink to={path}>{label}</NavLink>
