@@ -21,7 +21,12 @@ const links = [
 const SidebarLinkWrapper = styled(NavLink)`
 	color: rgb(4, 34, 85);
 	font-weight: 500;
+	font-size: 20px;
 	text-decoration: none;
+	&.active,
+	&:hover {
+		background-color: light-blue;
+	}
 	&:not(last-of-type) {
 		margin-bottom: 5px;
 	}
@@ -31,7 +36,7 @@ const SidebarNav = styled.nav`
 	height: 100%;
 	width: 15%;
 	max-width: 250px;
-	background-color: #FFFFFF;
+	background-color: #ffffff;
 	display: flex;
 	flex-direction: column;
 	align-items: center;

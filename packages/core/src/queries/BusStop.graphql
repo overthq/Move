@@ -2,6 +2,16 @@ query BusStops {
   busStops {
     _id
     name
+    routes {
+      _id
+      origin {
+        name
+      }
+      destination {
+        name
+      }
+      fare
+    }
   }
 }
 
@@ -18,6 +28,7 @@ query BusStop($id: ID!) {
       destination {
         name
       }
+      fare
     }
   }
 }
