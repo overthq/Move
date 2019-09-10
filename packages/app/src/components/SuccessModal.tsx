@@ -32,7 +32,7 @@ const SuccessModal = ({ modalRef, userId }: SuccessModalProps) => {
 				setSuccess(true);
 			}
 		}
-	}, [routeId]);
+	}, [routeId, success, data, executeMutation]);
 
 	return (
 		<Modalize ref={modalRef} adjustToContentHeight>

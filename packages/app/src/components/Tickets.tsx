@@ -40,7 +40,7 @@ const Tickets = ({ userId }: { userId: string }) => {
 					showsHorizontalScrollIndicator={false}
 					style={{ marginHorizontal: -15, marginVertical: 5 }}
 					ListEmptyComponent={
-						<View>
+						<View style={{ marginLeft: 15 }}>
 							<Text style={styles.sectionContent}>
 								{`You don't currently have any tickets.`}
 							</Text>
@@ -73,7 +73,8 @@ const styles = StyleSheet.create({
 		alignItems: 'center'
 	},
 	sectionContent: {
-		color: '#777777'
+		color: '#777777',
+		fontSize: 16
 	}
 });
 

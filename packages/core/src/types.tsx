@@ -261,7 +261,16 @@ export type VerifyCodeMutation = { __typename?: 'Mutation' } & {
 export type BusStopsQueryVariables = {};
 
 export type BusStopsQuery = { __typename?: 'Query' } & {
-	busStops: Array<{ __typename?: 'BusStop' } & Pick<BusStop, '_id' | 'name'>>;
+	busStops: Array<
+		{ __typename?: 'BusStop' } & Pick<BusStop, '_id' | 'name'> & {
+				routes: Array<
+					{ __typename?: 'Route' } & Pick<Route, '_id' | 'fare'> & {
+							origin: { __typename?: 'BusStop' } & Pick<BusStop, 'name'>;
+							destination: { __typename?: 'BusStop' } & Pick<BusStop, 'name'>;
+						}
+				>;
+			}
+	>;
 };
 
 export type BusStopQueryVariables = {
@@ -271,7 +280,7 @@ export type BusStopQueryVariables = {
 export type BusStopQuery = { __typename?: 'Query' } & {
 	busStop: { __typename?: 'BusStop' } & Pick<BusStop, '_id' | 'name'> & {
 			routes: Array<
-				{ __typename?: 'Route' } & Pick<Route, '_id'> & {
+				{ __typename?: 'Route' } & Pick<Route, '_id' | 'fare'> & {
 						origin: { __typename?: 'BusStop' } & Pick<BusStop, 'name'>;
 						destination: { __typename?: 'BusStop' } & Pick<BusStop, 'name'>;
 					}
@@ -481,6 +490,16 @@ export const BusStopsDocument = gql`
 		busStops {
 			_id
 			name
+			routes {
+				_id
+				origin {
+					name
+				}
+				destination {
+					name
+				}
+				fare
+			}
 		}
 	}
 `;
@@ -503,6 +522,7 @@ export const BusStopDocument = gql`
 				destination {
 					name
 				}
+				fare
 			}
 		}
 	}
