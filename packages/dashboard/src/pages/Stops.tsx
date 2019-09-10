@@ -7,8 +7,8 @@ const Stops: React.FC = () => {
 	const [{ fetching, data, error }] = useBusStopsQuery();
 
 	if (fetching) return <p>Loading</p>;
+	if (error) return <p>Error</p>;
 	if (!data) return null;
-	if (error) console.error(error);
 
 	return (
 		<div>
