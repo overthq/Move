@@ -11,19 +11,18 @@ import { storeUserData } from '../../helpers';
 import styles from './styles';
 
 const VerifyCode = ({ navigation }: NavigationScreenProps) => {
+	const phoneNumber: string = navigation.getParam('phoneNumber');
 	const [code, setCode] = React.useState('');
-	const [res, executeMutation] = useVerifyCodeMutation();
+	const [{ data }, executeMutation] = useVerifyCodeMutation();
 	const handleTextChange = (text: string) => setCode(text);
 
-	const handleSubmit = async () => {
-		const phoneNumber: string = await navigation.getParam('phoneNumber');
+	const handleSubmit = React.useCallback(async () => {
 		await executeMutation({ phoneNumber, code });
-		if (res && res.data && res.data.verifyCode) {
-			console.log(res.data.verifyCode);
-			await storeUserData(res.data.verifyCode);
+		if (data && data.verifyCode) {
+			await storeUserData(data.verifyCode);
 			navigation.navigate('Home');
 		}
-	};
+	}, [code, data, executeMutation]);
 
 	return (
 		<KeyboardAvoidingView style={styles.container} behavior='padding'>

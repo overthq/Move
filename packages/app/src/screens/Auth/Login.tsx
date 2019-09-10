@@ -11,15 +11,15 @@ import styles from './styles';
 
 const Login = ({ navigation }: NavigationScreenProps) => {
 	const [phoneNumber, setPhoneNumber] = React.useState('');
-	const [res, execute] = useLoginMutation();
+	const [{ data }, execute] = useLoginMutation();
 
 	const handleTextChange = (text: string) => setPhoneNumber(text);
 	const goToRegister = () => navigation.navigate('Register');
 
-	const handleSubmit = async () => {
+	const handleSubmit = React.useCallback(async () => {
 		await execute({ phoneNumber });
-		if (res) navigation.navigate('VerifyCode', { phoneNumber });
-	};
+		if (data && data.login) navigation.navigate('VerifyCode', { phoneNumber });
+	}, [phoneNumber, execute, data]);
 
 	return (
 		<KeyboardAvoidingView style={styles.container} behavior='padding'>

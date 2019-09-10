@@ -3,19 +3,24 @@ import { View, Dimensions, StyleSheet, Text } from 'react-native';
 import Modalize from 'react-native-modalize';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import { useUseTicketMutation } from '@move/core';
+import { Feather } from '@expo/vector-icons';
 
 const { height } = Dimensions.get('window');
+
+const SuccessInfo = () => (
+	<View style={styles.container}>
+		<Feather name='check' />
+		<Text>Ticket successfully used.</Text>
+		<Text>
+			You can display this screen to the driver as confirmation of payment
+		</Text>
+	</View>
+);
 
 interface SuccessModalProps {
 	modalRef: React.RefObject<Modalize>;
 	userId: string;
 }
-
-const SuccessInfo = () => (
-	<View>
-		<Text>Ticket successfully used.</Text>
-	</View>
-);
 
 const SuccessModal = ({ modalRef, userId }: SuccessModalProps) => {
 	const [routeId, setRouteId] = React.useState('');
@@ -28,9 +33,7 @@ const SuccessModal = ({ modalRef, userId }: SuccessModalProps) => {
 	React.useEffect(() => {
 		if (routeId) {
 			executeMutation({ routeId, userId });
-			if (data && data.useTicket) {
-				setSuccess(true);
-			}
+			if (data && data.useTicket) setSuccess(true);
 		}
 	}, [routeId, success, data, executeMutation]);
 
