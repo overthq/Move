@@ -9,9 +9,9 @@ const { height } = Dimensions.get('window');
 
 const SuccessInfo = () => (
 	<View style={styles.container}>
-		<Feather name='check' />
-		<Text>Ticket successfully used.</Text>
-		<Text>
+		<Feather name='check' size={40} color='#3CBA81' />
+		<Text style={styles.successText}>Ticket successfully used.</Text>
+		<Text style={styles.successInfo}>
 			You can display this screen to the driver as confirmation of payment
 		</Text>
 	</View>
@@ -54,7 +54,19 @@ const SuccessModal = ({ modalRef, userId }: SuccessModalProps) => {
 const styles = StyleSheet.create({
 	container: {
 		height: 0.7 * height,
-		width: '100%'
+		width: '100%',
+		justifyContent: 'center',
+		alignItems: 'center'
+	},
+	successText: {
+		fontSize: 30,
+		fontWeight: 'bold',
+		color: '#161616',
+		marginVertical: 20
+	},
+	successInfo: {
+		fontSize: 20,
+		color: '#505050'
 	}
 });
 
