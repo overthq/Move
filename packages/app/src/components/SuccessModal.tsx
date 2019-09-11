@@ -9,10 +9,10 @@ const { height } = Dimensions.get('window');
 
 const SuccessInfo = () => (
 	<View style={styles.container}>
-		<Feather name='check' size={40} color='#3CBA81' />
-		<Text style={styles.successText}>Ticket successfully used.</Text>
+		<Feather name='check-circle' size={50} color='#3CBA81' />
+		<Text style={styles.successText}>Ticket verified.</Text>
 		<Text style={styles.successInfo}>
-			You can display this screen to the driver as confirmation of payment
+			Kindly display this screen to the driver as confirmation of payment.
 		</Text>
 	</View>
 );
@@ -31,7 +31,7 @@ const SuccessModal = ({ modalRef, userId }: SuccessModalProps) => {
 	};
 
 	React.useEffect(() => {
-		if (routeId) {
+		if (!success && routeId) {
 			executeMutation({ routeId, userId });
 			if (data && data.useTicket) setSuccess(true);
 		}
@@ -44,7 +44,7 @@ const SuccessModal = ({ modalRef, userId }: SuccessModalProps) => {
 			) : (
 				<BarCodeScanner
 					style={styles.container}
-					onBarCodeScanned={handleBarCodeScanned}
+					onBarCodeScanned={routeId ? undefined : handleBarCodeScanned}
 				/>
 			)}
 		</Modalize>
@@ -59,14 +59,16 @@ const styles = StyleSheet.create({
 		alignItems: 'center'
 	},
 	successText: {
-		fontSize: 30,
+		fontSize: 25,
 		fontWeight: 'bold',
 		color: '#161616',
-		marginVertical: 20
+		marginVertical: 15
 	},
 	successInfo: {
-		fontSize: 20,
-		color: '#505050'
+		fontSize: 18,
+		color: '#505050',
+		textAlign: 'center',
+		paddingHorizontal: 10
 	}
 });
 

@@ -1,4 +1,4 @@
-import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 import SettingsHome from './Settings';
 import CreditCards from './CreditCards';
 

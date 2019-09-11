@@ -34,8 +34,15 @@ const ticketsMutation = {
 		return Object.assign(ticket, { route });
 	},
 	useTicket: async (_, { userId, routeId }) => {
-		const ticket = await Ticket.findOneAndDelete({ routeId, userId });
+		console.log('Being called!');
+		const ticket = await Ticket.findOne({ userId, routeId });
 		if (!ticket) throw new Error('The ticket does not exist.');
+		if (ticket.quantity > 1) {
+			ticket.quantity--;
+			await ticket.save();
+			return 'Ticket successfully verified.';
+		}
+		await ticket.remove();
 		return 'Ticket successfully verified.';
 	}
 };
