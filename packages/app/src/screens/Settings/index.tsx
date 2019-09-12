@@ -40,7 +40,8 @@ const Settings = createStackNavigator(
 				color: '#D3D3D3'
 			},
 			headerStyle: {
-				backgroundColor: '#161616'
+				backgroundColor: '#161616',
+				borderBottomColor: '#545454'
 			}
 		}
 	}
