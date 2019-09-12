@@ -1,8 +1,12 @@
 import React from 'react';
 import { View, Text, ActivityIndicator, FlatList } from 'react-native';
 import { useCreditCardsQuery } from '@move/core';
+import { UserContext } from '../../contexts/UserContext';
 
-const CreditCards = ({ userId }: { userId: string }) => {
+const CreditCards = () => {
+	const {
+		user: { _id: userId }
+	} = React.useContext(UserContext);
 	const [{ fetching, data, error }] = useCreditCardsQuery({
 		variables: { userId }
 	});
