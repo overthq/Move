@@ -21,9 +21,9 @@ interface SettingsItemProps {
 	onPress(): void;
 }
 
-const SettingsItem = ({ name }: SettingsItemProps) => (
-	<TouchableOpacity style={styles.itemContainer}>
-		<Text>{name}</Text>
+const SettingsItem = ({ name, onPress }: SettingsItemProps) => (
+	<TouchableOpacity style={styles.itemContainer} {...{ onPress }}>
+		<Text style={styles.itemName}>{name}</Text>
 		<Feather name='arrow-right' />
 	</TouchableOpacity>
 );
@@ -54,6 +54,9 @@ const styles = StyleSheet.create({
 		borderColor: '#D3D3D3',
 		borderTopWidth: 1,
 		borderBottomWidth: 1
+	},
+	itemName: {
+		fontSize: 16
 	}
 });
 
