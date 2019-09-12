@@ -34,10 +34,6 @@ const ticketsMutation = {
 		return Object.assign(ticket, { route });
 	},
 	useTicket: async (_, { userId, routeId }) => {
-		// For some reason, this appears to be finding multiple tickets
-		// Aha, it seems like the frontend actually calls this mutation two times instead of once.
-		console.log('Being called');
-		console.log('Being called');
 		const ticket = await Ticket.findOne({ userId, routeId });
 		if (!ticket) throw new Error('The ticket does not exist.');
 		if (ticket.quantity > 1) {
