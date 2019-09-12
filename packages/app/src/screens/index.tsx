@@ -6,7 +6,14 @@ import Auth from './Auth';
 import NavigationService from './NavigationService';
 import { createStackNavigator } from 'react-navigation-stack';
 
-const Main = createStackNavigator({ Home, Settings }, { headerMode: 'none' });
+const Main = createStackNavigator(
+	{ Home, Settings },
+	{
+		headerMode: 'none',
+		cardOverlayEnabled: true,
+		mode: 'modal'
+	}
+);
 
 const AppNavigator = ({ loggedIn }: { loggedIn: boolean }) => {
 	const Navigator = createAppContainer(
