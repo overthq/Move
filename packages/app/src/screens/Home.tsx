@@ -1,10 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Modalize from 'react-native-modalize';
-import { Ionicons } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
 import { UserContext } from '../contexts/UserContext';
 import PaymentModal from '../components/PaymentModal';
 import Tickets from '../components/Tickets';
+import ScanButton from '../components/ScanButton';
 import { NavigationScreenProps } from 'react-navigation';
 
 const Home = ({ navigation }: NavigationScreenProps) => {
@@ -20,20 +21,16 @@ const Home = ({ navigation }: NavigationScreenProps) => {
 		<View style={styles.container}>
 			<View style={styles.welcomeContainer}>
 				<Text style={styles.welcomeText}>Hello, {firstName}.</Text>
-				<Ionicons
+				<Feather
 					size={24}
-					name='ios-qr-scanner'
-					style={styles.welcomeAction}
-					onPress={handleModalOpen}
+					name='settings'
+					onPress={() => navigation.navigate('Settings')}
+					color='#505050'
 				/>
 			</View>
 			<Tickets {...{ userId }} />
 			<PaymentModal {...{ modalRef, userId }} />
-			<Ionicons
-				size={24}
-				name='ios-settings'
-				onPress={() => navigation.navigate('Settings')}
-			/>
+			<ScanButton onPress={handleModalOpen} />
 		</View>
 	);
 };
@@ -41,6 +38,7 @@ const Home = ({ navigation }: NavigationScreenProps) => {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
+		// alignItems: 'center',
 		padding: 15
 	},
 	welcomeContainer: {

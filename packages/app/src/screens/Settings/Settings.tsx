@@ -33,7 +33,10 @@ const LogoutButton = () => {
 	const { logOut } = React.useContext(UserContext);
 	return (
 		<TouchableOpacity
-			style={[styles.itemContainer, { justifyContent: 'center' }]}
+			style={[
+				styles.itemContainer,
+				{ justifyContent: 'center', marginTop: 10 }
+			]}
 			onPress={logOut}
 		>
 			<Text style={[styles.itemName, { color: '#E83C3C' }]}>Log Out</Text>
@@ -91,7 +94,7 @@ const styles = StyleSheet.create({
 		padding: 10
 	},
 	titleName: {
-		fontSize: 22,
+		fontSize: 20,
 		color: '#777777',
 		fontWeight: 'bold'
 	},
