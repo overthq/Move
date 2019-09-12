@@ -27,7 +27,7 @@ const Home = () => {
 				/>
 			</View>
 			<Tickets {...{ userId }} />
-			<PaymentModal {...{ modalRef, userId: user._id }} />
+			<PaymentModal {...{ modalRef, userId }} />
 		</View>
 	);
 };
