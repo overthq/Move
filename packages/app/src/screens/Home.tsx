@@ -5,8 +5,9 @@ import { Ionicons } from '@expo/vector-icons';
 import { UserContext } from '../contexts/UserContext';
 import PaymentModal from '../components/PaymentModal';
 import Tickets from '../components/Tickets';
+import { NavigationScreenProps } from 'react-navigation';
 
-const Home = () => {
+const Home = ({ navigation }: NavigationScreenProps) => {
 	const { user } = React.useContext(UserContext);
 	const { firstName, _id: userId } = user;
 	const modalRef = React.useRef<Modalize>(null);
@@ -28,6 +29,11 @@ const Home = () => {
 			</View>
 			<Tickets {...{ userId }} />
 			<PaymentModal {...{ modalRef, userId }} />
+			<Ionicons
+				size={24}
+				name='ios-settings'
+				onPress={() => navigation.navigate('Settings')}
+			/>
 		</View>
 	);
 };
