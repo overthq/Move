@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import Modalize from 'react-native-modalize';
 import { Ionicons } from '@expo/vector-icons';
 import { UserContext } from '../contexts/UserContext';
-import PaymentModal from '../components/SuccessModal';
+import PaymentModal from '../components/PaymentModal';
 import Tickets from '../components/Tickets';
 
 const Home = () => {

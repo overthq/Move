@@ -1,75 +1,37 @@
 import React from 'react';
-import {
-	View,
-	Text,
-	TouchableOpacity,
-	ActivityIndicator,
-	StyleSheet,
-	Dimensions
-} from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
 import Modalize from 'react-native-modalize';
 import { BarCodeScanner } from 'expo-barcode-scanner';
-import { useRouteQuery } from '@move/core';
+import { useUseTicketMutation } from '@move/core';
+import SuccessInfo from './SuccessInfo';
 
 const { height } = Dimensions.get('window');
 
-interface PaymentButtonProps {
-	loading?: boolean;
-	onPress?: () => void;
-}
-
-const PaymentButton = ({ loading }: PaymentButtonProps) => (
-	<TouchableOpacity activeOpacity={0.5} style={styles.button}>
-		{loading ? (
-			<ActivityIndicator color='#FFFFFF' />
-		) : (
-			<Text style={{ color: '#FFFFFF', fontSize: 16, fontWeight: '500' }}>
-				Make trip payment
-			</Text>
-		)}
-	</TouchableOpacity>
-);
-
-const PaymentInfo = ({ routeId }: { routeId: string }) => {
-	const [{ data, error }] = useRouteQuery({
-		variables: { id: routeId }
-	});
-
-	if (error) console.log(error);
-	if (!data) return null;
-	const { route } = data;
-
-	return (
-		<View style={styles.container}>
-			<Text style={styles.routeText}>
-				{route.origin.name} to {route.destination.name}
-			</Text>
-			<Text style={styles.paymentInfo}>
-				This trip will cost you {route.fare} naira
-			</Text>
-			<PaymentButton loading />
-		</View>
-	);
-};
-
-interface PaymentModalProps {
+interface SuccessModalProps {
 	modalRef: React.RefObject<Modalize>;
+	userId: string;
 }
 
-const PaymentModal = ({ modalRef }: PaymentModalProps) => {
-	const [routeId, setRouteId] = React.useState('');
-	const handleBarCodeScanned = ({ data }: { data: string }) => {
-		setRouteId(data);
-	};
+const SuccessModal = ({ modalRef, userId }: SuccessModalProps) => {
+	const [success, setSuccess] = React.useState(false);
+	const [{ data }, executeMutation] = useUseTicketMutation();
+
+	const handleBarCodeScanned = React.useCallback(
+		async ({ data: routeId }: { data: string }) => {
+			if (data && data.useTicket) return setSuccess(true);
+			if (routeId) return executeMutation({ routeId, userId });
+		},
+		[data, executeMutation]
+	);
 
 	return (
 		<Modalize ref={modalRef} adjustToContentHeight>
-			{routeId ? (
-				<PaymentInfo {...{ routeId }} />
+			{success ? (
+				<SuccessInfo />
 			) : (
 				<BarCodeScanner
-					onBarCodeScanned={handleBarCodeScanned}
-					style={{ height: 0.7 * height, width: '100%' }}
+					style={styles.container}
+					onBarCodeScanned={success ? undefined : handleBarCodeScanned}
 				/>
 			)}
 		</Modalize>
@@ -78,27 +40,9 @@ const PaymentModal = ({ modalRef }: PaymentModalProps) => {
 
 const styles = StyleSheet.create({
 	container: {
-		padding: 15,
-		height: 0.7 * height
-	},
-	routeText: {
-		fontSize: 24,
-		color: '#505050'
-	},
-	paymentInfo: {
-		fontSize: 16,
-		color: '#428AF5',
-		textAlign: 'center'
-	},
-	button: {
-		backgroundColor: '#428AF5',
-		borderRadius: 4,
-		width: '100%',
-		alignItems: 'center',
-		justifyContent: 'center',
-		padding: 8,
-		marginTop: 10
+		height: 0.7 * height,
+		width: '100%'
 	}
 });
 
-export default PaymentModal;
+export default SuccessModal;
