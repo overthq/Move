@@ -7,12 +7,12 @@ import SuccessInfo from './SuccessInfo';
 
 const { height } = Dimensions.get('window');
 
-interface SuccessModalProps {
+interface PaymentModalProps {
 	modalRef: React.RefObject<Modalize>;
 	userId: string;
 }
 
-const SuccessModal = ({ modalRef, userId }: SuccessModalProps) => {
+const PaymentModal = ({ modalRef, userId }: PaymentModalProps) => {
 	const [success, setSuccess] = React.useState(false);
 	const [{ data }, executeMutation] = useUseTicketMutation();
 
@@ -45,4 +45,4 @@ const styles = StyleSheet.create({
 	}
 });
 
-export default SuccessModal;
+export default PaymentModal;
