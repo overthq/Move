@@ -20,10 +20,10 @@ const Register = ({ navigation }: NavigationScreenProps) => {
 	};
 
 	const handleSubmit = React.useCallback(async () => {
-		await execute({ firstName, lastName, phoneNumber });
 		if (data && data.register) {
-			navigation.navigate('VerifyCode', { phoneNumber });
+			return navigation.navigate('VerifyCode', { phoneNumber });
 		}
+		return execute({ firstName, lastName, phoneNumber });
 	}, [firstName, lastName, phoneNumber, data, execute]);
 
 	return (

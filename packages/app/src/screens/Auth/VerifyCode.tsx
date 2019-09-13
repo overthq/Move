@@ -17,11 +17,11 @@ const VerifyCode = ({ navigation }: NavigationScreenProps) => {
 	const handleTextChange = (text: string) => setCode(text);
 
 	const handleSubmit = React.useCallback(async () => {
-		await executeMutation({ phoneNumber, code });
 		if (data && data.verifyCode) {
 			await storeUserData(data.verifyCode);
-			navigation.navigate('Home');
+			return navigation.navigate('Home');
 		}
+		return executeMutation({ phoneNumber, code });
 	}, [code, data, executeMutation]);
 
 	return (

@@ -17,8 +17,10 @@ const Login = ({ navigation }: NavigationScreenProps) => {
 	const goToRegister = () => navigation.navigate('Register');
 
 	const handleSubmit = React.useCallback(async () => {
-		await execute({ phoneNumber });
-		if (data && data.login) navigation.navigate('VerifyCode', { phoneNumber });
+		if (data && data.login)
+			return navigation.navigate('VerifyCode', { phoneNumber });
+		// Handle errors
+		return execute({ phoneNumber });
 	}, [phoneNumber, execute, data]);
 
 	return (
