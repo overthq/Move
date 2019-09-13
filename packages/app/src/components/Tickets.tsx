@@ -19,9 +19,9 @@ const Tickets = ({ userId }: { userId: string }) => {
 	if (error) console.error(error);
 
 	return (
-		<View>
+		<View style={{ padding: 15 }}>
 			<View style={styles.sectionHeader}>
-				<Text style={styles.sectionHeaderText}>Tickets</Text>
+				<Text style={styles.sectionHeaderText}>Your Passes</Text>
 				<TouchableOpacity
 					activeOpacity={0.7}
 					style={styles.sectionActionButton}
@@ -35,7 +35,17 @@ const Tickets = ({ userId }: { userId: string }) => {
 				<FlatList
 					data={data.tickets}
 					keyExtractor={ticket => ticket._id}
-					renderItem={({ item, index }) => <Ticket key={index} {...item} />}
+					renderItem={({ item, index }) => {
+						const { route, quantity } = item;
+						return (
+							<Ticket
+								key={index}
+								origin={route.origin.name}
+								destination={route.destination.name}
+								quantity={quantity}
+							/>
+						);
+					}}
 					horizontal
 					showsHorizontalScrollIndicator={false}
 					style={{ marginHorizontal: -15, marginVertical: 5 }}

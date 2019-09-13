@@ -1,47 +1,41 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { Ticket as TicketProps } from '@move/core';
 
-const Ticket = ({ route, quantity }: Omit<TicketProps, 'reverse'>) => (
+interface TicketProps {
+	origin: string;
+	destination: string;
+	quantity: number;
+}
+
+const Ticket = ({ origin, destination, quantity }: TicketProps) => (
 	<View style={styles.container}>
-		<View style={styles.ticketTitleContainer}>
-			<Text style={styles.ticketTitle}>
-				{route.origin.name} to {route.destination.name}
-			</Text>
-		</View>
-		<View style={styles.ticketInfo}>
-			<Text style={styles.ticketInfoText}>₦{route.fare}</Text>
-			<Text style={styles.ticketInfoText}>{quantity}</Text>
-		</View>
+		<Text style={styles.ticketTitle}>
+			{origin} to {destination}
+		</Text>
+		<Text style={styles.ticketInfo}>{quantity} units left</Text>
 	</View>
 );
 
 const styles = StyleSheet.create({
 	container: {
-		borderWidth: 1,
-		borderColor: '#161616',
+		backgroundColor: '#FFFFFF',
 		borderRadius: 6,
 		marginLeft: 15,
-		overflow: 'hidden'
-	},
-	ticketTitleContainer: {
-		padding: 5
+		padding: 10,
+		overflow: 'hidden',
+		shadowOffset: { width: 0, height: 4 },
+		shadowColor: '#000000',
+		shadowOpacity: 0.1,
+		shadowRadius: 6
 	},
 	ticketTitle: {
 		fontSize: 24,
 		fontWeight: '500',
-		color: '#505050'
+		color: '#161616'
 	},
 	ticketInfo: {
-		flexDirection: 'row',
-		justifyContent: 'space-between',
-		alignItems: 'center',
-		padding: 5,
-		backgroundColor: '#505050'
-	},
-	ticketInfoText: {
 		fontSize: 16,
-		color: '#D3D3D3'
+		color: '#505050'
 	}
 });
 
