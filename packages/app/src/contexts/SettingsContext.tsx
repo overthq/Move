@@ -19,7 +19,7 @@ export const SettingsContext = React.createContext<SettingsContextValue>({
 const settingsReducer: React.Reducer<Settings, keyof Settings> = (
 	state,
 	setting
-) => ({ ...state, ...{ [setting]: !setting } });
+) => ({ ...state, ...{ [setting]: state ? !state[setting] : false } });
 
 export const SettingsProvider = ({
 	children
@@ -29,13 +29,17 @@ export const SettingsProvider = ({
 	const [settings, dispatch] = React.useReducer(settingsReducer, null);
 
 	React.useEffect(() => {
+		checkLocalAuthStatus();
 		loadSettings();
 	}, []);
 
-	// React.useEffect(() => {
-	// 	// Might change - immediately persist any changes made to the settings to storage.
-	// 	AsyncStorage.setItem('settings', JSON.stringify(settings));
-	// }, [settings]);
+	const toggleSetting = React.useCallback(
+		(setting: keyof Settings) => {
+			dispatch(setting);
+			AsyncStorage.setItem('settings', JSON.stringify(settings));
+		},
+		[settings]
+	);
 
 	const checkLocalAuthStatus = async () => {
 		const biometricsAvailable = await LocalAuthentication.hasHardwareAsync();
@@ -50,7 +54,6 @@ export const SettingsProvider = ({
 			if (!rawSettings) throw new Error('Settings not found');
 			settings = await JSON.parse(rawSettings);
 		} catch (error) {
-			// The user does not have settings yet - check if they have local auth
 			const hasLocalAuth = await checkLocalAuthStatus();
 			// If they do, turn it on by default.
 			// TODO:(koredefashokun): Make it false if the user has the hardware capability, but hasn't saved any fingerprints or facial scans
@@ -62,13 +65,6 @@ export const SettingsProvider = ({
 			);
 		}
 	};
-
-	const toggleSetting = (setting: keyof Settings) => dispatch(setting);
-
-	React.useEffect(() => {
-		checkLocalAuthStatus();
-		loadSettings();
-	}, []);
 
 	return (
 		<SettingsContext.Provider

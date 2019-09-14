@@ -54,18 +54,14 @@ const ToggleSettings = () => {
 	return (
 		<>
 			{settings &&
-				Object.entries(settings).map(([setting, value]) => {
-					// For some reason, the value of the setting is either not being returned, or is falsy
-					console.log(value);
-					return (
-						<SettingsItemToggle
-							key={setting}
-							name={setting}
-							value={value}
-							toggle={() => toggleSetting(setting as keyof typeof settings)}
-						/>
-					);
-				})}
+				Object.entries(settings).map(([setting, value]) => (
+					<SettingsItemToggle
+						key={setting}
+						name={setting}
+						value={value}
+						toggle={() => toggleSetting(setting as keyof typeof settings)}
+					/>
+				))}
 			<TouchableOpacity
 				style={[
 					styles.itemContainer,
