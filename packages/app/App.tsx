@@ -4,6 +4,7 @@ import { useScreens } from 'react-native-screens';
 import * as Constants from 'expo-constants';
 import RootNavigator from './src/Root';
 import { UserProvider } from './src/contexts/UserContext';
+import { SettingsProvider } from './src/contexts/SettingsContext';
 
 useScreens();
 
@@ -16,9 +17,11 @@ const client = createClient({ url: devApiUrl });
 
 const App = () => (
 	<UserProvider>
-		<Provider value={client}>
-			<RootNavigator />
-		</Provider>
+		<SettingsProvider>
+			<Provider value={client}>
+				<RootNavigator />
+			</Provider>
+		</SettingsProvider>
 	</UserProvider>
 );
 

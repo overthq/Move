@@ -32,10 +32,10 @@ export const SettingsProvider = ({
 		loadSettings();
 	}, []);
 
-	React.useEffect(() => {
-		// Might change - immediately persist any changes made to the settings to storage.
-		AsyncStorage.setItem('settings', JSON.stringify(settings));
-	}, [settings]);
+	// React.useEffect(() => {
+	// 	// Might change - immediately persist any changes made to the settings to storage.
+	// 	AsyncStorage.setItem('settings', JSON.stringify(settings));
+	// }, [settings]);
 
 	const checkLocalAuthStatus = async () => {
 		const biometricsAvailable = await LocalAuthentication.hasHardwareAsync();
@@ -44,15 +44,16 @@ export const SettingsProvider = ({
 	};
 
 	const loadSettings = async () => {
-		let settings: Settings;
+		let settings: Settings = {};
 		try {
-			settings = JSON.parse(await AsyncStorage.getItem('settings'));
+			const rawSettings = await AsyncStorage.getItem('settings');
+			if (!rawSettings) throw new Error('Settings not found');
+			settings = await JSON.parse(rawSettings);
 		} catch (error) {
 			// The user does not have settings yet - check if they have local auth
-			settings = {};
 			const hasLocalAuth = await checkLocalAuthStatus();
 			// If they do, turn it on by default.
-			// TODO(koredefashokun): Make it false if the user has the hardware capability, but hasn't saved any fingerprints or facial scans
+			// TODO:(koredefashokun): Make it false if the user has the hardware capability, but hasn't saved any fingerprints or facial scans
 			// That way, we can tell them to set it up in their device settings if they try to turn it on.
 			if (hasLocalAuth) settings.localAuth = true;
 		} finally {

@@ -3,26 +3,26 @@ import * as Urql from 'urql';
 export type Maybe<T> = T | null;
 export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 /** All built-in and custom scalars, mapped to their actual values */
-export type Scalars = {
+export interface Scalars {
 	ID: string;
 	String: string;
 	Boolean: boolean;
 	Int: number;
 	Float: number;
-};
+}
 
-export type BusStop = {
+export interface BusStop {
 	__typename?: 'BusStop';
 	_id: Scalars['ID'];
 	name: Scalars['String'];
-	routes: Array<Route>;
-};
+	routes: Route[];
+}
 
-export type BusStopInput = {
+export interface BusStopInput {
 	name: Scalars['String'];
-};
+}
 
-export type CreditCard = {
+export interface CreditCard {
 	__typename?: 'CreditCard';
 	_id: Scalars['ID'];
 	userId: Scalars['ID'];
@@ -32,21 +32,21 @@ export type CreditCard = {
 	expiryYear: Scalars['String'];
 	cardType: Scalars['String'];
 	token: Scalars['String'];
-};
+}
 
-export type CreditCardInput = {
+export interface CreditCardInput {
 	userId: Scalars['ID'];
 	cardNumber: Scalars['String'];
 	cvv: Scalars['String'];
 	expiryMonth: Scalars['String'];
 	expiryYear: Scalars['String'];
-};
+}
 
-export type LoginInput = {
+export interface LoginInput {
 	phoneNumber: Scalars['String'];
-};
+}
 
-export type Mutation = {
+export interface Mutation {
 	__typename?: 'Mutation';
 	default?: Maybe<Scalars['String']>;
 	login: Scalars['String'];
@@ -57,128 +57,128 @@ export type Mutation = {
 	saveCard: CreditCard;
 	purchaseTicket: Ticket;
 	useTicket: Scalars['String'];
-};
+}
 
-export type MutationLoginArgs = {
+export interface MutationLoginArgs {
 	input: LoginInput;
-};
+}
 
-export type MutationRegisterArgs = {
+export interface MutationRegisterArgs {
 	input: RegisterInput;
-};
+}
 
-export type MutationVerifyCodeArgs = {
+export interface MutationVerifyCodeArgs {
 	phoneNumber: Scalars['String'];
 	code: Scalars['String'];
-};
+}
 
-export type MutationCreateRouteArgs = {
+export interface MutationCreateRouteArgs {
 	input?: Maybe<RouteInput>;
-};
+}
 
-export type MutationCreateBusStopArgs = {
+export interface MutationCreateBusStopArgs {
 	input: BusStopInput;
-};
+}
 
-export type MutationSaveCardArgs = {
+export interface MutationSaveCardArgs {
 	input: CreditCardInput;
-};
+}
 
-export type MutationPurchaseTicketArgs = {
+export interface MutationPurchaseTicketArgs {
 	input: TicketInput;
-};
+}
 
-export type MutationUseTicketArgs = {
+export interface MutationUseTicketArgs {
 	routeId: Scalars['ID'];
 	userId: Scalars['ID'];
-};
+}
 
-export type Query = {
+export interface Query {
 	__typename?: 'Query';
 	default?: Maybe<Scalars['String']>;
-	users?: Maybe<Array<Maybe<User>>>;
-	routes?: Maybe<Array<Maybe<Route>>>;
+	users?: Maybe<Maybe<User>[]>;
+	routes?: Maybe<Maybe<Route>[]>;
 	route?: Maybe<Route>;
-	busStops: Array<BusStop>;
+	busStops: BusStop[];
 	busStop: BusStop;
-	creditCards: Array<CreditCard>;
-	tickets: Array<Ticket>;
-};
+	creditCards: CreditCard[];
+	tickets: Ticket[];
+}
 
-export type QueryRouteArgs = {
+export interface QueryRouteArgs {
 	id: Scalars['ID'];
-};
+}
 
-export type QueryBusStopArgs = {
+export interface QueryBusStopArgs {
 	id: Scalars['ID'];
-};
+}
 
-export type QueryCreditCardsArgs = {
+export interface QueryCreditCardsArgs {
 	userId: Scalars['ID'];
-};
+}
 
-export type QueryTicketsArgs = {
+export interface QueryTicketsArgs {
 	userId: Scalars['ID'];
-};
+}
 
-export type RegisterInput = {
+export interface RegisterInput {
 	firstName: Scalars['String'];
 	lastName: Scalars['String'];
 	phoneNumber: Scalars['String'];
-};
+}
 
-export type Route = {
+export interface Route {
 	__typename?: 'Route';
 	_id: Scalars['ID'];
 	origin: BusStop;
 	destination: BusStop;
 	fare: Scalars['Int'];
-};
+}
 
-export type RouteInput = {
+export interface RouteInput {
 	origin: Scalars['ID'];
 	destination: Scalars['ID'];
 	fare: Scalars['Int'];
-};
+}
 
-export type Ticket = {
+export interface Ticket {
 	__typename?: 'Ticket';
 	_id: Scalars['ID'];
 	userId: Scalars['ID'];
 	route: Route;
 	quantity: Scalars['Int'];
 	reverse: Scalars['Boolean'];
-};
+}
 
-export type TicketInput = {
+export interface TicketInput {
 	userId: Scalars['ID'];
 	origin: Scalars['ID'];
 	destination: Scalars['ID'];
 	quantity?: Maybe<Scalars['Int']>;
-};
+}
 
-export type User = {
+export interface User {
 	__typename?: 'User';
 	_id: Scalars['String'];
 	firstName: Scalars['String'];
 	lastName: Scalars['String'];
 	phoneNumber: Scalars['String'];
-};
-export type CreateBusStopMutationVariables = {
+}
+export interface CreateBusStopMutationVariables {
 	name: Scalars['String'];
-};
+}
 
 export type CreateBusStopMutation = { __typename?: 'Mutation' } & {
 	createBusStop: { __typename?: 'BusStop' } & Pick<BusStop, '_id' | 'name'>;
 };
 
-export type SaveCardMutationVariables = {
+export interface SaveCardMutationVariables {
 	userId: Scalars['ID'];
 	cardNumber: Scalars['String'];
 	cvv: Scalars['String'];
 	expiryMonth: Scalars['String'];
 	expiryYear: Scalars['String'];
-};
+}
 
 export type SaveCardMutation = { __typename?: 'Mutation' } & {
 	saveCard: { __typename?: 'CreditCard' } & Pick<
@@ -194,12 +194,12 @@ export type SaveCardMutation = { __typename?: 'Mutation' } & {
 	>;
 };
 
-export type PurchaseTicketMutationVariables = {
+export interface PurchaseTicketMutationVariables {
 	userId: Scalars['ID'];
 	origin: Scalars['ID'];
 	destination: Scalars['ID'];
 	quantity?: Maybe<Scalars['Int']>;
-};
+}
 
 export type PurchaseTicketMutation = { __typename?: 'Mutation' } & {
 	purchaseTicket: { __typename?: 'Ticket' } & Pick<
@@ -216,40 +216,40 @@ export type PurchaseTicketMutation = { __typename?: 'Mutation' } & {
 		};
 };
 
-export type UseTicketMutationVariables = {
+export interface UseTicketMutationVariables {
 	routeId: Scalars['ID'];
 	userId: Scalars['ID'];
-};
+}
 
 export type UseTicketMutation = { __typename?: 'Mutation' } & Pick<
 	Mutation,
 	'useTicket'
 >;
 
-export type LoginMutationVariables = {
+export interface LoginMutationVariables {
 	phoneNumber: Scalars['String'];
-};
+}
 
 export type LoginMutation = { __typename?: 'Mutation' } & Pick<
 	Mutation,
 	'login'
 >;
 
-export type RegisterMutationVariables = {
+export interface RegisterMutationVariables {
 	firstName: Scalars['String'];
 	lastName: Scalars['String'];
 	phoneNumber: Scalars['String'];
-};
+}
 
 export type RegisterMutation = { __typename?: 'Mutation' } & Pick<
 	Mutation,
 	'register'
 >;
 
-export type VerifyCodeMutationVariables = {
+export interface VerifyCodeMutationVariables {
 	phoneNumber: Scalars['String'];
 	code: Scalars['String'];
-};
+}
 
 export type VerifyCodeMutation = { __typename?: 'Mutation' } & {
 	verifyCode: { __typename?: 'User' } & Pick<
@@ -258,59 +258,51 @@ export type VerifyCodeMutation = { __typename?: 'Mutation' } & {
 	>;
 };
 
-export type BusStopsQueryVariables = {};
+export interface BusStopsQueryVariables {}
 
 export type BusStopsQuery = { __typename?: 'Query' } & {
-	busStops: Array<
-		{ __typename?: 'BusStop' } & Pick<BusStop, '_id' | 'name'> & {
-				routes: Array<
-					{ __typename?: 'Route' } & Pick<Route, '_id' | 'fare'> & {
-							origin: { __typename?: 'BusStop' } & Pick<BusStop, 'name'>;
-							destination: { __typename?: 'BusStop' } & Pick<BusStop, 'name'>;
-						}
-				>;
-			}
-	>;
+	busStops: ({ __typename?: 'BusStop' } & Pick<BusStop, '_id' | 'name'> & {
+			routes: ({ __typename?: 'Route' } & Pick<Route, '_id' | 'fare'> & {
+					origin: { __typename?: 'BusStop' } & Pick<BusStop, 'name'>;
+					destination: { __typename?: 'BusStop' } & Pick<BusStop, 'name'>;
+				})[];
+		})[];
 };
 
-export type BusStopQueryVariables = {
+export interface BusStopQueryVariables {
 	id: Scalars['ID'];
-};
+}
 
 export type BusStopQuery = { __typename?: 'Query' } & {
 	busStop: { __typename?: 'BusStop' } & Pick<BusStop, '_id' | 'name'> & {
-			routes: Array<
-				{ __typename?: 'Route' } & Pick<Route, '_id' | 'fare'> & {
-						origin: { __typename?: 'BusStop' } & Pick<BusStop, 'name'>;
-						destination: { __typename?: 'BusStop' } & Pick<BusStop, 'name'>;
-					}
-			>;
+			routes: ({ __typename?: 'Route' } & Pick<Route, '_id' | 'fare'> & {
+					origin: { __typename?: 'BusStop' } & Pick<BusStop, 'name'>;
+					destination: { __typename?: 'BusStop' } & Pick<BusStop, 'name'>;
+				})[];
 		};
 };
 
-export type CreditCardsQueryVariables = {
+export interface CreditCardsQueryVariables {
 	userId: Scalars['ID'];
-};
+}
 
 export type CreditCardsQuery = { __typename?: 'Query' } & {
-	creditCards: Array<
-		{ __typename?: 'CreditCard' } & Pick<
-			CreditCard,
-			| '_id'
-			| 'userId'
-			| 'cardDigits'
-			| 'cardBIN'
-			| 'expiryMonth'
-			| 'expiryYear'
-			| 'cardType'
-			| 'token'
-		>
-	>;
+	creditCards: ({ __typename?: 'CreditCard' } & Pick<
+		CreditCard,
+		| '_id'
+		| 'userId'
+		| 'cardDigits'
+		| 'cardBIN'
+		| 'expiryMonth'
+		| 'expiryYear'
+		| 'cardType'
+		| 'token'
+	>)[];
 };
 
-export type RouteQueryVariables = {
+export interface RouteQueryVariables {
 	id: Scalars['ID'];
-};
+}
 
 export type RouteQuery = { __typename?: 'Query' } & {
 	route: Maybe<
@@ -321,22 +313,23 @@ export type RouteQuery = { __typename?: 'Query' } & {
 	>;
 };
 
-export type TicketsQueryVariables = {
+export interface TicketsQueryVariables {
 	userId: Scalars['ID'];
-};
+}
 
 export type TicketsQuery = { __typename?: 'Query' } & {
-	tickets: Array<
-		{ __typename?: 'Ticket' } & Pick<Ticket, '_id' | 'userId' | 'quantity'> & {
-				route: { __typename?: 'Route' } & Pick<Route, '_id' | 'fare'> & {
-						origin: { __typename?: 'BusStop' } & Pick<BusStop, '_id' | 'name'>;
-						destination: { __typename?: 'BusStop' } & Pick<
-							BusStop,
-							'_id' | 'name'
-						>;
-					};
-			}
-	>;
+	tickets: ({ __typename?: 'Ticket' } & Pick<
+		Ticket,
+		'_id' | 'userId' | 'quantity'
+	> & {
+			route: { __typename?: 'Route' } & Pick<Route, '_id' | 'fare'> & {
+					origin: { __typename?: 'BusStop' } & Pick<BusStop, '_id' | 'name'>;
+					destination: { __typename?: 'BusStop' } & Pick<
+						BusStop,
+						'_id' | 'name'
+					>;
+				};
+		})[];
 };
 
 export const CreateBusStopDocument = gql`

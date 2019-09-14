@@ -4,11 +4,13 @@ import {
 	Text,
 	TouchableOpacity,
 	FlatList,
-	StyleSheet
+	StyleSheet,
+	Switch
 } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { NavigationScreenProps } from 'react-navigation';
 import { UserContext } from '../../contexts/UserContext';
+import { SettingsContext } from '../../contexts/SettingsContext';
 
 const settingScreens = [
 	{
@@ -19,7 +21,7 @@ const settingScreens = [
 
 interface SettingsItemProps {
 	name: string;
-	onPress(): void;
+	onPress?: () => void;
 }
 
 const SettingsItem = ({ name, onPress }: SettingsItemProps) => (
@@ -29,18 +31,51 @@ const SettingsItem = ({ name, onPress }: SettingsItemProps) => (
 	</TouchableOpacity>
 );
 
-const LogoutButton = () => {
+interface SettingsItemToggleProps {
+	name: string;
+	value: boolean;
+	toggle(): void;
+}
+
+const SettingsItemToggle = ({
+	name,
+	value,
+	toggle
+}: SettingsItemToggleProps) => (
+	<View style={styles.itemContainer}>
+		<Text style={styles.itemName}>{name}</Text>
+		<Switch value={value} onValueChange={toggle} />
+	</View>
+);
+
+const ToggleSettings = () => {
 	const { logOut } = React.useContext(UserContext);
+	const { settings, toggleSetting } = React.useContext(SettingsContext);
 	return (
-		<TouchableOpacity
-			style={[
-				styles.itemContainer,
-				{ justifyContent: 'center', marginTop: 10 }
-			]}
-			onPress={logOut}
-		>
-			<Text style={[styles.itemName, { color: '#E83C3C' }]}>Log Out</Text>
-		</TouchableOpacity>
+		<>
+			{settings &&
+				Object.entries(settings).map(([setting, value]) => {
+					// For some reason, the value of the setting is either not being returned, or is falsy
+					console.log(value);
+					return (
+						<SettingsItemToggle
+							key={setting}
+							name={setting}
+							value={value}
+							toggle={() => toggleSetting(setting as keyof typeof settings)}
+						/>
+					);
+				})}
+			<TouchableOpacity
+				style={[
+					styles.itemContainer,
+					{ justifyContent: 'center', marginTop: 10 }
+				]}
+				onPress={logOut}
+			>
+				<Text style={[styles.itemName, { color: '#E83C3C' }]}>Log Out</Text>
+			</TouchableOpacity>
+		</>
 	);
 };
 
@@ -62,7 +97,7 @@ const Settings = ({ navigation }: NavigationScreenProps) => (
 			data={settingScreens}
 			keyExtractor={page => page.routeName}
 			ListHeaderComponent={UserDetails}
-			ListFooterComponent={LogoutButton}
+			ListFooterComponent={ToggleSettings}
 			renderItem={({ item, index }) => (
 				<SettingsItem
 					key={index}

@@ -1,10 +1,11 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Button } from 'react-native';
 import Scanner from '../components/Scanner';
 import Tickets from '../components/Tickets';
 import { UserContext } from '../contexts/UserContext';
+import { NavigationScreenProps } from 'react-navigation';
 
-const Home = () => {
+const Home = ({ navigation }: NavigationScreenProps) => {
 	const { user } = React.useContext(UserContext);
 	const { _id: userId } = user;
 
@@ -12,6 +13,10 @@ const Home = () => {
 		<View style={styles.container}>
 			<Scanner userId={userId} />
 			<Tickets {...{ userId }} />
+			<Button
+				title='Settings'
+				onPress={() => navigation.navigate('Settings')}
+			/>
 		</View>
 	);
 };
