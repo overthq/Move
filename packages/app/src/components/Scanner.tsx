@@ -1,49 +1,56 @@
 import React from 'react';
 import { View, Text, StyleSheet, Dimensions } from 'react-native';
+import Modalize from 'react-native-modalize';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import { useUseTicketMutation } from '@move/core';
+import SuccessModal from './SuccessModal';
+import ScannerOverlay from './ScannerOverlay';
 
 const { width, height } = Dimensions.get('window');
 
 interface ScannerProps {
 	userId: string;
-	onSuccess(): void;
 }
 
-const Scanner = ({ userId, onSuccess }: ScannerProps) => {
+const Scanner = ({ userId }: ScannerProps) => {
 	const [success, setSuccess] = React.useState(false);
 	const [{ data }, executeMutation] = useUseTicketMutation();
+	const modalRef = React.useRef<Modalize>(null);
 
 	const handleBarCodeScanned = React.useCallback(
 		async ({ data: routeId }: { data: string }) => {
 			if (data && data.useTicket) {
-				onSuccess();
+				modalRef.current && modalRef.current.open();
 				return setSuccess(true);
 			}
 			if (routeId) return executeMutation({ routeId, userId });
 		},
-		[data, executeMutation]
+		[data, executeMutation, modalRef]
 	);
 
 	return (
-		<BarCodeScanner
-			style={styles.scanner}
-			onBarCodeScanned={success ? undefined : handleBarCodeScanned}
-		>
-			<View style={styles.scannerInfoContainer}>
-				<Text style={styles.scannerInfo}>
-					Point your camera at the QR code on the bus.
-				</Text>
-			</View>
-		</BarCodeScanner>
+		<>
+			<BarCodeScanner
+				style={styles.scanner}
+				onBarCodeScanned={success ? undefined : handleBarCodeScanned}
+			>
+				<ScannerOverlay />
+				<View style={styles.scannerInfoContainer}>
+					<Text style={styles.scannerInfo}>
+						{`Point the camera at the QR code.`}
+					</Text>
+				</View>
+			</BarCodeScanner>
+			<SuccessModal {...{ modalRef, userId }} />
+		</>
 	);
 };
 
 const styles = StyleSheet.create({
 	scanner: {
 		width,
-		height: height / 2,
-		justifyContent: 'flex-end',
+		height: height / 1.5,
+		justifyContent: 'space-around',
 		alignItems: 'center',
 		padding: 20
 	},

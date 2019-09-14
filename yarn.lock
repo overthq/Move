@@ -5330,6 +5330,13 @@ expo-linear-gradient@~6.0.0:
   resolved "https://registry.yarnpkg.com/expo-linear-gradient/-/expo-linear-gradient-6.0.0.tgz#5fb0fb955dd22ef4ab032e543cb1c249885bf0b5"
   integrity sha512-TGHSK7MsoU1wZXx9uEivMggAR/KT4wTSE0xBfhB8qsziGXoHZdoT79/tZ3HyWtCG7+JVUEFXfUOBxtOlZOu5tg==
 
+expo-local-authentication@~6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/expo-local-authentication/-/expo-local-authentication-6.0.0.tgz#57a0e1e7d84c211cd88ca66227c4317b9b371b68"
+  integrity sha512-ecvHGJyMnpCWBG4z4G//3vo2LemVx6d8+8X09YLcrfBywxNYTOyHQjFV5Y39w5hcI4S6R5XmibO3fV/hjH+Bxg==
+  dependencies:
+    invariant "^2.2.4"
+
 expo-location@~6.0.0:
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/expo-location/-/expo-location-6.0.0.tgz#da4e22ee5aa951d2c65d94f9916323eb4b3f8a01"
@@ -11338,6 +11345,11 @@ react-native-safe-area-view@^0.14.1:
   integrity sha512-tOxHGQUN83MTmQB4ghoQkibqOdGiX4JQEmeyEv96MKWO/x8T2PJv84ECUos9hD3blPRQwVwSpAid1PPPhrVEaw==
   dependencies:
     debounce "^1.2.0"
+
+react-native-svg@~9.5.1:
+  version "9.5.3"
+  resolved "https://registry.yarnpkg.com/react-native-svg/-/react-native-svg-9.5.3.tgz#2389f3ffd700c6441166496a1aeade31ead89c59"
+  integrity sha512-VUOe4TLz7RFdmm/XT9EH87VSwlRykx49qbwJMA+dh9eFM7KPY1qH3kEyN7uRCqJD2eE8toxt9NpjR6ByvtPNlA==
 
 react-native-view-shot@2.6.0:
   version "2.6.0"
