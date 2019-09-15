@@ -42,13 +42,11 @@ export const SettingsProvider = ({
 		loadSettings();
 	}, []);
 
-	const toggleSetting = React.useCallback(
-		(setting: keyof Settings) => {
-			dispatch(setting);
-			AsyncStorage.setItem('settings', JSON.stringify(settings));
-		},
-		[settings]
-	);
+	React.useEffect(() => {
+		settings && AsyncStorage.setItem('settings', JSON.stringify(settings));
+	}, [settings]);
+
+	const toggleSetting = (setting: keyof Settings) => dispatch(setting);
 
 	const checkLocalAuthStatus = async () => {
 		const biometricsAvailable = await LocalAuthentication.hasHardwareAsync();
@@ -62,6 +60,8 @@ export const SettingsProvider = ({
 			const rawSettings = await AsyncStorage.getItem('settings');
 			if (!rawSettings) throw new Error('Settings not found');
 			settings = await JSON.parse(rawSettings);
+			// The correct settings are read, but the reducer state fallback makes it false
+			// Since it is caused outside the render callback, I'm not sure we can do anything about it.
 		} catch (error) {
 			const hasLocalAuth = await checkLocalAuthStatus();
 			// If they do, turn it on by default.
