@@ -21,6 +21,15 @@ const settingsReducer: React.Reducer<Settings, keyof Settings> = (
 	setting
 ) => ({ ...state, ...{ [setting]: state ? !state[setting] : false } });
 
+export const getSettingName = (setting: keyof Settings) => {
+	switch (setting) {
+		case 'localAuth':
+			return 'Local Authentication';
+		default:
+			return '';
+	}
+};
+
 export const SettingsProvider = ({
 	children
 }: {

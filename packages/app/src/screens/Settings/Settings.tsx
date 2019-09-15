@@ -10,7 +10,10 @@ import {
 import { Feather } from '@expo/vector-icons';
 import { NavigationScreenProps } from 'react-navigation';
 import { UserContext } from '../../contexts/UserContext';
-import { SettingsContext } from '../../contexts/SettingsContext';
+import {
+	SettingsContext,
+	getSettingName
+} from '../../contexts/SettingsContext';
 
 const settingScreens = [
 	{
@@ -57,7 +60,7 @@ const ToggleSettings = () => {
 				Object.entries(settings).map(([setting, value]) => (
 					<SettingsItemToggle
 						key={setting}
-						name={setting}
+						name={getSettingName(setting as keyof typeof settings)}
 						value={value}
 						toggle={() => toggleSetting(setting as keyof typeof settings)}
 					/>
