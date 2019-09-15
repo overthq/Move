@@ -16,10 +16,10 @@ export const SettingsContext = React.createContext<SettingsContextValue>({
 	toggleSetting: () => {}
 });
 
-const settingsReducer: React.Reducer<Settings, keyof Settings> = (
-	state,
-	setting
-) => ({ ...state, ...{ [setting]: state ? !state[setting] : false } });
+const settingsReducer: React.Reducer<
+	Settings | null,
+	Record<keyof Settings, boolean>
+> = (state, setting) => ({ ...state, ...setting });
 
 export const getSettingName = (setting: keyof Settings) => {
 	switch (setting) {
@@ -46,7 +46,8 @@ export const SettingsProvider = ({
 		settings && AsyncStorage.setItem('settings', JSON.stringify(settings));
 	}, [settings]);
 
-	const toggleSetting = (setting: keyof Settings) => dispatch(setting);
+	const toggleSetting = (setting: keyof Settings) =>
+		settings && dispatch({ [setting]: !settings[setting] });
 
 	const checkLocalAuthStatus = async () => {
 		const biometricsAvailable = await LocalAuthentication.hasHardwareAsync();
@@ -60,17 +61,16 @@ export const SettingsProvider = ({
 			const rawSettings = await AsyncStorage.getItem('settings');
 			if (!rawSettings) throw new Error('Settings not found');
 			settings = await JSON.parse(rawSettings);
-			// The correct settings are read, but the reducer state fallback makes it false
-			// Since it is caused outside the render callback, I'm not sure we can do anything about it.
 		} catch (error) {
 			const hasLocalAuth = await checkLocalAuthStatus();
-			// If they do, turn it on by default.
-			// TODO:(koredefashokun): Make it false if the user has the hardware capability, but hasn't saved any fingerprints or facial scans
+			// TODO(koredefashokun):
+			// Make it false if the user has the hardware capability, but hasn't saved any fingerprints or facial scans
 			// That way, we can tell them to set it up in their device settings if they try to turn it on.
 			if (hasLocalAuth) settings.localAuth = true;
 		} finally {
-			Object.entries(settings).forEach(([setting]) =>
-				dispatch(setting as keyof Settings)
+			Object.entries(settings).forEach(
+				([setting, value]: [(keyof typeof settings), boolean]) =>
+					dispatch({ [setting]: value })
 			);
 		}
 	};
