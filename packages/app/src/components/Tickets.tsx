@@ -10,11 +10,19 @@ import {
 import { Feather } from '@expo/vector-icons';
 import { useTicketsQuery } from '@move/core';
 import Ticket from './Ticket';
+import Modalize from 'react-native-modalize';
 
-const Tickets = ({ userId }: { userId: string }) => {
+interface TicketsProps {
+	userId: string;
+	modalRef: React.RefObject<Modalize>;
+}
+
+const Tickets = ({ userId, modalRef }: TicketsProps) => {
 	const [{ fetching, error, data }] = useTicketsQuery({
 		variables: { userId }
 	});
+
+	const openModal = () => modalRef.current && modalRef.current.open();
 
 	if (error) console.error(error);
 
@@ -25,6 +33,7 @@ const Tickets = ({ userId }: { userId: string }) => {
 				<TouchableOpacity
 					activeOpacity={0.7}
 					style={styles.sectionActionButton}
+					onPress={openModal}
 				>
 					<Feather name='plus' color='#FFFFFF' size={16} />
 				</TouchableOpacity>

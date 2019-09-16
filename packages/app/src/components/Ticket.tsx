@@ -12,7 +12,9 @@ const Ticket = ({ origin, destination, quantity }: TicketProps) => (
 		<Text style={styles.ticketTitle}>
 			{origin} to {destination}
 		</Text>
-		<Text style={styles.ticketInfo}>{quantity} units left</Text>
+		<Text style={styles.ticketInfo}>
+			{`${quantity} unit${quantity === 1 ? '' : 's'} left`}
+		</Text>
 	</View>
 );
 
