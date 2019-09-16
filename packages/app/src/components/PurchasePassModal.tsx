@@ -8,24 +8,19 @@ import {
 	StyleSheet
 } from 'react-native';
 import Modalize from 'react-native-modalize';
-import {
-	usePurchaseTicketMutation,
-	useBusStopsQuery,
-	BusStopsQuery
-} from '@move/core';
+import { usePurchaseTicketMutation, useBusStopsQuery } from '@move/core';
 
 interface PurchasePassModalProps {
 	userId: string;
 	modalRef: React.RefObject<Modalize>;
 }
 
-const PurchaseButton = ({
-	onPress,
-	loading
-}: {
+interface PurchaseButtonProps {
 	onPress(): void;
 	loading: boolean;
-}) => (
+}
+
+const PurchaseButton = ({ onPress, loading }: PurchaseButtonProps) => (
 	<TouchableOpacity style={styles.modalButton} {...{ onPress }}>
 		{loading ? (
 			<ActivityIndicator />
@@ -36,59 +31,52 @@ const PurchaseButton = ({
 );
 
 interface BusStopPickerProps {
-	busStops: BusStopsQuery['busStops'];
 	activeValue: string;
 	setActive: (value: string) => void;
 }
 
-const BusStopPicker = ({
-	busStops,
-	activeValue,
-	setActive
-}: BusStopPickerProps) => (
-	<Picker selectedValue={activeValue} onValueChange={value => setActive(value)}>
-		{busStops.map(({ _id, name }) => (
-			<Picker.Item key={_id} label={name} value={_id} />
-		))}
-	</Picker>
-);
+const BusStopPicker = ({ activeValue, setActive }: BusStopPickerProps) => {
+	const [{ fetching, data }] = useBusStopsQuery();
+	if (fetching) return <ActivityIndicator />;
+	if (!data || !data.busStops) return null;
+	const { busStops } = data;
+
+	return (
+		<Picker
+			selectedValue={activeValue}
+			onValueChange={value => setActive(value)}
+		>
+			{busStops.map(({ _id, name }) => (
+				<Picker.Item key={_id} label={name} value={_id} />
+			))}
+		</Picker>
+	);
+};
 
 const PurchasePassModal = ({ userId, modalRef }: PurchasePassModalProps) => {
-	const [{ fetching, data }] = useBusStopsQuery();
-	const [
-		{ data: purchaseData, fetching: loading },
-		purchasePass
-	] = usePurchaseTicketMutation();
+	const [{ data, fetching }, purchasePass] = usePurchaseTicketMutation();
 	const [origin, setOrigin] = React.useState('');
 	const [destination, setDestination] = React.useState('');
 
 	const handleSubmit = React.useCallback(() => {
 		console.log(origin, destination);
-		if (purchaseData && purchaseData.purchaseTicket) {
-			console.log('Ticket purchased.');
+		if (data && data.purchaseTicket) {
+			return console.log('Ticket purchased.');
+			// Close the modal and show some form of confirmation.
 		}
-		return purchasePass({ origin, destination, userId });
-	}, [purchaseData, purchasePass, origin, destination, userId]);
-
-	if (fetching) return <ActivityIndicator />;
-	if (!data || !data.busStops) return null;
+		if (origin && destination && userId) {
+			return purchasePass({ origin, destination, userId });
+		}
+	}, [data, purchasePass, origin, destination, userId]);
 
 	return (
 		<Modalize ref={modalRef} handlePosition='inside' adjustToContentHeight>
 			<View style={styles.container}>
 				<Text style={styles.modalTitle}>Purchase a pass</Text>
 				{/* Quick purchase - passes based on learned data from the user's past purchases passes or location. */}
-				<BusStopPicker
-					activeValue={origin}
-					setActive={setOrigin}
-					busStops={data.busStops}
-				/>
-				<BusStopPicker
-					activeValue={destination}
-					setActive={setDestination}
-					busStops={data.busStops}
-				/>
-				<PurchaseButton onPress={handleSubmit} {...{ loading }} />
+				<BusStopPicker activeValue={origin} setActive={setOrigin} />
+				<BusStopPicker activeValue={destination} setActive={setDestination} />
+				<PurchaseButton onPress={handleSubmit} loading={fetching} />
 			</View>
 		</Modalize>
 	);
@@ -113,8 +101,8 @@ const styles = StyleSheet.create({
 	},
 	modalButtonText: {
 		fontWeight: '500',
-		fontSize: 15,
-		color: '#D3D3D3'
+		fontSize: 16,
+		color: '#FFFFFF'
 	}
 });
 
