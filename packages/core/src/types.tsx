@@ -56,7 +56,7 @@ export type Mutation = {
 	createBusStop: BusStop;
 	saveCard: CreditCard;
 	purchaseTicket: Ticket;
-	useTicket: Scalars['String'];
+	useTicket: Ticket;
 };
 
 export type MutationLoginArgs = {
@@ -221,10 +221,20 @@ export type UseTicketMutationVariables = {
 	userId: Scalars['ID'];
 };
 
-export type UseTicketMutation = { __typename?: 'Mutation' } & Pick<
-	Mutation,
-	'useTicket'
->;
+export type UseTicketMutation = { __typename?: 'Mutation' } & {
+	useTicket: { __typename?: 'Ticket' } & Pick<
+		Ticket,
+		'_id' | 'userId' | 'quantity'
+	> & {
+			route: { __typename?: 'Route' } & Pick<Route, '_id' | 'fare'> & {
+					origin: { __typename?: 'BusStop' } & Pick<BusStop, '_id' | 'name'>;
+					destination: { __typename?: 'BusStop' } & Pick<
+						BusStop,
+						'_id' | 'name'
+					>;
+				};
+		};
+};
 
 export type LoginMutationVariables = {
 	phoneNumber: Scalars['String'];
@@ -430,7 +440,23 @@ export function usePurchaseTicketMutation() {
 }
 export const UseTicketDocument = gql`
 	mutation UseTicket($routeId: ID!, $userId: ID!) {
-		useTicket(routeId: $routeId, userId: $userId)
+		useTicket(routeId: $routeId, userId: $userId) {
+			_id
+			userId
+			route {
+				_id
+				origin {
+					_id
+					name
+				}
+				destination {
+					_id
+					name
+				}
+				fare
+			}
+			quantity
+		}
 	}
 `;
 

@@ -12,6 +12,7 @@
 	"dependencies": {
 		"@expo/vector-icons": "^10.0.5",
 		"@move/core": "0.0.1",
+		"@urql/exchange-graphcache": "^1.0.0-rc.9",
 		"expo": "^34.0.1",
 		"expo-barcode-scanner": "~6.0.0",
 		"expo-local-authentication": "~6.0.0",

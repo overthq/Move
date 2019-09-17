@@ -3,7 +3,7 @@ import { BusStop, Route, RouteType } from '../models';
 import { verifyStops } from '../routes/helpers';
 
 export const routesLoader = new DataLoader(async routeConditions => {
-	const routes = await routeConditions.map(async routeCondition => {
+	const routes = routeConditions.map(async routeCondition => {
 		const routes = await Route.find({ $or: routeCondition });
 		const routesWithBusStops = await completeRoutes(routes);
 		return routesWithBusStops;

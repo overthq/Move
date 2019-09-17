@@ -1,4 +1,4 @@
-import { Ticket } from '../models';
+import { Ticket, Route } from '../models';
 // import { purchase } from '../creditCards/helpers';
 import { routesLoader } from '../helpers/loaders';
 
@@ -36,13 +36,21 @@ const ticketsMutation = {
 	useTicket: async (_, { userId, routeId }) => {
 		const ticket = await Ticket.findOne({ userId, routeId });
 		if (!ticket) throw new Error('The ticket does not exist.');
+		const route = await Route.findById(routeId);
+		const { destination, origin } = route;
+		const routeConditions = [
+			{ origin, destination },
+			{ origin: destination, destination: origin }
+		];
+		const [fullRoute] = await routesLoader.load(routeConditions);
+		const fullTicket = Object.assign(ticket, { route: fullRoute });
 		if (ticket.quantity > 1) {
 			ticket.quantity--;
 			await ticket.save();
-			return 'Ticket successfully verified.';
+			return fullTicket;
 		}
 		await ticket.remove();
-		return 'Ticket successfully verified.';
+		return fullTicket;
 	}
 };
 

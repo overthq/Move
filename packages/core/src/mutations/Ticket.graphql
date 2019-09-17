@@ -29,5 +29,21 @@ mutation PurchaseTicket(
 }
 
 mutation UseTicket($routeId: ID! $userId: ID!) {
-  useTicket(routeId: $routeId userId: $userId)
+  useTicket(routeId: $routeId userId: $userId) {
+    _id
+    userId
+    route {
+      _id
+      origin {
+        _id
+        name
+      }
+      destination {
+        _id
+        name
+      }
+      fare
+    }
+    quantity
+  }
 }
