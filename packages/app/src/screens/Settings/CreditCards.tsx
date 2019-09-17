@@ -4,20 +4,19 @@ import { useCreditCardsQuery } from '@move/core';
 import { UserContext } from '../../contexts/UserContext';
 
 const CreditCards = () => {
-	const {
-		user: { _id: userId }
-	} = React.useContext(UserContext);
+	const { user } = React.useContext(UserContext);
 	const [{ fetching, data, error }] = useCreditCardsQuery({
-		variables: { userId }
+		variables: { userId: user._id }
 	});
 	if (fetching) return <ActivityIndicator />;
 	if (error) console.error(error);
 
 	return (
-		<View style={{ flex: 1 }}>
+		<View style={{ flex: 1, backgroundColor: '#757575' }}>
 			<FlatList
 				data={data.creditCards}
 				keyExtractor={card => card._id}
+				ListEmptyComponent={<Text>Save new credit card</Text>}
 				renderItem={({ item, index }) => (
 					<View key={index}>
 						<Text>{item._id}</Text>

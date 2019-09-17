@@ -23,6 +23,7 @@ const Scanner = ({ userId }: ScannerProps) => {
 				modalRef.current && modalRef.current.open();
 				return setSuccess(true);
 			}
+			console.log('Proceediing to execute');
 			if (routeId) return executeMutation({ routeId, userId });
 		},
 		[data, executeMutation, modalRef]
