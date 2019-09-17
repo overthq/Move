@@ -45,6 +45,7 @@ const Tickets = ({ userId, modalRef }: TicketsProps) => {
 					data={data.tickets}
 					keyExtractor={ticket => ticket._id}
 					renderItem={({ item, index }) => {
+						if (!item) return null;
 						const { route, quantity } = item;
 						return (
 							<Ticket

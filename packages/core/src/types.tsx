@@ -56,7 +56,7 @@ export type Mutation = {
 	createBusStop: BusStop;
 	saveCard: CreditCard;
 	purchaseTicket: Ticket;
-	useTicket: Ticket;
+	useTicket?: Maybe<Ticket>;
 };
 
 export type MutationLoginArgs = {
@@ -222,18 +222,17 @@ export type UseTicketMutationVariables = {
 };
 
 export type UseTicketMutation = { __typename?: 'Mutation' } & {
-	useTicket: { __typename?: 'Ticket' } & Pick<
-		Ticket,
-		'_id' | 'userId' | 'quantity'
-	> & {
-			route: { __typename?: 'Route' } & Pick<Route, '_id' | 'fare'> & {
-					origin: { __typename?: 'BusStop' } & Pick<BusStop, '_id' | 'name'>;
-					destination: { __typename?: 'BusStop' } & Pick<
-						BusStop,
-						'_id' | 'name'
-					>;
-				};
-		};
+	useTicket: Maybe<
+		{ __typename?: 'Ticket' } & Pick<Ticket, '_id' | 'userId' | 'quantity'> & {
+				route: { __typename?: 'Route' } & Pick<Route, '_id' | 'fare'> & {
+						origin: { __typename?: 'BusStop' } & Pick<BusStop, '_id' | 'name'>;
+						destination: { __typename?: 'BusStop' } & Pick<
+							BusStop,
+							'_id' | 'name'
+						>;
+					};
+			}
+	>;
 };
 
 export type LoginMutationVariables = {

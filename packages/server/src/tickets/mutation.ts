@@ -50,7 +50,7 @@ const ticketsMutation = {
 			return fullTicket;
 		}
 		await ticket.remove();
-		return fullTicket;
+		return null;
 	}
 };
 
