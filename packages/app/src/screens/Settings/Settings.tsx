@@ -28,7 +28,11 @@ interface SettingsItemProps {
 }
 
 const SettingsItem = ({ name, onPress }: SettingsItemProps) => (
-	<TouchableOpacity style={styles.itemContainer} {...{ onPress }}>
+	<TouchableOpacity
+		activeOpacity={0.7}
+		style={styles.itemContainer}
+		{...{ onPress }}
+	>
 		<Text style={styles.itemName}>{name}</Text>
 		<Feather name='chevron-right' size={18} color='#545454' />
 	</TouchableOpacity>

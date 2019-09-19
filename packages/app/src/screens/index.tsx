@@ -1,17 +1,27 @@
 import React from 'react';
+import { Platform } from 'react-native';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import Home from './Home';
 import Settings from './Settings';
 import Auth from './Auth';
 import NavigationService from './NavigationService';
-import { createStackNavigator } from 'react-navigation-stack';
+import {
+	createStackNavigator,
+	TransitionPresets
+} from 'react-navigation-stack';
 
 const Main = createStackNavigator(
 	{ Home, Settings },
 	{
+		mode: 'modal',
 		headerMode: 'none',
-		cardOverlayEnabled: true,
-		mode: 'modal'
+		defaultNavigationOptions: {
+			...(Platform.OS === 'ios'
+				? TransitionPresets.ModalPresentationIOS
+				: TransitionPresets.RevealFromBottomAndroid),
+			gestureEnabled: true,
+			cardOverlayEnabled: true
+		}
 	}
 );
 
