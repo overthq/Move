@@ -1,40 +1,22 @@
 {
-	"name": "@move/core",
-	"private": true,
-	"description": "Core functionality for Move",
-	"version": "0.0.1",
-	"author": {
-		"name": "Oluwakorede Fashokun",
-		"email": "korede@overt.dev",
-		"url": "https://overt.dev"
-	},
-	"main": "dist/index.js",
-	"module": "dist/index.js",
-	"scripts": {
-		"clean": "rimraf dist",
-		"lint": "eslint . --ext .ts,.tsx",
-		"build": "tsc -b",
-		"dev": "nodemon"
-	},
-	"dependencies": {
-		"react-native": "https://github.com/expo/react-native/archive/sdk-34.0.0.tar.gz",
-		"redux": "^4.0.4",
-		"redux-logger": "^3.0.6",
-		"redux-persist": "^5.10.0",
-		"redux-thunk": "^2.3.0"
-	},
-	"devDependencies": {
-		"@move/types": "0.0.1",
-		"@types/chai": "^4.2.0",
-		"@types/chai-http": "^4.2.0",
-		"@types/mocha": "^5.2.7",
-		"@types/react-native": "^0.57.65",
-		"@types/redux-logger": "^3.0.7",
-		"chai": "^4.2.0",
-		"eslint": "^6.2.0",
-		"mocha": "^6.2.0",
-		"nodemon": "^1.19.1",
-		"rimraf": "^3.0.0",
-		"typescript": "^3.5.3"
-	}
+  "name": "@move/core",
+  "version": "0.0.1",
+  "main": "dist/types.js",
+  "license": "MIT",
+  "scripts": {
+    "generate-types": "graphql-codegen --config codegen.yml",
+    "build": "tsc -b"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^1.6.1",
+    "@graphql-codegen/typescript": "1.6.1",
+    "@graphql-codegen/typescript-operations": "1.6.1",
+    "@graphql-codegen/typescript-urql": "^1.7.0",
+    "@types/graphql": "^14.5.0",
+    "typescript": "^3.6.2"
+  },
+  "dependencies": {
+    "graphql-tag": "^2.10.1",
+    "urql": "^1.5.0"
+  }
 }

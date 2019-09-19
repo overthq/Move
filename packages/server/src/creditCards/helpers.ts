@@ -1,8 +1,8 @@
 import fetch from 'node-fetch';
 import RavePay, { CardDetails } from 'ravepay';
-const { RAVE_API_PUBLIC_KEY, RAVE_API_SECRET_KEY } = process.env;
 import { User, CreditCard, CreditCardType } from '../models';
 
+const { RAVE_API_PUBLIC_KEY, RAVE_API_SECRET_KEY } = process.env;
 const rave = new RavePay(
 	RAVE_API_PUBLIC_KEY,
 	RAVE_API_SECRET_KEY,
@@ -48,8 +48,8 @@ export const purchase = async (userId: string, amount: number) => {
 			}
 		);
 
-		const { status, data } = await response.json();
-		if (status !== 'success') throw new Error(data.toString());
+		const { data } = await response.json();
+		if (data.status !== 'successful') throw new Error(data.toString());
 
 		console.log(data);
 		return `Amount ${amount} has been paid by user ${userId}`;
@@ -98,11 +98,12 @@ export const tokenizeCard: TokenizeCard = async ({
 		const body = await rave.TokenCharge.card(cardDetails);
 		console.log(body);
 
+		// Does this action not require an OTP?
 		const {
 			data: { card }
 		} = body;
 		const { last4digits, expirymonth, expiryyear, cardBIN } = card;
-		const token = card.card_tokens[0].embedtoken;
+		const [{ embedtoken: token }] = card.card_tokens;
 
 		const creditCard = await CreditCard.create({
 			userId,

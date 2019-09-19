@@ -1,2 +1,3 @@
 node_modules/
 packages/*/types/*.d.ts
+packages/core/src/types.tsx

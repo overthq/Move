@@ -1,4 +1,4 @@
-import { Alert } from 'react-native';
+import { Alert, StatusBar } from 'react-native';
 import * as Permissions from 'expo-permissions';
 
 const prepare = async () => {
@@ -7,6 +7,7 @@ const prepare = async () => {
 		Alert.alert('The camera permission is required to check scan ticket codes');
 		prepare();
 	}
+	StatusBar.setBarStyle('light-content');
 };
 
 export default prepare;

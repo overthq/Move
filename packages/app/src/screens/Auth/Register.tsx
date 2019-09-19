@@ -5,29 +5,26 @@ import {
 	TouchableOpacity,
 	KeyboardAvoidingView
 } from 'react-native';
-import { useMutation } from 'urql';
-import { AUTH_REGISTER } from '@move/core';
+import { useRegisterMutation } from '@move/core';
 import { NavigationScreenProps } from 'react-navigation';
 import styles from './styles';
-import { User } from '@move/types';
 
 const Register = ({ navigation }: NavigationScreenProps) => {
 	const [firstName, setFirstName] = React.useState('');
 	const [lastName, setLastName] = React.useState('');
 	const [phoneNumber, setPhoneNumber] = React.useState('');
-	const [res, execute] = useMutation<{ register: User }>(AUTH_REGISTER);
+	const [{ data }, execute] = useRegisterMutation();
 
 	const handleTextChange = (text: string) => {
 		setPhoneNumber(text);
 	};
 
-	const handleSubmit = async () => {
-		await execute({ firstName, lastName, phoneNumber });
-		if (res && res.data) {
-			console.log(res.data);
-			navigation.navigate('VerifyCode', { phoneNumber });
+	const handleSubmit = React.useCallback(async () => {
+		if (data && data.register) {
+			return navigation.navigate('VerifyCode', { phoneNumber });
 		}
-	};
+		return execute({ firstName, lastName, phoneNumber });
+	}, [firstName, lastName, phoneNumber, data, execute]);
 
 	return (
 		<KeyboardAvoidingView style={styles.container} behavior='padding'>

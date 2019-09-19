@@ -1,4 +1,3 @@
-// import { CreditCard } from '../models';
 import { tokenizeCard } from './helpers';
 
 const creditCardMutation = {

@@ -1,8 +1,9 @@
 import { model, Schema, Document } from 'mongoose';
+import { BusStopType } from './BusStop';
 
 export interface RouteType extends Document {
-	origin: string;
-	destination: string;
+	origin: string | BusStopType;
+	destination: string | BusStopType;
 	fare: number;
 }
 
@@ -27,4 +28,3 @@ const RouteSchema = new Schema(
 );
 
 export const Route = model<RouteType>('Route', RouteSchema);
-

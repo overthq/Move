@@ -4,6 +4,7 @@ import { useScreens } from 'react-native-screens';
 import * as Constants from 'expo-constants';
 import RootNavigator from './src/Root';
 import { UserProvider } from './src/contexts/UserContext';
+import { SettingsProvider } from './src/contexts/SettingsContext';
 
 useScreens();
 
@@ -15,11 +16,13 @@ const devApiUrl = `http://${Constants.default.manifest.debuggerHost
 const client = createClient({ url: devApiUrl });
 
 const App = () => (
-	<Provider value={client}>
-		<UserProvider>
-			<RootNavigator />
-		</UserProvider>
-	</Provider>
+	<UserProvider>
+		<SettingsProvider>
+			<Provider value={client}>
+				<RootNavigator />
+			</Provider>
+		</SettingsProvider>
+	</UserProvider>
 );
 
 export default App;

@@ -1,5 +1,6 @@
 const CreditCard = `
 	type CreditCard {
+		_id: ID!
 		userId: ID!
 		cardDigits: String!
 		cardBIN: String!

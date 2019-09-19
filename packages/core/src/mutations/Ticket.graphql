@@ -1,0 +1,49 @@
+mutation PurchaseTicket(
+  $userId: ID!
+  $origin: ID!
+  $destination: ID!
+  $quantity: Int
+) {
+  purchaseTicket(input: {
+    userId: $userId
+    origin: $origin
+    destination: $destination
+    quantity: $quantity
+  }) {
+    _id
+    userId
+    route {
+      _id
+      origin {
+        _id
+        name
+      }
+      destination {
+        _id
+        name
+      }
+      fare
+    }
+    quantity
+  } 
+}
+
+mutation UseTicket($routeId: ID! $userId: ID!) {
+  useTicket(routeId: $routeId userId: $userId) {
+    _id
+    userId
+    route {
+      _id
+      origin {
+        _id
+        name
+      }
+      destination {
+        _id
+        name
+      }
+      fare
+    }
+    quantity
+  }
+}

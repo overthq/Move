@@ -1,0 +1,34 @@
+query BusStops {
+  busStops {
+    _id
+    name
+    routes {
+      _id
+      origin {
+        name
+      }
+      destination {
+        name
+      }
+      fare
+    }
+  }
+}
+
+
+query BusStop($id: ID!) {
+  busStop(id: $id) {
+    _id
+    name
+    routes {
+      _id
+      origin {
+        name
+      }
+      destination {
+        name
+      }
+      fare
+    }
+  }
+}
