@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
 	container: {
 		backgroundColor: '#FFFFFF',
 		borderRadius: 6,
-		marginLeft: 15,
+		marginHorizontal: 7.5,
 		padding: 10,
 		overflow: 'hidden',
 		shadowOffset: { width: 0, height: 4 },

@@ -39,7 +39,9 @@ const Tickets = ({ userId, modalRef }: TicketsProps) => {
 				</TouchableOpacity>
 			</View>
 			{fetching ? (
-				<ActivityIndicator />
+				<View style={{ justifyContent: 'center', minHeight: 80 }}>
+					<ActivityIndicator />
+				</View>
 			) : (
 				<FlatList
 					data={data.tickets}

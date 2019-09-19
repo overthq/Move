@@ -1,7 +1,13 @@
 import React from 'react';
-import { View, Text, ActivityIndicator, FlatList } from 'react-native';
+import {
+	View,
+	ActivityIndicator,
+	StyleSheet,
+	KeyboardAvoidingView
+} from 'react-native';
 import { useCreditCardsQuery } from '@move/core';
 import { UserContext } from '../../contexts/UserContext';
+import SaveCreditCard from '../../components/SaveCreditCard';
 
 const CreditCards = () => {
 	const { user } = React.useContext(UserContext);
@@ -10,21 +16,27 @@ const CreditCards = () => {
 	});
 	if (fetching) return <ActivityIndicator />;
 	if (error) console.error(error);
+	const [creditCard] = data.creditCards;
 
-	return (
-		<View style={{ flex: 1, backgroundColor: '#757575' }}>
-			<FlatList
-				data={data.creditCards}
-				keyExtractor={card => card._id}
-				ListEmptyComponent={<Text>Save new credit card</Text>}
-				renderItem={({ item, index }) => (
-					<View key={index}>
-						<Text>{item._id}</Text>
-					</View>
-				)}
-			/>
+	return creditCard ? (
+		<View style={styles.container}>
+			<View />
 		</View>
+	) : (
+		<KeyboardAvoidingView style={styles.container}>
+			<SaveCreditCard />
+		</KeyboardAvoidingView>
 	);
 };
+
+const styles = StyleSheet.create({
+	container: {
+		flex: 1,
+		paddingHorizontal: 15,
+		backgroundColor: '#232323',
+		alignItems: 'center',
+		justifyContent: 'center'
+	}
+});
 
 export default CreditCards;
