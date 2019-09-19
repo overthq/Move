@@ -1,14 +1,30 @@
 import React from 'react';
-import { View, Text, TextInput, StyleSheet } from 'react-native';
+import {
+	View,
+	Text,
+	TextInput,
+	StyleSheet,
+	ActivityIndicator,
+	Alert
+} from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { useSaveCardMutation } from '@move/core';
 
-const SaveCreditCard = () => {
+interface SaveCreditCardProps {
+	userId: string;
+}
+
+const SaveCreditCard = ({ userId }: SaveCreditCardProps) => {
 	const [cardNumber, setCardNumber] = React.useState('');
 	const [cvv, setCvv] = React.useState('');
 	const [expiryMonth, setExpiryMonth] = React.useState('');
 	const [expiryYear, setExpiryYear] = React.useState('');
+	const [{ fetching, data }, saveCard] = useSaveCardMutation();
 
-	const handleSubmit = () => {};
+	const handleSubmit = React.useCallback(() => {
+		if (data && data.saveCard) return Alert.alert('Card saved.');
+		return saveCard({ userId, cardNumber, cvv, expiryMonth, expiryYear });
+	}, [userId, cardNumber, cvv, expiryMonth, expiryYear]);
 
 	return (
 		<>
@@ -44,7 +60,11 @@ const SaveCreditCard = () => {
 				onPress={handleSubmit}
 				style={styles.button}
 			>
-				<Text style={styles.buttonText}>Save Card</Text>
+				{fetching ? (
+					<ActivityIndicator />
+				) : (
+					<Text style={styles.buttonText}>Save Card</Text>
+				)}
 			</TouchableOpacity>
 		</>
 	);
@@ -70,7 +90,8 @@ const styles = StyleSheet.create({
 		backgroundColor: '#777777',
 		height: 35,
 		paddingLeft: 10,
-		borderRadius: 5
+		borderRadius: 5,
+		textAlign: 'center'
 	},
 	button: {
 		backgroundColor: '#D3D3D3',
