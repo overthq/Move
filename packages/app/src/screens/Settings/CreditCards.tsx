@@ -23,8 +23,8 @@ const CreditCards = () => {
 			<View />
 		</View>
 	) : (
-		<KeyboardAvoidingView style={styles.container}>
-			<SaveCreditCard />
+		<KeyboardAvoidingView behavior='padding' style={styles.container}>
+			<SaveCreditCard userId={user._id} />
 		</KeyboardAvoidingView>
 	);
 };

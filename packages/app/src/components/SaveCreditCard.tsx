@@ -5,7 +5,8 @@ import {
 	TextInput,
 	StyleSheet,
 	ActivityIndicator,
-	Alert
+	Alert,
+	Dimensions
 } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useSaveCardMutation } from '@move/core';
@@ -13,6 +14,8 @@ import { useSaveCardMutation } from '@move/core';
 interface SaveCreditCardProps {
 	userId: string;
 }
+
+const { width } = Dimensions.get('window');
 
 const SaveCreditCard = ({ userId }: SaveCreditCardProps) => {
 	const [cardNumber, setCardNumber] = React.useState('');
@@ -81,15 +84,15 @@ const styles = StyleSheet.create({
 	},
 	halfInputContainer: {
 		flexDirection: 'row',
+		justifyContent: 'space-between',
 		width: '100%',
 		marginBottom: 10
 	},
 	halfInput: {
-		flexGrow: 1,
-		// flexBasis: -15,
+		flexBasis: width / 2 - 20,
 		backgroundColor: '#777777',
 		height: 35,
-		paddingLeft: 10,
+		paddingHorizontal: 10,
 		borderRadius: 5,
 		textAlign: 'center'
 	},
