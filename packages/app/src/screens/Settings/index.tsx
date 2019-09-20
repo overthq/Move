@@ -8,14 +8,6 @@ const Settings = createStackNavigator(
 			screen: SettingsHome,
 			navigationOptions: {
 				title: 'Settings'
-				// headerLeft: (
-				// 	<TouchableWithoutFeedback onPress={() => navigation.navigate('Home')}>
-				// 		<Feather name='x' size={20} color='#D3D3D3' />
-				// 	</TouchableWithoutFeedback>
-				// ),
-				// headerLeftContainerStyle: {
-				// 	paddingHorizontal: 10
-				// }
 			}
 		},
 		CreditCards: {
