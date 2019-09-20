@@ -37,25 +37,27 @@ const SaveCreditCard = ({ userId }: SaveCreditCardProps) => {
 				placeholder={'Card Number'}
 				style={styles.input}
 			/>
-			<TextInput
-				value={cvv}
-				onChangeText={value => setCvv(value)}
-				placeholder={'CVV'}
-				secureTextEntry
-				style={styles.input}
-			/>
-			<View style={styles.halfInputContainer}>
+			<View style={styles.groupInputsContainer}>
+				<View style={styles.datesContainer}>
+					<TextInput
+						value={expiryMonth}
+						onChangeText={value => setExpiryMonth(value)}
+						placeholder={'Expiry Month'}
+						style={styles.datesInput}
+					/>
+					<TextInput
+						value={expiryYear}
+						onChangeText={value => setExpiryYear(value)}
+						placeholder={'Expiry Year'}
+						style={styles.datesInput}
+					/>
+				</View>
 				<TextInput
-					value={expiryMonth}
-					onChangeText={value => setExpiryMonth(value)}
-					placeholder={'Expiry Month'}
-					style={styles.halfInput}
-				/>
-				<TextInput
-					value={expiryYear}
-					onChangeText={value => setExpiryYear(value)}
-					placeholder={'Expiry Year'}
-					style={styles.halfInput}
+					value={cvv}
+					onChangeText={value => setCvv(value)}
+					placeholder={'CVV'}
+					secureTextEntry
+					style={styles.cvvInput}
 				/>
 			</View>
 			<TouchableOpacity
@@ -82,19 +84,32 @@ const styles = StyleSheet.create({
 		marginBottom: 10,
 		width: '100%'
 	},
-	halfInputContainer: {
+	groupInputsContainer: {
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 		width: '100%',
 		marginBottom: 10
 	},
-	halfInput: {
-		flexBasis: width / 2 - 20,
+	datesContainer: {
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+		width: '75%'
+	},
+	datesInput: {
+		flexBasis: width * 0.375 - 15,
 		backgroundColor: '#777777',
 		height: 35,
 		paddingHorizontal: 10,
 		borderRadius: 5,
 		textAlign: 'center'
+	},
+	cvvInput: {
+		backgroundColor: '#777777',
+		height: 35,
+		paddingHorizontal: 10,
+		borderRadius: 5,
+		textAlign: 'center',
+		flexBasis: width * 0.25 - 15
 	},
 	button: {
 		backgroundColor: '#D3D3D3',
