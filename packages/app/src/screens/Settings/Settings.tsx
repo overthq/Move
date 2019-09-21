@@ -7,8 +7,7 @@ import {
 	StyleSheet,
 	Switch
 } from 'react-native';
-import { Feather } from 'react-native-vector-icons';
-import { NavigationScreenProps } from 'react-navigation';
+import Feather from 'react-native-vector-icons/Feather';
 import { UserContext } from '../../contexts/UserContext';
 import {
 	SettingsContext,

@@ -17,7 +17,7 @@ interface VerifyCodeProps {
 }
 
 const VerifyCode = ({ route, navigation }: VerifyCodeProps) => {
-	const { phoneNumber } = route.params as any;
+	const { phoneNumber } = route.params;
 	const [code, setCode] = React.useState('');
 	const [{ data }, executeMutation] = useVerifyCodeMutation();
 	const handleTextChange = (text: string) => setCode(text);
@@ -25,7 +25,7 @@ const VerifyCode = ({ route, navigation }: VerifyCodeProps) => {
 	const handleSubmit = React.useCallback(async () => {
 		if (data && data.verifyCode) {
 			await storeUserData(data.verifyCode);
-			return navigation.navigate('Home');
+			return navigation.navigate('Main');
 		}
 		return executeMutation({ phoneNumber, code });
 	}, [code, data, executeMutation]);

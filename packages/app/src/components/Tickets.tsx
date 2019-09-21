@@ -7,7 +7,7 @@ import {
 	TouchableOpacity,
 	StyleSheet
 } from 'react-native';
-import { Feather } from 'react-native-vector-icons';
+import Feather from 'react-native-vector-icons/Feather';
 import { useTicketsQuery } from '@move/core';
 import Ticket from './Ticket';
 import Modalize from 'react-native-modalize';

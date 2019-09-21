@@ -30,10 +30,11 @@ const Scanner = ({ userId }: ScannerProps) => {
 		<>
 			<View style={styles.scanner}>
 				<QRCodeScanner
-					containerStyle={StyleSheet.absoluteFill}
-					cameraStyle={StyleSheet.absoluteFill}
 					reactivate={false}
 					onRead={handleBarCodeScanned}
+					cameraStyle={{ height: height / 1.5 } as any}
+					topViewStyle={styles.disableSection as any}
+					bottomViewStyle={styles.disableSection as any}
 				/>
 				<View style={styles.scannerOverlayContainer}>
 					<ScannerOverlay />
@@ -58,7 +59,11 @@ const styles = StyleSheet.create({
 		padding: 20
 	},
 	scannerOverlayContainer: {
-		position: 'absolute'
+		position: 'absolute',
+		height: '100%',
+		width: '100%',
+		alignItems: 'center',
+		justifyContent: 'space-around'
 	},
 	scannerInfoContainer: {
 		padding: 10,

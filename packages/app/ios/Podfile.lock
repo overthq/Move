@@ -97,7 +97,11 @@ PODS:
     - React
   - RNReanimated (1.1.0):
     - React
+  - RNScreens (2.0.0-alpha.3):
+    - React
   - RNSVG (9.9.4):
+    - React
+  - RNVectorIcons (6.6.0):
     - React
   - TouchID (4.4.1):
     - React
@@ -130,7 +134,9 @@ DEPENDENCIES:
   - "RNCMaskedView (from `../../../node_modules/@react-native-community/masked-view`)"
   - RNGestureHandler (from `../../../node_modules/react-native-gesture-handler`)
   - RNReanimated (from `../../../node_modules/react-native-reanimated`)
+  - RNScreens (from `../../../node_modules/react-native-screens`)
   - RNSVG (from `../../../node_modules/react-native-svg`)
+  - RNVectorIcons (from `../../../node_modules/react-native-vector-icons`)
   - TouchID (from `../../../node_modules/react-native-touch-id`)
   - yoga (from `../../../node_modules/react-native/ReactCommon/yoga`)
 
@@ -191,8 +197,12 @@ EXTERNAL SOURCES:
     :path: "../../../node_modules/react-native-gesture-handler"
   RNReanimated:
     :path: "../../../node_modules/react-native-reanimated"
+  RNScreens:
+    :path: "../../../node_modules/react-native-screens"
   RNSVG:
     :path: "../../../node_modules/react-native-svg"
+  RNVectorIcons:
+    :path: "../../../node_modules/react-native-vector-icons"
   TouchID:
     :path: "../../../node_modules/react-native-touch-id"
   yoga:
@@ -226,7 +236,9 @@ SPEC CHECKSUMS:
   RNCMaskedView: b79e193409a90bf6b5170d421684f437ff4e2278
   RNGestureHandler: 4cb47a93019c1a201df2644413a0a1569a51c8aa
   RNReanimated: 7a52c90473b5e81c13408d40d797b98387eaddde
+  RNScreens: 402a99b0a27c0c32f079cec12d3ccbd35e20cd7f
   RNSVG: 435cda60cd9e1ea6188eb0e21c12fc0f85def8e8
+  RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
   TouchID: ba4c656d849cceabc2e4eef722dea5e55959ecf4
   yoga: 312528f5bbbba37b4dcea5ef00e8b4033fdd9411
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Dimensions, StyleSheet } from 'react-native';
 import Modalize from 'react-native-modalize';
-import { Feather } from 'react-native-vector-icons';
+import Feather from 'react-native-vector-icons/Feather';
 
 const { height } = Dimensions.get('window');
 
