@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import Modalize from 'react-native-modalize';
-import { BarCodeScanner } from 'expo-barcode-scanner';
+import QRCodeScanner from 'react-native-qrcode-scanner';
 import { useUseTicketMutation } from '@move/core';
 import SuccessModal from './SuccessModal';
 import ScannerOverlay from './ScannerOverlay';
@@ -13,17 +13,14 @@ interface ScannerProps {
 }
 
 const Scanner = ({ userId }: ScannerProps) => {
-	const [success, setSuccess] = React.useState(false);
 	const [{ data }, executeMutation] = useUseTicketMutation();
 	const modalRef = React.useRef<Modalize>(null);
 
 	const handleBarCodeScanned = React.useCallback(
 		async ({ data: routeId }: { data: string }) => {
 			if (data && data.useTicket) {
-				modalRef.current && modalRef.current.open();
-				return setSuccess(true);
+				return modalRef.current && modalRef.current.open();
 			}
-			console.log('Proceediing to execute');
 			if (routeId) return executeMutation({ routeId, userId });
 		},
 		[data, executeMutation, modalRef]
@@ -31,17 +28,22 @@ const Scanner = ({ userId }: ScannerProps) => {
 
 	return (
 		<>
-			<BarCodeScanner
-				style={styles.scanner}
-				onBarCodeScanned={success ? undefined : handleBarCodeScanned}
-			>
-				<ScannerOverlay />
-				<View style={styles.scannerInfoContainer}>
-					<Text style={styles.scannerInfo}>
-						{`Point the camera at the QR code.`}
-					</Text>
+			<View style={styles.scanner}>
+				<QRCodeScanner
+					containerStyle={StyleSheet.absoluteFill}
+					cameraStyle={StyleSheet.absoluteFill}
+					reactivate={false}
+					onRead={handleBarCodeScanned}
+				/>
+				<View style={styles.scannerOverlayContainer}>
+					<ScannerOverlay />
+					<View style={styles.scannerInfoContainer}>
+						<Text style={styles.scannerInfo}>
+							{`Point the camera at the QR code.`}
+						</Text>
+					</View>
 				</View>
-			</BarCodeScanner>
+			</View>
 			<SuccessModal {...{ modalRef, userId }} />
 		</>
 	);
@@ -55,6 +57,9 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		padding: 20
 	},
+	scannerOverlayContainer: {
+		position: 'absolute'
+	},
 	scannerInfoContainer: {
 		padding: 10,
 		borderRadius: 6,
@@ -63,6 +68,10 @@ const styles = StyleSheet.create({
 	scannerInfo: {
 		fontSize: 16,
 		fontWeight: '500'
+	},
+	disableSection: {
+		flex: 0,
+		height: 0
 	}
 });
 

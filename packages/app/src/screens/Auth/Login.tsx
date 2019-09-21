@@ -6,10 +6,14 @@ import {
 	KeyboardAvoidingView
 } from 'react-native';
 import { useLoginMutation } from '@move/core';
-import { NavigationScreenProps } from 'react-navigation';
+import { StackNavigationProp } from '@react-navigation/stack';
 import styles from './styles';
 
-const Login = ({ navigation }: NavigationScreenProps) => {
+interface LoginProps {
+	navigation: StackNavigationProp<any>;
+}
+
+const Login = ({ navigation }: LoginProps) => {
 	const [phoneNumber, setPhoneNumber] = React.useState('');
 	const [{ data }, execute] = useLoginMutation();
 

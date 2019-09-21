@@ -1,6 +1,6 @@
 import React from 'react';
-import { AsyncStorage } from 'react-native';
-import * as LocalAuthentication from 'expo-local-authentication';
+import AsyncStorage from '@react-native-community/async-storage';
+import TouchID from 'react-native-touch-id';
 
 interface Settings {
 	localAuth?: boolean;
@@ -50,9 +50,8 @@ export const SettingsProvider = ({
 		settings && dispatch({ [setting]: !settings[setting] });
 
 	const checkLocalAuthStatus = async () => {
-		const biometricsAvailable = await LocalAuthentication.hasHardwareAsync();
-		const fingerprintsAvailable = await LocalAuthentication.isEnrolledAsync();
-		return biometricsAvailable && fingerprintsAvailable;
+		const biometricsAvailable = await TouchID.isSupported();
+		return biometricsAvailable;
 	};
 
 	const loadSettings = async () => {

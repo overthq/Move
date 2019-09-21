@@ -1,4 +1,4 @@
-import { AsyncStorage } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import { User } from '@move/core';
 
 export const storeUserData = (user: User) => {

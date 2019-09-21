@@ -6,10 +6,14 @@ import {
 	KeyboardAvoidingView
 } from 'react-native';
 import { useRegisterMutation } from '@move/core';
-import { NavigationScreenProps } from 'react-navigation';
+import { StackNavigationProp } from '@react-navigation/stack';
 import styles from './styles';
 
-const Register = ({ navigation }: NavigationScreenProps) => {
+interface RegisterProps {
+	navigation: StackNavigationProp<any>;
+}
+
+const Register = ({ navigation }: RegisterProps) => {
 	const [firstName, setFirstName] = React.useState('');
 	const [lastName, setLastName] = React.useState('');
 	const [phoneNumber, setPhoneNumber] = React.useState('');

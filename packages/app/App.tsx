@@ -1,17 +1,13 @@
 import React from 'react';
 import { Provider, createClient } from 'urql';
-import { useScreens } from 'react-native-screens';
-import * as Constants from 'expo-constants';
+// import { useScreens } from 'react-native-screens';
 import RootNavigator from './src/Root';
 import { UserProvider } from './src/contexts/UserContext';
 import { SettingsProvider } from './src/contexts/SettingsContext';
 
-useScreens();
+// useScreens();
 
-const devApiUrl = `http://${Constants.default.manifest.debuggerHost
-	.split(':')
-	.shift()
-	.concat(':4000/')}`;
+const devApiUrl = 'http://localhost:4000';
 
 const client = createClient({ url: devApiUrl });
 

@@ -7,13 +7,14 @@ import {
 	StyleSheet,
 	Switch
 } from 'react-native';
-import { Feather } from '@expo/vector-icons';
+import { Feather } from 'react-native-vector-icons';
 import { NavigationScreenProps } from 'react-navigation';
 import { UserContext } from '../../contexts/UserContext';
 import {
 	SettingsContext,
 	getSettingName
 } from '../../contexts/SettingsContext';
+import { StackNavigationProp } from '@react-navigation/stack';
 
 const settingScreens = [
 	{
@@ -94,7 +95,11 @@ const UserDetails = () => {
 	);
 };
 
-const Settings = ({ navigation }: NavigationScreenProps) => (
+interface SettingsProps {
+	navigation: StackNavigationProp<any>;
+}
+
+const Settings = ({ navigation }: SettingsProps) => (
 	<View style={{ flex: 1, backgroundColor: '#232323' }}>
 		<FlatList
 			data={settingScreens}

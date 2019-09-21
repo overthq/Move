@@ -1,3 +1,13 @@
-const { createMetroConfiguration } = require('expo-yarn-workspaces');
+const path = require('path');
 
-module.exports = createMetroConfiguration(__dirname);
+module.exports = {
+	projectRoot: path.resolve(__dirname, '../../'),
+  transformer: {
+    getTransformOptions: async () => ({
+      transform: {
+        experimentalImportSupport: false,
+        inlineRequires: false,
+      },
+    }),
+  },
+};

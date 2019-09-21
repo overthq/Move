@@ -1,10 +1,10 @@
-import { Alert, StatusBar } from 'react-native';
-import * as Permissions from 'expo-permissions';
+import { StatusBar } from 'react-native';
+import Permissions from 'react-native-permissions';
 
 const prepare = async () => {
-	const { status } = await Permissions.askAsync(Permissions.CAMERA);
-	if (status !== 'granted') {
-		Alert.alert('The camera permission is required to check scan ticket codes');
+	const status = await Permissions.check('camera');
+	if (status !== 'authorized') {
+		await Permissions.request('camera');
 		prepare();
 	}
 	StatusBar.setBarStyle('light-content');
