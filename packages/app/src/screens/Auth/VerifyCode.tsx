@@ -32,14 +32,18 @@ const VerifyCode = ({ route, navigation }: VerifyCodeProps) => {
 
 	return (
 		<KeyboardAvoidingView style={styles.container} behavior='padding'>
-			<Text>Enter your verification Code</Text>
+			<Text style={styles.title}>Verification code</Text>
 			<TextInput
 				style={styles.input}
-				placeholder='Verification code'
+				placeholder='Your verification code'
 				onChangeText={handleTextChange}
 			/>
-			<TouchableOpacity onPress={handleSubmit}>
-				<Text>Verify Code</Text>
+			<TouchableOpacity
+				activeOpacity={0.7}
+				style={styles.button}
+				onPress={handleSubmit}
+			>
+				<Text style={styles.buttonText}>Verify code</Text>
 			</TouchableOpacity>
 		</KeyboardAvoidingView>
 	);

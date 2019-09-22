@@ -32,7 +32,7 @@ const Register = ({ navigation }: RegisterProps) => {
 
 	return (
 		<KeyboardAvoidingView style={styles.container} behavior='padding'>
-			<Text>Your phone number</Text>
+			<Text style={styles.title}>Your phone number</Text>
 			<TextInput
 				style={styles.input}
 				placeholder='Your first name'
@@ -48,8 +48,12 @@ const Register = ({ navigation }: RegisterProps) => {
 				placeholder='Your phone number'
 				onChangeText={handleTextChange}
 			/>
-			<TouchableOpacity onPress={handleSubmit}>
-				<Text>Submit</Text>
+			<TouchableOpacity
+				activeOpacity={0.7}
+				style={styles.button}
+				onPress={handleSubmit}
+			>
+				<Text style={styles.buttonText}>Submit</Text>
 			</TouchableOpacity>
 		</KeyboardAvoidingView>
 	);

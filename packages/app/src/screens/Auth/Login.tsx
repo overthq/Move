@@ -35,11 +35,15 @@ const Login = ({ navigation }: LoginProps) => {
 				placeholder='Your phone number'
 				onChangeText={handleTextChange}
 			/>
-			<TouchableOpacity onPress={handleSubmit}>
-				<Text>Next</Text>
+			<TouchableOpacity
+				activeOpacity={0.7}
+				style={[styles.button, { marginBottom: 10 }]}
+				onPress={handleSubmit}
+			>
+				<Text style={styles.buttonText}>Next</Text>
 			</TouchableOpacity>
-			<TouchableOpacity onPress={goToRegister}>
-				<Text>{`Don't have an account?`}</Text>
+			<TouchableOpacity activeOpacity={0.7} onPress={goToRegister}>
+				<Text style={styles.linkButtonText}>{`Don't have an account?`}</Text>
 			</TouchableOpacity>
 		</KeyboardAvoidingView>
 	);

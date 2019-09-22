@@ -55,8 +55,7 @@ const styles = StyleSheet.create({
 		width,
 		height: height / 1.5,
 		justifyContent: 'space-around',
-		alignItems: 'center',
-		padding: 20
+		alignItems: 'center'
 	},
 	scannerOverlayContainer: {
 		position: 'absolute',
