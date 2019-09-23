@@ -11425,10 +11425,10 @@ react-native-view-shot@2.6.0:
     xmldoc "^0.4.0"
     yargs "^9.0.0"
 
-react-navigation-stack@^1.5.4:
-  version "1.5.4"
-  resolved "https://registry.yarnpkg.com/react-navigation-stack/-/react-navigation-stack-1.5.4.tgz#ec3f8468873b86aa2b344430dfc1d7e9801e39bd"
-  integrity sha512-jgbQ3qTRrfo6m5ibldRUzr7S5gf4qvrgqgVpQIyPLS8RXXO3n7eZmldqebmQPg6osaOVMjZ+kbV42n7LbdU4Mw==
+react-navigation-stack@^1.8.1:
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/react-navigation-stack/-/react-navigation-stack-1.8.1.tgz#88602596239b4a238285f3dd1860bb74f7aa2a74"
+  integrity sha512-XOkHuYlQjZKnD4jTU0Ml847sKjpwsJpQ6JX4ZfOq8D0e6fPWXbpYNhvUnzHMHMm+tnbhTqkqP1Umu40Hmx748Q==
   dependencies:
     prop-types "^15.7.2"
 
