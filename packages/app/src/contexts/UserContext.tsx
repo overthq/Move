@@ -17,10 +17,10 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
 		setUser(userData);
 	};
 
-	const logOut = async () => {
+	const logOut = React.useCallback(async () => {
 		await removeUserData();
 		return setUser(null);
-	};
+	}, [setUser]);
 
 	React.useEffect(() => {
 		fetchUser();
