@@ -2,7 +2,6 @@ import AsyncStorage from '@react-native-community/async-storage';
 import { User } from '@move/core';
 
 export const storeUserData = (user: User) => {
-	console.log('Saving user', user);
 	return AsyncStorage.setItem('user', JSON.stringify(user));
 };
 
