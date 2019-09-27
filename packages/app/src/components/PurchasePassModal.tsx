@@ -42,10 +42,7 @@ const BusStopPicker = ({ activeValue, setActive }: BusStopPickerProps) => {
 	const { busStops } = data;
 
 	return (
-		<Picker
-			selectedValue={activeValue}
-			onValueChange={value => setActive(value)}
-		>
+		<Picker selectedValue={activeValue} onValueChange={setActive}>
 			{busStops.map(({ _id, name }) => (
 				<Picker.Item key={_id} label={name} value={_id} />
 			))}
@@ -59,7 +56,6 @@ const PurchasePassModal = ({ userId, modalRef }: PurchasePassModalProps) => {
 	const [destination, setDestination] = React.useState('');
 
 	const handleSubmit = React.useCallback(() => {
-		console.log(origin, destination);
 		if (data && data.purchaseTicket) {
 			return console.log('Ticket purchased.');
 			// Close the modal and show some form of confirmation.

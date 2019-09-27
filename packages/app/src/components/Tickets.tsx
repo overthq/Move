@@ -39,7 +39,7 @@ const Tickets = ({ userId, modalRef }: TicketsProps) => {
 				</TouchableOpacity>
 			</View>
 			{fetching ? (
-				<View style={{ justifyContent: 'center', minHeight: 80 }}>
+				<View style={{ justifyContent: 'center', height: 80 }}>
 					<ActivityIndicator />
 				</View>
 			) : (
