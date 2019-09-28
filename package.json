@@ -10,9 +10,6 @@
     "email": "korede@overt.dev",
     "url": "https://overt.dev"
   },
-  "workspaces": [
-    "packages/*"
-	],
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"

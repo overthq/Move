@@ -1,0 +1,66 @@
+{
+	"name": "@move/app",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"postinstall": "yarn generate-types",
+    "generate-types": "graphql-codegen --config codegen.yml",
+		"start": "react-native start",
+		"test": "jest"
+	},
+	"dependencies": {
+		"@react-native-community/async-storage": "^1.6.1",
+		"@react-native-community/masked-view": "^0.1.1",
+		"@react-navigation/core": "^5.0.0-alpha.10",
+		"@react-navigation/native": "^5.0.0-alpha.8",
+		"@react-navigation/stack": "^5.0.0-alpha.17",
+		"@urql/exchange-graphcache": "^1.0.0-rc.9",
+    "graphql-tag": "^2.10.1",
+		"react": "^16.9.0",
+		"react-native": "^0.61.1",
+		"react-native-camera": "^3.4.0",
+		"react-native-gesture-handler": "~1.4.1",
+		"react-native-modalize": "^1.2.1",
+		"react-native-permissions": "^1.2.1",
+		"react-native-qrcode-scanner": "^1.2.1",
+		"react-native-reanimated": "~1.1.0",
+		"react-native-screens": "^2.0.0-alpha.3",
+		"react-native-svg": "^9.9.4",
+		"react-native-touch-id": "^4.4.1",
+		"react-native-vector-icons": "^6.6.0",
+		"urql": "^1.5.0"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.6.0",
+		"@babel/runtime": "^7.6.0",
+    "@graphql-codegen/cli": "^1.6.1",
+    "@graphql-codegen/typescript": "1.6.1",
+    "@graphql-codegen/typescript-operations": "1.6.1",
+    "@graphql-codegen/typescript-urql": "^1.7.0",
+		"@react-native-community/eslint-config": "^0.0.3",
+    "@types/graphql": "^14.5.0",
+		"@types/jest": "^24.0.15",
+		"@types/react": "^16.8.23",
+		"@types/react-native": "^0.60.1",
+		"@types/react-native-vector-icons": "^6.4.2",
+		"@types/react-test-renderer": "^16.8.2",
+		"babel-jest": "^24.9.0",
+		"eslint": "^6.4.0",
+		"jest": "^24.9.0",
+		"metro-react-native-babel-preset": "^0.54.1",
+		"prettier": "^1.18.2",
+		"react-test-renderer": "16.9.0",
+		"typescript": "^3.6.3"
+	},
+	"jest": {
+		"preset": "react-native",
+		"moduleFileExtensions": [
+			"ts",
+			"tsx",
+			"js",
+			"jsx",
+			"json",
+			"node"
+		]
+	}
+}
