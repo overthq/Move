@@ -22,20 +22,20 @@ const VerifyCode = ({ route, navigation }: VerifyCodeProps) => {
 	const [{ data }, executeMutation] = useVerifyCodeMutation();
 	const handleTextChange = (text: string) => setCode(text);
 
-	const handleSubmit = async () => {
+	const handleSubmit = React.useCallback(async () => {
 		await executeMutation({ phoneNumber, code });
 		if (data && data.verifyCode) {
 			await storeUserData(data.verifyCode);
 		}
-		return navigation.navigate('Home');
-	};
+		return navigation.navigate('Main');
+	}, [data]);
 
 	return (
 		<KeyboardAvoidingView style={styles.container} behavior='padding'>
-			<Text>Enter your verification Code</Text>
+			<Text style={styles.title}>Enter your verification code</Text>
 			<TextInput
 				style={styles.input}
-				placeholder='Verification code'
+				placeholder='Your verification code'
 				onChangeText={handleTextChange}
 			/>
 			<TouchableOpacity
