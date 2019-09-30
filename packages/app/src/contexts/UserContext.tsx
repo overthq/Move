@@ -1,4 +1,5 @@
 import React from 'react';
+import { AppLoading } from 'expo';
 import { User } from '@move/core';
 import { getUserData, removeUserData } from '../helpers';
 
@@ -9,22 +10,29 @@ interface UserContextValue {
 
 export const UserContext = React.createContext<UserContextValue | null>(null);
 
-export const UserProvider = ({ children }: { children: React.ReactNode }) => {
+const Provider = ({ children }: { children: React.ReactNode }) => {
+	const [loading, setLoading] = React.useState(true);
 	const [user, setUser] = React.useState<User | null>(null);
 
 	const fetchUser = async () => {
-		const userData = await getUserData();
-		setUser(userData);
-	};
-
-	const logOut = async () => {
-		await removeUserData();
-		return setUser(null);
+		setUser(await getUserData());
+		setLoading(false);
 	};
 
 	React.useEffect(() => {
 		fetchUser();
 	}, []);
 
-	return <UserContext.Provider value={{ user, logOut }} {...{ children }} />;
+	const logOut = React.useCallback(async () => {
+		await removeUserData();
+		return setUser(null);
+	}, [setUser]);
+
+	return (
+		<UserContext.Provider value={{ user, logOut }}>
+			{loading ? <AppLoading /> : children}
+		</UserContext.Provider>
+	);
 };
+
+export const UserProvider = React.memo(Provider);

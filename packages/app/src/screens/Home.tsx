@@ -5,9 +5,13 @@ import Scanner from '../components/Scanner';
 import Tickets from '../components/Tickets';
 import { UserContext } from '../contexts/UserContext';
 import PurchasePassModal from '../components/PurchasePassModal';
-import { NavigationScreenProps } from 'react-navigation';
+import { StackNavigationProp } from '@react-navigation/stack';
 
-const Home = ({ navigation }: NavigationScreenProps) => {
+interface HomeProps {
+	navigation: StackNavigationProp<any>;
+}
+
+const Home = ({ navigation }: HomeProps) => {
 	const { user } = React.useContext(UserContext);
 	const modalRef = React.useRef<Modalize>(null);
 	const { _id: userId } = user;

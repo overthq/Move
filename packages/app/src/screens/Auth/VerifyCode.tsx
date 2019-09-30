@@ -22,13 +22,18 @@ const VerifyCode = ({ route, navigation }: VerifyCodeProps) => {
 	const [{ data }, executeMutation] = useVerifyCodeMutation();
 	const handleTextChange = (text: string) => setCode(text);
 
-	const handleSubmit = React.useCallback(async () => {
-		await executeMutation({ phoneNumber, code });
+	React.useEffect(() => {
 		if (data && data.verifyCode) {
-			await storeUserData(data.verifyCode);
+			storeUserData(data.verifyCode);
+			navigation.navigate('Main');
 		}
-		return navigation.navigate('Main');
 	}, [data]);
+
+	const handleSubmit = () => {
+		if (phoneNumber && code) {
+			executeMutation({ phoneNumber, code });
+		}
+	};
 
 	return (
 		<KeyboardAvoidingView style={styles.container} behavior='padding'>
