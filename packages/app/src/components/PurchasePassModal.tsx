@@ -58,16 +58,18 @@ const PurchasePassModal = ({ userId, modalRef }: PurchasePassModalProps) => {
 	const [origin, setOrigin] = React.useState('');
 	const [destination, setDestination] = React.useState('');
 
-	const handleSubmit = React.useCallback(() => {
-		console.log(origin, destination);
-		if (data && data.purchaseTicket) {
-			return console.log('Ticket purchased.');
+	React.useEffect(() => {
+		if (!fetching && data && data.purchaseTicket) {
 			// Close the modal and show some form of confirmation.
+			modalRef.current && modalRef.current.close();
 		}
+	}, [data, fetching]);
+
+	const handleSubmit = () => {
 		if (origin && destination && userId) {
 			return purchasePass({ origin, destination, userId });
 		}
-	}, [data, purchasePass, origin, destination, userId]);
+	};
 
 	return (
 		<Modalize ref={modalRef} handlePosition='inside' adjustToContentHeight>
