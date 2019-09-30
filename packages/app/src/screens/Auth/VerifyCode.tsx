@@ -6,6 +6,7 @@ import {
 	KeyboardAvoidingView
 } from 'react-native';
 import { useVerifyCodeMutation } from '@move/core';
+import { RouteProp } from '@react-navigation/core';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { storeUserData } from '../../helpers';
 import styles from './styles';

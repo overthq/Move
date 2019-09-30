@@ -1,24 +1,13 @@
-import { createStackNavigator } from 'react-navigation-stack';
+import React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
 import SettingsHome from './Settings';
 import CreditCards from './CreditCards';
 
-const Settings = createStackNavigator(
-	{
-		Settings: {
-			screen: SettingsHome,
-			navigationOptions: {
-				title: 'Settings'
-			}
-		},
-		CreditCards: {
-			screen: CreditCards,
-			navigationOptions: {
-				title: 'Credit Cards'
-			}
-		}
-	},
-	{
-		defaultNavigationOptions: {
+const SettingsStack = createStackNavigator();
+
+const Settings = () => (
+	<SettingsStack.Navigator
+		screenOptions={{
 			headerTitleStyle: {
 				color: '#D3D3D3'
 			},
@@ -26,8 +15,19 @@ const Settings = createStackNavigator(
 				backgroundColor: '#161616',
 				borderBottomColor: '#545454'
 			}
-		}
-	}
+		}}
+	>
+		<SettingsStack.Screen
+			name='Settings'
+			component={SettingsHome}
+			options={{ title: 'Settings' }}
+		/>
+		<SettingsStack.Screen
+			name='CreditCards'
+			component={CreditCards}
+			options={{ title: 'Credit Cards' }}
+		/>
+	</SettingsStack.Navigator>
 );
 
 export default Settings;
