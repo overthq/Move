@@ -1,0 +1,41 @@
+{
+	"name": "@move/app",
+	"version": "0.0.1",
+	"main": "__generated__/AppEntry.js",
+	"scripts": {
+		"preinstall": "node ./patch-yarn.js",
+		"postinstall": "expo-yarn-workspaces postinstall",
+		"start": "expo start",
+		"format": "prettier --write '{.,src/**}/*.{js,jsx,ts,tsx}'",
+		"lint": "eslint --fix . --ext .tsx,.ts"
+	},
+	"dependencies": {
+		"@expo/vector-icons": "^10.0.5",
+		"@move/core": "0.0.1",
+		"@react-native-community/masked-view": "^0.1.1",
+		"@urql/exchange-graphcache": "^1.0.0-rc.9",
+		"expo": "^34.0.1",
+		"expo-barcode-scanner": "~6.0.0",
+		"expo-local-authentication": "~6.0.0",
+		"expo-permissions": "~6.0.0",
+		"react": "^16.9.0",
+		"react-native": "https://github.com/expo/react-native/archive/sdk-34.0.0.tar.gz",
+		"react-native-gesture-handler": "~1.4.1",
+		"react-native-modalize": "^1.2.1",
+		"react-native-reanimated": "~1.1.0",
+		"react-native-svg": "~9.5.1",
+		"react-navigation": "^4.0.5",
+		"react-navigation-stack": "^2.0.0-alpha.14",
+		"urql": "^1.5.0"
+	},
+	"devDependencies": {
+		"@types/react": "^16.8.23",
+		"@types/react-native": "^0.60.15",
+		"babel-preset-expo": "^6.0.0",
+		"eslint": "^6.4.0",
+		"expo-yarn-workspaces": "^1.2.0",
+		"prettier": "^1.18.2",
+		"typescript": "^3.6.2"
+	},
+	"private": true
+}
