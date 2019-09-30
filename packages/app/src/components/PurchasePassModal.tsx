@@ -42,10 +42,7 @@ const BusStopPicker = ({ activeValue, setActive }: BusStopPickerProps) => {
 	const { busStops } = data;
 
 	return (
-		<Picker
-			selectedValue={activeValue}
-			onValueChange={value => setActive(value)}
-		>
+		<Picker selectedValue={activeValue} onValueChange={setActive}>
 			{busStops.map(({ _id, name }) => (
 				<Picker.Item key={_id} label={name} value={_id} />
 			))}
