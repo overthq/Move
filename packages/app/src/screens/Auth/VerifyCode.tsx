@@ -6,23 +6,28 @@ import {
 	KeyboardAvoidingView
 } from 'react-native';
 import { useVerifyCodeMutation } from '@move/core';
-import { NavigationScreenProps } from 'react-navigation';
+import { StackNavigationProp } from '@react-navigation/stack';
 import { storeUserData } from '../../helpers';
 import styles from './styles';
 
-const VerifyCode = ({ navigation }: NavigationScreenProps) => {
-	const phoneNumber: string = navigation.getParam('phoneNumber');
+interface VerifyCodeProps {
+	route: RouteProp<any, any>;
+	navigation: StackNavigationProp<any>;
+}
+
+const VerifyCode = ({ route, navigation }: VerifyCodeProps) => {
+	const { phoneNumber } = route.params;
 	const [code, setCode] = React.useState('');
 	const [{ data }, executeMutation] = useVerifyCodeMutation();
 	const handleTextChange = (text: string) => setCode(text);
 
-	const handleSubmit = React.useCallback(async () => {
+	const handleSubmit = async () => {
+		await executeMutation({ phoneNumber, code });
 		if (data && data.verifyCode) {
 			await storeUserData(data.verifyCode);
-			return navigation.navigate('Home');
 		}
-		return executeMutation({ phoneNumber, code });
-	}, [code, data, executeMutation]);
+		return navigation.navigate('Home');
+	};
 
 	return (
 		<KeyboardAvoidingView style={styles.container} behavior='padding'>
@@ -32,8 +37,12 @@ const VerifyCode = ({ navigation }: NavigationScreenProps) => {
 				placeholder='Verification code'
 				onChangeText={handleTextChange}
 			/>
-			<TouchableOpacity onPress={handleSubmit}>
-				<Text>Verify Code</Text>
+			<TouchableOpacity
+				activeOpacity={0.7}
+				style={styles.button}
+				onPress={handleSubmit}
+			>
+				<Text style={styles.buttonText}>Verify Code</Text>
 			</TouchableOpacity>
 		</KeyboardAvoidingView>
 	);

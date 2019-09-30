@@ -6,25 +6,26 @@ import {
 	KeyboardAvoidingView
 } from 'react-native';
 import { useRegisterMutation } from '@move/core';
-import { NavigationScreenProps } from 'react-navigation';
+import { StackNavigationProp } from '@react-navigation/stack';
 import styles from './styles';
 
-const Register = ({ navigation }: NavigationScreenProps) => {
+interface RegisterProps {
+	navigation: StackNavigationProp<any>;
+}
+
+const Register = ({ navigation }: RegisterProps) => {
 	const [firstName, setFirstName] = React.useState('');
 	const [lastName, setLastName] = React.useState('');
 	const [phoneNumber, setPhoneNumber] = React.useState('');
-	const [{ data }, execute] = useRegisterMutation();
+	const [, execute] = useRegisterMutation();
 
-	const handleTextChange = (text: string) => {
-		setPhoneNumber(text);
+	const handleTextChange = (text: string) => setPhoneNumber(text);
+
+	const handleSubmit = async () => {
+		await execute({ firstName, lastName, phoneNumber });
+		// if (data && data.register) {}
+		return navigation.navigate('VerifyCode', { phoneNumber });
 	};
-
-	const handleSubmit = React.useCallback(async () => {
-		if (data && data.register) {
-			return navigation.navigate('VerifyCode', { phoneNumber });
-		}
-		return execute({ firstName, lastName, phoneNumber });
-	}, [firstName, lastName, phoneNumber, data, execute]);
 
 	return (
 		<KeyboardAvoidingView style={styles.container} behavior='padding'>
@@ -44,8 +45,12 @@ const Register = ({ navigation }: NavigationScreenProps) => {
 				placeholder='Your phone number'
 				onChangeText={handleTextChange}
 			/>
-			<TouchableOpacity onPress={handleSubmit}>
-				<Text>Submit</Text>
+			<TouchableOpacity
+				activeOpacity={0.7}
+				style={styles.button}
+				onPress={handleSubmit}
+			>
+				<Text style={styles.buttonText}>Submit</Text>
 			</TouchableOpacity>
 		</KeyboardAvoidingView>
 	);
