@@ -17,15 +17,16 @@ const Register = ({ navigation }: RegisterProps) => {
 	const [firstName, setFirstName] = React.useState('');
 	const [lastName, setLastName] = React.useState('');
 	const [phoneNumber, setPhoneNumber] = React.useState('');
-	const [, execute] = useRegisterMutation();
+	const [{ data }, execute] = useRegisterMutation();
+
+	React.useEffect(() => {
+		if (data && data.register) {
+			navigation.navigate('VerifyCode', { phoneNumber });
+		}
+	}, [data]);
 
 	const handleTextChange = (text: string) => setPhoneNumber(text);
-
-	const handleSubmit = async () => {
-		await execute({ firstName, lastName, phoneNumber });
-		// if (data && data.register) {}
-		return navigation.navigate('VerifyCode', { phoneNumber });
-	};
+	const handleSubmit = () => execute({ firstName, lastName, phoneNumber });
 
 	return (
 		<KeyboardAvoidingView style={styles.container} behavior='padding'>

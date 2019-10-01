@@ -15,15 +15,18 @@ interface LoginProps {
 
 const Login = ({ navigation }: LoginProps) => {
 	const [phoneNumber, setPhoneNumber] = React.useState('');
-	const [, execute] = useLoginMutation();
+	const [{ data }, execute] = useLoginMutation();
 
 	const handleTextChange = (text: string) => setPhoneNumber(text);
 	const goToRegister = () => navigation.navigate('Register');
 
-	const handleSubmit = async () => {
-		await execute({ phoneNumber });
-		return navigation.navigate('VerifyCode', { phoneNumber });
-	};
+	React.useEffect(() => {
+		if (data && data.login) {
+			navigation.navigate('VerifyCode', { phoneNumber });
+		}
+	}, [data]);
+
+	const handleSubmit = () => execute({ phoneNumber });
 
 	return (
 		<KeyboardAvoidingView style={styles.container} behavior='padding'>
