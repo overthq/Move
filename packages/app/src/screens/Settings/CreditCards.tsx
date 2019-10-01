@@ -1,30 +1,20 @@
 import React from 'react';
-import {
-	View,
-	ActivityIndicator,
-	StyleSheet,
-	KeyboardAvoidingView
-} from 'react-native';
+import { View, StyleSheet, KeyboardAvoidingView } from 'react-native';
 import { useCreditCardsQuery } from '@move/core';
 import { UserContext } from '../../contexts/UserContext';
 import SaveCreditCard from '../../components/SaveCreditCard';
 
 const CreditCards = () => {
 	const { user } = React.useContext(UserContext);
-	const [{ fetching, data, error }] = useCreditCardsQuery({
+	const [{ data, error }] = useCreditCardsQuery({
 		variables: { userId: user._id }
 	});
-	if (fetching) return <ActivityIndicator />;
 	if (error) console.error(error);
 	const [creditCard] = data.creditCards;
 
-	return creditCard ? (
-		<View style={styles.container}>
-			<View />
-		</View>
-	) : (
+	return (
 		<KeyboardAvoidingView behavior='padding' style={styles.container}>
-			<SaveCreditCard userId={user._id} />
+			{creditCard ? <View /> : <SaveCreditCard userId={user._id} />}
 		</KeyboardAvoidingView>
 	);
 };
