@@ -2,11 +2,12 @@ import React from 'react';
 import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import Modalize from 'react-native-modalize';
 import { BarCodeScanner } from 'expo-barcode-scanner';
+import { Camera } from 'expo-camera';
 import { useUseTicketMutation } from '@move/core';
 import SuccessModal from './SuccessModal';
 import ScannerOverlay from './ScannerOverlay';
 
-const { width, height } = Dimensions.get('window');
+const { width, height } = Dimensions.get('screen');
 
 interface ScannerProps {
 	userId: string;
@@ -23,7 +24,6 @@ const Scanner = ({ userId }: ScannerProps) => {
 				modalRef.current && modalRef.current.open();
 				return setSuccess(true);
 			}
-			console.log('Proceediing to execute');
 			if (routeId) return executeMutation({ routeId, userId });
 		},
 		[data, executeMutation, modalRef]
@@ -31,8 +31,11 @@ const Scanner = ({ userId }: ScannerProps) => {
 
 	return (
 		<>
-			<BarCodeScanner
+			<Camera
 				style={styles.scanner}
+				barCodeScannerSettings={{
+					barCodeTypes: [BarCodeScanner.Constants.BarCodeType.qr]
+				}}
 				onBarCodeScanned={success ? undefined : handleBarCodeScanned}
 			>
 				<ScannerOverlay />
@@ -41,7 +44,7 @@ const Scanner = ({ userId }: ScannerProps) => {
 						{`Point the camera at the QR code.`}
 					</Text>
 				</View>
-			</BarCodeScanner>
+			</Camera>
 			<SuccessModal {...{ modalRef, userId }} />
 		</>
 	);

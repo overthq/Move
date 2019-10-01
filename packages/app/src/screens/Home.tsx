@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Button } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import Modalize from 'react-native-modalize';
 import Scanner from '../components/Scanner';
 import Tickets from '../components/Tickets';
@@ -20,10 +20,9 @@ const Home = ({ navigation }: HomeProps) => {
 		<View style={styles.container}>
 			<Scanner userId={userId} />
 			<Tickets {...{ userId, modalRef }} />
-			<Button
-				title='Settings'
-				onPress={() => navigation.navigate('Settings')}
-			/>
+			<TouchableOpacity onPress={() => navigation.navigate('Settings')}>
+				<Text>Settings</Text>
+			</TouchableOpacity>
 			<PurchasePassModal {...{ modalRef, userId }} />
 		</View>
 	);
