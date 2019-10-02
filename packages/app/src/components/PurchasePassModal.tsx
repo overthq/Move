@@ -43,7 +43,10 @@ const BusStopPicker = ({ activeValue, setActive }: BusStopPickerProps) => {
 	const { busStops } = data;
 
 	return (
-		<Picker selectedValue={activeValue} onValueChange={setActive}>
+		<Picker
+			selectedValue={activeValue}
+			onValueChange={value => setActive(value)}
+		>
 			{busStops.map(({ _id, name }) => (
 				<Picker.Item key={_id} label={name} value={_id} />
 			))}
@@ -87,8 +90,10 @@ const PurchasePassModal = ({ userId, modalRef }: PurchasePassModalProps) => {
 			<ScrollView style={styles.container} key='1'>
 				<BusStopPicker activeValue={origin} setActive={setOrigin} />
 				<BusStopPicker activeValue={destination} setActive={setDestination} />
-				<PurchaseButton onPress={handleSubmit} loading={fetching} />
 			</ScrollView>
+			<View style={styles.modalButtonContainer}>
+				<PurchaseButton onPress={handleSubmit} loading={fetching} />
+			</View>
 		</Modalize>
 	);
 };
@@ -100,11 +105,17 @@ const styles = StyleSheet.create({
 	modalTitle: {
 		fontSize: 20,
 		fontWeight: 'bold',
-		color: '#161616'
+		color: '#161616',
+		marginBottom: 5
 	},
 	modalDescription: {
 		fontSize: 16,
-		color: '#D3D3D3'
+		color: '#CCCCCC'
+	},
+	modalButtonContainer: {
+		alignItems: 'center',
+		justifyContent: 'center',
+		padding: 20
 	},
 	modalButton: {
 		width: '100%',
