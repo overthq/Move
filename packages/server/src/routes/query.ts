@@ -1,25 +1,17 @@
 import { Route } from '../models';
-import { verifyStops } from './helpers';
 
 const routeQuery = {
 	routes: async () => {
-		const allRoutes = await Route.find();
+		const allRoutes = await Route.find()
+			.populate('origin')
+			.populate('destination');
 		return allRoutes;
 	},
 	route: async (_, { id }) => {
-		const matchedRoute = await Route.findById(id);
-		if (!matchedRoute) throw new Error('Specified trip does not exist');
-
-		const { origin, destination } = matchedRoute;
-		const { originBusStop, destinationBusStop } = await verifyStops(
-			origin as string,
-			destination as string
-		);
-
-		return Object.assign(matchedRoute, {
-			origin: originBusStop,
-			destination: destinationBusStop
-		});
+		const matchedRoute = await Route.findById(id)
+			.populate('origin')
+			.populate('destination');
+		return matchedRoute;
 	}
 };
 
