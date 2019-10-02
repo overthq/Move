@@ -2,6 +2,7 @@ import React from 'react';
 import {
 	View,
 	Text,
+	ScrollView,
 	Picker,
 	ActivityIndicator,
 	TouchableOpacity,
@@ -78,12 +79,16 @@ const PurchasePassModal = ({ userId, modalRef }: PurchasePassModalProps) => {
 		>
 			<View style={styles.container} key='0'>
 				<Text style={styles.modalTitle}>Purchase a pass</Text>
+				<Text style={styles.modalDescription}>
+					Select the origin and destination bus stops, and the number of units
+					you wish to purchase.
+				</Text>
 			</View>
-			<View style={styles.container}>
+			<ScrollView style={styles.container}>
 				<BusStopPicker activeValue={origin} setActive={setOrigin} />
 				<BusStopPicker activeValue={destination} setActive={setDestination} />
 				<PurchaseButton onPress={handleSubmit} loading={fetching} />
-			</View>
+			</ScrollView>
 		</Modalize>
 	);
 };
@@ -93,9 +98,13 @@ const styles = StyleSheet.create({
 		padding: 20
 	},
 	modalTitle: {
-		fontSize: 18,
+		fontSize: 20,
 		fontWeight: 'bold',
 		color: '#161616'
+	},
+	modalDescription: {
+		fontSize: 16,
+		color: '#D3D3D3'
 	},
 	modalButton: {
 		width: '100%',
