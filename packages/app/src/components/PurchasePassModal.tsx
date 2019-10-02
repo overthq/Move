@@ -57,7 +57,6 @@ const PurchasePassModal = ({ userId, modalRef }: PurchasePassModalProps) => {
 
 	React.useEffect(() => {
 		if (!fetching && data && data.purchaseTicket) {
-			// Close the modal and show some form of confirmation.
 			modalRef.current && modalRef.current.close();
 		}
 	}, [data, fetching]);
@@ -69,10 +68,18 @@ const PurchasePassModal = ({ userId, modalRef }: PurchasePassModalProps) => {
 	};
 
 	return (
-		<Modalize ref={modalRef} handlePosition='inside' adjustToContentHeight>
-			<View style={styles.container}>
+		<Modalize
+			ref={modalRef}
+			adjustToContentHeight
+			scrollViewProps={{
+				showsVerticalScrollIndicator: false,
+				stickyHeaderIndices: [0]
+			}}
+		>
+			<View style={styles.container} key='0'>
 				<Text style={styles.modalTitle}>Purchase a pass</Text>
-				{/* Quick purchase - passes based on learned data from the user's past purchases passes or location. */}
+			</View>
+			<View style={styles.container}>
 				<BusStopPicker activeValue={origin} setActive={setOrigin} />
 				<BusStopPicker activeValue={destination} setActive={setDestination} />
 				<PurchaseButton onPress={handleSubmit} loading={fetching} />
