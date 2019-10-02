@@ -84,7 +84,7 @@ const PurchasePassModal = ({ userId, modalRef }: PurchasePassModalProps) => {
 					you wish to purchase.
 				</Text>
 			</View>
-			<ScrollView style={styles.container}>
+			<ScrollView style={styles.container} key='1'>
 				<BusStopPicker activeValue={origin} setActive={setOrigin} />
 				<BusStopPicker activeValue={destination} setActive={setDestination} />
 				<PurchaseButton onPress={handleSubmit} loading={fetching} />
