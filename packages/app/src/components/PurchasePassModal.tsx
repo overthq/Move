@@ -32,25 +32,33 @@ const PurchaseButton = ({ onPress, loading }: PurchaseButtonProps) => (
 );
 
 interface BusStopPickerProps {
+	title: string;
 	activeValue: string;
 	setActive: (value: string) => void;
 }
 
-const BusStopPicker = ({ activeValue, setActive }: BusStopPickerProps) => {
+const BusStopPicker = ({
+	title,
+	activeValue,
+	setActive
+}: BusStopPickerProps) => {
 	const [{ fetching, data }] = useBusStopsQuery();
 	if (fetching) return <ActivityIndicator />;
 	if (!data || !data.busStops) return null;
 	const { busStops } = data;
 
 	return (
-		<Picker
-			selectedValue={activeValue}
-			onValueChange={value => setActive(value)}
-		>
-			{busStops.map(({ _id, name }) => (
-				<Picker.Item key={_id} label={name} value={_id} />
-			))}
-		</Picker>
+		<>
+			<Text>{title}</Text>
+			<Picker
+				selectedValue={activeValue}
+				onValueChange={value => setActive(value)}
+			>
+				{busStops.map(({ _id, name }) => (
+					<Picker.Item key={_id} label={name} value={_id} />
+				))}
+			</Picker>
+		</>
 	);
 };
 
@@ -88,8 +96,16 @@ const PurchasePassModal = ({ userId, modalRef }: PurchasePassModalProps) => {
 				</Text>
 			</View>
 			<ScrollView style={styles.container} key='1'>
-				<BusStopPicker activeValue={origin} setActive={setOrigin} />
-				<BusStopPicker activeValue={destination} setActive={setDestination} />
+				<BusStopPicker
+					title='ORIGIN'
+					activeValue={origin}
+					setActive={setOrigin}
+				/>
+				<BusStopPicker
+					title='DESTINATION'
+					activeValue={destination}
+					setActive={setDestination}
+				/>
 			</ScrollView>
 			<View style={styles.modalButtonContainer}>
 				<PurchaseButton onPress={handleSubmit} loading={fetching} />
