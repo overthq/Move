@@ -46,7 +46,6 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
 		fetchUser();
 		checkLocalAuthStatus();
 		loadSettings();
-		setLoading(false);
 	}, []);
 
 	React.useEffect(() => {
@@ -90,6 +89,7 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
 				([setting, value]: [(keyof typeof settings), boolean]) =>
 					dispatch({ [setting]: value })
 			);
+			setLoading(false);
 		}
 	};
 
