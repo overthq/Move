@@ -46,6 +46,10 @@ export const SettingsProvider = ({
 		settings && AsyncStorage.setItem('settings', JSON.stringify(settings));
 	}, [settings]);
 
+	// TODO(koredefashokun):
+	// For the localAuth setting, make sure that if the setting is being turned off,
+	// The user turning it off has to "sign off" on the deactivation.
+	// i.e. The user has to actually verify their authenticity.
 	const toggleSetting = (setting: keyof Settings) =>
 		settings && dispatch({ [setting]: !settings[setting] });
 
