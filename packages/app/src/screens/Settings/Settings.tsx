@@ -8,8 +8,8 @@ import {
 	Switch
 } from 'react-native';
 import { Feather } from '@expo/vector-icons';
-import { NavigationScreenProps } from 'react-navigation';
 import { UserContext } from '../../contexts/UserContext';
+import { StackNavigationProp } from '@react-navigation/stack';
 import {
 	SettingsContext,
 	getSettingName
@@ -28,7 +28,11 @@ interface SettingsItemProps {
 }
 
 const SettingsItem = ({ name, onPress }: SettingsItemProps) => (
-	<TouchableOpacity style={styles.itemContainer} {...{ onPress }}>
+	<TouchableOpacity
+		activeOpacity={0.7}
+		style={styles.itemContainer}
+		{...{ onPress }}
+	>
 		<Text style={styles.itemName}>{name}</Text>
 		<Feather name='chevron-right' size={18} color='#545454' />
 	</TouchableOpacity>
@@ -90,7 +94,11 @@ const UserDetails = () => {
 	);
 };
 
-const Settings = ({ navigation }: NavigationScreenProps) => (
+interface SettingsProps {
+	navigation: StackNavigationProp<any>;
+}
+
+const Settings = ({ navigation }: SettingsProps) => (
 	<View style={{ flex: 1, backgroundColor: '#232323' }}>
 		<FlatList
 			data={settingScreens}

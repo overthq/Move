@@ -6,34 +6,49 @@ import {
 	KeyboardAvoidingView
 } from 'react-native';
 import { useVerifyCodeMutation } from '@move/core';
-import { NavigationScreenProps } from 'react-navigation';
+import { RouteProp } from '@react-navigation/core';
+import { StackNavigationProp } from '@react-navigation/stack';
 import { storeUserData } from '../../helpers';
 import styles from './styles';
 
-const VerifyCode = ({ navigation }: NavigationScreenProps) => {
-	const phoneNumber: string = navigation.getParam('phoneNumber');
+interface VerifyCodeProps {
+	route: RouteProp<any, any>;
+	navigation: StackNavigationProp<any>;
+}
+
+const VerifyCode = ({ route, navigation }: VerifyCodeProps) => {
+	const { phoneNumber } = route.params;
 	const [code, setCode] = React.useState('');
 	const [{ data }, executeMutation] = useVerifyCodeMutation();
 	const handleTextChange = (text: string) => setCode(text);
 
-	const handleSubmit = React.useCallback(async () => {
+	React.useEffect(() => {
 		if (data && data.verifyCode) {
-			await storeUserData(data.verifyCode);
-			return navigation.navigate('Home');
+			storeUserData(data.verifyCode);
+			navigation.navigate('Main');
 		}
-		return executeMutation({ phoneNumber, code });
-	}, [code, data, executeMutation]);
+	}, [data]);
+
+	const handleSubmit = () => {
+		if (phoneNumber && code) {
+			executeMutation({ phoneNumber, code });
+		}
+	};
 
 	return (
 		<KeyboardAvoidingView style={styles.container} behavior='padding'>
-			<Text>Enter your verification Code</Text>
+			<Text style={styles.title}>Enter your verification code</Text>
 			<TextInput
 				style={styles.input}
-				placeholder='Verification code'
+				placeholder='Your verification code'
 				onChangeText={handleTextChange}
 			/>
-			<TouchableOpacity onPress={handleSubmit}>
-				<Text>Verify Code</Text>
+			<TouchableOpacity
+				activeOpacity={0.7}
+				style={styles.button}
+				onPress={handleSubmit}
+			>
+				<Text style={styles.buttonText}>Verify Code</Text>
 			</TouchableOpacity>
 		</KeyboardAvoidingView>
 	);

@@ -1,35 +1,44 @@
 import React from 'react';
-import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import { Platform } from 'react-native';
 import Home from './Home';
 import Settings from './Settings';
 import Auth from './Auth';
-import NavigationService from './NavigationService';
-import { createStackNavigator } from 'react-navigation-stack';
+import { NavigationNativeContainer } from '@react-navigation/native';
+import {
+	createStackNavigator,
+	TransitionPresets
+} from '@react-navigation/stack';
 
-const Main = createStackNavigator(
-	{ Home, Settings },
-	{
-		headerMode: 'none',
-		cardOverlayEnabled: true,
-		mode: 'modal'
-	}
+const Stack = createStackNavigator();
+const MainStack = createStackNavigator();
+
+const AppNavigator = ({ loggedIn }: { loggedIn: boolean }) => (
+	<NavigationNativeContainer>
+		<Stack.Navigator
+			initialRouteName={loggedIn ? 'Main' : 'Auth'}
+			headerMode='none'
+		>
+			<Stack.Screen name='Auth' component={Auth} />
+			<Stack.Screen name='Main'>
+				{() => (
+					<MainStack.Navigator
+						mode='modal'
+						headerMode='none'
+						screenOptions={{
+							...(Platform.OS === 'ios'
+								? TransitionPresets.ModalPresentationIOS
+								: TransitionPresets.RevealFromBottomAndroid),
+							gestureEnabled: true,
+							cardOverlayEnabled: true
+						}}
+					>
+						<MainStack.Screen name='Home' component={Home} />
+						<MainStack.Screen name='Settings' component={Settings} />
+					</MainStack.Navigator>
+				)}
+			</Stack.Screen>
+		</Stack.Navigator>
+	</NavigationNativeContainer>
 );
-
-const AppNavigator = ({ loggedIn }: { loggedIn: boolean }) => {
-	const Navigator = createAppContainer(
-		createSwitchNavigator(
-			{ Auth, Main },
-			{ initialRouteName: loggedIn ? 'Main' : 'Auth', backBehavior: 'none' }
-		)
-	);
-
-	return (
-		<Navigator
-			ref={navigatorRef =>
-				navigatorRef && NavigationService.setTopLevelNavigator(navigatorRef)
-			}
-		/>
-	);
-};
 
 export default AppNavigator;

@@ -2,6 +2,7 @@ import React from 'react';
 import {
 	View,
 	Text,
+	ScrollView,
 	Picker,
 	ActivityIndicator,
 	TouchableOpacity,
@@ -31,25 +32,33 @@ const PurchaseButton = ({ onPress, loading }: PurchaseButtonProps) => (
 );
 
 interface BusStopPickerProps {
+	title: string;
 	activeValue: string;
 	setActive: (value: string) => void;
 }
 
-const BusStopPicker = ({ activeValue, setActive }: BusStopPickerProps) => {
+const BusStopPicker = ({
+	title,
+	activeValue,
+	setActive
+}: BusStopPickerProps) => {
 	const [{ fetching, data }] = useBusStopsQuery();
 	if (fetching) return <ActivityIndicator />;
 	if (!data || !data.busStops) return null;
 	const { busStops } = data;
 
 	return (
-		<Picker
-			selectedValue={activeValue}
-			onValueChange={value => setActive(value)}
-		>
-			{busStops.map(({ _id, name }) => (
-				<Picker.Item key={_id} label={name} value={_id} />
-			))}
-		</Picker>
+		<>
+			<Text>{title}</Text>
+			<Picker
+				selectedValue={activeValue}
+				onValueChange={value => setActive(value)}
+			>
+				{busStops.map(({ _id, name }) => (
+					<Picker.Item key={_id} label={name} value={_id} />
+				))}
+			</Picker>
+		</>
 	);
 };
 
@@ -58,24 +67,47 @@ const PurchasePassModal = ({ userId, modalRef }: PurchasePassModalProps) => {
 	const [origin, setOrigin] = React.useState('');
 	const [destination, setDestination] = React.useState('');
 
-	const handleSubmit = React.useCallback(() => {
-		console.log(origin, destination);
-		if (data && data.purchaseTicket) {
-			return console.log('Ticket purchased.');
-			// Close the modal and show some form of confirmation.
+	React.useEffect(() => {
+		if (!fetching && data && data.purchaseTicket) {
+			modalRef.current && modalRef.current.close();
 		}
+	}, [data, fetching]);
+
+	const handleSubmit = () => {
 		if (origin && destination && userId) {
 			return purchasePass({ origin, destination, userId });
 		}
-	}, [data, purchasePass, origin, destination, userId]);
+	};
 
 	return (
-		<Modalize ref={modalRef} handlePosition='inside' adjustToContentHeight>
-			<View style={styles.container}>
+		<Modalize
+			ref={modalRef}
+			adjustToContentHeight
+			scrollViewProps={{
+				showsVerticalScrollIndicator: false,
+				stickyHeaderIndices: [0]
+			}}
+		>
+			<View style={styles.container} key='0'>
 				<Text style={styles.modalTitle}>Purchase a pass</Text>
-				{/* Quick purchase - passes based on learned data from the user's past purchases passes or location. */}
-				<BusStopPicker activeValue={origin} setActive={setOrigin} />
-				<BusStopPicker activeValue={destination} setActive={setDestination} />
+				<Text style={styles.modalDescription}>
+					Select the origin and destination bus stops, and the number of units
+					you wish to purchase.
+				</Text>
+			</View>
+			<ScrollView style={styles.container} key='1'>
+				<BusStopPicker
+					title='ORIGIN'
+					activeValue={origin}
+					setActive={setOrigin}
+				/>
+				<BusStopPicker
+					title='DESTINATION'
+					activeValue={destination}
+					setActive={setDestination}
+				/>
+			</ScrollView>
+			<View style={styles.modalButtonContainer}>
 				<PurchaseButton onPress={handleSubmit} loading={fetching} />
 			</View>
 		</Modalize>
@@ -87,9 +119,19 @@ const styles = StyleSheet.create({
 		padding: 20
 	},
 	modalTitle: {
-		fontSize: 18,
+		fontSize: 20,
 		fontWeight: 'bold',
-		color: '#161616'
+		color: '#161616',
+		marginBottom: 5
+	},
+	modalDescription: {
+		fontSize: 16,
+		color: '#CCCCCC'
+	},
+	modalButtonContainer: {
+		alignItems: 'center',
+		justifyContent: 'center',
+		padding: 20
 	},
 	modalButton: {
 		width: '100%',

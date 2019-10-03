@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "generate-types": "graphql-codegen --config codegen.yml",
-    "build": "tsc -b"
+    "build": "tsc -b",
+    "lint": "echo \"Add lint\""
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^1.6.1",

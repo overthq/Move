@@ -1,35 +1,13 @@
 import React from 'react';
-import { TouchableWithoutFeedback } from 'react-native';
-import { createStackNavigator } from 'react-navigation-stack';
-import { Feather } from '@expo/vector-icons';
+import { createStackNavigator } from '@react-navigation/stack';
 import SettingsHome from './Settings';
 import CreditCards from './CreditCards';
 
-const Settings = createStackNavigator(
-	{
-		Settings: {
-			screen: SettingsHome,
-			navigationOptions: ({ navigation }) => ({
-				title: 'Settings',
-				headerLeft: (
-					<TouchableWithoutFeedback onPress={() => navigation.navigate('Home')}>
-						<Feather name='x' size={20} color='#D3D3D3' />
-					</TouchableWithoutFeedback>
-				),
-				headerLeftContainerStyle: {
-					paddingHorizontal: 10
-				}
-			})
-		},
-		CreditCards: {
-			screen: CreditCards,
-			navigationOptions: {
-				title: 'Credit Cards'
-			}
-		}
-	},
-	{
-		defaultNavigationOptions: {
+const SettingsStack = createStackNavigator();
+
+const Settings = () => (
+	<SettingsStack.Navigator
+		screenOptions={{
 			headerTitleStyle: {
 				color: '#D3D3D3'
 			},
@@ -37,8 +15,19 @@ const Settings = createStackNavigator(
 				backgroundColor: '#161616',
 				borderBottomColor: '#545454'
 			}
-		}
-	}
+		}}
+	>
+		<SettingsStack.Screen
+			name='Settings'
+			component={SettingsHome}
+			options={{ title: 'Settings' }}
+		/>
+		<SettingsStack.Screen
+			name='CreditCards'
+			component={CreditCards}
+			options={{ title: 'Credit Cards' }}
+		/>
+	</SettingsStack.Navigator>
 );
 
 export default Settings;
