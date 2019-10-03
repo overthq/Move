@@ -4,15 +4,18 @@ import {
 	Text,
 	TouchableOpacity,
 	StyleSheet,
-	Dimensions
+	Dimensions,
+	Alert
 } from 'react-native';
 import Modalize from 'react-native-modalize';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import { Camera } from 'expo-camera';
+import * as LocalAuthentication from 'expo-local-authentication';
 import { Feather } from '@expo/vector-icons';
 import { useUseTicketMutation } from '@move/core';
 import SuccessModal from './SuccessModal';
 import ScannerOverlay from './ScannerOverlay';
+import { SettingsContext } from '../contexts/SettingsContext';
 
 const { width, height } = Dimensions.get('screen');
 
@@ -25,6 +28,7 @@ const Scanner = ({ userId, goToSettings }: ScannerProps) => {
 	const [success, setSuccess] = React.useState(false);
 	const [{ data }, executeMutation] = useUseTicketMutation();
 	const modalRef = React.useRef<Modalize>(null);
+	const { settings } = React.useContext(SettingsContext);
 
 	const handleBarCodeScanned = React.useCallback(
 		async ({ data: routeId }: { data: string }) => {
@@ -32,7 +36,16 @@ const Scanner = ({ userId, goToSettings }: ScannerProps) => {
 				modalRef.current && modalRef.current.open();
 				return setSuccess(true);
 			}
-			if (routeId) return executeMutation({ routeId, userId });
+			if (routeId) {
+				if (settings && settings.localAuth) {
+					const { success } = await LocalAuthentication.authenticateAsync();
+					if (success) return executeMutation({ routeId, userId });
+					return Alert.alert(
+						'You have to be authenticated to use this feature.'
+					);
+				}
+				return executeMutation({ routeId, userId });
+			}
 		},
 		[data, executeMutation, modalRef]
 	);
