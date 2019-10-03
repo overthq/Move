@@ -42,6 +42,7 @@ const VerifyCode = ({ route, navigation }: VerifyCodeProps) => {
 				style={styles.input}
 				placeholder='Your verification code'
 				onChangeText={handleTextChange}
+				keyboardType='number-pad'
 			/>
 			<TouchableOpacity
 				activeOpacity={0.7}
