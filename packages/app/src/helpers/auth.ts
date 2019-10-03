@@ -16,6 +16,4 @@ export const getUserData = async () => {
 	}
 };
 
-export const removeUserData = () => {
-	return AsyncStorage.removeItem('user');
-};
+export const removeUserData = () => AsyncStorage.removeItem('user');
