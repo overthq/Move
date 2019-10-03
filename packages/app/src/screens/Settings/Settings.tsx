@@ -8,12 +8,8 @@ import {
 	Switch
 } from 'react-native';
 import { Feather } from '@expo/vector-icons';
-import { UserContext } from '../../contexts/UserContext';
+import { UserContext, getSettingName } from '../../contexts/UserContext';
 import { StackNavigationProp } from '@react-navigation/stack';
-import {
-	SettingsContext,
-	getSettingName
-} from '../../contexts/SettingsContext';
 
 const settingScreens = [
 	{
@@ -56,8 +52,7 @@ const SettingsItemToggle = ({
 );
 
 const ToggleSettings = () => {
-	const { logOut } = React.useContext(UserContext);
-	const { settings, toggleSetting } = React.useContext(SettingsContext);
+	const { logOut, settings, toggleSetting } = React.useContext(UserContext);
 	return (
 		<>
 			{settings &&

@@ -15,7 +15,7 @@ import { Feather } from '@expo/vector-icons';
 import { useUseTicketMutation } from '@move/core';
 import SuccessModal from './SuccessModal';
 import ScannerOverlay from './ScannerOverlay';
-import { SettingsContext } from '../contexts/SettingsContext';
+import { UserContext } from '../contexts/UserContext';
 
 const { width, height } = Dimensions.get('screen');
 
@@ -28,7 +28,9 @@ const Scanner = ({ userId, goToSettings }: ScannerProps) => {
 	const [success, setSuccess] = React.useState(false);
 	const [{ data }, executeMutation] = useUseTicketMutation();
 	const modalRef = React.useRef<Modalize>(null);
-	const { settings } = React.useContext(SettingsContext);
+	const { settings } = React.useContext(UserContext);
+
+	console.log(settings);
 
 	const handleBarCodeScanned = React.useCallback(
 		async ({ data: routeId }: { data: string }) => {
