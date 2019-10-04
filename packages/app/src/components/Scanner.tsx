@@ -30,27 +30,31 @@ const Scanner = ({ userId, goToSettings }: ScannerProps) => {
 	const modalRef = React.useRef<Modalize>(null);
 	const { settings } = React.useContext(UserContext);
 
-	console.log(settings);
+	React.useEffect(() => {
+		if (data && data.useTicket) {
+			modalRef.current && modalRef.current.open();
+			return setSuccess(true);
+		}
+	}, [data, modalRef, setSuccess]);
 
-	const handleBarCodeScanned = React.useCallback(
-		async ({ data: routeId }: { data: string }) => {
-			if (data && data.useTicket) {
-				modalRef.current && modalRef.current.open();
-				return setSuccess(true);
+	const onSuccess = (routeId: string) => {
+		executeMutation({ routeId, userId });
+		return setSuccess(true);
+	};
+
+	const handleBarCodeScanned = async ({ data: routeId }: { data: string }) => {
+		if (routeId) {
+			if (settings && settings.localAuth) {
+				console.log('We have the settings now.');
+				const {
+					success: authSuccess
+				} = await LocalAuthentication.authenticateAsync();
+				if (authSuccess) return onSuccess(routeId);
+				return Alert.alert('You have to be authenticated to use this feature.');
 			}
-			if (routeId) {
-				if (settings && settings.localAuth) {
-					const { success } = await LocalAuthentication.authenticateAsync();
-					if (success) return executeMutation({ routeId, userId });
-					return Alert.alert(
-						'You have to be authenticated to use this feature.'
-					);
-				}
-				return executeMutation({ routeId, userId });
-			}
-		},
-		[data, executeMutation, modalRef]
-	);
+			return onSuccess(routeId);
+		}
+	};
 
 	return (
 		<>
