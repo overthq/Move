@@ -1320,15 +1320,15 @@
   resolved "https://registry.yarnpkg.com/@react-native-community/masked-view/-/masked-view-0.1.1.tgz#dbcfc5ec08efbb02d4142dd9426c8d7a396829d7"
   integrity sha512-EyJVSbarZkOPYq+zCZLx9apMcpwkX9HvH6R+6CeVL29q88kEFemnLO/IhmE4YX/0MfalsduI8eTi7fuQh/5VeA==
 
-"@react-navigation/core@^5.0.0-alpha.11":
-  version "5.0.0-alpha.11"
-  resolved "https://registry.yarnpkg.com/@react-navigation/core/-/core-5.0.0-alpha.11.tgz#23575a190e314d6a17fb610cc8ed3fbce8cbfce0"
-  integrity sha512-KeM+JYaPDkQRf0fbZs8hukqE/Afk3e89eVF2ThZYfplkSuCszLWkqozNSQ3sISufO3TxzSSN7fAr3EE2wKMp3Q==
+"@react-navigation/core@^5.0.0-alpha.13":
+  version "5.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@react-navigation/core/-/core-5.0.0-alpha.13.tgz#11a9b8560ed760f81700119da099aea7a4654c1a"
+  integrity sha512-HfS28VLLTI/7upiiSWOuDGcPS6AY+f7DhWX5BjY47wHzY8lHIX3XxUYl1T1++nZ60pP/C1sMGYW6lBPQkiEfCQ==
   dependencies:
     escape-string-regexp "^2.0.0"
     query-string "^6.8.3"
-    shortid "^2.2.14"
-    use-subscription "^1.0.0"
+    shortid "^2.2.15"
+    use-subscription "^1.1.1"
 
 "@react-navigation/native@^5.0.0-alpha.8":
   version "5.0.0-alpha.8"
@@ -12468,7 +12468,7 @@ shellwords@^0.1.1:
   resolved "https://registry.yarnpkg.com/shellwords/-/shellwords-0.1.1.tgz#d6b9181c1a48d397324c84871efbcfc73fc0654b"
   integrity sha512-vFwSUfQvqybiICwZY5+DAWIPLKsWO31Q91JSKl3UYv+K5c2QRPzn0qzec6QPu1Qc9eHYItiP3NdJqNVqetYAww==
 
-shortid@^2.2.14:
+shortid@^2.2.14, shortid@^2.2.15:
   version "2.2.15"
   resolved "https://registry.yarnpkg.com/shortid/-/shortid-2.2.15.tgz#2b902eaa93a69b11120373cd42a1f1fe4437c122"
   integrity sha512-5EaCy2mx2Jgc/Fdn9uuDuNIIfWBpzY4XIlhoqtXF6qsf+/+SGZ+FxDdX/ZsMZiWupIWNqAEmiNY4RC+LSmCeOw==
@@ -13650,7 +13650,7 @@ urql@^1.5.0:
     fast-json-stable-stringify "^2.0.0"
     wonka "^3.2.1"
 
-use-subscription@^1.0.0:
+use-subscription@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/use-subscription/-/use-subscription-1.1.1.tgz#5509363e9bb152c4fb334151d4dceb943beaa7bb"
   integrity sha512-gk4fPTYvNhs6Ia7u8/+K7bM7sZ7O7AMfWtS+zPO8luH+zWuiGgGcrW0hL4MRWZSzXo+4ofNorf87wZwBKz2YdQ==
