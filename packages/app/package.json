@@ -33,7 +33,7 @@
 	},
 	"devDependencies": {
 		"@types/react": "^16.8.23",
-		"@types/react-native": "^0.60.15",
+		"@types/react-native": "^0.60.17",
 		"babel-preset-expo": "^6.0.0",
 		"eslint": "^6.4.0",
 		"expo-yarn-workspaces": "^1.2.0",
