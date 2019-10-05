@@ -15,7 +15,7 @@ import { Feather } from '@expo/vector-icons';
 import { useUseTicketMutation } from '@move/core';
 import SuccessModal from './SuccessModal';
 import ScannerOverlay from './ScannerOverlay';
-import { SettingsContext } from '../contexts/SettingsContext';
+import { UserContext } from '../contexts/UserContext';
 
 const { width, height } = Dimensions.get('screen');
 
@@ -28,27 +28,29 @@ const Scanner = ({ userId, goToSettings }: ScannerProps) => {
 	const [success, setSuccess] = React.useState(false);
 	const [{ data }, executeMutation] = useUseTicketMutation();
 	const modalRef = React.useRef<Modalize>(null);
-	const { settings } = React.useContext(SettingsContext);
+	const { settings } = React.useContext(UserContext);
 
-	const handleBarCodeScanned = React.useCallback(
-		async ({ data: routeId }: { data: string }) => {
-			if (data && data.useTicket) {
-				modalRef.current && modalRef.current.open();
-				return setSuccess(true);
+	React.useEffect(() => {
+		if (data && data.useTicket) {
+			modalRef.current && modalRef.current.open();
+		}
+	}, [data, modalRef]);
+
+	const onSuccess = (routeId: string) => executeMutation({ routeId, userId });
+
+	const handleBarCodeScanned = async ({ data: routeId }: { data: string }) => {
+		if (routeId) {
+			setSuccess(true);
+			if (settings && settings.localAuth) {
+				const {
+					success: authSuccess
+				} = await LocalAuthentication.authenticateAsync();
+				if (authSuccess) return onSuccess(routeId);
+				return Alert.alert('You have to be authenticated to use this feature.');
 			}
-			if (routeId) {
-				if (settings && settings.localAuth) {
-					const { success } = await LocalAuthentication.authenticateAsync();
-					if (success) return executeMutation({ routeId, userId });
-					return Alert.alert(
-						'You have to be authenticated to use this feature.'
-					);
-				}
-				return executeMutation({ routeId, userId });
-			}
-		},
-		[data, executeMutation, modalRef]
-	);
+			return onSuccess(routeId);
+		}
+	};
 
 	return (
 		<>
