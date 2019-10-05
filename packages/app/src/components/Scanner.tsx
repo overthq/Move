@@ -33,19 +33,15 @@ const Scanner = ({ userId, goToSettings }: ScannerProps) => {
 	React.useEffect(() => {
 		if (data && data.useTicket) {
 			modalRef.current && modalRef.current.open();
-			return setSuccess(true);
 		}
-	}, [data, modalRef, setSuccess]);
+	}, [data, modalRef]);
 
-	const onSuccess = (routeId: string) => {
-		executeMutation({ routeId, userId });
-		return setSuccess(true);
-	};
+	const onSuccess = (routeId: string) => executeMutation({ routeId, userId });
 
 	const handleBarCodeScanned = async ({ data: routeId }: { data: string }) => {
 		if (routeId) {
+			setSuccess(true);
 			if (settings && settings.localAuth) {
-				console.log('We have the settings now.');
 				const {
 					success: authSuccess
 				} = await LocalAuthentication.authenticateAsync();
