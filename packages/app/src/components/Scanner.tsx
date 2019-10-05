@@ -5,7 +5,8 @@ import {
 	TouchableOpacity,
 	StyleSheet,
 	Dimensions,
-	Alert
+	Alert,
+	Platform
 } from 'react-native';
 import Modalize from 'react-native-modalize';
 import { BarCodeScanner } from 'expo-barcode-scanner';
@@ -16,6 +17,7 @@ import { useUseTicketMutation } from '@move/core';
 import SuccessModal from './SuccessModal';
 import ScannerOverlay from './ScannerOverlay';
 import { UserContext } from '../contexts/UserContext';
+import AndroidFingerprintModal from './AndroidFingerprintModal';
 
 const { width, height } = Dimensions.get('screen');
 
@@ -27,14 +29,15 @@ interface ScannerProps {
 const Scanner = ({ userId, goToSettings }: ScannerProps) => {
 	const [success, setSuccess] = React.useState(false);
 	const [{ data }, executeMutation] = useUseTicketMutation();
-	const modalRef = React.useRef<Modalize>(null);
+	const successModalRef = React.useRef<Modalize>(null);
+	const fingerprintModalRef = React.useRef<Modalize>(null);
 	const { settings } = React.useContext(UserContext);
 
 	React.useEffect(() => {
 		if (data && data.useTicket) {
-			modalRef.current && modalRef.current.open();
+			successModalRef.current && successModalRef.current.open();
 		}
-	}, [data, modalRef]);
+	}, [data, successModalRef]);
 
 	const onSuccess = (routeId: string) => executeMutation({ routeId, userId });
 
@@ -42,10 +45,18 @@ const Scanner = ({ userId, goToSettings }: ScannerProps) => {
 		if (routeId) {
 			setSuccess(true);
 			if (settings && settings.localAuth) {
+				if (Platform.OS === 'android') {
+					fingerprintModalRef.current && fingerprintModalRef.current.open();
+				}
 				const {
 					success: authSuccess
 				} = await LocalAuthentication.authenticateAsync();
-				if (authSuccess) return onSuccess(routeId);
+				if (authSuccess) {
+					if (Platform.OS === 'android') {
+						fingerprintModalRef.current && fingerprintModalRef.current.close();
+					}
+					return onSuccess(routeId);
+				}
 				return Alert.alert('You have to be authenticated to use this feature.');
 			}
 			return onSuccess(routeId);
@@ -69,11 +80,12 @@ const Scanner = ({ userId, goToSettings }: ScannerProps) => {
 				<ScannerOverlay />
 				<View style={styles.scannerInfoContainer}>
 					<Text style={styles.scannerInfo}>
-						{`Point the camera at the QR code.`}
+						Point the camera at the QR code.
 					</Text>
 				</View>
 			</Camera>
-			<SuccessModal {...{ modalRef, userId }} />
+			<SuccessModal modalRef={successModalRef} {...{ userId }} />
+			<AndroidFingerprintModal modalRef={fingerprintModalRef} />
 		</>
 	);
 };
@@ -88,7 +100,6 @@ const styles = StyleSheet.create({
 	},
 	actionsBar: {
 		flexDirection: 'row',
-		// justifyContent: 'flex-end',
 		width: '100%'
 	},
 	scannerInfoContainer: {
