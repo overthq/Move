@@ -15,5 +15,5 @@ db.once('open', () => {
 });
 
 db.on('error', (error: Error) => {
-	throw new Error(error.message);
+	throw error;
 });
