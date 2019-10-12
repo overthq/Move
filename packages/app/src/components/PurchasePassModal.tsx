@@ -10,6 +10,8 @@ import {
 } from 'react-native';
 import Modalize from 'react-native-modalize';
 import Accordion from 'react-native-collapsible/Accordion';
+import { createAnimatableComponent } from 'react-native-animatable';
+import { Feather } from '@expo/vector-icons';
 import { usePurchaseTicketMutation, useBusStopsQuery } from '@move/core';
 
 interface PurchasePassModalProps {
@@ -59,6 +61,8 @@ const BusStopPicker = ({
 	);
 };
 
+const AnimatedFeather = createAnimatableComponent(Feather);
+
 const PurchasePassModal = ({ userId, modalRef }: PurchasePassModalProps) => {
 	const [{ data, fetching }, purchasePass] = usePurchaseTicketMutation();
 	const [origin, setOrigin] = React.useState('');
@@ -67,12 +71,12 @@ const PurchasePassModal = ({ userId, modalRef }: PurchasePassModalProps) => {
 
 	const sections: ModalSection[] = [
 		{
-			title: 'ORIGIN',
+			title: 'Origin',
 			activeValue: origin,
 			setActive: setOrigin
 		},
 		{
-			title: 'DESTINATION',
+			title: 'Destination',
 			activeValue: destination,
 			setActive: setDestination
 		}
@@ -111,11 +115,25 @@ const PurchasePassModal = ({ userId, modalRef }: PurchasePassModalProps) => {
 					sections={sections}
 					activeSections={activeSections}
 					onChange={setActiveSections}
-					renderHeader={({ title }) => (
-						<Text style={styles.modalPickerTitle}>{title}</Text>
+					renderHeader={({ title }, _, isActive) => (
+						<View
+							style={{
+								flexDirection: 'row',
+								justifyContent: 'space-between',
+								backgroundColor: '#FFFFFF',
+								paddingVertical: 10
+							}}
+						>
+							<Text style={styles.modalPickerTitle}>{title}</Text>
+							<AnimatedFeather
+								name={isActive ? 'chevron-down' : 'chevron-up'}
+								size={24}
+								color='#D3D3D3'
+							/>
+						</View>
 					)}
-					renderContent={({ title, activeValue, setActive }) => (
-						<BusStopPicker {...{ title, activeValue, setActive }} />
+					renderContent={({ activeValue, setActive }) => (
+						<BusStopPicker {...{ activeValue, setActive }} />
 					)}
 				/>
 			</ScrollView>
@@ -142,7 +160,8 @@ const styles = StyleSheet.create({
 	},
 	modalPickerTitle: {
 		fontWeight: '500',
-		color: '#505050'
+		fontSize: 16,
+		color: '#161616'
 	},
 	modalButtonContainer: {
 		alignItems: 'center',
