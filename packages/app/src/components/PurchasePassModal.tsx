@@ -2,7 +2,6 @@ import React from 'react';
 import {
 	View,
 	Text,
-	ScrollView,
 	Picker,
 	ActivityIndicator,
 	TouchableOpacity,
@@ -10,9 +9,12 @@ import {
 } from 'react-native';
 import Modalize from 'react-native-modalize';
 import Accordion from 'react-native-collapsible/Accordion';
-import { createAnimatableComponent } from 'react-native-animatable';
 import { Feather } from '@expo/vector-icons';
-import { usePurchaseTicketMutation, useBusStopsQuery } from '@move/core';
+import {
+	usePurchaseTicketMutation,
+	useBusStopsQuery,
+	BusStop
+} from '@move/core';
 
 interface PurchasePassModalProps {
 	userId: string;
@@ -34,40 +36,41 @@ const PurchaseButton = ({ onPress, loading }: PurchaseButtonProps) => (
 	</TouchableOpacity>
 );
 
-interface ModalSection {
-	title: string;
+interface BusStopPickerProps {
 	activeValue: string;
 	setActive: (value: string) => void;
+	busStops: BusStop[];
 }
 
 const BusStopPicker = ({
 	activeValue,
-	setActive
-}: Omit<ModalSection, 'title'>) => {
-	const [{ fetching, data }] = useBusStopsQuery();
-	if (fetching) return <ActivityIndicator />;
-	if (!data || !data.busStops) return null;
-	const { busStops } = data;
+	setActive,
+	busStops
+}: BusStopPickerProps) => (
+	<Picker selectedValue={activeValue} onValueChange={value => setActive(value)}>
+		{busStops.map(({ _id, name }) => (
+			<Picker.Item key={_id} label={name} value={_id} />
+		))}
+	</Picker>
+);
 
-	return (
-		<Picker
-			selectedValue={activeValue}
-			onValueChange={value => setActive(value)}
-		>
-			{busStops.map(({ _id, name }) => (
-				<Picker.Item key={_id} label={name} value={_id} />
-			))}
-		</Picker>
-	);
-};
-
-const AnimatedFeather = createAnimatableComponent(Feather);
+interface ModalSection {
+	title: string;
+	activeValue: string;
+	setActive: (id: string) => void;
+}
 
 const PurchasePassModal = ({ userId, modalRef }: PurchasePassModalProps) => {
 	const [{ data, fetching }, purchasePass] = usePurchaseTicketMutation();
+	const [{ fetching: loading, data: busStopsData }] = useBusStopsQuery();
 	const [origin, setOrigin] = React.useState('');
 	const [destination, setDestination] = React.useState('');
 	const [activeSections, setActiveSections] = React.useState([]);
+
+	const getBusStopName = (id: string) => {
+		const busStop = busStopsData.busStops.find(({ _id }) => id === _id);
+		return busStop ? busStop.name : '';
+	};
 
 	const sections: ModalSection[] = [
 		{
@@ -89,54 +92,54 @@ const PurchasePassModal = ({ userId, modalRef }: PurchasePassModalProps) => {
 	}, [data, fetching]);
 
 	const handleSubmit = () => {
-		if (origin && destination && userId) {
+		if (origin && destination && userId && origin !== destination) {
 			return purchasePass({ origin, destination, userId });
 		}
 	};
 
 	return (
-		<Modalize
-			ref={modalRef}
-			adjustToContentHeight
-			scrollViewProps={{
-				showsVerticalScrollIndicator: false,
-				stickyHeaderIndices: [0]
-			}}
-		>
-			<View style={styles.container} key='0'>
+		<Modalize ref={modalRef} adjustToContentHeight>
+			<View style={styles.container}>
 				<Text style={styles.modalTitle}>Purchase a pass</Text>
 				<Text style={styles.modalDescription}>
 					Select the origin and destination bus stops, and the number of units
 					you wish to purchase.
 				</Text>
 			</View>
-			<ScrollView style={styles.container} key='1'>
+			<View style={{ paddingHorizontal: 20 }}>
 				<Accordion
 					sections={sections}
 					activeSections={activeSections}
 					onChange={setActiveSections}
-					renderHeader={({ title }, _, isActive) => (
-						<View
-							style={{
-								flexDirection: 'row',
-								justifyContent: 'space-between',
-								backgroundColor: '#FFFFFF',
-								paddingVertical: 10
-							}}
-						>
-							<Text style={styles.modalPickerTitle}>{title}</Text>
-							<AnimatedFeather
-								name={isActive ? 'chevron-down' : 'chevron-up'}
-								size={24}
-								color='#D3D3D3'
-							/>
+					underlayColor='transparent'
+					renderHeader={({ title, activeValue }, _, isActive) => (
+						<View style={styles.modalAccordionHeader}>
+							<Text style={styles.modalAccordionTitle}>{title}</Text>
+							<View
+								style={[styles.modalAccordionHeader, { paddingVertical: 0 }]}
+							>
+								<Text style={styles.modalAccordionValue}>
+									{getBusStopName(activeValue) || 'Select'}
+								</Text>
+								<Feather
+									name={isActive ? 'chevron-down' : 'chevron-up'}
+									size={24}
+									color='#D3D3D3'
+								/>
+							</View>
 						</View>
 					)}
-					renderContent={({ activeValue, setActive }) => (
-						<BusStopPicker {...{ activeValue, setActive }} />
-					)}
+					renderContent={({ activeValue, setActive }) =>
+						loading ? (
+							<ActivityIndicator />
+						) : (
+							<BusStopPicker
+								{...{ activeValue, setActive, busStops: busStopsData.busStops }}
+							/>
+						)
+					}
 				/>
-			</ScrollView>
+			</View>
 			<View style={styles.modalButtonContainer}>
 				<PurchaseButton onPress={handleSubmit} loading={fetching} />
 			</View>
@@ -158,10 +161,21 @@ const styles = StyleSheet.create({
 		fontSize: 16,
 		color: '#CCCCCC'
 	},
-	modalPickerTitle: {
+	modalAccordionHeader: {
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+		alignItems: 'center',
+		paddingVertical: 10
+	},
+	modalAccordionTitle: {
 		fontWeight: '500',
 		fontSize: 16,
 		color: '#161616'
+	},
+	modalAccordionValue: {
+		fontSize: 16,
+		color: '#505050',
+		marginRight: 15
 	},
 	modalButtonContainer: {
 		alignItems: 'center',
