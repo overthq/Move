@@ -27,7 +27,11 @@ interface PurchaseButtonProps {
 }
 
 const PurchaseButton = ({ onPress, loading }: PurchaseButtonProps) => (
-	<TouchableOpacity style={styles.modalButton} {...{ onPress }}>
+	<TouchableOpacity
+		activeOpacity={0.7}
+		style={styles.modalButton}
+		{...{ onPress }}
+	>
 		{loading ? (
 			<ActivityIndicator />
 		) : (
@@ -61,11 +65,12 @@ interface ModalSection {
 }
 
 const PurchasePassModal = ({ userId, modalRef }: PurchasePassModalProps) => {
-	const [{ data, fetching }, purchasePass] = usePurchaseTicketMutation();
-	const [{ fetching: loading, data: busStopsData }] = useBusStopsQuery();
 	const [origin, setOrigin] = React.useState('');
 	const [destination, setDestination] = React.useState('');
 	const [activeSections, setActiveSections] = React.useState([]);
+	const [quantity, setQuantity] = React.useState(1);
+	const [{ data, fetching }, purchasePass] = usePurchaseTicketMutation();
+	const [{ fetching: loading, data: busStopsData }] = useBusStopsQuery();
 
 	const getBusStopName = (id: string) => {
 		const busStop = busStopsData.busStops.find(({ _id }) => id === _id);
@@ -93,7 +98,7 @@ const PurchasePassModal = ({ userId, modalRef }: PurchasePassModalProps) => {
 
 	const handleSubmit = () => {
 		if (origin && destination && userId && origin !== destination) {
-			return purchasePass({ origin, destination, userId });
+			return purchasePass({ origin, destination, userId, quantity });
 		}
 	};
 
@@ -139,6 +144,24 @@ const PurchasePassModal = ({ userId, modalRef }: PurchasePassModalProps) => {
 						)
 					}
 				/>
+				<View style={styles.modalAccordionHeader}>
+					<Text style={styles.modalAccordionTitle}>Quantity</Text>
+					<View style={{ flexDirection: 'row', alignItems: 'center' }}>
+						<TouchableOpacity
+							onPress={() => setQuantity(quantity + 1)}
+							style={{ marginRight: 15 }}
+						>
+							<Feather name='plus' size={24} color='#D3D3D3' />
+						</TouchableOpacity>
+						<Text style={styles.modalAccordionTitle}>{quantity}</Text>
+						<TouchableOpacity
+							onPress={() => quantity !== 1 && setQuantity(quantity - 1)}
+							style={{ marginLeft: 15 }}
+						>
+							<Feather name='minus' size={24} color='#D3D3D3' />
+						</TouchableOpacity>
+					</View>
+				</View>
 			</View>
 			<View style={styles.modalButtonContainer}>
 				<PurchaseButton onPress={handleSubmit} loading={fetching} />
@@ -180,7 +203,7 @@ const styles = StyleSheet.create({
 	modalButtonContainer: {
 		alignItems: 'center',
 		justifyContent: 'center',
-		padding: 20
+		padding: 10
 	},
 	modalButton: {
 		width: '100%',
