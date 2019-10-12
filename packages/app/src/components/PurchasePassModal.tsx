@@ -9,6 +9,7 @@ import {
 	StyleSheet
 } from 'react-native';
 import Modalize from 'react-native-modalize';
+import Accordion from 'react-native-collapsible/Accordion';
 import { usePurchaseTicketMutation, useBusStopsQuery } from '@move/core';
 
 interface PurchasePassModalProps {
@@ -31,34 +32,30 @@ const PurchaseButton = ({ onPress, loading }: PurchaseButtonProps) => (
 	</TouchableOpacity>
 );
 
-interface BusStopPickerProps {
+interface ModalSection {
 	title: string;
 	activeValue: string;
 	setActive: (value: string) => void;
 }
 
 const BusStopPicker = ({
-	title,
 	activeValue,
 	setActive
-}: BusStopPickerProps) => {
+}: Omit<ModalSection, 'title'>) => {
 	const [{ fetching, data }] = useBusStopsQuery();
 	if (fetching) return <ActivityIndicator />;
 	if (!data || !data.busStops) return null;
 	const { busStops } = data;
 
 	return (
-		<>
-			<Text>{title}</Text>
-			<Picker
-				selectedValue={activeValue}
-				onValueChange={value => setActive(value)}
-			>
-				{busStops.map(({ _id, name }) => (
-					<Picker.Item key={_id} label={name} value={_id} />
-				))}
-			</Picker>
-		</>
+		<Picker
+			selectedValue={activeValue}
+			onValueChange={value => setActive(value)}
+		>
+			{busStops.map(({ _id, name }) => (
+				<Picker.Item key={_id} label={name} value={_id} />
+			))}
+		</Picker>
 	);
 };
 
@@ -66,6 +63,20 @@ const PurchasePassModal = ({ userId, modalRef }: PurchasePassModalProps) => {
 	const [{ data, fetching }, purchasePass] = usePurchaseTicketMutation();
 	const [origin, setOrigin] = React.useState('');
 	const [destination, setDestination] = React.useState('');
+	const [activeSections, setActiveSections] = React.useState([]);
+
+	const sections: ModalSection[] = [
+		{
+			title: 'ORIGIN',
+			activeValue: origin,
+			setActive: setOrigin
+		},
+		{
+			title: 'DESTINATION',
+			activeValue: destination,
+			setActive: setDestination
+		}
+	];
 
 	React.useEffect(() => {
 		if (!fetching && data && data.purchaseTicket) {
@@ -96,15 +107,16 @@ const PurchasePassModal = ({ userId, modalRef }: PurchasePassModalProps) => {
 				</Text>
 			</View>
 			<ScrollView style={styles.container} key='1'>
-				<BusStopPicker
-					title='ORIGIN'
-					activeValue={origin}
-					setActive={setOrigin}
-				/>
-				<BusStopPicker
-					title='DESTINATION'
-					activeValue={destination}
-					setActive={setDestination}
+				<Accordion
+					sections={sections}
+					activeSections={activeSections}
+					onChange={setActiveSections}
+					renderHeader={({ title }) => (
+						<Text style={styles.modalPickerTitle}>{title}</Text>
+					)}
+					renderContent={({ title, activeValue, setActive }) => (
+						<BusStopPicker {...{ title, activeValue, setActive }} />
+					)}
 				/>
 			</ScrollView>
 			<View style={styles.modalButtonContainer}>
@@ -127,6 +139,10 @@ const styles = StyleSheet.create({
 	modalDescription: {
 		fontSize: 16,
 		color: '#CCCCCC'
+	},
+	modalPickerTitle: {
+		fontWeight: '500',
+		color: '#505050'
 	},
 	modalButtonContainer: {
 		alignItems: 'center',
