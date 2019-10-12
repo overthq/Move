@@ -1,11 +1,11 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import Modalize from 'react-native-modalize';
+import { StackNavigationProp } from '@react-navigation/stack';
 import Scanner from '../components/Scanner';
 import Tickets from '../components/Tickets';
 import { UserContext } from '../contexts/UserContext';
 import PurchasePassModal from '../components/PurchasePassModal';
-import { StackNavigationProp } from '@react-navigation/stack';
 
 interface HomeProps {
 	navigation: StackNavigationProp<any>;

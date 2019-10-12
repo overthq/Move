@@ -25,26 +25,25 @@ const Register = ({ navigation }: RegisterProps) => {
 		}
 	}, [data]);
 
-	const handleTextChange = (text: string) => setPhoneNumber(text);
 	const handleSubmit = () => execute({ firstName, lastName, phoneNumber });
 
 	return (
 		<KeyboardAvoidingView style={styles.container} behavior='padding'>
-			<Text>Your phone number</Text>
+			<Text style={styles.title}>Create an account</Text>
 			<TextInput
 				style={styles.input}
 				placeholder='Your first name'
-				onChangeText={text => setFirstName(text)}
+				onChangeText={setFirstName}
 			/>
 			<TextInput
 				style={styles.input}
 				placeholder='Your last name'
-				onChangeText={text => setLastName(text)}
+				onChangeText={setLastName}
 			/>
 			<TextInput
 				style={styles.input}
 				placeholder='Your phone number'
-				onChangeText={handleTextChange}
+				onChangeText={setPhoneNumber}
 			/>
 			<TouchableOpacity
 				activeOpacity={0.7}
