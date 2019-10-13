@@ -27,17 +27,19 @@ interface PurchaseButtonProps {
 }
 
 const PurchaseButton = ({ onPress, loading }: PurchaseButtonProps) => (
-	<TouchableOpacity
-		activeOpacity={0.7}
-		style={styles.modalButton}
-		{...{ onPress }}
-	>
-		{loading ? (
-			<ActivityIndicator />
-		) : (
-			<Text style={styles.modalButtonText}>Purchase Pass</Text>
-		)}
-	</TouchableOpacity>
+	<View style={styles.modalButtonContainer}>
+		<TouchableOpacity
+			activeOpacity={0.7}
+			style={styles.modalButton}
+			{...{ onPress }}
+		>
+			{loading ? (
+				<ActivityIndicator />
+			) : (
+				<Text style={styles.modalButtonText}>Purchase Pass</Text>
+			)}
+		</TouchableOpacity>
+	</View>
 );
 
 interface BusStopPickerProps {
@@ -106,12 +108,6 @@ const PurchasePassModal = ({ userId, modalRef }: PurchasePassModalProps) => {
 		<Modalize ref={modalRef} adjustToContentHeight>
 			<View style={styles.container}>
 				<Text style={styles.modalTitle}>Purchase a pass</Text>
-				<Text style={styles.modalDescription}>
-					Select the origin and destination bus stops, and the number of units
-					you wish to purchase.
-				</Text>
-			</View>
-			<View style={{ paddingHorizontal: 20 }}>
 				<Accordion
 					sections={sections}
 					activeSections={activeSections}
@@ -162,8 +158,6 @@ const PurchasePassModal = ({ userId, modalRef }: PurchasePassModalProps) => {
 						</TouchableOpacity>
 					</View>
 				</View>
-			</View>
-			<View style={styles.modalButtonContainer}>
 				<PurchaseButton onPress={handleSubmit} loading={fetching} />
 			</View>
 		</Modalize>
@@ -179,10 +173,6 @@ const styles = StyleSheet.create({
 		fontWeight: 'bold',
 		color: '#161616',
 		marginBottom: 5
-	},
-	modalDescription: {
-		fontSize: 16,
-		color: '#CCCCCC'
 	},
 	modalAccordionHeader: {
 		flexDirection: 'row',
@@ -203,11 +193,11 @@ const styles = StyleSheet.create({
 	modalButtonContainer: {
 		alignItems: 'center',
 		justifyContent: 'center',
-		padding: 10
+		marginTop: 10
 	},
 	modalButton: {
 		width: '100%',
-		height: 35,
+		height: 40,
 		borderRadius: 4,
 		backgroundColor: '#161616',
 		justifyContent: 'center',
