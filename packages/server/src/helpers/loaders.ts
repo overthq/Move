@@ -1,12 +1,12 @@
 import DataLoader from 'dataloader';
-import { BusStop, Route, RouteType } from '../models';
-import { verifyStops } from '../routes/helpers';
+import { BusStop, Route } from '../models';
 
 export const routesLoader = new DataLoader(async routeConditions => {
 	const routes = routeConditions.map(async routeCondition => {
-		const routes = await Route.find({ $or: routeCondition });
-		const routesWithBusStops = await completeRoutes(routes);
-		return routesWithBusStops;
+		const matchedRoutes = await Route.find({ $or: routeCondition })
+			.populate('origin')
+			.populate('destination');
+		return matchedRoutes;
 	});
 	return routes;
 });
@@ -16,31 +16,12 @@ export const busStopsLoader = new DataLoader(async ids => {
 	const busStopsWithRoutes = await Promise.all(
 		busStops.map(async busStop => {
 			if (!busStop) throw new Error('Specified bus stop not found');
-			const routeConditions = [
+			const routes = await routesLoader.load([
 				{ origin: busStop.id },
 				{ destination: busStop.id }
-			];
-			const routes = await routesLoader.load(routeConditions);
+			]);
 			return Object.assign(busStop, { routes });
 		})
 	);
 	return busStopsWithRoutes;
 });
-
-export const completeRoutes = async (
-	routes: RouteType[]
-): Promise<RouteType[]> => {
-	const fullRoutes = await Promise.all(
-		routes.map(async route => {
-			const { originBusStop, destinationBusStop } = await verifyStops(
-				route.origin as string,
-				route.destination as string
-			);
-			return Object.assign(route, {
-				origin: originBusStop,
-				destination: destinationBusStop
-			});
-		})
-	);
-	return fullRoutes;
-};

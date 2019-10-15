@@ -9,12 +9,12 @@ export interface TicketType extends Document {
 
 const TicketSchema = new Schema(
 	{
-		userId: {
+		user: {
 			type: Schema.Types.ObjectId,
 			ref: 'User',
 			required: true
 		},
-		routeId: {
+		route: {
 			type: Schema.Types.ObjectId,
 			ref: 'Route',
 			required: true

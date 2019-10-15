@@ -1,53 +1,58 @@
 import { Ticket, Route } from '../models';
 // import { purchase } from '../creditCards/helpers';
-import { routesLoader } from '../helpers/loaders';
 
 const ticketsMutation = {
 	purchaseTicket: async (_, { input }) => {
 		const { userId, origin, destination, quantity } = input;
 
-		const routeConditions = [
-			{ origin, destination },
-			{ origin: destination, destination: origin }
-		];
-		const [route] = await routesLoader.load(routeConditions);
+		const route = await Route.findOne({
+			$or: [
+				{ origin, destination },
+				{ origin: destination, destination: origin }
+			]
+		});
+		if (!route) throw new Error('This route does not exist');
 		// const { fare } = route;
 		// Make payment of the fare
 		// await purchase(userId, fare);
-		const reverse =
-			typeof route.origin !== 'string' && route.origin.id === destination;
+		const reverse = route.origin.id === destination;
 
 		const ticket = await Ticket.create({
-			userId,
-			routeId: route.id,
+			user: userId,
+			route: route.id,
 			quantity,
 			reverse
 		});
 
-		if (reverse) {
-			const newRoute = Object.assign(route, {
-				origin: route.destination,
-				destination: route.origin
-			});
-			return Object.assign(ticket, { route: newRoute });
-		}
-		return Object.assign(ticket, { route });
+		return ticket.populate({
+			path: 'route',
+			populate: [
+				{ path: 'origin' },
+				{
+					path: 'destination',
+					match: ticket => {
+						console.log(ticket);
+						return {
+							$or: [{}]
+						};
+					}
+				}
+			]
+		});
 	},
 	useTicket: async (_, { userId, routeId }) => {
-		const ticket = await Ticket.findOne({ userId, routeId });
+		const ticket = await Ticket.findOne({
+			user: userId,
+			route: routeId
+		}).populate({
+			path: 'route',
+			populate: [{ path: 'origin' }, { path: 'destination' }]
+		});
 		if (!ticket) throw new Error('The ticket does not exist.');
-		const route = await Route.findById(routeId);
-		const { destination, origin } = route;
-		const routeConditions = [
-			{ origin, destination },
-			{ origin: destination, destination: origin }
-		];
-		const [fullRoute] = await routesLoader.load(routeConditions);
-		const fullTicket = Object.assign(ticket, { route: fullRoute });
 		if (ticket.quantity > 1) {
 			ticket.quantity--;
 			await ticket.save();
-			return fullTicket;
+			return ticket;
 		}
 		await ticket.remove();
 		return null;
