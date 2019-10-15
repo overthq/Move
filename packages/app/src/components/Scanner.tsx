@@ -16,8 +16,8 @@ import { Feather } from '@expo/vector-icons';
 import { useUseTicketMutation } from '@move/core';
 import SuccessModal from './SuccessModal';
 import ScannerOverlay from './ScannerOverlay';
-import { UserContext } from '../contexts/UserContext';
 import AndroidFingerprintModal from './AndroidFingerprintModal';
+import { UserContext } from '../contexts/UserContext';
 
 const { width, height } = Dimensions.get('screen');
 
