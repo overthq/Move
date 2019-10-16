@@ -13,7 +13,7 @@ import { Feather } from '@expo/vector-icons';
 import {
 	usePurchaseTicketMutation,
 	useBusStopsQuery,
-	BusStop
+	BusStopsQuery
 } from '@move/core';
 
 interface PurchasePassModalProps {
@@ -45,7 +45,7 @@ const PurchaseButton = ({ onPress, loading }: PurchaseButtonProps) => (
 interface BusStopPickerProps {
 	activeValue: string;
 	setActive: (value: string) => void;
-	busStops: BusStop[];
+	busStops: BusStopsQuery['busStops'];
 }
 
 const BusStopPicker = ({
@@ -135,7 +135,8 @@ const PurchasePassModal = ({ userId, modalRef }: PurchasePassModalProps) => {
 							<ActivityIndicator />
 						) : (
 							<BusStopPicker
-								{...{ activeValue, setActive, busStops: busStopsData.busStops }}
+								busStops={busStopsData.busStops}
+								{...{ activeValue, setActive }}
 							/>
 						)
 					}
