@@ -48,12 +48,13 @@ const Tickets = ({ userId, modalRef }: TicketsProps) => {
 					keyExtractor={ticket => ticket._id}
 					renderItem={({ item, index }) => {
 						if (!item) return null;
-						const { route, quantity } = item;
+						const { route, quantity, reverse } = item;
+						const { origin, destination } = route;
 						return (
 							<Ticket
 								key={index}
-								origin={route.origin.name}
-								destination={route.destination.name}
+								origin={reverse ? destination.name : origin.name}
+								destination={reverse ? origin.name : destination.name}
 								quantity={quantity}
 							/>
 						);

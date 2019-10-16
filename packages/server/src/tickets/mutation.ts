@@ -26,18 +26,7 @@ const ticketsMutation = {
 
 		return ticket.populate({
 			path: 'route',
-			populate: [
-				{ path: 'origin' },
-				{
-					path: 'destination',
-					match: ticket => {
-						console.log(ticket);
-						return {
-							$or: [{}]
-						};
-					}
-				}
-			]
+			populate: [{ path: 'origin' }, { path: 'destination' }]
 		});
 	},
 	useTicket: async (_, { userId, routeId }) => {
