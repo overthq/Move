@@ -9,7 +9,7 @@ export interface TicketType extends Document {
 
 const TicketSchema = new Schema(
 	{
-		user: {
+		userId: {
 			type: Schema.Types.ObjectId,
 			ref: 'User',
 			required: true

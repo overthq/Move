@@ -18,7 +18,7 @@ const ticketsMutation = {
 		const reverse = route.origin.id === destination;
 
 		const ticket = await Ticket.create({
-			user: userId,
+			userId,
 			route: route.id,
 			quantity,
 			reverse
@@ -31,7 +31,7 @@ const ticketsMutation = {
 	},
 	useTicket: async (_, { userId, routeId }) => {
 		const ticket = await Ticket.findOne({
-			user: userId,
+			userId,
 			route: routeId
 		}).populate({
 			path: 'route',
