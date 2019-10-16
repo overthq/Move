@@ -35,6 +35,7 @@ const Login = ({ navigation }: LoginProps) => {
 				style={styles.input}
 				placeholder='Your phone number'
 				onChangeText={handleTextChange}
+				keyboardType='number-pad'
 			/>
 			<TouchableOpacity
 				activeOpacity={0.7}

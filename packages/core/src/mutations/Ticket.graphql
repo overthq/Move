@@ -25,6 +25,7 @@ mutation PurchaseTicket(
       fare
     }
     quantity
+    reverse
   } 
 }
 
@@ -45,5 +46,6 @@ mutation UseTicket($routeId: ID! $userId: ID!) {
       fare
     }
     quantity
+    reverse
   }
 }

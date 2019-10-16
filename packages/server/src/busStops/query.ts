@@ -3,7 +3,7 @@ import { routesLoader, busStopsLoader } from '../helpers/loaders';
 
 const busStopQuery = {
 	busStops: async () => {
-		const allBusStops = await BusStop.find();
+		const allBusStops = await BusStop.find().populate('routes');
 		const allBusStopsWithRoutes = await Promise.all(
 			allBusStops.map(async busStop => {
 				const routeConditions = [

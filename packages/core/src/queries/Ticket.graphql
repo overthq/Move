@@ -15,5 +15,6 @@ query Tickets($userId: ID!) {
       fare
     }
     quantity
+    reverse
   }
 }

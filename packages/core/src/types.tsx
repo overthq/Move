@@ -164,6 +164,7 @@ export type User = {
 	lastName: Scalars['String'];
 	phoneNumber: Scalars['String'];
 };
+
 export type CreateBusStopMutationVariables = {
 	name: Scalars['String'];
 };
@@ -204,7 +205,7 @@ export type PurchaseTicketMutationVariables = {
 export type PurchaseTicketMutation = { __typename?: 'Mutation' } & {
 	purchaseTicket: { __typename?: 'Ticket' } & Pick<
 		Ticket,
-		'_id' | 'userId' | 'quantity'
+		'_id' | 'userId' | 'quantity' | 'reverse'
 	> & {
 			route: { __typename?: 'Route' } & Pick<Route, '_id' | 'fare'> & {
 					origin: { __typename?: 'BusStop' } & Pick<BusStop, '_id' | 'name'>;
@@ -223,7 +224,10 @@ export type UseTicketMutationVariables = {
 
 export type UseTicketMutation = { __typename?: 'Mutation' } & {
 	useTicket: Maybe<
-		{ __typename?: 'Ticket' } & Pick<Ticket, '_id' | 'userId' | 'quantity'> & {
+		{ __typename?: 'Ticket' } & Pick<
+			Ticket,
+			'_id' | 'userId' | 'quantity' | 'reverse'
+		> & {
 				route: { __typename?: 'Route' } & Pick<Route, '_id' | 'fare'> & {
 						origin: { __typename?: 'BusStop' } & Pick<BusStop, '_id' | 'name'>;
 						destination: { __typename?: 'BusStop' } & Pick<
@@ -336,7 +340,10 @@ export type TicketsQueryVariables = {
 
 export type TicketsQuery = { __typename?: 'Query' } & {
 	tickets: Array<
-		{ __typename?: 'Ticket' } & Pick<Ticket, '_id' | 'userId' | 'quantity'> & {
+		{ __typename?: 'Ticket' } & Pick<
+			Ticket,
+			'_id' | 'userId' | 'quantity' | 'reverse'
+		> & {
 				route: { __typename?: 'Route' } & Pick<Route, '_id' | 'fare'> & {
 						origin: { __typename?: 'BusStop' } & Pick<BusStop, '_id' | 'name'>;
 						destination: { __typename?: 'BusStop' } & Pick<
@@ -427,6 +434,7 @@ export const PurchaseTicketDocument = gql`
 				fare
 			}
 			quantity
+			reverse
 		}
 	}
 `;
@@ -455,6 +463,7 @@ export const UseTicketDocument = gql`
 				fare
 			}
 			quantity
+			reverse
 		}
 	}
 `;
@@ -621,6 +630,7 @@ export const TicketsDocument = gql`
 				fare
 			}
 			quantity
+			reverse
 		}
 	}
 `;

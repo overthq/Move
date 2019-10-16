@@ -14,7 +14,7 @@ const TicketSchema = new Schema(
 			ref: 'User',
 			required: true
 		},
-		routeId: {
+		route: {
 			type: Schema.Types.ObjectId,
 			ref: 'Route',
 			required: true

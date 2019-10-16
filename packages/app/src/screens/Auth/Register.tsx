@@ -44,6 +44,7 @@ const Register = ({ navigation }: RegisterProps) => {
 				style={styles.input}
 				placeholder='Your phone number'
 				onChangeText={setPhoneNumber}
+				keyboardType='number-pad'
 			/>
 			<TouchableOpacity
 				activeOpacity={0.7}
