@@ -1464,22 +1464,29 @@
   resolved "https://registry.yarnpkg.com/@react-native-community/masked-view/-/masked-view-0.1.1.tgz#dbcfc5ec08efbb02d4142dd9426c8d7a396829d7"
   integrity sha512-EyJVSbarZkOPYq+zCZLx9apMcpwkX9HvH6R+6CeVL29q88kEFemnLO/IhmE4YX/0MfalsduI8eTi7fuQh/5VeA==
 
-"@react-navigation/core@^5.0.0-alpha.13":
-  version "5.0.0-alpha.14"
-  resolved "https://registry.yarnpkg.com/@react-navigation/core/-/core-5.0.0-alpha.14.tgz#64b7f8a6e26b78fd496ff59f94a3e6ec504b9dfc"
-  integrity sha512-6Mj5vjaYcF5jaB4opj7LL2Be6xDsyI9ZYPAsudTMbZsleFtI8agHrpSq20q0fBDbahcubTgm/C6LNXyX+mcwIA==
+"@react-navigation/core@^5.0.0-alpha.15":
+  version "5.0.0-alpha.15"
+  resolved "https://registry.yarnpkg.com/@react-navigation/core/-/core-5.0.0-alpha.15.tgz#2cb5bdbe1fdd4432637db1484586ebc9651052f8"
+  integrity sha512-DS4BbyRA9wvsDhOWRGNo+7ZcAdB4zPh7a75jYP/j9KsB0NLV0PenJr9USybUsypXV4DVlCdsd7uc+Rbka0PyOw==
   dependencies:
     escape-string-regexp "^2.0.0"
     query-string "^6.8.3"
     shortid "^2.2.15"
     use-subscription "^1.1.1"
 
+"@react-navigation/native-stack@^5.0.0-alpha.1":
+  version "5.0.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/@react-navigation/native-stack/-/native-stack-5.0.0-alpha.1.tgz#37eb40ceda5d056adbb5c5efd44e6f7b5230347b"
+  integrity sha512-ediPTtVY926JkSE4kKB/yUdmzQGLU4RK9sEwL0wGu8cM4CFiChFhh0EVB+sD9dG9SRO5JHfvSjK7CxSUU9WwqQ==
+  dependencies:
+    "@react-navigation/routers" "^5.0.0-alpha.9"
+
 "@react-navigation/native@^5.0.0-alpha.8":
   version "5.0.0-alpha.11"
   resolved "https://registry.yarnpkg.com/@react-navigation/native/-/native-5.0.0-alpha.11.tgz#a74b296b75650cf9fd6c9ff50569886bdd80ccfe"
   integrity sha512-K3A8AFuRpQsWHFtYlw34g+U4jsGk6YPoY4dMKrPO2AbCeUXKx71FK0HCRW4cM/0vwSs06LOe0aO0hprFZwdCcg==
 
-"@react-navigation/routers@^5.0.0-alpha.8":
+"@react-navigation/routers@^5.0.0-alpha.8", "@react-navigation/routers@^5.0.0-alpha.9":
   version "5.0.0-alpha.9"
   resolved "https://registry.yarnpkg.com/@react-navigation/routers/-/routers-5.0.0-alpha.9.tgz#f91450e9211ae21fdf1d1a67848957c55f7c02a3"
   integrity sha512-XaoukLDQxIgrLJyGnG95ArMrdz4IxMPehcsHdSK1sr2tJ88uYfMknLRbO+UNNxsJUAvtoX3+i17cbrixtNbVRw==
@@ -1716,13 +1723,6 @@
     "@types/events" "*"
     "@types/minimatch" "*"
     "@types/node" "*"
-
-"@types/graphql@^14.5.0":
-  version "14.5.0"
-  resolved "https://registry.yarnpkg.com/@types/graphql/-/graphql-14.5.0.tgz#a545fb3bc8013a3547cf2f07f5e13a33642b75d6"
-  integrity sha512-MOkzsEp1Jk5bXuAsHsUi6BVv0zCO+7/2PTiZMXWDSsMXvNU6w/PLMQT2vHn8hy2i0JqojPz1Sz6rsFjHtsU0lA==
-  dependencies:
-    graphql "*"
 
 "@types/history@*":
   version "4.7.3"
@@ -5493,6 +5493,11 @@ expo-permissions@~7.0.0:
   resolved "https://registry.yarnpkg.com/expo-permissions/-/expo-permissions-7.0.0.tgz#f4135c3cf8e49c673a9a714459a1eb2b40fe2092"
   integrity sha512-C+qyVz+pdZO4YpVR2HSC3gsBZg0Qb8brCFgzmDmWcAtgrOiHClaLPdhI2XtQuGh8ubXcKPUGZp++UCEGiG0Jxg==
 
+expo-secure-store@~7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/expo-secure-store/-/expo-secure-store-7.0.0.tgz#83aee977ef2fe0bb9fa9f2baecdf6d50b26a893a"
+  integrity sha512-7O80jH+JynoO8OlAHSj+F9Rbk1Vaf8309shuyZVW3C0tB1dXN+UiJUrCKAJ38dI8k/eV8+f5orw7x67VTJNUSQ==
+
 expo-sqlite@~7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/expo-sqlite/-/expo-sqlite-7.0.0.tgz#f52585b342278b4034c06caac8384edb2531afa4"
@@ -6457,7 +6462,7 @@ graphql-tools@4.0.5, graphql-tools@^4.0.5:
     iterall "^1.1.3"
     uuid "^3.1.0"
 
-graphql@*, graphql@^14.5.6:
+graphql@^14.5.6:
   version "14.5.8"
   resolved "https://registry.yarnpkg.com/graphql/-/graphql-14.5.8.tgz#504f3d3114cb9a0a3f359bbbcf38d9e5bf6a6b3c"
   integrity sha512-MMwmi0zlVLQKLdGiMfWkgQD7dY/TUKt4L+zgJ/aR0Howebod3aNgP5JkgvAULiR2HPVZaP2VEElqtdidHweLkg==

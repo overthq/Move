@@ -1,4 +1,4 @@
-import { Ticket, Route } from '../models';
+import { User, Ticket, Route } from '../models';
 // import { purchase } from '../creditCards/helpers';
 
 const ticketsMutation = {
@@ -10,12 +10,32 @@ const ticketsMutation = {
 				{ origin, destination },
 				{ origin: destination, destination: origin }
 			]
-		});
+		}).populate('origin destination');
 		if (!route) throw new Error('This route does not exist');
+
 		// const { fare } = route;
 		// Make payment of the fare
 		// await purchase(userId, fare);
-		const reverse = route.origin.id === destination;
+
+		const reverse =
+			route.origin.id === destination && route.destination.id === origin;
+
+		const userTicket = await Ticket.findOne({
+			userId,
+			route: route.id,
+			reverse
+		});
+
+		if (userTicket) {
+			userTicket.quantity += quantity;
+			userTicket.save();
+			return userTicket
+				.populate({
+					path: 'route',
+					populate: { path: 'origin destination' }
+				})
+				.execPopulate();
+		}
 
 		const ticket = await Ticket.create({
 			userId,
@@ -24,10 +44,12 @@ const ticketsMutation = {
 			reverse
 		});
 
-		return ticket.populate({
-			path: 'route',
-			populate: [{ path: 'origin' }, { path: 'destination' }]
-		});
+		return ticket
+			.populate({
+				path: 'route',
+				populate: { path: 'origin destination' }
+			})
+			.execPopulate();
 	},
 	useTicket: async (_, { userId, routeId }) => {
 		const ticket = await Ticket.findOne({
@@ -35,7 +57,7 @@ const ticketsMutation = {
 			route: routeId
 		}).populate({
 			path: 'route',
-			populate: [{ path: 'origin' }, { path: 'destination' }]
+			populate: { path: 'origin destination' }
 		});
 		if (!ticket) throw new Error('The ticket does not exist.');
 		if (ticket.quantity > 1) {
@@ -45,6 +67,16 @@ const ticketsMutation = {
 		}
 		await ticket.remove();
 		return null;
+	},
+	sendTicket: async (_, { userId, phoneNumber }) => {
+		const ticket = await Ticket.findOne({ userId });
+		if (!ticket) throw new Error('The ticket does not exist.');
+
+		const receiver = await User.findOne({ phoneNumber });
+		if (!receiver) throw new Error('The user does not exist.');
+
+		ticket.userId = receiver.id;
+		ticket.save();
 	}
 };
 
