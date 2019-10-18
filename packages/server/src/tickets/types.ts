@@ -21,6 +21,7 @@ const Ticket = `
 	extend type Mutation {
 		purchaseTicket(input: TicketInput!): Ticket!
 		useTicket(routeId: ID! userId: ID!): Ticket
+		sendTicket(userId: ID! phoneNumber: String!): Ticket!
 	}
 `;
 
