@@ -96,6 +96,8 @@ export const tokenizeCard: TokenizeCard = async ({
 		};
 
 		const body = await rave.TokenCharge.card(cardDetails);
+		// Maybe I should not be using the library for this
+		// I think I should move it to a simple node-fetch call.
 		console.log(body);
 
 		// Does this action not require an OTP?

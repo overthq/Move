@@ -14,7 +14,6 @@ const ticketsMutation = {
 		if (!route) throw new Error('This route does not exist');
 
 		// const { fare } = route;
-		// Make payment of the fare
 		// await purchase(userId, fare);
 
 		const reverse =
