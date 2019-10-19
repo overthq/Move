@@ -67,8 +67,8 @@ const ticketsMutation = {
 		await ticket.remove();
 		return null;
 	},
-	sendTicket: async (_, { userId, phoneNumber }) => {
-		const ticket = await Ticket.findOne({ userId });
+	sendTicket: async (_, { ticketId, phoneNumber }) => {
+		const ticket = await Ticket.findById(ticketId);
 		if (!ticket) throw new Error('The ticket does not exist.');
 
 		const receiver = await User.findOne({ phoneNumber });
