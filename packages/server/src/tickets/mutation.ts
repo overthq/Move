@@ -14,7 +14,6 @@ const ticketsMutation = {
 		if (!route) throw new Error('This route does not exist');
 
 		// const { fare } = route;
-		// Make payment of the fare
 		// await purchase(userId, fare);
 
 		const reverse =
@@ -68,8 +67,8 @@ const ticketsMutation = {
 		await ticket.remove();
 		return null;
 	},
-	sendTicket: async (_, { userId, phoneNumber }) => {
-		const ticket = await Ticket.findOne({ userId });
+	sendTicket: async (_, { ticketId, phoneNumber }) => {
+		const ticket = await Ticket.findById(ticketId);
 		if (!ticket) throw new Error('The ticket does not exist.');
 
 		const receiver = await User.findOne({ phoneNumber });
