@@ -11690,10 +11690,10 @@ react-native-screens@~1.0.0-alpha.23:
   dependencies:
     debounce "^1.2.0"
 
-react-native-svg@~9.9.2:
-  version "9.9.9"
-  resolved "https://registry.yarnpkg.com/react-native-svg/-/react-native-svg-9.9.9.tgz#67c83b56d7a292162762a6d389dc78512558c2ca"
-  integrity sha512-a/wxzEaAqWZ3uYwTJKo8sj2gURmEs4xBB83tx5gK9rpoEixzHfsj8+qLacwmQrHab7nf+tWj56INMTSPqm60oA==
+react-native-svg@~9.12.0:
+  version "9.12.0"
+  resolved "https://registry.yarnpkg.com/react-native-svg/-/react-native-svg-9.12.0.tgz#ddb6302358dfd75af3000f0fed67b26923a92dd8"
+  integrity sha512-NoEiYCmTqgNtjDhTHfB7iARGz4AkTzu191Rr6jrGTchp5/ZdwpmYG/9qXWXTDDNULX5xChljI6IL/gkynfEenw==
 
 react-native-view-shot@2.6.0:
   version "2.6.0"
