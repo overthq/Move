@@ -16,4 +16,4 @@ GNU GPL V3 License
 
 ## Author
 
-Oluwakorede Fashokun <koredefashokun@gmail.com> for [Overt](https://overt.dev)
+Oluwakorede Fashokun (<koredefashokun@gmail.com>) for [Overt](https://overt.dev)
