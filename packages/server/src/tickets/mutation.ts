@@ -76,6 +76,9 @@ const ticketsMutation = {
 
 		ticket.userId = receiver.id;
 		ticket.save();
+		return ticket
+			.populate({ path: 'route', populate: { path: 'origin destination' } })
+			.execPopulate();
 	}
 };
 
