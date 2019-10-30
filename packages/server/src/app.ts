@@ -14,10 +14,9 @@ app.use(
 	graphqlHTTP({
 		schema,
 		graphiql: true,
-		customFormatErrorFn: ({ message, stack, locations }) => {
+		customFormatErrorFn: ({ message, stack }) => {
 			console.log('message', message);
 			console.log('stack', stack);
-			console.log('locations', locations);
 		}
 	})
 );
