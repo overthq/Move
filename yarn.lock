@@ -1474,10 +1474,10 @@
   resolved "https://registry.yarnpkg.com/@react-native-community/masked-view/-/masked-view-0.1.1.tgz#dbcfc5ec08efbb02d4142dd9426c8d7a396829d7"
   integrity sha512-EyJVSbarZkOPYq+zCZLx9apMcpwkX9HvH6R+6CeVL29q88kEFemnLO/IhmE4YX/0MfalsduI8eTi7fuQh/5VeA==
 
-"@react-navigation/core@^5.0.0-alpha.15":
-  version "5.0.0-alpha.15"
-  resolved "https://registry.yarnpkg.com/@react-navigation/core/-/core-5.0.0-alpha.15.tgz#2cb5bdbe1fdd4432637db1484586ebc9651052f8"
-  integrity sha512-DS4BbyRA9wvsDhOWRGNo+7ZcAdB4zPh7a75jYP/j9KsB0NLV0PenJr9USybUsypXV4DVlCdsd7uc+Rbka0PyOw==
+"@react-navigation/core@^5.0.0-alpha.18":
+  version "5.0.0-alpha.18"
+  resolved "https://registry.yarnpkg.com/@react-navigation/core/-/core-5.0.0-alpha.18.tgz#77688d4e2f700680b4fd5ef439b14f6ad1d65358"
+  integrity sha512-VAgr7wP5m/aDGE4OW7Jn92OROZwy2Gc9PiQvVsebdcHa/ePdzNfHEkcKuCFtL7BUn/hst1DfKQKJJIWAcfGBng==
   dependencies:
     escape-string-regexp "^2.0.0"
     query-string "^6.8.3"
