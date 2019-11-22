@@ -57,6 +57,7 @@ export type Mutation = {
 	saveCard: CreditCard;
 	purchaseTicket: Ticket;
 	useTicket?: Maybe<Ticket>;
+	sendTicket: Ticket;
 };
 
 export type MutationLoginArgs = {
@@ -91,6 +92,11 @@ export type MutationPurchaseTicketArgs = {
 export type MutationUseTicketArgs = {
 	routeId: Scalars['ID'];
 	userId: Scalars['ID'];
+};
+
+export type MutationSendTicketArgs = {
+	ticketId: Scalars['ID'];
+	phoneNumber: Scalars['String'];
 };
 
 export type Query = {
@@ -195,6 +201,16 @@ export type SaveCardMutation = { __typename?: 'Mutation' } & {
 	>;
 };
 
+export type TicketFragmentFragment = { __typename?: 'Ticket' } & Pick<
+	Ticket,
+	'_id' | 'userId' | 'quantity' | 'reverse'
+> & {
+		route: { __typename?: 'Route' } & Pick<Route, '_id' | 'fare'> & {
+				origin: { __typename?: 'BusStop' } & Pick<BusStop, '_id' | 'name'>;
+				destination: { __typename?: 'BusStop' } & Pick<BusStop, '_id' | 'name'>;
+			};
+	};
+
 export type PurchaseTicketMutationVariables = {
 	userId: Scalars['ID'];
 	origin: Scalars['ID'];
@@ -203,18 +219,7 @@ export type PurchaseTicketMutationVariables = {
 };
 
 export type PurchaseTicketMutation = { __typename?: 'Mutation' } & {
-	purchaseTicket: { __typename?: 'Ticket' } & Pick<
-		Ticket,
-		'_id' | 'userId' | 'quantity' | 'reverse'
-	> & {
-			route: { __typename?: 'Route' } & Pick<Route, '_id' | 'fare'> & {
-					origin: { __typename?: 'BusStop' } & Pick<BusStop, '_id' | 'name'>;
-					destination: { __typename?: 'BusStop' } & Pick<
-						BusStop,
-						'_id' | 'name'
-					>;
-				};
-		};
+	purchaseTicket: { __typename?: 'Ticket' } & TicketFragmentFragment;
 };
 
 export type UseTicketMutationVariables = {
@@ -223,20 +228,16 @@ export type UseTicketMutationVariables = {
 };
 
 export type UseTicketMutation = { __typename?: 'Mutation' } & {
-	useTicket: Maybe<
-		{ __typename?: 'Ticket' } & Pick<
-			Ticket,
-			'_id' | 'userId' | 'quantity' | 'reverse'
-		> & {
-				route: { __typename?: 'Route' } & Pick<Route, '_id' | 'fare'> & {
-						origin: { __typename?: 'BusStop' } & Pick<BusStop, '_id' | 'name'>;
-						destination: { __typename?: 'BusStop' } & Pick<
-							BusStop,
-							'_id' | 'name'
-						>;
-					};
-			}
-	>;
+	useTicket: Maybe<{ __typename?: 'Ticket' } & TicketFragmentFragment>;
+};
+
+export type SendTicketMutationVariables = {
+	ticketId: Scalars['ID'];
+	phoneNumber: Scalars['String'];
+};
+
+export type SendTicketMutation = { __typename?: 'Mutation' } & {
+	sendTicket: { __typename?: 'Ticket' } & TicketFragmentFragment;
 };
 
 export type LoginMutationVariables = {
@@ -355,6 +356,26 @@ export type TicketsQuery = { __typename?: 'Query' } & {
 	>;
 };
 
+export const TicketFragmentFragmentDoc = gql`
+	fragment TicketFragment on Ticket {
+		_id
+		userId
+		route {
+			_id
+			origin {
+				_id
+				name
+			}
+			destination {
+				_id
+				name
+			}
+			fare
+		}
+		quantity
+		reverse
+	}
+`;
 export const CreateBusStopDocument = gql`
 	mutation CreateBusStop($name: String!) {
 		createBusStop(input: { name: $name }) {
@@ -419,24 +440,10 @@ export const PurchaseTicketDocument = gql`
 				quantity: $quantity
 			}
 		) {
-			_id
-			userId
-			route {
-				_id
-				origin {
-					_id
-					name
-				}
-				destination {
-					_id
-					name
-				}
-				fare
-			}
-			quantity
-			reverse
+			...TicketFragment
 		}
 	}
+	${TicketFragmentFragmentDoc}
 `;
 
 export function usePurchaseTicketMutation() {
@@ -448,29 +455,29 @@ export function usePurchaseTicketMutation() {
 export const UseTicketDocument = gql`
 	mutation UseTicket($routeId: ID!, $userId: ID!) {
 		useTicket(routeId: $routeId, userId: $userId) {
-			_id
-			userId
-			route {
-				_id
-				origin {
-					_id
-					name
-				}
-				destination {
-					_id
-					name
-				}
-				fare
-			}
-			quantity
-			reverse
+			...TicketFragment
 		}
 	}
+	${TicketFragmentFragmentDoc}
 `;
 
 export function useUseTicketMutation() {
 	return Urql.useMutation<UseTicketMutation, UseTicketMutationVariables>(
 		UseTicketDocument
+	);
+}
+export const SendTicketDocument = gql`
+	mutation SendTicket($ticketId: ID!, $phoneNumber: String!) {
+		sendTicket(ticketId: $ticketId, phoneNumber: $phoneNumber) {
+			...TicketFragment
+		}
+	}
+	${TicketFragmentFragmentDoc}
+`;
+
+export function useSendTicketMutation() {
+	return Urql.useMutation<SendTicketMutation, SendTicketMutationVariables>(
+		SendTicketDocument
 	);
 }
 export const LoginDocument = gql`

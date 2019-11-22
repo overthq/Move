@@ -1,15 +1,26 @@
 import React from 'react';
-import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { TouchableOpacity, Text, StyleSheet, Alert } from 'react-native';
 import { useActionSheet } from '@expo/react-native-action-sheet';
+import { useSendTicketMutation } from '@move/core';
 
 interface TicketProps {
+	ticketId: string;
 	origin: string;
 	destination: string;
 	quantity: number;
 }
 
-const Ticket = ({ origin, destination, quantity }: TicketProps) => {
+const Ticket = ({ ticketId, origin, destination, quantity }: TicketProps) => {
 	const { showActionSheetWithOptions } = useActionSheet();
+	const [, sendTicket] = useSendTicketMutation();
+
+	const openShareModal = () => {
+		Alert.prompt(
+			'Send pass',
+			`Enter the recepient's phone number`,
+			phoneNumber => sendTicket({ ticketId, phoneNumber })
+		);
+	};
 
 	const openActionSheet = () => {
 		showActionSheetWithOptions(
@@ -20,9 +31,7 @@ const Ticket = ({ origin, destination, quantity }: TicketProps) => {
 				tintColor: '#100100'
 			},
 			buttonIndex => {
-				if (buttonIndex === 0) {
-					// Share the pass
-				}
+				if (buttonIndex === 0) openShareModal();
 			}
 		);
 	};
