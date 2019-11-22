@@ -1,5 +1,11 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import {
+	TouchableOpacity,
+	Text,
+	StyleSheet,
+	ActionSheetIOS,
+	Platform
+} from 'react-native';
 
 interface TicketProps {
 	origin: string;
@@ -7,16 +13,38 @@ interface TicketProps {
 	quantity: number;
 }
 
-const Ticket = ({ origin, destination, quantity }: TicketProps) => (
-	<View style={styles.container}>
-		<Text style={styles.ticketTitle}>
-			{origin} to {destination}
-		</Text>
-		<Text style={styles.ticketInfo}>
-			{`${quantity} unit${quantity === 1 ? '' : 's'} left`}
-		</Text>
-	</View>
-);
+const Ticket = ({ origin, destination, quantity }: TicketProps) => {
+	const openActionSheet = () => {
+		if (Platform.OS === 'ios') {
+			ActionSheetIOS.showActionSheetWithOptions(
+				{
+					options: ['Share pass', 'Cancel'],
+					cancelButtonIndex: 1
+				},
+				buttonIndex => {
+					if (buttonIndex === 0) {
+						// Share the pass
+					}
+				}
+			);
+		}
+	};
+
+	return (
+		<TouchableOpacity
+			style={styles.container}
+			onLongPress={openActionSheet}
+			activeOpacity={0.7}
+		>
+			<Text style={styles.ticketTitle}>
+				{origin} to {destination}
+			</Text>
+			<Text style={styles.ticketInfo}>
+				{`${quantity} unit${quantity === 1 ? '' : 's'} left`}
+			</Text>
+		</TouchableOpacity>
+	);
+};
 
 const styles = StyleSheet.create({
 	container: {
