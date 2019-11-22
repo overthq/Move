@@ -2,6 +2,7 @@ import React from 'react';
 import { Provider, createClient } from 'urql';
 import { useScreens } from 'react-native-screens';
 import * as Constants from 'expo-constants';
+import { ActionSheetProvider } from '@expo/react-native-action-sheet';
 import RootNavigator from './src/Root';
 import { UserProvider } from './src/contexts/UserContext';
 
@@ -17,7 +18,9 @@ const client = createClient({
 const App = () => (
 	<UserProvider>
 		<Provider value={client}>
-			<RootNavigator />
+			<ActionSheetProvider>
+				<RootNavigator />
+			</ActionSheetProvider>
 		</Provider>
 	</UserProvider>
 );

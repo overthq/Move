@@ -1,11 +1,6 @@
 import React from 'react';
-import {
-	TouchableOpacity,
-	Text,
-	StyleSheet,
-	ActionSheetIOS,
-	Platform
-} from 'react-native';
+import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { useActionSheet } from '@expo/react-native-action-sheet';
 
 interface TicketProps {
 	origin: string;
@@ -14,20 +9,20 @@ interface TicketProps {
 }
 
 const Ticket = ({ origin, destination, quantity }: TicketProps) => {
+	const { showActionSheetWithOptions } = useActionSheet();
+
 	const openActionSheet = () => {
-		if (Platform.OS === 'ios') {
-			ActionSheetIOS.showActionSheetWithOptions(
-				{
-					options: ['Share pass', 'Cancel'],
-					cancelButtonIndex: 1
-				},
-				buttonIndex => {
-					if (buttonIndex === 0) {
-						// Share the pass
-					}
+		showActionSheetWithOptions(
+			{
+				options: ['Share pass', 'Cancel'],
+				cancelButtonIndex: 1
+			},
+			buttonIndex => {
+				if (buttonIndex === 0) {
+					// Share the pass
 				}
-			);
-		}
+			}
+		);
 	};
 
 	return (
