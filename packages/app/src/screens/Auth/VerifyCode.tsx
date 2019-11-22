@@ -7,8 +7,9 @@ import {
 } from 'react-native';
 import { useVerifyCodeMutation } from '@move/core';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { storeUserData } from '../../helpers';
+import { UserContext } from '../../contexts/UserContext';
 import styles from './styles';
+import { storeUserData } from '../../helpers';
 
 interface VerifyCodeProps {
 	route: {
@@ -22,12 +23,14 @@ interface VerifyCodeProps {
 const VerifyCode = ({ route, navigation }: VerifyCodeProps) => {
 	const { phoneNumber } = route.params;
 	const [code, setCode] = React.useState('');
+	const { setUser } = React.useContext(UserContext);
 	const [{ data }, executeMutation] = useVerifyCodeMutation();
 	const handleTextChange = (text: string) => setCode(text);
 
 	React.useEffect(() => {
 		if (data && data.verifyCode) {
 			storeUserData(data.verifyCode);
+			setUser(data.verifyCode);
 			navigation.navigate('Main');
 		}
 	}, [data]);

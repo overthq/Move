@@ -11,6 +11,7 @@ interface Settings {
 
 interface UserContextValue {
 	user: User | null;
+	setUser(user: User | null): void;
 	settings: Settings | null;
 	toggleSetting(setting: keyof Settings): void;
 	logOut(): void;
@@ -18,6 +19,7 @@ interface UserContextValue {
 
 export const UserContext = React.createContext<UserContextValue>({
 	user: null,
+	setUser: () => {},
 	settings: null,
 	toggleSetting: () => {},
 	logOut: () => {}
@@ -94,7 +96,9 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
 	};
 
 	return (
-		<UserContext.Provider value={{ user, logOut, settings, toggleSetting }}>
+		<UserContext.Provider
+			value={{ user, setUser, logOut, settings, toggleSetting }}
+		>
 			{loading ? <AppLoading /> : children}
 		</UserContext.Provider>
 	);
