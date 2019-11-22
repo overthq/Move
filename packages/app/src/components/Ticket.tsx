@@ -14,8 +14,10 @@ const Ticket = ({ origin, destination, quantity }: TicketProps) => {
 	const openActionSheet = () => {
 		showActionSheetWithOptions(
 			{
+				title: `${origin} to ${destination} - ${quantity} units`,
 				options: ['Share pass', 'Cancel'],
-				cancelButtonIndex: 1
+				cancelButtonIndex: 1,
+				tintColor: '#100100'
 			},
 			buttonIndex => {
 				if (buttonIndex === 0) {
