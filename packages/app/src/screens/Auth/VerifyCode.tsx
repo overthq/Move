@@ -12,11 +12,7 @@ import styles from './styles';
 import { storeUserData } from '../../helpers';
 
 interface VerifyCodeProps {
-	route: {
-		params: {
-			phoneNumber: string;
-		};
-	};
+	route: any;
 	navigation: StackNavigationProp<any>;
 }
 
