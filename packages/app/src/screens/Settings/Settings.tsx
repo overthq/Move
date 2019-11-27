@@ -3,13 +3,15 @@ import {
 	View,
 	Text,
 	TouchableOpacity,
-	FlatList,
 	StyleSheet,
+	Dimensions,
 	Switch
 } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { UserContext, getSettingName } from '../../contexts/UserContext';
 import { StackNavigationProp } from '@react-navigation/stack';
+
+const { width } = Dimensions.get('window');
 
 const settingScreens = [
 	{
@@ -47,35 +49,13 @@ const SettingsItemToggle = ({
 }: SettingsItemToggleProps) => (
 	<View style={styles.itemContainer}>
 		<Text style={styles.itemName}>{name}</Text>
-		<Switch value={value} onValueChange={toggle} />
+		<Switch
+			value={value}
+			onValueChange={toggle}
+			trackColor={{ true: '#505050', false: '#F2F2F7' }}
+		/>
 	</View>
 );
-
-const ToggleSettings = () => {
-	const { logOut, settings, toggleSetting } = React.useContext(UserContext);
-	return (
-		<>
-			{settings &&
-				Object.entries(settings).map(([setting, value]) => (
-					<SettingsItemToggle
-						key={setting}
-						name={getSettingName(setting as keyof typeof settings)}
-						value={value}
-						toggle={() => toggleSetting(setting as keyof typeof settings)}
-					/>
-				))}
-			<TouchableOpacity
-				style={[
-					styles.itemContainer,
-					{ justifyContent: 'center', marginTop: 10 }
-				]}
-				onPress={logOut}
-			>
-				<Text style={[styles.itemName, { color: '#E83C3C' }]}>Log Out</Text>
-			</TouchableOpacity>
-		</>
-	);
-};
 
 const UserDetails = () => {
 	const { user } = React.useContext(UserContext);
@@ -93,39 +73,73 @@ interface SettingsProps {
 	navigation: StackNavigationProp<any>;
 }
 
-const Settings = ({ navigation }: SettingsProps) => (
-	<View style={{ flex: 1, backgroundColor: '#232323' }}>
-		<FlatList
-			data={settingScreens}
-			keyExtractor={page => page.routeName}
-			ListHeaderComponent={UserDetails}
-			ListFooterComponent={ToggleSettings}
-			renderItem={({ item, index }) => (
-				<SettingsItem
-					key={index}
-					name={item.name}
-					onPress={() => navigation.navigate(item.routeName)}
-				/>
-			)}
-		/>
-	</View>
-);
+const Settings = ({ navigation }: SettingsProps) => {
+	const { logOut, settings, toggleSetting } = React.useContext(UserContext);
+
+	return (
+		<View style={{ flex: 1, backgroundColor: '#E8E8E8' }}>
+			<UserDetails />
+			<View
+				style={{
+					alignSelf: 'center',
+					width: width - 20,
+					borderRadius: 6,
+					overflow: 'hidden'
+				}}
+			>
+				{settingScreens.map(({ name, routeName }, index) => (
+					<SettingsItem
+						key={index}
+						name={name}
+						onPress={() => navigation.navigate(routeName)}
+					/>
+				))}
+				{settings &&
+					Object.entries(settings).map(([setting, value]) => (
+						<SettingsItemToggle
+							key={setting}
+							name={getSettingName(setting as keyof typeof settings)}
+							value={value}
+							toggle={() => toggleSetting(setting as keyof typeof settings)}
+						/>
+					))}
+			</View>
+			<TouchableOpacity
+				style={[
+					styles.itemContainer,
+					{
+						width: width - 20,
+						borderRadius: 6,
+						alignSelf: 'center',
+						justifyContent: 'center',
+						backgroundColor: '#C92614',
+						marginTop: 10
+					}
+				]}
+				onPress={logOut}
+			>
+				<Text style={[styles.itemName, { color: '#FFFFFF' }]}>Log Out</Text>
+			</TouchableOpacity>
+		</View>
+	);
+};
 
 const styles = StyleSheet.create({
 	itemContainer: {
 		width: '100%',
 		flexDirection: 'row',
+		alignSelf: 'center',
 		justifyContent: 'space-between',
 		alignItems: 'center',
 		padding: 10,
-		backgroundColor: '#191919',
-		borderColor: '#545454',
+		backgroundColor: '#FFFFFF',
+		borderColor: '#D3D3D3',
 		borderBottomWidth: 0.5
 	},
 	itemName: {
 		fontSize: 16,
 		fontWeight: '500',
-		color: '#D3D3D3'
+		color: '#161616'
 	},
 	titleContainer: {
 		padding: 10
