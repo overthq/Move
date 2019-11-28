@@ -18,4 +18,5 @@ jobs:
           expo-username: ${{ secrets.EXPO_USERNAME }}
           expo-password: ${{ secrets.EXPO_PASSWORD }}
       - run: yarn
+      - run: yarn workspace @move/core build
       - run: yarn workspace @move/app expo publish
