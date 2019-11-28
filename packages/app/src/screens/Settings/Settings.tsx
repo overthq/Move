@@ -5,7 +5,8 @@ import {
 	TouchableOpacity,
 	StyleSheet,
 	Dimensions,
-	Switch
+	Switch,
+	ViewStyle
 } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { UserContext, getSettingName } from '../../contexts/UserContext';
@@ -23,6 +24,7 @@ const settingScreens = [
 interface SettingsItemProps {
 	name: string;
 	onPress?: () => void;
+	style?: ViewStyle;
 }
 
 const SettingsItem = ({ name, onPress }: SettingsItemProps) => (
@@ -40,14 +42,16 @@ interface SettingsItemToggleProps {
 	name: string;
 	value: boolean;
 	toggle(): void;
+	style?: ViewStyle;
 }
 
 const SettingsItemToggle = ({
 	name,
 	value,
-	toggle
+	toggle,
+	style
 }: SettingsItemToggleProps) => (
-	<View style={styles.itemContainer}>
+	<View style={[styles.itemContainer, style]}>
 		<Text style={styles.itemName}>{name}</Text>
 		<Switch
 			value={value}
@@ -57,36 +61,24 @@ const SettingsItemToggle = ({
 	</View>
 );
 
-const UserDetails = () => {
-	const { user } = React.useContext(UserContext);
-	return (
-		<View style={styles.titleContainer}>
-			<Text style={styles.titleName}>
-				{user.firstName} {user.lastName}
-			</Text>
-			<Text style={styles.titleInfo}>{user.phoneNumber}</Text>
-		</View>
-	);
-};
-
 interface SettingsProps {
 	navigation: StackNavigationProp<any>;
 }
 
 const Settings = ({ navigation }: SettingsProps) => {
-	const { logOut, settings, toggleSetting } = React.useContext(UserContext);
+	const { user, logOut, settings, toggleSetting } = React.useContext(
+		UserContext
+	);
 
 	return (
-		<View style={{ flex: 1, backgroundColor: '#E8E8E8' }}>
-			<UserDetails />
-			<View
-				style={{
-					alignSelf: 'center',
-					width: width - 20,
-					borderRadius: 6,
-					overflow: 'hidden'
-				}}
-			>
+		<View style={styles.container}>
+			<View style={styles.titleContainer}>
+				<Text style={styles.titleName}>
+					{user.firstName} {user.lastName}
+				</Text>
+				<Text style={styles.titleInfo}>{user.phoneNumber}</Text>
+			</View>
+			<View style={styles.settingsOptionsContaner}>
 				{settingScreens.map(({ name, routeName }, index) => (
 					<SettingsItem
 						key={index}
@@ -95,36 +87,32 @@ const Settings = ({ navigation }: SettingsProps) => {
 					/>
 				))}
 				{settings &&
-					Object.entries(settings).map(([setting, value]) => (
+					Object.entries(settings).map(([setting, value], index) => (
 						<SettingsItemToggle
 							key={setting}
 							name={getSettingName(setting as keyof typeof settings)}
 							value={value}
 							toggle={() => toggleSetting(setting as keyof typeof settings)}
+							style={
+								index === Object.keys(settings).length - 1 && {
+									borderBottomWidth: 0
+								}
+							}
 						/>
 					))}
 			</View>
-			<TouchableOpacity
-				style={[
-					styles.itemContainer,
-					{
-						width: width - 20,
-						borderRadius: 6,
-						alignSelf: 'center',
-						justifyContent: 'center',
-						backgroundColor: '#C92614',
-						marginTop: 10
-					}
-				]}
-				onPress={logOut}
-			>
-				<Text style={[styles.itemName, { color: '#FFFFFF' }]}>Log Out</Text>
+			<TouchableOpacity style={styles.actionButton} onPress={logOut}>
+				<Text style={styles.actionButtonText}>Log Out</Text>
 			</TouchableOpacity>
 		</View>
 	);
 };
 
 const styles = StyleSheet.create({
+	container: {
+		flex: 1,
+		backgroundColor: '#E8E8E8'
+	},
 	itemContainer: {
 		width: '100%',
 		flexDirection: 'row',
@@ -142,16 +130,50 @@ const styles = StyleSheet.create({
 		color: '#161616'
 	},
 	titleContainer: {
-		padding: 10
+		backgroundColor: '#505050',
+		alignSelf: 'center',
+		width: width - 20,
+		borderRadius: 6,
+		marginVertical: 10,
+		padding: 10,
+		shadowOffset: { width: 0, height: 4 },
+		shadowColor: '#000000',
+		shadowOpacity: 0.1,
+		shadowRadius: 6
 	},
 	titleName: {
 		fontSize: 20,
-		color: '#777777',
+		color: '#D3D3D3',
 		fontWeight: 'bold'
 	},
 	titleInfo: {
-		color: '#777777',
+		color: '#D3D3D3',
 		fontSize: 16
+	},
+	settingsOptionsContaner: {
+		alignSelf: 'center',
+		width: width - 20,
+		borderRadius: 6,
+		overflow: 'hidden',
+		shadowOffset: { width: 0, height: 4 },
+		shadowColor: '#000000',
+		shadowOpacity: 0.1,
+		shadowRadius: 6
+	},
+	actionButton: {
+		width: width - 20,
+		borderRadius: 6,
+		alignSelf: 'center',
+		alignItems: 'center',
+		justifyContent: 'center',
+		backgroundColor: '#C92614',
+		marginTop: 10,
+		padding: 10
+	},
+	actionButtonText: {
+		fontSize: 16,
+		fontWeight: 'bold',
+		color: '#FFFFFF'
 	}
 });
 
