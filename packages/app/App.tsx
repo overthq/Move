@@ -1,19 +1,14 @@
 import React from 'react';
 import { Provider, createClient } from 'urql';
 import { useScreens } from 'react-native-screens';
-import * as Constants from 'expo-constants';
 import { ActionSheetProvider } from '@expo/react-native-action-sheet';
 import RootNavigator from './src/Root';
 import { UserProvider } from './src/contexts/UserContext';
+import env from './env';
 
 useScreens();
 
-const client = createClient({
-	url: `http://${Constants.default.manifest.debuggerHost
-		.split(':')
-		.shift()
-		.concat(':4000/')}`
-});
+const client = createClient({ url: env.apiUrl });
 
 const App = () => (
 	<UserProvider>
