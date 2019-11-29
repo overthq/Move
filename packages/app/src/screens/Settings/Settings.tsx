@@ -57,6 +57,7 @@ const SettingsItemToggle = ({
 			value={value}
 			onValueChange={toggle}
 			trackColor={{ true: '#505050', false: '#F2F2F7' }}
+			thumbColor='#FFFFFF'
 		/>
 	</View>
 );
@@ -69,6 +70,8 @@ const Settings = ({ navigation }: SettingsProps) => {
 	const { user, logOut, settings, toggleSetting } = React.useContext(
 		UserContext
 	);
+
+	// Figure out the right way to handle the log out.
 
 	return (
 		<View style={styles.container}>

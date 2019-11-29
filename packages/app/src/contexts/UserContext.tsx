@@ -56,9 +56,9 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
 
 	const fetchUser = async () => setUser(await getUserData());
 
-	const logOut = React.useCallback(async () => {
-		await removeUserData();
-		return setUser(null);
+	const logOut = React.useCallback(() => {
+		setUser(null);
+		removeUserData();
 	}, [setUser]);
 
 	// TODO(koredefashokun):
