@@ -32,9 +32,9 @@ jobs:
         run: yarn workspace @move/app expo publish
 
       - name: Publish to staging channel
-        if: github.ref == 'ref/heads/staging'
+        if: github.ref == 'refs/heads/staging'
         run: yarn workspace @move/app expo publish --release-channel staging
         
       - name: Publish to production channel
-        if: github.ref == 'ref/heads/master'
+        if: github.ref == 'refs/heads/master'
         run: yarn workspace @move/app expo publish --release-channel prod
