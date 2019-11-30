@@ -1,4 +1,3 @@
 [build]
-	base = "packages/dashboard"
 	publish = "packages/dashboard/build"
-	command = "cp ../../yarn.lock yarn.lock && yarn workspace @move/core build && yarn build"
+	command = "yarn workspace @move/core build && yarn workspace @move/dashboard build"
