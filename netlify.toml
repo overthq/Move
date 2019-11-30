@@ -1,0 +1,4 @@
+[build]
+	base = "packages/dashboard"
+	publish = "packages/dashboard/build"
+	command = "yarn workspace @move/core build && yarn build"
