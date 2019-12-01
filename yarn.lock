@@ -5507,6 +5507,13 @@ expo-barcode-scanner@~7.0.0:
     lodash "^4.6.0"
     prop-types "^15.6.0"
 
+expo-blur@~7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/expo-blur/-/expo-blur-7.0.0.tgz#0e21355d5bff27e07ae24d1cd74b64cd20dc2f61"
+  integrity sha512-ZTjg9sM/t9JaV5Hqxqt6xprFcw0871H55uYcvlqxkuMlBRTGM698t5ZVrYHmTbRq7w5bvxkZ47e/gm2gbOKyPA==
+  dependencies:
+    prop-types "^15.6.0"
+
 expo-camera@~7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/expo-camera/-/expo-camera-7.0.0.tgz#3beee6c88df4d87dc3d0daefc8a9b3f5864a63bd"
