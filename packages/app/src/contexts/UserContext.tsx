@@ -17,6 +17,7 @@ interface UserContextValue {
 	logOut(): void;
 }
 
+/* eslint-disable @typescript-eslint/no-empty-function */
 export const UserContext = React.createContext<UserContextValue>({
 	user: null,
 	setUser: () => {},

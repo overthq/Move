@@ -2,7 +2,6 @@ import React from 'react';
 import {
 	View,
 	Text,
-	TouchableOpacity,
 	StyleSheet,
 	Dimensions,
 	Alert,
@@ -12,8 +11,6 @@ import Modalize from 'react-native-modalize';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import { Camera } from 'expo-camera';
 import * as LocalAuthentication from 'expo-local-authentication';
-import { BlurView } from 'expo-blur';
-import { Feather, FontAwesome5 } from '@expo/vector-icons';
 import { useUseTicketMutation } from '@move/core';
 import SuccessModal from './SuccessModal';
 import ScannerOverlay from './ScannerOverlay';
