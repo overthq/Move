@@ -11,6 +11,8 @@ interface HomeProps {
 	navigation: StackNavigationProp<any>;
 }
 
+// TODO: Begin working on new method to access the settings page
+
 const Home = ({ navigation }: HomeProps) => {
 	const { user } = React.useContext(UserContext);
 	const modalRef = React.useRef<Modalize>(null);
@@ -18,10 +20,7 @@ const Home = ({ navigation }: HomeProps) => {
 
 	return (
 		<View style={styles.container}>
-			<Scanner
-				userId={userId}
-				goToSettings={() => navigation.navigate('Settings')}
-			/>
+			<Scanner {...{ userId }} />
 			<Tickets {...{ userId, modalRef }} />
 			<PurchasePassModal {...{ modalRef, userId }} />
 		</View>

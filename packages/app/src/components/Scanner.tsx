@@ -12,7 +12,8 @@ import Modalize from 'react-native-modalize';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import { Camera } from 'expo-camera';
 import * as LocalAuthentication from 'expo-local-authentication';
-import { Feather } from '@expo/vector-icons';
+import { BlurView } from 'expo-blur';
+import { Feather, FontAwesome5 } from '@expo/vector-icons';
 import { useUseTicketMutation } from '@move/core';
 import SuccessModal from './SuccessModal';
 import ScannerOverlay from './ScannerOverlay';
@@ -23,15 +24,34 @@ const { width, height } = Dimensions.get('screen');
 
 interface ScannerProps {
 	userId: string;
-	goToSettings(): void;
 }
 
-const Scanner = ({ userId, goToSettings }: ScannerProps) => {
+const Scanner = ({ userId }: ScannerProps) => {
 	const [success, setSuccess] = React.useState(false);
+	const [active, setActive] = React.useState(true);
+	const { settings } = React.useContext(UserContext);
 	const [{ data }, executeMutation] = useUseTicketMutation();
 	const successModalRef = React.useRef<Modalize>(null);
 	const fingerprintModalRef = React.useRef<Modalize>(null);
-	const { settings } = React.useContext(UserContext);
+	const cameraRef = React.useRef<Camera>(null);
+
+	React.useEffect(() => {
+		const activityTimeout = setTimeout(() => {
+			if (!success && active) {
+				cameraRef.current && cameraRef.current.pausePreview();
+				/*
+					We set this state to:
+					- Change the text in the scanner info,
+					- Replace the scanner image with a refresh button.
+					- Blur the paused preview.
+				*/
+				setActive(false);
+			}
+		}, 10000);
+		return () => {
+			clearTimeout(activityTimeout);
+		};
+	}, [success, active]);
 
 	React.useEffect(() => {
 		if (data && data.useTicket) {
@@ -71,12 +91,8 @@ const Scanner = ({ userId, goToSettings }: ScannerProps) => {
 					barCodeTypes: [BarCodeScanner.Constants.BarCodeType.qr]
 				}}
 				onBarCodeScanned={success ? undefined : handleBarCodeScanned}
+				ref={cameraRef}
 			>
-				<View style={styles.actionsBar}>
-					<TouchableOpacity onPress={goToSettings}>
-						<Feather name='user' color='#FFFFFF' size={30} />
-					</TouchableOpacity>
-				</View>
 				<ScannerOverlay />
 				<View style={styles.scannerInfoContainer}>
 					<Text style={styles.scannerInfo}>
@@ -94,15 +110,13 @@ const styles = StyleSheet.create({
 	scanner: {
 		width,
 		height: height / 1.5,
-		justifyContent: 'space-around',
+		justifyContent: 'center',
 		alignItems: 'center',
 		padding: 20
 	},
-	actionsBar: {
-		flexDirection: 'row',
-		width: '100%'
-	},
 	scannerInfoContainer: {
+		position: 'absolute',
+		bottom: 40,
 		padding: 10,
 		borderRadius: 6,
 		backgroundColor: '#FFFFFF'

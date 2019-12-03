@@ -6,17 +6,7 @@ import CreditCards from './CreditCards';
 const SettingsStack = createStackNavigator();
 
 const Settings = () => (
-	<SettingsStack.Navigator
-		screenOptions={{
-			headerTitleStyle: {
-				color: '#D3D3D3'
-			},
-			headerStyle: {
-				backgroundColor: '#161616',
-				borderBottomColor: '#545454'
-			}
-		}}
-	>
+	<SettingsStack.Navigator>
 		<SettingsStack.Screen
 			name='Settings'
 			component={SettingsHome}

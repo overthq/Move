@@ -2,7 +2,7 @@ import Constants from 'expo-constants';
 
 const ENV = {
 	dev: {
-		apiUrl: `http://${Constants.default.manifest.debuggerHost
+		apiUrl: `http://${Constants.manifest.debuggerHost
 			.split(`:`)
 			.shift()
 			.concat(':4000/')}`
