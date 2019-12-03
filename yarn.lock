@@ -11910,10 +11910,10 @@ react-native-modalize@^1.2.1:
   resolved "https://registry.yarnpkg.com/react-native-modalize/-/react-native-modalize-1.2.2.tgz#c52280bf224ba3023b9236776bda913a9348c0d1"
   integrity sha512-rxNZOqW1aaDIbeb5Oc0bWsvEqWjCNqI9aZtXV4Ou7vcxbeDnGOf9M5vpixTDO6Q+WBARz0Mny/IfRJwrQcAgJQ==
 
-react-native-reanimated@~1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-1.2.0.tgz#9219227a52a5dfa4d34c324596d6726ccd874293"
-  integrity sha512-vkWRHrPK5qfHP/ZawlRoo38oeYe9NZaaOH/lmFxRcsKzaSK6x3H5ZPXI8lK6MfTLveqwo1QhJje3zIKXO4nQQw==
+react-native-reanimated@~1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-1.4.0.tgz#7f1acbf9be08492d834f512700570978052be2f9"
+  integrity sha512-tO7nSNNP+iRLVbkcSS5GXyDBb7tSI02+XuRL3/S39EAr35rnvUy2JfeLUQG+fWSObJjnMVhasUDEUwlENk8IXw==
 
 react-native-safe-area-context@~0.3.6:
   version "0.3.6"
