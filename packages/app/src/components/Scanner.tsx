@@ -11,11 +11,14 @@ import Modalize from 'react-native-modalize';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import { Camera } from 'expo-camera';
 import * as LocalAuthentication from 'expo-local-authentication';
+import { BlurView } from 'expo-blur';
 import { useUseTicketMutation } from '@move/core';
 import SuccessModal from './SuccessModal';
 import ScannerOverlay from './ScannerOverlay';
 import AndroidFingerprintModal from './AndroidFingerprintModal';
 import { UserContext } from '../contexts/UserContext';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { Feather } from '@expo/vector-icons';
 
 const { width, height } = Dimensions.get('screen');
 
@@ -36,12 +39,6 @@ const Scanner = ({ userId }: ScannerProps) => {
 		const activityTimeout = setTimeout(() => {
 			if (!success && active) {
 				cameraRef.current && cameraRef.current.pausePreview();
-				/*
-					We set this state to:
-					- Change the text in the scanner info,
-					- Replace the scanner image with a refresh button.
-					- Blur the paused preview.
-				*/
 				setActive(false);
 			}
 		}, 10000);
@@ -80,6 +77,11 @@ const Scanner = ({ userId }: ScannerProps) => {
 		}
 	};
 
+	const resumeScanning = () => {
+		setActive(true);
+		cameraRef.current && cameraRef.current.resumePreview();
+	};
+
 	return (
 		<>
 			<Camera
@@ -90,10 +92,24 @@ const Scanner = ({ userId }: ScannerProps) => {
 				onBarCodeScanned={success ? undefined : handleBarCodeScanned}
 				ref={cameraRef}
 			>
-				<ScannerOverlay />
+				{active ? (
+					<ScannerOverlay />
+				) : (
+					<BlurView tint='dark' intensity={50} style={styles.blurView}>
+						<TouchableOpacity
+							style={styles.refreshButton}
+							activeOpacity={0.8}
+							onPress={resumeScanning}
+						>
+							<Feather name='refresh-cw' size={40} />
+						</TouchableOpacity>
+					</BlurView>
+				)}
 				<View style={styles.scannerInfoContainer}>
 					<Text style={styles.scannerInfo}>
-						Point the camera at the QR code.
+						{active
+							? 'Point the camera at the QR code'
+							: 'Camera preview paused'}
 					</Text>
 				</View>
 			</Camera>
@@ -108,12 +124,11 @@ const styles = StyleSheet.create({
 		width,
 		height: height / 1.5,
 		justifyContent: 'center',
-		alignItems: 'center',
-		padding: 20
+		alignItems: 'center'
 	},
 	scannerInfoContainer: {
 		position: 'absolute',
-		bottom: 40,
+		bottom: 25,
 		padding: 10,
 		borderRadius: 6,
 		backgroundColor: '#FFFFFF'
@@ -121,6 +136,20 @@ const styles = StyleSheet.create({
 	scannerInfo: {
 		fontSize: 16,
 		fontWeight: '500'
+	},
+	blurView: {
+		height: '100%',
+		width: '100%',
+		alignItems: 'center',
+		justifyContent: 'center'
+	},
+	refreshButton: {
+		width: 75,
+		height: 75,
+		borderRadius: 30,
+		backgroundColor: '#FFFFFF',
+		alignItems: 'center',
+		justifyContent: 'center'
 	}
 });
 
