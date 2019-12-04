@@ -4,7 +4,11 @@ Move is an app used to make payments for transportation services, via the scanni
 
 ## Motivation
 
-Move is being built to solve the problem of transportation payments in [Lagos State, Nigeria](https://en.wikipedia.org/wiki/Lagos_State). It is an application built to make it easier for commuters to pay for public transportation trips by purchasing bus passes with their debit/credit cards, and scanning QR codes on the buses to verify the passes.
+Move is being built to solve the problem of transportation payments by enabling commuters to pay for trips by purchasing bus passes on their mobile devices.
+
+## How it works
+
+Move is designed to be deployed as an on-premise solution for managing transportation payments in any area. Potential applications include: city/airport/university shuttles.
 
 ## Installation and Setup
 
