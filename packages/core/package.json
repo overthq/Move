@@ -17,6 +17,6 @@
 	},
 	"dependencies": {
 		"graphql-tag": "^2.10.1",
-		"urql": "^1.5.0"
+		"urql": "^1.6.3"
 	}
 }
