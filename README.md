@@ -1,6 +1,6 @@
 # Move
 
-Move is an app used to make payments for transportation services, via the scanning of QR codes.
+Move is an app used to make payments for transportation services in public areas, via the scanning of QR codes.
 
 ## Motivation
 
@@ -8,11 +8,18 @@ Move is being built to solve the problem of transportation payments by enabling 
 
 ## How it works
 
-Move is designed to be deployed as an on-premise solution for managing transportation payments in any area. Potential applications include: city/airport/university shuttles.
+### For administrators
 
-## Installation and Setup
+Through our admin dashboard, administrators are able to view information about trips, routes and users. We also present analytics, to help you make data-driven decisions about your transportation services. Other features include:
 
-Run ``yarn`` to install the dependecies for the app.
+- Financial insights
+- Scheduled payments to transportation staff
+
+### For users
+
+On the app, users are able to purchase bus passes, which will be verified by scanning a QR code on the means of transport, before the trip begins. Perks of using this service include:
+
+- Mileage-based ride discounts
 
 ## License
 
