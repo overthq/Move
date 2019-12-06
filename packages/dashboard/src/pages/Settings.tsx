@@ -1,7 +1,9 @@
 import React from 'react';
 
-const Settings = () => {
-	return <div></div>;
-};
+const Settings = () => (
+	<div>
+		<h1 style={{ margin: 0 }}>Settings</h1>
+	</div>
+);
 
 export default Settings;

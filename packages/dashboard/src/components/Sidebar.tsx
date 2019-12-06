@@ -1,22 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import { Home, Settings, Map } from 'react-feather';
 
 const links = [
 	{
 		label: 'Home',
-		icon: <Home size={16} />,
 		path: '/'
 	},
 	{
 		label: 'Bus Stops',
-		icon: <Map size={16} />,
 		path: '/stops'
 	},
 	{
 		label: 'Settings',
-		icon: <Settings size={16} />,
 		path: '/settings'
 	}
 ];
@@ -46,7 +42,7 @@ const SidebarLink = styled(NavLink)`
 
 const SidebarNav = styled.nav`
 	height: 100%;
-	width: 200px;
+	width: 225px;
 	background-color: #ffffff;
 	display: flex;
 	flex-direction: column;
@@ -55,10 +51,9 @@ const SidebarNav = styled.nav`
 
 const Sidebar = () => (
 	<SidebarNav>
-		{links.map(({ label, icon, path }) => (
+		{links.map(({ label, path }) => (
 			<SidebarLink exact key={label} to={path}>
-				<div style={{ marginRight: 5 }}>{icon}</div>
-				<span>{label}</span>
+				{label}
 			</SidebarLink>
 		))}
 	</SidebarNav>
