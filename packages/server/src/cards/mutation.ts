@@ -3,14 +3,14 @@ import { tokenizeCard } from './helpers';
 const creditCardMutation = {
 	saveCard: async (_, { input }) => {
 		const { userId, cardNumber, cvv, expiryMonth, expiryYear } = input;
-		const creditCard = await tokenizeCard({
+		const card = await tokenizeCard({
 			userId,
 			cardNumber,
 			cvv,
 			expiryMonth,
 			expiryYear
 		});
-		return creditCard;
+		return card;
 	}
 };
 

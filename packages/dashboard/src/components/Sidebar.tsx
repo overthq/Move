@@ -19,7 +19,7 @@ const links = [
 
 const SidebarLink = styled(NavLink)`
 	width: calc(100% - 30px);
-	padding: 5px;
+	padding: 8px 10px;
 	border-radius: 4px;
 	color: #505050;
 	text-decoration: none;
@@ -35,9 +35,7 @@ const SidebarLink = styled(NavLink)`
 		background-color: #fafafa;
 	}
 
-	&:not(last-of-type) {
-		margin-top: 5px;
-	}
+	margin-bottom: 5px;
 `;
 
 const SidebarNav = styled.nav`

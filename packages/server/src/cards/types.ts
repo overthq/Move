@@ -1,4 +1,4 @@
-const CreditCard = `
+const Card = `
 	type CreditCard {
 		_id: ID!
 		userId: ID!
@@ -27,4 +27,4 @@ const CreditCard = `
 	}
 `;
 
-export default CreditCard;
+export default Card;

@@ -1,21 +1,21 @@
 import { model, Schema, Document } from 'mongoose';
 
-enum CreditCardEnum {
+enum CardEnum {
 	VISA = 'Visa',
 	MASTERCARD = 'MasterCard'
 }
 
-export interface CreditCardType extends Document {
+export interface CardType extends Document {
 	userId: string;
 	cardDigits: string;
 	cardBIN: string;
 	expiryMonth: string;
 	expiryYear: string;
-	cardType: CreditCardEnum;
+	cardType: CardEnum;
 	token: string;
 }
 
-const CreditCardSchema = new Schema(
+const CardSchema = new Schema(
 	{
 		userId: {
 			type: Schema.Types.ObjectId,
@@ -40,7 +40,7 @@ const CreditCardSchema = new Schema(
 		},
 		cardType: {
 			type: String,
-			enum: Object.values(CreditCardEnum),
+			enum: Object.values(CardEnum),
 			default: 'MasterCard'
 		},
 		token: {
@@ -51,4 +51,4 @@ const CreditCardSchema = new Schema(
 	{ timestamps: true }
 );
 
-export const CreditCard = model<CreditCardType>('CreditCard', CreditCardSchema);
+export const Card = model<CardType>('Card', CardSchema);

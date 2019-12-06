@@ -12,9 +12,9 @@ import BusStop from './busStops/types';
 import busStopMutation from './busStops/mutation';
 import busStopQuery from './busStops/query';
 
-import CreditCard from './creditCards/types';
-import creditCardMutation from './creditCards/mutation';
-import creditCardQuery from './creditCards/query';
+import Card from './cards/types';
+import cardMutation from './cards/mutation';
+import cardQuery from './cards/query';
 
 import Ticket from './tickets/types';
 import ticketMutation from './tickets/mutation';
@@ -29,21 +29,21 @@ const RootType = `
 	}
 `;
 
-const typeDefs = [RootType, User, Route, BusStop, CreditCard, Ticket];
+const typeDefs = [RootType, User, Route, BusStop, Card, Ticket];
 
 const resolvers = {
 	Mutation: {
 		...userMutation,
 		...routeMutation,
 		...busStopMutation,
-		...creditCardMutation,
+		...cardMutation,
 		...ticketMutation
 	},
 	Query: {
 		...userQuery,
 		...routeQuery,
 		...busStopQuery,
-		...creditCardQuery,
+		...cardQuery,
 		...ticketQuery
 	}
 };

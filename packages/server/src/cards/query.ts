@@ -1,8 +1,8 @@
-import { CreditCard } from '../models';
+import { Card } from '../models';
 
 const creditCardsQuery = {
 	creditCards: async (_, { userId }) => {
-		const usersCreditCards = await CreditCard.find({ userId });
+		const usersCreditCards = await Card.find({ userId });
 		return usersCreditCards;
 	}
 };

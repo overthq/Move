@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
-import RavePay, { CardDetails } from 'ravepay';
-import { User, CreditCard, CreditCardType } from '../models';
+import RavePay from 'ravepay';
+import { User, Card, CardType } from '../models';
 
 const { RAVE_API_PUBLIC_KEY, RAVE_API_SECRET_KEY } = process.env;
 const rave = new RavePay(
@@ -18,8 +18,8 @@ export const purchase = async (userId: string, amount: number) => {
 			);
 		}
 
-		const creditCard = await CreditCard.findOne({ userId: user.id });
-		if (!creditCard) {
+		const card = await Card.findOne({ userId: user.id });
+		if (!card) {
 			throw new Error('You have not linked your credit card this app.');
 		}
 
@@ -35,7 +35,7 @@ export const purchase = async (userId: string, amount: number) => {
 				body: JSON.stringify({
 					currency: 'NGN',
 					SECKEY: RAVE_API_SECRET_KEY,
-					token: creditCard.token,
+					token: card.token,
 					country: 'NG',
 					amount,
 					phonenumber: phoneNumber,
@@ -66,7 +66,11 @@ interface TokenizeCardInfo {
 	expiryYear: string;
 }
 
-type TokenizeCard = (info: TokenizeCardInfo) => Promise<CreditCardType>;
+// The functions in this file should be replaceable.
+// This means that we should be able to provide the same inputs to all providers
+// And get a normalized response.
+
+type TokenizeCard = (info: TokenizeCardInfo) => Promise<CardType>;
 
 export const tokenizeCard: TokenizeCard = async ({
 	userId,
@@ -80,7 +84,7 @@ export const tokenizeCard: TokenizeCard = async ({
 		if (!user) throw new Error('User does not exist');
 		const { firstName, lastName, phoneNumber } = user;
 
-		const cardDetails: CardDetails = {
+		const cardDetails = {
 			firstname: firstName,
 			lastname: lastName,
 			phonenumber: phoneNumber,
@@ -102,12 +106,12 @@ export const tokenizeCard: TokenizeCard = async ({
 
 		// Does this action not require an OTP?
 		const {
-			data: { card }
+			data: { card: cardInfo }
 		} = body;
-		const { last4digits, expirymonth, expiryyear, cardBIN } = card;
-		const [{ embedtoken: token }] = card.card_tokens;
+		const { last4digits, expirymonth, expiryyear, cardBIN } = cardInfo;
+		const [{ embedtoken: token }] = cardInfo.card_tokens;
 
-		const creditCard = await CreditCard.create({
+		const card = await Card.create({
 			userId,
 			cardDigits: last4digits,
 			expiryMonth: expirymonth,
@@ -116,7 +120,7 @@ export const tokenizeCard: TokenizeCard = async ({
 			token
 		});
 
-		return creditCard;
+		return card;
 	} catch (error) {
 		throw new Error('Error while making payment: ' + error.message);
 	}
