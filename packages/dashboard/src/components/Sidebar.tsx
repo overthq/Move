@@ -22,7 +22,7 @@ const links = [
 ];
 
 const SidebarLink = styled(NavLink)`
-	width: 100%;
+	width: calc(100% - 30px);
 	padding: 5px;
 	border-radius: 4px;
 	color: #505050;
@@ -40,16 +40,14 @@ const SidebarLink = styled(NavLink)`
 	}
 
 	&:not(last-of-type) {
-		margin-bottom: 5px;
+		margin-top: 10px;
 	}
 `;
 
 const SidebarNav = styled.nav`
 	height: 100%;
-	width: 10%;
-	max-width: 250px;
+	width: 200px;
 	background-color: #ffffff;
-	padding: 20px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -58,7 +56,7 @@ const SidebarNav = styled.nav`
 const Sidebar = () => (
 	<SidebarNav>
 		{links.map(({ label, icon, path }) => (
-			<SidebarLink key={label} to={path}>
+			<SidebarLink exact key={label} to={path}>
 				<div style={{ marginRight: 5 }}>{icon}</div>
 				<span>{label}</span>
 			</SidebarLink>
