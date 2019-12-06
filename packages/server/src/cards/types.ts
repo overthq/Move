@@ -1,5 +1,5 @@
 const Card = `
-	type CreditCard {
+	type Card {
 		_id: ID!
 		userId: ID!
 		cardDigits: String!
@@ -10,7 +10,7 @@ const Card = `
 		token: String!
 	}
 
-	input CreditCardInput {
+	input CardInput {
 		userId: ID!
 		cardNumber: String!
 		cvv: String!
@@ -19,11 +19,11 @@ const Card = `
 	}
 
 	extend type Query {
-		creditCards(userId: ID!): [CreditCard!]!
+		cards(userId: ID!): [Card!]!
 	}
 
 	extend type Mutation {
-		saveCard(input: CreditCardInput!): CreditCard!
+		saveCard(input: CardInput!): Card!
 	}
 `;
 

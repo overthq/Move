@@ -1,23 +1,24 @@
 import React from 'react';
 import { View, StyleSheet, KeyboardAvoidingView } from 'react-native';
-import { useCreditCardsQuery } from '@move/core';
+import { useCardsQuery } from '@move/core';
 import { UserContext } from '../../contexts/UserContext';
-import SaveCreditCard from '../../components/SaveCreditCard';
+import SaveCard from '../../components/SaveCard';
 
-// For some reason, the data.creditCards thing seems to be undefined.
+// For some reason, the data.cards thing seems to be undefined.
 // This is weird because the query does not return an error.
-// What is the best way to debug this sort of issue?
-const CreditCards = () => {
+
+const Cards = () => {
 	const { user } = React.useContext(UserContext);
-	const [{ data, error }] = useCreditCardsQuery({
+	const [{ data, error }] = useCardsQuery({
 		variables: { userId: user._id }
 	});
+
 	if (error) console.error(error);
-	const [creditCard] = data.creditCards;
+	const [card] = data.cards;
 
 	return (
 		<KeyboardAvoidingView behavior='padding' style={styles.container}>
-			{creditCard ? <View /> : <SaveCreditCard userId={user._id} />}
+			{card ? <View /> : <SaveCard userId={user._id} />}
 		</KeyboardAvoidingView>
 	);
 };
@@ -32,4 +33,4 @@ const styles = StyleSheet.create({
 	}
 });
 
-export default CreditCards;
+export default Cards;

@@ -1,21 +1,17 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import SettingsHome from './Settings';
-import CreditCards from './CreditCards';
+import Cards from './Cards';
 
 const SettingsStack = createStackNavigator();
 
 const Settings = () => (
-	<SettingsStack.Navigator>
+	<SettingsStack.Navigator headerMode='none'>
+		<SettingsStack.Screen name='Settings' component={SettingsHome} />
 		<SettingsStack.Screen
-			name='Settings'
-			component={SettingsHome}
-			options={{ title: 'Settings' }}
-		/>
-		<SettingsStack.Screen
-			name='CreditCards'
-			component={CreditCards}
-			options={{ title: 'Credit Cards' }}
+			name='Cards'
+			component={Cards}
+			options={{ title: 'Cards' }}
 		/>
 	</SettingsStack.Navigator>
 );

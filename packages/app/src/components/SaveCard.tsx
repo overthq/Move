@@ -11,13 +11,13 @@ import {
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useSaveCardMutation } from '@move/core';
 
-interface SaveCreditCardProps {
+interface SaveCardProps {
 	userId: string;
 }
 
 const { width } = Dimensions.get('window');
 
-const SaveCreditCard = ({ userId }: SaveCreditCardProps) => {
+const SaveCard = ({ userId }: SaveCardProps) => {
 	const [cardNumber, setCardNumber] = React.useState('');
 	const [cvv, setCvv] = React.useState('');
 	const [expiryMonth, setExpiryMonth] = React.useState('');
@@ -33,7 +33,7 @@ const SaveCreditCard = ({ userId }: SaveCreditCardProps) => {
 		<>
 			<TextInput
 				value={cardNumber}
-				onChangeText={value => setCardNumber(value)}
+				onChangeText={setCardNumber}
 				placeholder={'Card Number'}
 				style={styles.input}
 			/>
@@ -41,20 +41,20 @@ const SaveCreditCard = ({ userId }: SaveCreditCardProps) => {
 				<View style={styles.datesContainer}>
 					<TextInput
 						value={expiryMonth}
-						onChangeText={value => setExpiryMonth(value)}
+						onChangeText={setExpiryMonth}
 						placeholder={'Expiry Month'}
 						style={styles.datesInput}
 					/>
 					<TextInput
 						value={expiryYear}
-						onChangeText={value => setExpiryYear(value)}
+						onChangeText={setExpiryYear}
 						placeholder={'Expiry Year'}
 						style={styles.datesInput}
 					/>
 				</View>
 				<TextInput
 					value={cvv}
-					onChangeText={value => setCvv(value)}
+					onChangeText={setCvv}
 					placeholder={'CVV'}
 					secureTextEntry
 					style={styles.cvvInput}
@@ -126,4 +126,4 @@ const styles = StyleSheet.create({
 	}
 });
 
-export default SaveCreditCard;
+export default SaveCard;

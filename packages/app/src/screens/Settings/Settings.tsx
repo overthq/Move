@@ -16,8 +16,8 @@ const { width } = Dimensions.get('window');
 
 const settingScreens = [
 	{
-		name: 'Credit Cards',
-		routeName: 'CreditCards'
+		name: 'Cards',
+		routeName: 'Cards'
 	}
 ];
 
