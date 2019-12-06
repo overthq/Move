@@ -36,7 +36,7 @@ const SidebarLink = styled(NavLink)`
 	}
 
 	&:not(last-of-type) {
-		margin-top: 10px;
+		margin-top: 5px;
 	}
 `;
 
@@ -47,6 +47,7 @@ const SidebarNav = styled.nav`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	padding-top: 5px;
 `;
 
 const Sidebar = () => (
