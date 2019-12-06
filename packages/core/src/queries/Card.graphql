@@ -1,0 +1,12 @@
+query Cards($userId: ID!) {
+	Cards(userId: $userId) {
+		_id
+		userId
+		cardDigits
+		cardBIN
+		expiryMonth
+		expiryYear
+		cardType
+		token
+	}
+}
