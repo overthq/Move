@@ -1,17 +1,19 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
+
 import Sidebar from '../components/Sidebar';
+import Home from './Home';
 import Stops from './Stops';
 import Stop from './Stop';
+import Settings from './Settings';
 
 const AppContainer = styled.main`
 	height: 100%;
-	padding-left: 15px;
-	padding-right: 15px;
+	padding: 20px 20px 0 20px;
 	overflow-y: scroll;
 	flex-grow: 1;
-	background-color: #f2f5fa;
+	background-color: #fafafa;
 `;
 
 const AppWrapper = styled.div`
@@ -26,8 +28,10 @@ const AppRouter = () => (
 			<Sidebar />
 			<AppContainer>
 				<Switch>
+					<Route exact path='/' component={Home} />
 					<Route exact path='/stops' component={Stops} />
 					<Route path='/stops/:stopId' component={Stop} />
+					<Route path='/settings' component={Settings} />
 				</Switch>
 			</AppContainer>
 		</AppWrapper>

@@ -2,11 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-interface SidebarLinkProps {
-	label: string;
-	path: string;
-}
-
 const links = [
 	{
 		label: 'Home',
@@ -15,18 +10,30 @@ const links = [
 	{
 		label: 'Bus Stops',
 		path: '/stops'
+	},
+	{
+		label: 'Settings',
+		path: '/settings'
 	}
 ];
 
-const SidebarLinkWrapper = styled(NavLink)`
-	color: rgb(4, 34, 85);
-	font-weight: 500;
-	font-size: 20px;
+const SidebarLink = styled(NavLink)`
+	width: 100%;
+	padding: 5px;
+	border-radius: 4px;
+	color: #505050;
 	text-decoration: none;
-	&.active,
-	&:hover {
-		background-color: light-blue;
+	font-weight: 500;
+	font-size: 0.875rem;
+
+	&.active {
+		background-color: #d3d3d3;
 	}
+
+	&:hover:not(.active) {
+		background-color: #fafafa;
+	}
+
 	&:not(last-of-type) {
 		margin-bottom: 5px;
 	}
@@ -34,23 +41,21 @@ const SidebarLinkWrapper = styled(NavLink)`
 
 const SidebarNav = styled.nav`
 	height: 100%;
-	width: 15%;
+	width: 10%;
 	max-width: 250px;
 	background-color: #ffffff;
+	padding: 20px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
 `;
-
-const SidebarLink = ({ label, path }: SidebarLinkProps) => (
-	<SidebarLinkWrapper to={path}>{label}</SidebarLinkWrapper>
-);
 
 const Sidebar = () => (
 	<SidebarNav>
-		{links.map(link => (
-			<SidebarLink key={link.label} {...link} />
+		{links.map(({ label, path }) => (
+			<SidebarLink key={label} to={path}>
+				{label}
+			</SidebarLink>
 		))}
 	</SidebarNav>
 );
