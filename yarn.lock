@@ -11736,10 +11736,10 @@ range-parser@^1.2.1, range-parser@~1.2.1:
   resolved "https://registry.yarnpkg.com/range-parser/-/range-parser-1.2.1.tgz#3cf37023d199e1c24d1a55b84800c2f3e6468031"
   integrity sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==
 
-ravepay@^1.2.4:
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/ravepay/-/ravepay-1.2.4.tgz#7979d690e1cd1a45ef9887a132bda833e9001ac6"
-  integrity sha512-I0sgYCBrRauZyRTir9nXm0b1H2cWNmy89ZNH96ZqkjPTKuYbwS9jr85GEstcZ8sy8GJkULplpNIUjVC4Ubie/g==
+ravepay@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/ravepay/-/ravepay-1.3.0.tgz#37ed6b5c0f2a93c180b65e3967ea4ede85ed8813"
+  integrity sha512-tuT4cuLZ3bZU3esSa8I15QCJeEyhrkUMY8UoxFZBkjQgVZzT47w+MwMzaQ0xq5W8EdgKru71FMcRrL/omu9Q9w==
   dependencies:
     bluebird "^3.5.0"
     chai-as-promised-also-chain "^1.0.2"
