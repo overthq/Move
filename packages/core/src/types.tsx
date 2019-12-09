@@ -22,8 +22,8 @@ export type BusStopInput = {
 	name: Scalars['String'];
 };
 
-export type CreditCard = {
-	__typename?: 'CreditCard';
+export type Card = {
+	__typename?: 'Card';
 	_id: Scalars['ID'];
 	userId: Scalars['ID'];
 	cardDigits: Scalars['String'];
@@ -34,7 +34,7 @@ export type CreditCard = {
 	token: Scalars['String'];
 };
 
-export type CreditCardInput = {
+export type CardInput = {
 	userId: Scalars['ID'];
 	cardNumber: Scalars['String'];
 	cvv: Scalars['String'];
@@ -54,7 +54,7 @@ export type Mutation = {
 	verifyCode: User;
 	createRoute: Route;
 	createBusStop: BusStop;
-	saveCard: CreditCard;
+	saveCard: Card;
 	purchaseTicket: Ticket;
 	useTicket?: Maybe<Ticket>;
 	sendTicket: Ticket;
@@ -82,7 +82,7 @@ export type MutationCreateBusStopArgs = {
 };
 
 export type MutationSaveCardArgs = {
-	input: CreditCardInput;
+	input: CardInput;
 };
 
 export type MutationPurchaseTicketArgs = {
@@ -107,7 +107,7 @@ export type Query = {
 	route?: Maybe<Route>;
 	busStops: Array<BusStop>;
 	busStop: BusStop;
-	creditCards: Array<CreditCard>;
+	cards: Array<Card>;
 	tickets: Array<Ticket>;
 };
 
@@ -119,7 +119,7 @@ export type QueryBusStopArgs = {
 	id: Scalars['ID'];
 };
 
-export type QueryCreditCardsArgs = {
+export type QueryCardsArgs = {
 	userId: Scalars['ID'];
 };
 
@@ -188,8 +188,8 @@ export type SaveCardMutationVariables = {
 };
 
 export type SaveCardMutation = { __typename?: 'Mutation' } & {
-	saveCard: { __typename?: 'CreditCard' } & Pick<
-		CreditCard,
+	saveCard: { __typename?: 'Card' } & Pick<
+		Card,
 		| '_id'
 		| 'userId'
 		| 'cardDigits'
@@ -302,14 +302,14 @@ export type BusStopQuery = { __typename?: 'Query' } & {
 		};
 };
 
-export type CreditCardsQueryVariables = {
+export type CardsQueryVariables = {
 	userId: Scalars['ID'];
 };
 
-export type CreditCardsQuery = { __typename?: 'Query' } & {
-	creditCards: Array<
-		{ __typename?: 'CreditCard' } & Pick<
-			CreditCard,
+export type CardsQuery = { __typename?: 'Query' } & {
+	cards: Array<
+		{ __typename?: 'Card' } & Pick<
+			Card,
 			| '_id'
 			| 'userId'
 			| 'cardDigits'
@@ -574,9 +574,9 @@ export function useBusStopQuery(
 ) {
 	return Urql.useQuery<BusStopQuery>({ query: BusStopDocument, ...options });
 }
-export const CreditCardsDocument = gql`
-	query CreditCards($userId: ID!) {
-		creditCards(userId: $userId) {
+export const CardsDocument = gql`
+	query Cards($userId: ID!) {
+		cards(userId: $userId) {
 			_id
 			userId
 			cardDigits
@@ -589,13 +589,10 @@ export const CreditCardsDocument = gql`
 	}
 `;
 
-export function useCreditCardsQuery(
-	options: Omit<Urql.UseQueryArgs<CreditCardsQueryVariables>, 'query'> = {}
+export function useCardsQuery(
+	options: Omit<Urql.UseQueryArgs<CardsQueryVariables>, 'query'> = {}
 ) {
-	return Urql.useQuery<CreditCardsQuery>({
-		query: CreditCardsDocument,
-		...options
-	});
+	return Urql.useQuery<CardsQuery>({ query: CardsDocument, ...options });
 }
 export const RouteDocument = gql`
 	query Route($id: ID!) {

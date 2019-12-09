@@ -1,5 +1,5 @@
 query Cards($userId: ID!) {
-	Cards(userId: $userId) {
+	cards(userId: $userId) {
 		_id
 		userId
 		cardDigits
