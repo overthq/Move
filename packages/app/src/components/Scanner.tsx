@@ -44,7 +44,7 @@ const Scanner = ({ userId }: ScannerProps) => {
 				cameraRef.current.pausePreview();
 				setActive(false);
 			}
-		}, 10000);
+		}, 25000);
 
 		return () => {
 			clearTimeout(activityTimeout);
@@ -53,8 +53,10 @@ const Scanner = ({ userId }: ScannerProps) => {
 
 	useFocusEffect(
 		React.useCallback(() => {
-			setActive(true);
-			cameraRef.current.resumePreview();
+			if (!active) {
+				setActive(true);
+				cameraRef.current.resumePreview();
+			}
 			return () => {
 				cameraRef.current.pausePreview();
 				setActive(false);
