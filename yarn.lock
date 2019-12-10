@@ -2899,12 +2899,11 @@
     lodash "^4.5.0"
     prop-types "^15.6.1"
 
-"@urql/exchange-graphcache@^1.0.0-rc.9":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@urql/exchange-graphcache/-/exchange-graphcache-1.1.1.tgz#1193ad33d4b8a2030cc26f761968fb050862d2af"
-  integrity sha512-HiG/GDoPflH43S32A32oqyPgyzyISPF1pUizQfAg1ciGgrBCp+ouBWtW1rY1QTcaBcFNWK30Pv+E8YLq0O0nPg==
+"@urql/exchange-graphcache@^1.2.2":
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/@urql/exchange-graphcache/-/exchange-graphcache-1.2.2.tgz#1662da4f280b3e645624710f2f03d30b3f5d045c"
+  integrity sha512-I3xs8Jhb4SWP2erQBLdsM7TJP7SVSgTPEr6M8XxHmNtogQ3R99VW8+KYy0EE0k+Uxu7sGeSGsEfRjkKRL9TK3g==
   dependencies:
-    pessimism "^1.1.4"
     wonka "^3.2.1"
 
 "@webassemblyjs/ast@1.8.5":
@@ -11126,11 +11125,6 @@ performance-now@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
   integrity sha1-Ywn04OX6kT7BxpMHrjZLSzd8nns=
-
-pessimism@^1.1.4:
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/pessimism/-/pessimism-1.1.4.tgz#9a83bde165a773bb65a0e77551a9960a28df0741"
-  integrity sha512-MZypBlwcfyd+v53cUeY4188rX9PPZYe7UfdBxenfzVaeW64UX4yGk+xNUp6FTBeqQfRw1m9z2eLFGHQrZp0gJw==
 
 picomatch@^2.0.4, picomatch@^2.0.5:
   version "2.0.7"
