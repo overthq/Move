@@ -2263,10 +2263,10 @@
   resolved "https://registry.yarnpkg.com/@react-native-community/masked-view/-/masked-view-0.1.5.tgz#25421be6cd943a4b1660b62cfbcd45be8891462c"
   integrity sha512-Lj1DzfCmW0f4HnmHtEuX8Yy2f7cnUA8r5KGGUuDDGtQt1so6QJkKeUmsnLo2zYDtsF8due6hvIL06Vdo5xxuLQ==
 
-"@react-navigation/core@^5.0.0-alpha.24":
-  version "5.0.0-alpha.24"
-  resolved "https://registry.yarnpkg.com/@react-navigation/core/-/core-5.0.0-alpha.24.tgz#e56ecbcf4f78ae9261bb1facdb40576219e4542a"
-  integrity sha512-Nalwv41OM9cui7+xQNWrSJjGInWValC7guGNh58VqKqq8CUPvbEqAtWLqXDZj9VksbUu5Tq9I/mK+BpUMkUFrw==
+"@react-navigation/core@^5.0.0-alpha.26":
+  version "5.0.0-alpha.26"
+  resolved "https://registry.yarnpkg.com/@react-navigation/core/-/core-5.0.0-alpha.26.tgz#7ece96142015c962c1a4d6427dce35623ac14085"
+  integrity sha512-/1FWBgO0QEQ+ppPVY8RIiJlBQTdMIozdgp8iByc654tDOCK0mledomsWt7agRCCP/tVDrNA9wPjvG5JmDro0EQ==
   dependencies:
     escape-string-regexp "^2.0.0"
     query-string "^6.9.0"
