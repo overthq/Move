@@ -4,16 +4,13 @@ import { useCardsQuery } from '@move/core';
 import { UserContext } from '../../contexts/UserContext';
 import SaveCard from '../../components/SaveCard';
 
-// For some reason, the data.cards thing seems to be undefined.
-// This is weird because the query does not return an error.
-
 const Cards = () => {
 	const { user } = React.useContext(UserContext);
-	const [{ data, error }] = useCardsQuery({
+	const [{ fetching, data }] = useCardsQuery({
 		variables: { userId: user._id }
 	});
 
-	if (error) console.error(error);
+	if (fetching) return null;
 	const [card] = data.cards;
 
 	return (
@@ -27,7 +24,7 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		paddingHorizontal: 15,
-		backgroundColor: '#232323',
+		backgroundColor: '#E8E8E8',
 		alignItems: 'center',
 		justifyContent: 'center'
 	}

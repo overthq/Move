@@ -4,13 +4,14 @@ import {
 	Text,
 	TouchableOpacity,
 	StyleSheet,
-	Dimensions,
-	Switch,
-	ViewStyle
+	Dimensions
 } from 'react-native';
-import { Feather } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/core';
 import { UserContext, getSettingName } from '../../contexts/UserContext';
-import { StackNavigationProp } from '@react-navigation/stack';
+import {
+	SettingsItem,
+	SettingsItemToggle
+} from '../../components/SettingsItem';
 
 const { width } = Dimensions.get('window');
 
@@ -21,57 +22,11 @@ const settingScreens = [
 	}
 ];
 
-interface SettingsItemProps {
-	name: string;
-	onPress?: () => void;
-	style?: ViewStyle;
-}
-
-const SettingsItem = ({ name, onPress }: SettingsItemProps) => (
-	<TouchableOpacity
-		activeOpacity={0.7}
-		style={styles.itemContainer}
-		{...{ onPress }}
-	>
-		<Text style={styles.itemName}>{name}</Text>
-		<Feather name='chevron-right' size={18} color='#545454' />
-	</TouchableOpacity>
-);
-
-interface SettingsItemToggleProps {
-	name: string;
-	value: boolean;
-	toggle(): void;
-	style?: ViewStyle;
-}
-
-const SettingsItemToggle = ({
-	name,
-	value,
-	toggle,
-	style
-}: SettingsItemToggleProps) => (
-	<View style={[styles.itemContainer, style]}>
-		<Text style={styles.itemName}>{name}</Text>
-		<Switch
-			value={value}
-			onValueChange={toggle}
-			trackColor={{ true: '#505050', false: '#F2F2F7' }}
-			thumbColor='#FFFFFF'
-		/>
-	</View>
-);
-
-interface SettingsProps {
-	navigation: StackNavigationProp<any>;
-}
-
-const Settings = ({ navigation }: SettingsProps) => {
+const Settings = () => {
 	const { user, logOut, settings, toggleSetting } = React.useContext(
 		UserContext
 	);
-
-	// Figure out the right way to handle the log out.
+	const { navigate } = useNavigation();
 
 	return (
 		<View style={styles.container}>
@@ -86,21 +41,22 @@ const Settings = ({ navigation }: SettingsProps) => {
 					<SettingsItem
 						key={index}
 						name={name}
-						onPress={() => navigation.navigate(routeName)}
+						onPress={() => navigate(routeName)}
+						borderBottom={index !== settingScreens.length - 1}
 					/>
 				))}
+			</View>
+			<View style={styles.settingsOptionsContaner}>
 				{settings &&
-					Object.entries(settings).map(([setting, value], index) => (
+					Object.entries(
+						settings
+					).map(([setting, value]: [keyof typeof settings, boolean], index) => (
 						<SettingsItemToggle
 							key={setting}
-							name={getSettingName(setting as keyof typeof settings)}
+							name={getSettingName(setting)}
 							value={value}
-							toggle={() => toggleSetting(setting as keyof typeof settings)}
-							style={
-								index === Object.keys(settings).length - 1 && {
-									borderBottomWidth: 0
-								}
-							}
+							toggle={() => toggleSetting(setting)}
+							borderBottom={index !== Object.keys(settings).length - 1}
 						/>
 					))}
 			</View>
@@ -114,43 +70,24 @@ const Settings = ({ navigation }: SettingsProps) => {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
+		alignItems: 'center',
+		justifyContent: 'center',
 		backgroundColor: '#E8E8E8'
 	},
-	itemContainer: {
-		width: '100%',
-		flexDirection: 'row',
-		alignSelf: 'center',
-		justifyContent: 'space-between',
-		alignItems: 'center',
-		padding: 10,
-		backgroundColor: '#FFFFFF',
-		borderColor: '#D3D3D3',
-		borderBottomWidth: 0.5
-	},
-	itemName: {
-		fontSize: 16,
-		fontWeight: '500',
-		color: '#161616'
-	},
 	titleContainer: {
-		backgroundColor: '#505050',
 		alignSelf: 'center',
+		alignItems: 'center',
+		justifyContent: 'space-between',
 		width: width - 20,
-		borderRadius: 6,
-		marginVertical: 10,
-		padding: 10,
-		shadowOffset: { width: 0, height: 4 },
-		shadowColor: '#000000',
-		shadowOpacity: 0.1,
-		shadowRadius: 6
+		marginVertical: 10
 	},
 	titleName: {
 		fontSize: 20,
-		color: '#D3D3D3',
-		fontWeight: 'bold'
+		color: '#161616',
+		fontWeight: '500'
 	},
 	titleInfo: {
-		color: '#D3D3D3',
+		color: '#505050',
 		fontSize: 16
 	},
 	settingsOptionsContaner: {
@@ -166,7 +103,6 @@ const styles = StyleSheet.create({
 	actionButton: {
 		width: width - 20,
 		borderRadius: 6,
-		alignSelf: 'center',
 		alignItems: 'center',
 		justifyContent: 'center',
 		backgroundColor: '#C92614',

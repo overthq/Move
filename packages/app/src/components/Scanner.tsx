@@ -9,7 +9,7 @@ import {
 	Platform
 } from 'react-native';
 import Modalize from 'react-native-modalize';
-import { useFocusEffect } from '@react-navigation/core';
+import { useFocusEffect, useNavigation } from '@react-navigation/core';
 import { Feather } from '@expo/vector-icons';
 import { Constants } from 'expo-barcode-scanner';
 import { Camera } from 'expo-camera';
@@ -37,6 +37,7 @@ const Scanner = ({ userId }: ScannerProps) => {
 	const successModalRef = React.useRef<Modalize>(null);
 	const fingerprintModalRef = React.useRef<Modalize>(null);
 	const cameraRef = React.useRef<Camera>(null);
+	const { navigate } = useNavigation();
 
 	React.useEffect(() => {
 		const activityTimeout = setTimeout(() => {
@@ -94,6 +95,10 @@ const Scanner = ({ userId }: ScannerProps) => {
 		setActive(true);
 		cameraRef.current.resumePreview();
 	};
+
+	React.useEffect(() => {
+		navigate('Settings');
+	}, []);
 
 	return (
 		<Camera

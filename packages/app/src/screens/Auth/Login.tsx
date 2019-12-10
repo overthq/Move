@@ -5,24 +5,20 @@ import {
 	TouchableOpacity,
 	KeyboardAvoidingView
 } from 'react-native';
+import { useNavigation } from '@react-navigation/core';
 import { useLoginMutation } from '@move/core';
-import { StackNavigationProp } from '@react-navigation/stack';
 import styles from './styles';
 
-interface LoginProps {
-	navigation: StackNavigationProp<any>;
-}
-
-const Login = ({ navigation }: LoginProps) => {
+const Login = () => {
 	const [phoneNumber, setPhoneNumber] = React.useState('');
 	const [{ data }, execute] = useLoginMutation();
+	const { navigate } = useNavigation();
 
-	const handleTextChange = (text: string) => setPhoneNumber(text);
-	const goToRegister = () => navigation.navigate('Register');
+	const goToRegister = () => navigate('Register');
 
 	React.useEffect(() => {
 		if (data && data.login) {
-			navigation.navigate('VerifyCode', { phoneNumber });
+			navigate('VerifyCode', { phoneNumber });
 		}
 	}, [data]);
 
@@ -34,7 +30,7 @@ const Login = ({ navigation }: LoginProps) => {
 			<TextInput
 				style={styles.input}
 				placeholder='Your phone number'
-				onChangeText={handleTextChange}
+				onChangeText={setPhoneNumber}
 				keyboardType='number-pad'
 			/>
 			<TouchableOpacity

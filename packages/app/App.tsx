@@ -1,12 +1,12 @@
 import React from 'react';
 import { Provider, createClient } from 'urql';
-import { useScreens } from 'react-native-screens';
+import { enableScreens } from 'react-native-screens';
 import { ActionSheetProvider } from '@expo/react-native-action-sheet';
 import RootNavigator from './src/Root';
 import { UserProvider } from './src/contexts/UserContext';
 import env from './env';
 
-useScreens();
+enableScreens();
 
 const client = createClient({ url: env.apiUrl });
 

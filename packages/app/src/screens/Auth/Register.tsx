@@ -5,23 +5,20 @@ import {
 	TouchableOpacity,
 	KeyboardAvoidingView
 } from 'react-native';
+import { useNavigation } from '@react-navigation/core';
 import { useRegisterMutation } from '@move/core';
-import { StackNavigationProp } from '@react-navigation/stack';
 import styles from './styles';
 
-interface RegisterProps {
-	navigation: StackNavigationProp<any>;
-}
-
-const Register = ({ navigation }: RegisterProps) => {
+const Register = () => {
 	const [firstName, setFirstName] = React.useState('');
 	const [lastName, setLastName] = React.useState('');
 	const [phoneNumber, setPhoneNumber] = React.useState('');
 	const [{ data }, execute] = useRegisterMutation();
+	const { navigate } = useNavigation();
 
 	React.useEffect(() => {
 		if (data && data.register) {
-			navigation.navigate('VerifyCode', { phoneNumber });
+			navigate('VerifyCode', { phoneNumber });
 		}
 	}, [data]);
 

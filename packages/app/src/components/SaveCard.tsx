@@ -34,7 +34,7 @@ const SaveCard = ({ userId }: SaveCardProps) => {
 			<TextInput
 				value={cardNumber}
 				onChangeText={setCardNumber}
-				placeholder={'Card Number'}
+				placeholder='Card Number'
 				style={styles.input}
 			/>
 			<View style={styles.groupInputsContainer}>
@@ -42,20 +42,20 @@ const SaveCard = ({ userId }: SaveCardProps) => {
 					<TextInput
 						value={expiryMonth}
 						onChangeText={setExpiryMonth}
-						placeholder={'Expiry Month'}
+						placeholder='Expiry Month'
 						style={styles.datesInput}
 					/>
 					<TextInput
 						value={expiryYear}
 						onChangeText={setExpiryYear}
-						placeholder={'Expiry Year'}
+						placeholder='Expiry Year'
 						style={styles.datesInput}
 					/>
 				</View>
 				<TextInput
 					value={cvv}
 					onChangeText={setCvv}
-					placeholder={'CVV'}
+					placeholder='CVV'
 					secureTextEntry
 					style={styles.cvvInput}
 				/>
@@ -77,7 +77,7 @@ const SaveCard = ({ userId }: SaveCardProps) => {
 
 const styles = StyleSheet.create({
 	input: {
-		backgroundColor: '#777777',
+		backgroundColor: '#FFFFFF',
 		height: 35,
 		paddingLeft: 10,
 		borderRadius: 5,
@@ -97,14 +97,14 @@ const styles = StyleSheet.create({
 	},
 	datesInput: {
 		flexBasis: width * 0.375 - 15,
-		backgroundColor: '#777777',
+		backgroundColor: '#FFFFFF',
 		height: 35,
 		paddingHorizontal: 10,
 		borderRadius: 5,
 		textAlign: 'center'
 	},
 	cvvInput: {
-		backgroundColor: '#777777',
+		backgroundColor: '#FFFFFF',
 		height: 35,
 		paddingHorizontal: 10,
 		borderRadius: 5,
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
 		flexBasis: width * 0.25 - 15
 	},
 	button: {
-		backgroundColor: '#D3D3D3',
+		backgroundColor: '#161616',
 		height: 35,
 		borderRadius: 5,
 		minWidth: '100%',
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
 	buttonText: {
 		fontSize: 16,
 		fontWeight: '500',
-		color: '#161616'
+		color: '#D3D3D3'
 	}
 });
 
