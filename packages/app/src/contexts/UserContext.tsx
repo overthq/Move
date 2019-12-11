@@ -88,9 +88,10 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
 			// That way, we can tell them to set it up in their device settings if they try to turn it on.
 			if (hasLocalAuth) settings.localAuth = true;
 		} finally {
-			Object.entries(settings).forEach(
-				([setting, value]: [(keyof typeof settings), boolean]) =>
-					dispatch({ [setting]: value })
+			Object.entries(
+				settings
+			).forEach(([setting, value]: [keyof typeof settings, boolean]) =>
+				dispatch({ [setting]: value })
 			);
 			setLoading(false);
 		}
