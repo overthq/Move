@@ -28,7 +28,7 @@ const SettingsOptions = () => {
 				))}
 			</View>
 			{settings && (
-				<View style={styles.container}>
+				<View style={[styles.container, { marginTop: 10 }]}>
 					{Object.entries(settings).map(
 						([setting, value]: [keyof typeof settings, boolean], index) => (
 							<SettingsItemToggle

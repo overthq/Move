@@ -90,7 +90,7 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
 		} finally {
 			Object.entries(
 				settings
-			).forEach(([setting, value]: [keyof typeof settings, boolean]) =>
+			).forEach(([setting, value]: [keyof Settings, boolean]) =>
 				dispatch({ [setting]: value })
 			);
 			setLoading(false);
