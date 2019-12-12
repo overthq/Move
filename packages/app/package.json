@@ -18,7 +18,7 @@
 		"@react-navigation/native": "^5.0.0-alpha.16",
 		"@react-navigation/native-stack": "^5.0.0-alpha.1",
 		"@react-navigation/stack": "^5.0.0-alpha.37",
-		"@urql/exchange-graphcache": "^1.0.0-rc.9",
+		"@urql/exchange-graphcache": "^1.2.2",
 		"expo": "^36.0.0",
 		"expo-barcode-scanner": "~8.0.0",
 		"expo-blur": "~8.0.0",
