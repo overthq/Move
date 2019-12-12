@@ -23,7 +23,7 @@ const Cards = () => {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		paddingHorizontal: 15,
+		padding: 15,
 		backgroundColor: '#E8E8E8',
 		alignItems: 'center',
 		justifyContent: 'center'

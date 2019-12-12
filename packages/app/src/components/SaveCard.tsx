@@ -42,13 +42,13 @@ const SaveCard = ({ userId }: SaveCardProps) => {
 					<TextInput
 						value={expiryMonth}
 						onChangeText={setExpiryMonth}
-						placeholder='Expiry Month'
+						placeholder='Exp. Month'
 						style={styles.datesInput}
 					/>
 					<TextInput
 						value={expiryYear}
 						onChangeText={setExpiryYear}
-						placeholder='Expiry Year'
+						placeholder='Exp. Year'
 						style={styles.datesInput}
 					/>
 				</View>
@@ -78,17 +78,17 @@ const SaveCard = ({ userId }: SaveCardProps) => {
 const styles = StyleSheet.create({
 	input: {
 		backgroundColor: '#FFFFFF',
-		height: 35,
+		height: 45,
 		paddingLeft: 10,
 		borderRadius: 5,
-		marginBottom: 10,
+		marginBottom: 15,
 		width: '100%'
 	},
 	groupInputsContainer: {
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 		width: '100%',
-		marginBottom: 10
+		marginBottom: 15
 	},
 	datesContainer: {
 		flexDirection: 'row',
@@ -96,24 +96,24 @@ const styles = StyleSheet.create({
 		width: '75%'
 	},
 	datesInput: {
-		flexBasis: width * 0.375 - 15,
+		flexBasis: width * 0.375 - 17.5,
 		backgroundColor: '#FFFFFF',
-		height: 35,
+		height: 45,
 		paddingHorizontal: 10,
 		borderRadius: 5,
 		textAlign: 'center'
 	},
 	cvvInput: {
 		backgroundColor: '#FFFFFF',
-		height: 35,
+		height: 45,
 		paddingHorizontal: 10,
 		borderRadius: 5,
 		textAlign: 'center',
-		flexBasis: width * 0.25 - 15
+		flexBasis: width * 0.25 - 20
 	},
 	button: {
 		backgroundColor: '#161616',
-		height: 35,
+		height: 40,
 		borderRadius: 5,
 		minWidth: '100%',
 		alignItems: 'center',
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
 	buttonText: {
 		fontSize: 16,
 		fontWeight: '500',
-		color: '#D3D3D3'
+		color: '#FFFFFF'
 	}
 });
 
