@@ -17,7 +17,7 @@
 		"@types/node": "^12.12.14",
 		"@types/node-fetch": "^2.5.2",
 		"eslint": "^6.7.2",
-		"nodemon": "^1.19.4",
+		"nodemon": "^2.0.2",
 		"ts-node": "^8.5.4",
 		"typescript": "^3.7.2"
 	},
