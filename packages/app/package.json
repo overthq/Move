@@ -15,7 +15,7 @@
 		"@move/core": "0.0.1",
 		"@react-native-community/masked-view": "0.1.5",
 		"@react-navigation/core": "^5.0.0-alpha.27",
-		"@react-navigation/native": "^5.0.0-alpha.16",
+		"@react-navigation/native": "^5.0.0-alpha.18",
 		"@react-navigation/native-stack": "^5.0.0-alpha.1",
 		"@react-navigation/stack": "^5.0.0-alpha.37",
 		"@urql/exchange-graphcache": "^1.2.2",

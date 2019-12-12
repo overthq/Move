@@ -2376,10 +2376,12 @@
   dependencies:
     "@react-navigation/routers" "^5.0.0-alpha.9"
 
-"@react-navigation/native@^5.0.0-alpha.16":
-  version "5.0.0-alpha.16"
-  resolved "https://registry.yarnpkg.com/@react-navigation/native/-/native-5.0.0-alpha.16.tgz#3b7e3649514ff2de1ce1ed8cf0723429379f4b48"
-  integrity sha512-qCAnvmwGk0T04nY6KBV2Rdb6kwVGlQuMZtxUidqrWVrGHMUtKFVF5WFcYtUAcZw1QlqWXUQSZmy+CFoxtFKjXQ==
+"@react-navigation/native@^5.0.0-alpha.18":
+  version "5.0.0-alpha.18"
+  resolved "https://registry.yarnpkg.com/@react-navigation/native/-/native-5.0.0-alpha.18.tgz#d09212d16b813258ae438eb123b55e223e1cdaea"
+  integrity sha512-VqHts/HX7Nzw6pIEjUeDucCT2T98dgM3gqaZCIjkna4IPHfBH0RuT9hJYQuUGYuTBVdoMTSDfMJ3GvIU+7nIDQ==
+  dependencies:
+    "@react-navigation/core" "^5.0.0-alpha.27"
 
 "@react-navigation/routers@^5.0.0-alpha.15":
   version "5.0.0-alpha.15"
