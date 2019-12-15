@@ -15,13 +15,6 @@ const ENV = {
 	}
 };
 
-const getEnvVars = (env = '') => {
-	if (!env) return ENV.dev;
-	if (env.includes('dev')) return ENV.dev;
-	if (env.includes('staging')) return ENV.staging;
-	if (env.includes('prod')) return ENV.prod;
-	if (env.includes('default')) return ENV.staging;
-	return ENV.staging;
-};
+const getEnvVars = (env = '') => (env ? ENV[env] || ENV.staging : ENV.dev);
 
 export default getEnvVars(Constants.manifest.releaseChannel);
