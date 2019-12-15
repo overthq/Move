@@ -2179,12 +2179,12 @@
     shortid "^2.2.15"
     use-subscription "^1.3.0"
 
-"@react-navigation/native-stack@^5.0.0-alpha.1":
-  version "5.0.0-alpha.1"
-  resolved "https://registry.yarnpkg.com/@react-navigation/native-stack/-/native-stack-5.0.0-alpha.1.tgz#37eb40ceda5d056adbb5c5efd44e6f7b5230347b"
-  integrity sha512-ediPTtVY926JkSE4kKB/yUdmzQGLU4RK9sEwL0wGu8cM4CFiChFhh0EVB+sD9dG9SRO5JHfvSjK7CxSUU9WwqQ==
+"@react-navigation/native-stack@^5.0.0-alpha.13":
+  version "5.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@react-navigation/native-stack/-/native-stack-5.0.0-alpha.13.tgz#75b727430a9efd4a757a5b6449502495e2910fc9"
+  integrity sha512-f8i+gee70/3Tolqt4hH4SYke1hoNnfpWO+leJqj+A6zbG76dPrvGlfwMpXAiAvuArFONyHhY14ddvNQWq2+xyQ==
   dependencies:
-    "@react-navigation/routers" "^5.0.0-alpha.9"
+    "@react-navigation/routers" "^5.0.0-alpha.15"
 
 "@react-navigation/native@^5.0.0-alpha.18":
   version "5.0.0-alpha.18"
@@ -2197,13 +2197,6 @@
   version "5.0.0-alpha.15"
   resolved "https://registry.yarnpkg.com/@react-navigation/routers/-/routers-5.0.0-alpha.15.tgz#0e6b06dd1c3f65512ced5797e81a19e3a5fd734b"
   integrity sha512-ZIBOxusqIwGxJYdfHyhgueqyWaCbPIEFAJ0AfQchogl43O/+DxgRgtyXLI1iIxN9KTRT3kOcgMdfpYa8Y8OugQ==
-  dependencies:
-    shortid "^2.2.15"
-
-"@react-navigation/routers@^5.0.0-alpha.9":
-  version "5.0.0-alpha.9"
-  resolved "https://registry.yarnpkg.com/@react-navigation/routers/-/routers-5.0.0-alpha.9.tgz#f91450e9211ae21fdf1d1a67848957c55f7c02a3"
-  integrity sha512-XaoukLDQxIgrLJyGnG95ArMrdz4IxMPehcsHdSK1sr2tJ88uYfMknLRbO+UNNxsJUAvtoX3+i17cbrixtNbVRw==
   dependencies:
     shortid "^2.2.15"
 
