@@ -2747,10 +2747,10 @@
     lodash "^4.5.0"
     prop-types "^15.6.1"
 
-"@urql/exchange-graphcache@^1.2.2":
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/@urql/exchange-graphcache/-/exchange-graphcache-1.2.2.tgz#1662da4f280b3e645624710f2f03d30b3f5d045c"
-  integrity sha512-I3xs8Jhb4SWP2erQBLdsM7TJP7SVSgTPEr6M8XxHmNtogQ3R99VW8+KYy0EE0k+Uxu7sGeSGsEfRjkKRL9TK3g==
+"@urql/exchange-graphcache@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@urql/exchange-graphcache/-/exchange-graphcache-2.0.0.tgz#9a52646cbb18ae5d4166f196c398e5be050e0930"
+  integrity sha512-yZQ/oTAlOAd3MgHp1axDeRCzg8Zz8RqgWVAxNmL/myc7we55oTnV7NPygw6V0CGe56PbpCUb4c4iQoqgIswebA==
   dependencies:
     wonka "^3.2.1"
 
