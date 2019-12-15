@@ -21,6 +21,10 @@ On the app, users are able to purchase bus passes, which will be verified by sca
 
 - Mileage-based ride discounts
 
+## Technical Details
+
+Although you could potentially host the service yourself, Move will primarily be a multi-tenant application, meaning that different entities can sign up for the service, and users can access the networks of all of them from the same client (our mobile app). Sort of the way Slack works.
+
 ## License
 
 GNU GPL V3 License
