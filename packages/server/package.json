@@ -19,7 +19,7 @@
 		"eslint": "^6.7.2",
 		"nodemon": "^2.0.2",
 		"ts-node": "^8.5.4",
-		"typescript": "^3.7.2"
+		"typescript": "^3.7.3"
 	},
 	"dependencies": {
 		"cors": "^2.8.5",
