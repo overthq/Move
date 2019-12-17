@@ -2169,10 +2169,10 @@
   resolved "https://registry.yarnpkg.com/@react-native-community/masked-view/-/masked-view-0.1.5.tgz#25421be6cd943a4b1660b62cfbcd45be8891462c"
   integrity sha512-Lj1DzfCmW0f4HnmHtEuX8Yy2f7cnUA8r5KGGUuDDGtQt1so6QJkKeUmsnLo2zYDtsF8due6hvIL06Vdo5xxuLQ==
 
-"@react-navigation/core@^5.0.0-alpha.27":
-  version "5.0.0-alpha.27"
-  resolved "https://registry.yarnpkg.com/@react-navigation/core/-/core-5.0.0-alpha.27.tgz#40a209910e284635570d539eeb0bd6cecb9f8124"
-  integrity sha512-R/pIxAyJaORLlUFZlwenN92Llo4pyWNRZJ190JTHDqL5T17yD0jokXoketl3+CO+jUgwesZqy7M4pSiMdSiDqA==
+"@react-navigation/core@^5.0.0-alpha.27", "@react-navigation/core@^5.0.0-alpha.28":
+  version "5.0.0-alpha.28"
+  resolved "https://registry.yarnpkg.com/@react-navigation/core/-/core-5.0.0-alpha.28.tgz#284d07114e6dd93a2b0bc06d2a23e72f27ea3bf2"
+  integrity sha512-GkRGb2F3lxj+F2B/N1Fih1KFFX0B5fnMlsHvuY14uU/7aEOdS0pUeOMMLBzrpQx3FhJDMGm9mIh68j28NEU2eg==
   dependencies:
     escape-string-regexp "^2.0.0"
     query-string "^6.9.0"
@@ -2186,12 +2186,12 @@
   dependencies:
     "@react-navigation/routers" "^5.0.0-alpha.15"
 
-"@react-navigation/native@^5.0.0-alpha.18":
-  version "5.0.0-alpha.18"
-  resolved "https://registry.yarnpkg.com/@react-navigation/native/-/native-5.0.0-alpha.18.tgz#d09212d16b813258ae438eb123b55e223e1cdaea"
-  integrity sha512-VqHts/HX7Nzw6pIEjUeDucCT2T98dgM3gqaZCIjkna4IPHfBH0RuT9hJYQuUGYuTBVdoMTSDfMJ3GvIU+7nIDQ==
+"@react-navigation/native@^5.0.0-alpha.20":
+  version "5.0.0-alpha.20"
+  resolved "https://registry.yarnpkg.com/@react-navigation/native/-/native-5.0.0-alpha.20.tgz#081f21aa06c7a329033f88345e44650a82421b59"
+  integrity sha512-as8/DLhBsifBNqJG/PnhEHcmiXiUFTa9QVIDCGe7BfXcpZjPI9pdeuCOKCBFwvLsCnfwZ48aQfnGHQrywbO0pA==
   dependencies:
-    "@react-navigation/core" "^5.0.0-alpha.27"
+    "@react-navigation/core" "^5.0.0-alpha.28"
 
 "@react-navigation/routers@^5.0.0-alpha.15":
   version "5.0.0-alpha.15"
