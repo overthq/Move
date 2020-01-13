@@ -12,7 +12,7 @@
 		"react-router-dom": "^5.0.1",
 		"react-scripts": "3.3.0",
 		"styled-components": "^4.4.1",
-		"urql": "^1.6.3"
+		"urql": "^1.8.1"
 	},
 	"devDependencies": {
 		"@types/jest": "24.0.23",

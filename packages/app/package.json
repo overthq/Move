@@ -36,7 +36,7 @@
 		"react-native-safe-area-context": "0.6.0",
 		"react-native-screens": "2.0.0-alpha.19",
 		"react-native-svg": "9.13.3",
-		"urql": "^1.6.3"
+		"urql": "^1.8.1"
 	},
 	"devDependencies": {
 		"@types/react": "^16.9.16",
