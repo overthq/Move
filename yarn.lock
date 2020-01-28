@@ -2169,13 +2169,14 @@
   resolved "https://registry.yarnpkg.com/@react-native-community/masked-view/-/masked-view-0.1.5.tgz#25421be6cd943a4b1660b62cfbcd45be8891462c"
   integrity sha512-Lj1DzfCmW0f4HnmHtEuX8Yy2f7cnUA8r5KGGUuDDGtQt1so6QJkKeUmsnLo2zYDtsF8due6hvIL06Vdo5xxuLQ==
 
-"@react-navigation/core@^5.0.0-alpha.27":
-  version "5.0.0-alpha.27"
-  resolved "https://registry.yarnpkg.com/@react-navigation/core/-/core-5.0.0-alpha.27.tgz#40a209910e284635570d539eeb0bd6cecb9f8124"
-  integrity sha512-R/pIxAyJaORLlUFZlwenN92Llo4pyWNRZJ190JTHDqL5T17yD0jokXoketl3+CO+jUgwesZqy7M4pSiMdSiDqA==
+"@react-navigation/core@^5.0.0-alpha.27", "@react-navigation/core@^5.0.0-alpha.37":
+  version "5.0.0-alpha.37"
+  resolved "https://registry.yarnpkg.com/@react-navigation/core/-/core-5.0.0-alpha.37.tgz#0e91dc2f1d46d646a5d63f882dc3c18a9e74a2cf"
+  integrity sha512-lTk7yx9jqzK3+yRxX+yz8v+1uw9aOaX1LfQFPpgwyJUAjQdZU9qqigSd/qZHtaOSg5XCOacjO+G4Qk9/hNp+Ag==
   dependencies:
     escape-string-regexp "^2.0.0"
     query-string "^6.9.0"
+    react-is "^16.12.0"
     shortid "^2.2.15"
     use-subscription "^1.3.0"
 
@@ -12214,10 +12215,10 @@ react-focus-lock@^2.2.1:
     use-callback-ref "^1.2.1"
     use-sidecar "^1.0.1"
 
-react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4:
-  version "16.10.2"
-  resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.10.2.tgz#984120fd4d16800e9a738208ab1fba422d23b5ab"
-  integrity sha512-INBT1QEgtcCCgvccr5/86CfD71fw9EPmDxgiJX4I2Ddr6ZsV6iFXsuby+qWJPtmNuMY0zByTsG4468P7nHuNWA==
+react-is@^16.12.0, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4:
+  version "16.12.0"
+  resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.12.0.tgz#2cc0fe0fba742d97fd527c42a13bec4eeb06241c"
+  integrity sha512-rPCkf/mWBtKc97aLL9/txD8DZdemK0vkA3JMLShjlJB3Pj3s+lpf1KaBzMfQrAmhMQB0n1cU/SUGgKKBCe837Q==
 
 react-native-animatable@^1.3.2:
   version "1.3.3"
