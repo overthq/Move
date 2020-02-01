@@ -14,7 +14,7 @@
 		"@expo/vector-icons": "^10.0.0",
 		"@move/core": "0.0.1",
 		"@react-native-community/masked-view": "0.1.5",
-		"@react-navigation/core": "^5.0.0-alpha.27",
+		"@react-navigation/core": "^5.0.0-alpha.37",
 		"@react-navigation/native": "^5.0.0-alpha.18",
 		"@react-navigation/native-stack": "^5.0.0-alpha.13",
 		"@react-navigation/stack": "^5.0.0-alpha.37",
