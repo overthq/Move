@@ -12434,10 +12434,10 @@ react-style-singleton@^2.0.0:
     invariant "^2.2.4"
     tslib "^1.0.0"
 
-react-wonka@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/react-wonka/-/react-wonka-1.0.3.tgz#2d997403be347489e1161cb58d502ac683499847"
-  integrity sha512-7ocCcMnSxc7zD06V6H2Er4PJNbHQL2bityy6aZPrsn2JqJSP4SEkCzdvCk+nQVKDDqO8Lk5L5F9GG7PUB8gGsA==
+react-wonka@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/react-wonka/-/react-wonka-2.0.1.tgz#75bdf03dbad8ceb8c1066216f635f05ce2b642a5"
+  integrity sha512-mM2UH2gnK5LLzaqVWd6JCLrB1vO3I4PN/sQZbjvzsjms4vSv+nKwelNUftM0KeC+LtTPC4GGsuxyu2XJnsCUTw==
 
 react@^16.12.0:
   version "16.12.0"
@@ -13088,7 +13088,7 @@ scheduler@0.15.0:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
 
-scheduler@^0.18.0:
+"scheduler@>= 0.16.0", scheduler@^0.18.0:
   version "0.18.0"
   resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.18.0.tgz#5901ad6659bc1d8f3fdaf36eb7a67b0d6746b1c4"
   integrity sha512-agTSHR1Nbfi6ulI0kYNK0203joW2Y5W4po4l+v03tOoiJKpTBbxpNhWDvqc/4IcOw+KLmSiQLTasZ4cab2/UWQ==
@@ -14610,13 +14610,14 @@ url@^0.11.0:
     punycode "1.3.2"
     querystring "0.2.0"
 
-urql@^1.6.3:
-  version "1.6.3"
-  resolved "https://registry.yarnpkg.com/urql/-/urql-1.6.3.tgz#0484a90a01d6fc8d0a6fb96bb4b2b2146a612c0d"
-  integrity sha512-KX8qHTGo8deSg41rrQEk9JhJTz6w/LBCdWhYutYjbCUrkoAF4lEiCkgOEiO0fEf+hpDg0nQTTkHTpRbgQ0yh1g==
+urql@^1.8.2:
+  version "1.8.2"
+  resolved "https://registry.yarnpkg.com/urql/-/urql-1.8.2.tgz#66fcd111c346c45e647b7905fc6291e044425b06"
+  integrity sha512-ilTTkRxQrY1H9kz8YPFjE4Npe9J540uxT4tUb5kTP1Cs+xJCjxKcqIVPZtRkrLw/1pUM5vKxg4a3I2GYFLmHoQ==
   dependencies:
-    react-wonka "^1.0.3"
-    wonka "^3.2.1"
+    react-wonka "^2.0.1"
+    scheduler ">= 0.16.0"
+    wonka "^4.0.7"
 
 use-callback-ref@^1.2.1:
   version "1.2.1"
@@ -14989,6 +14990,11 @@ wonka@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/wonka/-/wonka-3.2.1.tgz#f66123fabbb260f23a4e89f1526317169203e258"
   integrity sha512-LpquZ9PJtYJ31AlMPp5tEba1y+S+wUmY7OyFLGZCmGSNO1ZOTTZGp/HbieFzP5fVJ9fWXCus3ecgDjwAssHSGg==
+
+wonka@^4.0.7:
+  version "4.0.7"
+  resolved "https://registry.yarnpkg.com/wonka/-/wonka-4.0.7.tgz#b4934685bd2449367bd72ce7770bfe3e6cc8a68b"
+  integrity sha512-Uhyl2cgWCUksYtU0Jt8MSzKUqK4BVUrewWxnn1YlKL3Zco4sDcCUDkbgH0i762HJs1rtsq03cfzsCWxJKaDgVg==
 
 word-wrap@~1.2.3:
   version "1.2.3"
