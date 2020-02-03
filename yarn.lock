@@ -2756,12 +2756,12 @@
     lodash "^4.5.0"
     prop-types "^15.6.1"
 
-"@urql/exchange-graphcache@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@urql/exchange-graphcache/-/exchange-graphcache-2.0.0.tgz#9a52646cbb18ae5d4166f196c398e5be050e0930"
-  integrity sha512-yZQ/oTAlOAd3MgHp1axDeRCzg8Zz8RqgWVAxNmL/myc7we55oTnV7NPygw6V0CGe56PbpCUb4c4iQoqgIswebA==
+"@urql/exchange-graphcache@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@urql/exchange-graphcache/-/exchange-graphcache-2.1.0.tgz#51aff1c35373b54460c6fc8ede47735199d79ff7"
+  integrity sha512-DlkhWKuLQV9QdHyD4+OE/S1hy0JG7E1Rj5KpPs1RnnpqUO1hYZ++xRsn5X9FP4c5DOPwp/TXvBDiR27Pa2wXDg==
   dependencies:
-    wonka "^3.2.1"
+    wonka "^3.2.1 || ^4.0.0"
 
 "@webassemblyjs/ast@1.8.5":
   version "1.8.5"
@@ -14991,12 +14991,7 @@ widest-line@^2.0.0:
   dependencies:
     string-width "^2.1.1"
 
-wonka@^3.2.1:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/wonka/-/wonka-3.2.1.tgz#f66123fabbb260f23a4e89f1526317169203e258"
-  integrity sha512-LpquZ9PJtYJ31AlMPp5tEba1y+S+wUmY7OyFLGZCmGSNO1ZOTTZGp/HbieFzP5fVJ9fWXCus3ecgDjwAssHSGg==
-
-wonka@^4.0.7:
+"wonka@^3.2.1 || ^4.0.0", wonka@^4.0.7:
   version "4.0.7"
   resolved "https://registry.yarnpkg.com/wonka/-/wonka-4.0.7.tgz#b4934685bd2449367bd72ce7770bfe3e6cc8a68b"
   integrity sha512-Uhyl2cgWCUksYtU0Jt8MSzKUqK4BVUrewWxnn1YlKL3Zco4sDcCUDkbgH0i762HJs1rtsq03cfzsCWxJKaDgVg==
