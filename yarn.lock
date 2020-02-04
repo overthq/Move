@@ -1772,10 +1772,17 @@
   resolved "https://registry.yarnpkg.com/@react-native-community/masked-view/-/masked-view-0.1.5.tgz#25421be6cd943a4b1660b62cfbcd45be8891462c"
   integrity sha512-Lj1DzfCmW0f4HnmHtEuX8Yy2f7cnUA8r5KGGUuDDGtQt1so6QJkKeUmsnLo2zYDtsF8due6hvIL06Vdo5xxuLQ==
 
+<<<<<<< HEAD
 "@react-navigation/core@^5.0.0-alpha.37", "@react-navigation/core@^5.0.0-alpha.40":
   version "5.0.0-alpha.40"
   resolved "https://registry.yarnpkg.com/@react-navigation/core/-/core-5.0.0-alpha.40.tgz#a91cd624c85ff0d02477938229ae2094f6a7e9f2"
   integrity sha512-SoxTNW2yL9XL2A5yNDIg8PP8owob2r+T3g4IeBQqVRBJJN8Rp9elfEbPkUmmHyBBYAmc/sxcKHqM+6KwFAfHTQ==
+=======
+"@react-navigation/core@^5.0.0-alpha.37":
+  version "5.0.0-alpha.37"
+  resolved "https://registry.yarnpkg.com/@react-navigation/core/-/core-5.0.0-alpha.37.tgz#0e91dc2f1d46d646a5d63f882dc3c18a9e74a2cf"
+  integrity sha512-lTk7yx9jqzK3+yRxX+yz8v+1uw9aOaX1LfQFPpgwyJUAjQdZU9qqigSd/qZHtaOSg5XCOacjO+G4Qk9/hNp+Ag==
+>>>>>>> 2ba836ee798a4997a7e159cd203f6d23ed13c788
   dependencies:
     escape-string-regexp "^2.0.0"
     query-string "^6.9.0"
@@ -1790,12 +1797,21 @@
   dependencies:
     "@react-navigation/routers" "^5.0.0-alpha.27"
 
+<<<<<<< HEAD
 "@react-navigation/native@^5.0.0-alpha.18":
   version "5.0.0-alpha.32"
   resolved "https://registry.yarnpkg.com/@react-navigation/native/-/native-5.0.0-alpha.32.tgz#4224f6520eb78cd5e008620a305e8115ce7aaf1c"
   integrity sha512-Gx0SBPuPVyKj6UCaiDzc/7vKYHsLs0qbkd7lNsttCgej2CsrnoYzEb0ypSXgyZ40u1Uk6gDkpir/MQmWNDCyig==
   dependencies:
     "@react-navigation/core" "^5.0.0-alpha.40"
+=======
+"@react-navigation/native@^5.0.0-alpha.29":
+  version "5.0.0-alpha.29"
+  resolved "https://registry.yarnpkg.com/@react-navigation/native/-/native-5.0.0-alpha.29.tgz#0b286aaf8d15868766513f58b2b1fc45a1559d8b"
+  integrity sha512-Axd9stTTc4MVNwXvU356UNi+svEmOhB3f98YD68IJpkck6+wT1qMN4kgP2tBaA4FFON8VtxQnc2Sz9+FroXnfg==
+  dependencies:
+    "@react-navigation/core" "^5.0.0-alpha.37"
+>>>>>>> 2ba836ee798a4997a7e159cd203f6d23ed13c788
 
 "@react-navigation/routers@^5.0.0-alpha.27":
   version "5.0.0-alpha.27"
