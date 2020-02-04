@@ -107,7 +107,7 @@ export type Query = {
 	route?: Maybe<Route>;
 	busStops: Array<BusStop>;
 	busStop: BusStop;
-	cards: Array<Card>;
+	card: Card;
 	tickets: Array<Ticket>;
 };
 
@@ -119,7 +119,7 @@ export type QueryBusStopArgs = {
 	id: Scalars['ID'];
 };
 
-export type QueryCardsArgs = {
+export type QueryCardArgs = {
 	userId: Scalars['ID'];
 };
 
@@ -302,23 +302,21 @@ export type BusStopQuery = { __typename?: 'Query' } & {
 		};
 };
 
-export type CardsQueryVariables = {
+export type CardQueryVariables = {
 	userId: Scalars['ID'];
 };
 
-export type CardsQuery = { __typename?: 'Query' } & {
-	cards: Array<
-		{ __typename?: 'Card' } & Pick<
-			Card,
-			| '_id'
-			| 'userId'
-			| 'cardDigits'
-			| 'cardBIN'
-			| 'expiryMonth'
-			| 'expiryYear'
-			| 'cardType'
-			| 'token'
-		>
+export type CardQuery = { __typename?: 'Query' } & {
+	card: { __typename?: 'Card' } & Pick<
+		Card,
+		| '_id'
+		| 'userId'
+		| 'cardDigits'
+		| 'cardBIN'
+		| 'expiryMonth'
+		| 'expiryYear'
+		| 'cardType'
+		| 'token'
 	>;
 };
 
@@ -574,9 +572,9 @@ export function useBusStopQuery(
 ) {
 	return Urql.useQuery<BusStopQuery>({ query: BusStopDocument, ...options });
 }
-export const CardsDocument = gql`
-	query Cards($userId: ID!) {
-		cards(userId: $userId) {
+export const CardDocument = gql`
+	query Card($userId: ID!) {
+		card(userId: $userId) {
 			_id
 			userId
 			cardDigits
@@ -589,10 +587,10 @@ export const CardsDocument = gql`
 	}
 `;
 
-export function useCardsQuery(
-	options: Omit<Urql.UseQueryArgs<CardsQueryVariables>, 'query'> = {}
+export function useCardQuery(
+	options: Omit<Urql.UseQueryArgs<CardQueryVariables>, 'query'> = {}
 ) {
-	return Urql.useQuery<CardsQuery>({ query: CardsDocument, ...options });
+	return Urql.useQuery<CardQuery>({ query: CardDocument, ...options });
 }
 export const RouteDocument = gql`
 	query Route($id: ID!) {

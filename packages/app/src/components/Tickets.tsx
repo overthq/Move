@@ -9,70 +9,72 @@ import {
 } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { useTicketsQuery } from '@move/core';
+import { Modalize } from 'react-native-modalize';
+import { UserContext } from '../contexts/UserContext';
 import Ticket from './Ticket';
-import Modalize from 'react-native-modalize';
+import PurchasePassModal from './PurchasePassModal';
 
-interface TicketsProps {
-	userId: string;
-	modalRef: React.RefObject<Modalize>;
-}
-
-const Tickets = ({ userId, modalRef }: TicketsProps) => {
+const Tickets: React.FC = () => {
+	const { user } = React.useContext(UserContext);
+	const { _id: userId } = user;
 	const [{ fetching, error, data }] = useTicketsQuery({
 		variables: { userId }
 	});
-
-	const openModal = () => modalRef.current && modalRef.current.open();
+	const modalRef = React.useRef<Modalize>(null);
+	const openModal = () => modalRef.current?.open();
 
 	if (error) console.error(error);
 
 	return (
-		<View style={{ padding: 15 }}>
-			<View style={styles.sectionHeader}>
-				<Text style={styles.sectionHeaderText}>Your Passes</Text>
-				<TouchableOpacity
-					activeOpacity={0.7}
-					style={styles.sectionActionButton}
-					onPress={openModal}
-				>
-					<Feather name='plus' color='#FFFFFF' size={16} />
-				</TouchableOpacity>
-			</View>
-			{fetching ? (
-				<View style={{ justifyContent: 'center', minHeight: 80 }}>
-					<ActivityIndicator />
+		<>
+			<View style={{ padding: 15 }}>
+				<View style={styles.sectionHeader}>
+					<Text style={styles.sectionHeaderText}>Your Passes</Text>
+					<TouchableOpacity
+						activeOpacity={0.7}
+						style={styles.sectionActionButton}
+						onPress={openModal}
+					>
+						<Feather name='plus' color='#FFFFFF' size={16} />
+					</TouchableOpacity>
 				</View>
-			) : (
-				<FlatList
-					data={data.tickets}
-					keyExtractor={ticket => ticket._id}
-					renderItem={({ item, index }) => {
-						if (!item) return null;
-						const { _id, route, quantity, reverse } = item;
-						const { origin, destination } = route;
-						return (
-							<Ticket
-								key={index}
-								ticketId={_id}
-								origin={reverse ? destination.name : origin.name}
-								destination={reverse ? origin.name : destination.name}
-								quantity={quantity}
-							/>
-						);
-					}}
-					horizontal
-					showsHorizontalScrollIndicator={false}
-					style={{ marginHorizontal: -15, marginVertical: 5 }}
-					ListEmptyComponent={
-						<View style={{ marginLeft: 15 }}>
-							<Text style={styles.sectionContent}>
-								{`You don't currently have any tickets.`}
-							</Text>
-						</View>
-					}
-				/>
-			)}
-		</View>
+				{fetching ? (
+					<View style={{ justifyContent: 'center', minHeight: 80 }}>
+						<ActivityIndicator />
+					</View>
+				) : (
+					<FlatList
+						data={data.tickets}
+						keyExtractor={ticket => ticket._id}
+						renderItem={({ item, index }) => {
+							if (!item) return null;
+							const { _id, route, quantity, reverse } = item;
+							const { origin, destination } = route;
+							return (
+								<Ticket
+									key={index}
+									ticketId={_id}
+									origin={reverse ? destination.name : origin.name}
+									destination={reverse ? origin.name : destination.name}
+									quantity={quantity}
+								/>
+							);
+						}}
+						horizontal
+						showsHorizontalScrollIndicator={false}
+						style={{ marginHorizontal: -15, marginVertical: 5 }}
+						ListEmptyComponent={
+							<View style={{ marginLeft: 15 }}>
+								<Text style={styles.sectionContent}>
+									{`You don't currently have any tickets.`}
+								</Text>
+							</View>
+						}
+					/>
+				)}
+			</View>
+			<PurchasePassModal {...{ modalRef, userId }} />
+		</>
 	);
 };
 

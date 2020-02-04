@@ -1,10 +1,10 @@
 import { Card } from '../models';
 
 const creditCardsQuery = {
-	cards: async (_, { userId }) => {
+	card: async (_, { userId }) => {
 		try {
-			const usersCards = await Card.find({ userId });
-			return usersCards;
+			const userCard = await Card.findOne({ userId });
+			return userCard;
 		} catch (error) {
 			throw new Error(error.message);
 		}

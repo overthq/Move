@@ -20,10 +20,10 @@ const VerifyCode = () => {
 	const { phoneNumber } = params as { phoneNumber: string };
 
 	React.useEffect(() => {
-		if (data && data.verifyCode) {
+		if (data?.verifyCode) {
 			storeUserData(data.verifyCode);
 			setUser(data.verifyCode);
-			navigate('Main');
+			navigate('Home');
 		}
 	}, [data]);
 

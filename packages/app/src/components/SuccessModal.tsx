@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Dimensions, StyleSheet } from 'react-native';
-import Modalize from 'react-native-modalize';
+import { Modalize } from 'react-native-modalize';
 import { Feather } from '@expo/vector-icons';
 
 const { height } = Dimensions.get('window');
@@ -9,7 +9,7 @@ interface SuccessModalProps {
 	modalRef: React.RefObject<Modalize>;
 }
 
-const SuccessModal = ({ modalRef }: SuccessModalProps) => (
+const SuccessModal: React.FC<SuccessModalProps> = ({ modalRef }) => (
 	<Modalize ref={modalRef} adjustToContentHeight>
 		<View style={styles.container}>
 			<Feather name='check-circle' size={50} color='#3CBA81' />

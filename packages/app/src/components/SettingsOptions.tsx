@@ -1,29 +1,27 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { useNavigation } from '@react-navigation/core';
 import { UserContext, getSettingName } from '../contexts/UserContext';
 import { SettingsItem, SettingsItemToggle } from './SettingsItem';
 
-const screens = [
-	{
-		name: 'Cards',
-		route: 'Cards'
-	}
-];
+interface SettingsOptionsProps {
+	options: {
+		name: string;
+		action(): void;
+	}[];
+}
 
-const SettingsOptions = () => {
+const SettingsOptions: React.FC<SettingsOptionsProps> = ({ options }) => {
 	const { settings, toggleSetting } = React.useContext(UserContext);
-	const { navigate } = useNavigation();
 
 	return (
 		<>
 			<View style={styles.container}>
-				{screens.map(({ name, route }, index) => (
+				{options.map(({ name, action }, index) => (
 					<SettingsItem
 						key={index}
 						name={name}
-						onPress={() => navigate(route)}
-						borderBottom={index !== screens.length - 1}
+						onPress={action}
+						borderBottom={index !== options.length - 1}
 					/>
 				))}
 			</View>
@@ -54,7 +52,9 @@ const styles = StyleSheet.create({
 		overflow: 'hidden',
 		shadowOffset: { width: 0, height: 4 },
 		shadowColor: '#000000',
-		shadowOpacity: 0.1,
+		backgroundColor: '#000000',
+		elevation: 3,
+		shadowOpacity: 0.5,
 		shadowRadius: 6
 	}
 });

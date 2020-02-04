@@ -7,7 +7,7 @@ import {
 	TouchableOpacity,
 	StyleSheet
 } from 'react-native';
-import Modalize from 'react-native-modalize';
+import { Modalize } from 'react-native-modalize';
 import Accordion from 'react-native-collapsible/Accordion';
 import { Feather } from '@expo/vector-icons';
 import {

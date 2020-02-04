@@ -19,7 +19,7 @@ const Card = `
 	}
 
 	extend type Query {
-		cards(userId: ID!): [Card!]!
+		card(userId: ID!): Card!
 	}
 
 	extend type Mutation {
