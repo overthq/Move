@@ -16,11 +16,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
 	const { user, logOut } = React.useContext(UserContext);
 
 	return (
-		<Modalize
-			ref={modalRef}
-			adjustToContentHeight
-			modalStyle={{ backgroundColor: '#FFFFFF' }}
-		>
+		<Modalize ref={modalRef} adjustToContentHeight>
 			<View style={{ padding: 20 }}>
 				<View style={styles.titleContainer}>
 					<Text style={styles.titleName}>
