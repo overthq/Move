@@ -30,14 +30,16 @@ const isAndroid = Platform.OS === 'android';
 const Scanner: React.FC = () => {
 	const [success, setSuccess] = React.useState(false);
 	const [active, setActive] = React.useState(true);
-	const { settings } = React.useContext(UserContext);
+	const { settings, user } = React.useContext(UserContext);
+
 	const [{ data }, executeMutation] = useUseTicketMutation();
+
 	const settingsModalRef = React.useRef<Modalize>(null);
 	const successModalRef = React.useRef<Modalize>(null);
 	const fingerprintModalRef = React.useRef<Modalize>(null);
 	const addCardModalRef = React.useRef<Modalize>(null);
 	const cameraRef = React.useRef<Camera>(null);
-	const { user } = React.useContext(UserContext);
+
 	const { _id: userId } = user;
 
 	React.useEffect(() => {
@@ -51,7 +53,7 @@ const Scanner: React.FC = () => {
 		return () => {
 			clearTimeout(activityTimeout);
 		};
-	}, [success, active]);
+	}, [success, active, cameraRef]);
 
 	React.useEffect(() => {
 		settingsModalRef.current.open();

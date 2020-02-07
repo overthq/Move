@@ -7,6 +7,7 @@ import {
 	StyleSheet
 } from 'react-native';
 import Animated from 'react-native-reanimated';
+import { timing } from 'react-native-redash';
 import { Modalize } from 'react-native-modalize';
 
 interface AddCardModalProps {
@@ -30,33 +31,29 @@ const steps = [
 
 const AddCardModal: React.FC<AddCardModalProps> = ({ modalRef }) => {
 	const [step, setStep] = React.useState(0);
-	const [opacity] = React.useState(new Animated.Value(1));
-	const [barWidth] = React.useState(new Animated.Value(1 / steps.length));
+	const [opacity] = React.useState(new Animated.Value<number>(1));
+	const [barWidth] = React.useState(new Animated.Value<number>(1));
 
 	const toPreviousStep = () => {
-		Animated.parallel([
-			Animated.timing(barWidth, {
-				toValue: step / steps.length,
-				duration: 200
-			}),
-			Animated.timing(opacity, { toValue: 0, duration: 200 })
-		]).start(() => {
-			setStep(step - 1);
-			Animated.timing(opacity, { toValue: 1, duration: 200 }).start();
+		timing({
+			from: barWidth,
+			to: step / steps.length,
+			duration: 200
 		});
+		timing({ from: opacity, to: 0, duration: 200 });
+		setStep(step - 1);
+		timing({ from: opacity, to: 1, duration: 200 });
 	};
 
 	const toNextStep = () => {
-		Animated.parallel([
-			Animated.timing(barWidth, {
-				toValue: (step + 2) / steps.length,
-				duration: 200
-			}),
-			Animated.timing(opacity, { toValue: 0, duration: 200 })
-		]).start(() => {
-			setStep(step + 1);
-			Animated.timing(opacity, { toValue: 1, duration: 200 }).start();
+		timing({
+			from: barWidth,
+			to: (step + 2) / steps.length,
+			duration: 200
 		});
+		timing({ from: opacity, to: 0, duration: 200 });
+		setStep(step + 1);
+		timing({ from: opacity, to: 1, duration: 200 });
 	};
 
 	return (
@@ -70,10 +67,13 @@ const AddCardModal: React.FC<AddCardModalProps> = ({ modalRef }) => {
 					style={[
 						styles.bar,
 						{
-							width: barWidth.interpolate({
-								inputRange: [0, 1],
-								outputRange: ['0%', '100%']
-							})
+							width: Animated.concat(
+								barWidth.interpolate({
+									inputRange: [0, 1],
+									outputRange: [0, 100]
+								}),
+								'%'
+							)
 						}
 					]}
 				/>

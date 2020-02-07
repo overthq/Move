@@ -57,10 +57,10 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
 
 	const fetchUser = async () => setUser(await getUserData());
 
-	const logOut = React.useCallback(() => {
+	const logOut = () => {
 		setUser(null);
 		removeUserData();
-	}, [setUser]);
+	};
 
 	// TODO(koredefashokun):
 	// For the localAuth setting, make sure that if the setting is being turned off,
