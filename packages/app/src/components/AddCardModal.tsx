@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-	View,
-	TouchableOpacity,
-	Text,
-	TextInput,
-	StyleSheet
-} from 'react-native';
+import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import Animated from 'react-native-reanimated';
 import { timing } from 'react-native-redash';
 import { Modalize } from 'react-native-modalize';
@@ -15,13 +9,13 @@ interface AddCardModalProps {
 }
 
 const CardNumber = () => {
-	const [cardNumber, setCardNumber] = React.useState('');
-	return <TextInput value={cardNumber} onChangeText={setCardNumber} />;
+	// This is going to be a controlled input.
+	return <View />;
 };
 
 const CVVNumber = () => {
-	const [cvv, setCvv] = React.useState('');
-	return <TextInput value={cvv} onChangeText={setCvv} />;
+	// This is going to be a controlled input.
+	return <View />;
 };
 
 const steps = [

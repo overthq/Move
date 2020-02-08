@@ -42,39 +42,36 @@ const Scanner: React.FC = () => {
 
 	const { _id: userId } = user;
 
-	React.useEffect(() => {
-		const activityTimeout = setTimeout(() => {
-			if (!success && active) {
-				cameraRef.current.pausePreview();
-				setActive(false);
-			}
-		}, 25000);
-
-		return () => {
-			clearTimeout(activityTimeout);
-		};
-	}, [success, active, cameraRef]);
-
+	// This is to be removed, when the scanner is moved into it's own component.
+	// I also have to find a way to hoist all the modals.
+	// It's becoming too cumbersome to handle in child components.
 	React.useEffect(() => {
 		settingsModalRef.current.open();
-	}, []);
+	}, [settingsModalRef.current]);
 
 	useFocusEffect(
 		React.useCallback(() => {
-			if (!active) {
-				setActive(true);
-				cameraRef.current.resumePreview();
-			}
+			const activityTimeout = setTimeout(() => {
+				if (!success && active) {
+					cameraRef.current.pausePreview();
+					setActive(false);
+				}
+
+				if (!active) {
+					cameraRef.current.resumePreview();
+					setActive(true);
+				}
+			}, 25000);
+
 			return () => {
-				cameraRef.current.pausePreview();
-				setActive(false);
+				clearTimeout(activityTimeout);
 			};
-		}, [active])
+		}, [success, active, cameraRef.current])
 	);
 
 	React.useEffect(() => {
-		if (data?.useTicket) successModalRef.current.open();
-	}, [data, successModalRef]);
+		if (data?.useTicket) return successModalRef.current.open();
+	}, [data, successModalRef.current]);
 
 	const onSuccess = (routeId: string) => executeMutation({ routeId, userId });
 
@@ -101,7 +98,7 @@ const Scanner: React.FC = () => {
 
 	const resumeScanning = () => {
 		setActive(true);
-		cameraRef.current.resumePreview();
+		cameraRef.current?.resumePreview();
 	};
 
 	return (
@@ -134,14 +131,14 @@ const Scanner: React.FC = () => {
 							: 'Camera preview paused'}
 					</Text>
 				</View>
-				<SuccessModal modalRef={successModalRef} {...{ userId }} />
-				<AndroidFingerprintModal modalRef={fingerprintModalRef} />
 			</Camera>
 			<AddCardModal modalRef={addCardModalRef} />
 			<SettingsModal
 				modalRef={settingsModalRef}
 				addCardModalRef={addCardModalRef}
 			/>
+			<SuccessModal modalRef={successModalRef} />
+			<AndroidFingerprintModal modalRef={fingerprintModalRef} />
 		</>
 	);
 };
