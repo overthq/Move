@@ -16,7 +16,7 @@
 		"typescript": "^3.7.5"
 	},
 	"dependencies": {
-		"graphql-tag": "^2.10.1",
+		"graphql-tag": "^2.10.3",
 		"urql": "^1.8.2"
 	}
 }
