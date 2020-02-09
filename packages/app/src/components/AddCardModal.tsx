@@ -54,6 +54,7 @@ const AddCardModal: React.FC<AddCardModalProps> = ({ modalRef }) => {
 		<Modalize
 			ref={modalRef}
 			adjustToContentHeight
+			handlePosition='outside'
 			modalStyle={{ overflow: 'hidden' }}
 		>
 			<View style={styles.modal}>
@@ -85,17 +86,15 @@ const AddCardModal: React.FC<AddCardModalProps> = ({ modalRef }) => {
 					>
 						<TouchableOpacity
 							style={styles.button}
-							onPress={() => {
-								step !== 0 && toPreviousStep();
-							}}
+							disabled={step === 0}
+							onPress={toPreviousStep}
 						>
 							<Text style={styles.buttonText}>Back</Text>
 						</TouchableOpacity>
 						<TouchableOpacity
 							style={styles.button}
-							onPress={() => {
-								step !== steps.length - 1 && toNextStep();
-							}}
+							disabled={step === steps.length - 1}
+							onPress={toNextStep}
 						>
 							<Text style={styles.buttonText}>Next</Text>
 						</TouchableOpacity>

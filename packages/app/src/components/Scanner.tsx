@@ -8,7 +8,6 @@ import {
 	Alert,
 	Platform
 } from 'react-native';
-import { Modalize } from 'react-native-modalize';
 import { useFocusEffect } from '@react-navigation/core';
 import { Feather } from '@expo/vector-icons';
 import { Constants } from 'expo-barcode-scanner';
@@ -16,12 +15,9 @@ import { Camera } from 'expo-camera';
 import * as LocalAuthentication from 'expo-local-authentication';
 import { BlurView } from 'expo-blur';
 import { useUseTicketMutation } from '@move/core';
-import SettingsModal from './SettingsModal';
-import SuccessModal from './SuccessModal';
 import ScannerOverlay from './ScannerOverlay';
-import AndroidFingerprintModal from './AndroidFingerprintModal';
 import { UserContext } from '../contexts/UserContext';
-import AddCardModal from './AddCardModal';
+import { ModalsContext } from '../contexts/ModalsContext';
 
 const { width, height } = Dimensions.get('screen');
 
@@ -31,23 +27,17 @@ const Scanner: React.FC = () => {
 	const [success, setSuccess] = React.useState(false);
 	const [active, setActive] = React.useState(true);
 	const { settings, user } = React.useContext(UserContext);
+	const { openModal, closeModal } = React.useContext(ModalsContext);
 
 	const [{ data }, executeMutation] = useUseTicketMutation();
 
-	const settingsModalRef = React.useRef<Modalize>(null);
-	const successModalRef = React.useRef<Modalize>(null);
-	const fingerprintModalRef = React.useRef<Modalize>(null);
-	const addCardModalRef = React.useRef<Modalize>(null);
 	const cameraRef = React.useRef<Camera>(null);
 
 	const { _id: userId } = user;
 
-	// This is to be removed, when the scanner is moved into it's own component.
-	// I also have to find a way to hoist all the modals.
-	// It's becoming too cumbersome to handle in child components.
 	React.useEffect(() => {
-		settingsModalRef.current.open();
-	}, [settingsModalRef.current]);
+		openModal('Settings');
+	}, []);
 
 	useFocusEffect(
 		React.useCallback(() => {
@@ -70,8 +60,8 @@ const Scanner: React.FC = () => {
 	);
 
 	React.useEffect(() => {
-		if (data?.useTicket) return successModalRef.current.open();
-	}, [data, successModalRef.current]);
+		if (data?.useTicket) return openModal('Success');
+	}, [data]);
 
 	const onSuccess = (routeId: string) => executeMutation({ routeId, userId });
 
@@ -80,14 +70,14 @@ const Scanner: React.FC = () => {
 			setSuccess(true);
 			// I might still have to find a way to make this function more DRY.
 			if (settings?.localAuth) {
-				if (isAndroid) fingerprintModalRef.current.open();
+				if (isAndroid) openModal('Android Fingerprint');
 
 				const {
 					success: authSuccess
 				} = await LocalAuthentication.authenticateAsync();
 
 				if (authSuccess) {
-					if (isAndroid) fingerprintModalRef.current.close();
+					if (isAndroid) closeModal('Android Fingerprint');
 					return onSuccess(routeId);
 				}
 				return Alert.alert('You have to be authenticated to use this feature.');
@@ -102,44 +92,33 @@ const Scanner: React.FC = () => {
 	};
 
 	return (
-		<>
-			<Camera
-				style={styles.scanner}
-				barCodeScannerSettings={{
-					barCodeTypes: [Constants.BarCodeType.qr]
-				}}
-				onBarCodeScanned={success ? undefined : handleBarCodeScanned}
-				ref={cameraRef}
-			>
-				{active ? (
-					<ScannerOverlay />
-				) : (
-					<BlurView tint='dark' intensity={50} style={styles.blurView}>
-						<TouchableOpacity
-							style={styles.refreshButton}
-							activeOpacity={0.8}
-							onPress={resumeScanning}
-						>
-							<Feather name='refresh-cw' size={40} />
-						</TouchableOpacity>
-					</BlurView>
-				)}
-				<View style={styles.scannerInfoContainer}>
-					<Text style={styles.scannerInfo}>
-						{active
-							? 'Point the camera at the QR code'
-							: 'Camera preview paused'}
-					</Text>
-				</View>
-			</Camera>
-			<AddCardModal modalRef={addCardModalRef} />
-			<SettingsModal
-				modalRef={settingsModalRef}
-				addCardModalRef={addCardModalRef}
-			/>
-			<SuccessModal modalRef={successModalRef} />
-			<AndroidFingerprintModal modalRef={fingerprintModalRef} />
-		</>
+		<Camera
+			style={styles.scanner}
+			barCodeScannerSettings={{
+				barCodeTypes: [Constants.BarCodeType.qr]
+			}}
+			onBarCodeScanned={success ? undefined : handleBarCodeScanned}
+			ref={cameraRef}
+		>
+			{active ? (
+				<ScannerOverlay />
+			) : (
+				<BlurView tint='dark' intensity={50} style={styles.blurView}>
+					<TouchableOpacity
+						style={styles.refreshButton}
+						activeOpacity={0.8}
+						onPress={resumeScanning}
+					>
+						<Feather name='refresh-cw' size={40} />
+					</TouchableOpacity>
+				</BlurView>
+			)}
+			<View style={styles.scannerInfoContainer}>
+				<Text style={styles.scannerInfo}>
+					{active ? 'Point the camera at the QR code' : 'Camera preview paused'}
+				</Text>
+			</View>
+		</Camera>
 	);
 };
 

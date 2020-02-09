@@ -4,6 +4,7 @@ import { enableScreens } from 'react-native-screens';
 import { ActionSheetProvider } from '@expo/react-native-action-sheet';
 import RootNavigator from './src/Root';
 import { UserProvider } from './src/contexts/UserContext';
+import { ModalsProvider } from './src/contexts/ModalsContext';
 import env from './env';
 
 enableScreens();
@@ -14,7 +15,9 @@ const App = () => (
 	<UserProvider>
 		<Provider value={client}>
 			<ActionSheetProvider>
-				<RootNavigator />
+				<ModalsProvider>
+					<RootNavigator />
+				</ModalsProvider>
 			</ActionSheetProvider>
 		</Provider>
 	</UserProvider>
