@@ -1217,13 +1217,13 @@
     auto-bind "4.0.0"
     tslib "1.10.0"
 
-"@graphql-codegen/typescript-urql@^1.12.1":
-  version "1.12.1"
-  resolved "https://registry.yarnpkg.com/@graphql-codegen/typescript-urql/-/typescript-urql-1.12.1.tgz#9a71fde25ae486a9310c9aee604b9ba208d8491b"
-  integrity sha512-KrcHKg3Jc0FfWhIr3MBd/Rjf7L1yfTQ0vP5tWDB8dLAypGXUAok4COm3VJLJF+PYYdqTU91lhr9+Ifzp0eRs7g==
+"@graphql-codegen/typescript-urql@^1.12.2":
+  version "1.12.2"
+  resolved "https://registry.yarnpkg.com/@graphql-codegen/typescript-urql/-/typescript-urql-1.12.2.tgz#d332cd593111b653a8738e9d5ac69fff71fbc92f"
+  integrity sha512-6VHeixDSJP8oKAfjo3IQO8i/K0pA0jjGX2JQzvLYR6fE+pDxgDcYsFErsaQBWzr23eJItOUggx6srpWSzXOS/A==
   dependencies:
-    "@graphql-codegen/plugin-helpers" "1.12.1"
-    "@graphql-codegen/visitor-plugin-common" "1.12.1"
+    "@graphql-codegen/plugin-helpers" "1.12.2"
+    "@graphql-codegen/visitor-plugin-common" "1.12.2"
     auto-bind "4.0.0"
     pascal-case "3.1.1"
     tslib "1.10.0"
