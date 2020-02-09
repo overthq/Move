@@ -1658,35 +1658,32 @@
     "@nodelib/fs.scandir" "2.1.3"
     fastq "^1.6.0"
 
-"@reach/component-component@^0.6.2":
-  version "0.6.2"
-  resolved "https://registry.yarnpkg.com/@reach/component-component/-/component-component-0.6.2.tgz#83b367b6476ef928f101319d37416bc15bd01e2f"
-  integrity sha512-Sb0p8qgzaAzFLNeOXGMz24LLmZuLzzNA5w04FfZJ+2BsMOHv/yw6P+orzeVYSclTriLurWJjb8gbdvxho+2usw==
+"@reach/dialog@^0.8.2":
+  version "0.8.2"
+  resolved "https://registry.yarnpkg.com/@reach/dialog/-/dialog-0.8.2.tgz#2d49fd9eb68170f17995f1ba4ca2171ea567e1da"
+  integrity sha512-QH62/MEbqojNNezXE/IRnGnageNm9tksqqxhpoMhgv1SoQULT8/WuZ/4oY3Sx7MsFX09ssqc7KiCk6A/B+ilhw==
   dependencies:
-    prop-types "^15.7.2"
-
-"@reach/dialog@^0.6.4":
-  version "0.6.4"
-  resolved "https://registry.yarnpkg.com/@reach/dialog/-/dialog-0.6.4.tgz#a02b6343d036be7b06c091cabfa139e8550e927b"
-  integrity sha512-w0879aEclyvTyF8dSUOE/jAzZjKutpOqr0owhEkt8HwVtYzk7Bukm+AKQfc2/7wZQ31GMp0P85FRsdxr5t9xcQ==
-  dependencies:
-    "@reach/portal" "^0.6.2"
-    "@reach/utils" "^0.6.4"
+    "@reach/portal" "^0.8.2"
+    "@reach/utils" "^0.8.2"
     prop-types "^15.7.2"
     react-focus-lock "^2.2.1"
     react-remove-scroll "^2.2.0"
+    tslib "^1.10.0"
 
-"@reach/portal@^0.6.2":
-  version "0.6.2"
-  resolved "https://registry.yarnpkg.com/@reach/portal/-/portal-0.6.2.tgz#5d57d092c204e69630313152c8f0507a9ca81229"
-  integrity sha512-dJAKnsMEbmL0fmShJd1jm4y1RpNP5cpIMpmyK1+2MfBpKoXxYvf3eauf2+vTgM7/JlVM2eDEfYnFdyw/7aIsyw==
+"@reach/portal@^0.8.2":
+  version "0.8.2"
+  resolved "https://registry.yarnpkg.com/@reach/portal/-/portal-0.8.2.tgz#7b00910eade9d17a7c141d7923e663a1a5ff8f95"
+  integrity sha512-IXOse/oHYoNQgDB2YqRSx4dKTWQv+JJNWTtGz9tGALF8ePbyNY3tq5zp5bsJIYTV1oL5j/m8PBaM2HSBU4mZRA==
   dependencies:
-    "@reach/component-component" "^0.6.2"
+    tslib "^1.10.0"
 
-"@reach/utils@^0.6.4":
-  version "0.6.4"
-  resolved "https://registry.yarnpkg.com/@reach/utils/-/utils-0.6.4.tgz#be268e1a7d04f921596b3672888a932c1832074a"
-  integrity sha512-jUWNb1STgR69WGkV4O/N4XOcUvM0u5LP1b9SR6VZsPRazpmzM8HUl3WsBVgMOnSCefZtk+wM4ig2/iYgdElwPw==
+"@reach/utils@^0.8.2":
+  version "0.8.2"
+  resolved "https://registry.yarnpkg.com/@reach/utils/-/utils-0.8.2.tgz#0adb27de5038a9c9d1c302aee7ae7de4260a36b8"
+  integrity sha512-JrQC5nTr0pS0FR9qLKinBViRhQ75hdjr+rLROfqtT8QljnalvlmN6hkibap5YJRe4cOQtpjUplioCErQ4zBxJw==
+  dependencies:
+    tslib "^1.10.0"
+    warning "^4.0.3"
 
 "@react-native-community/cli-debugger-ui@^3.0.0":
   version "3.0.0"
@@ -14551,6 +14548,13 @@ walker@^1.0.7, walker@~1.0.5:
   integrity sha1-L3+bj9ENZ3JisYqITijRlhjgKPs=
   dependencies:
     makeerror "1.0.x"
+
+warning@^4.0.3:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/warning/-/warning-4.0.3.tgz#16e9e077eb8a86d6af7d64aa1e05fd85b4678ca3"
+  integrity sha512-rpJyN222KWIvHJ/F53XSZv0Zl/accqHR8et1kpaMTD/fLCRxtV8iX8czMzY7sVZupTI3zcUTg8eycS2kNF9l6w==
+  dependencies:
+    loose-envify "^1.0.0"
 
 watchpack@^1.6.0:
   version "1.6.0"
