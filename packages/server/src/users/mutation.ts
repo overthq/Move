@@ -1,4 +1,4 @@
-import { User, VerificationCode } from '../models';
+import { User, VerificationCode, Wallet } from '../models';
 
 // Note: This has to be extracted into an helper soon.
 const sendVerificationCode = async (phoneNumber: string) => {
@@ -18,10 +18,16 @@ const userMutations = {
 	},
 	register: async (_, { input }) => {
 		const { firstName, lastName, phoneNumber } = input;
-		const user = await new User({ firstName, lastName, phoneNumber }).save();
-		if (!user) throw new Error('The specified user does not exist');
-		await sendVerificationCode(phoneNumber);
-		return `Verification message sent to ${phoneNumber}`;
+		try {
+			const user = await User.create({ firstName, lastName, phoneNumber });
+			await Promise.all([
+				sendVerificationCode(phoneNumber),
+				Wallet.create({ user: user.id })
+			]);
+			return `Verification message sent to ${phoneNumber}`;
+		} catch (error) {
+			throw new Error(error);
+		}
 	},
 	verifyCode: async (_, { phoneNumber, code }) => {
 		const verificationCode = await VerificationCode.findOne({
@@ -34,7 +40,7 @@ const userMutations = {
 		const user = await User.findOne({ phoneNumber });
 		if (!user) throw new Error('No user found with the specified details');
 		await verificationCode.remove();
-		return user; // This should obviously go along with some sort of access token in the future.
+		return user;
 	}
 };
 

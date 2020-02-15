@@ -16,35 +16,29 @@ import Card from './cards/types';
 import cardMutation from './cards/mutation';
 import cardQuery from './cards/query';
 
-import Ticket from './tickets/types';
-import ticketMutation from './tickets/mutation';
-import ticketQuery from './tickets/query';
+import Wallet from './wallets/types';
+import walletQuery from './wallets/query';
 
 const RootType = `
-	type Query {
-		default: String
-	}
-	type Mutation {
-		default: String
-	}
+	type Query { default: String }
+	type Mutation { default: String }
 `;
 
-const typeDefs = [RootType, User, Route, BusStop, Card, Ticket];
+const typeDefs = [RootType, User, Route, BusStop, Card, Wallet];
 
 const resolvers = {
 	Mutation: {
 		...userMutation,
 		...routeMutation,
 		...busStopMutation,
-		...cardMutation,
-		...ticketMutation
+		...cardMutation
 	},
 	Query: {
 		...userQuery,
 		...routeQuery,
 		...busStopQuery,
 		...cardQuery,
-		...ticketQuery
+		...walletQuery
 	}
 };
 

@@ -23,7 +23,7 @@ const VerifyCode = () => {
 		if (data?.verifyCode) {
 			storeUserData(data.verifyCode);
 			setUser(data.verifyCode);
-			navigate('Home');
+			navigate('Main');
 		}
 	}, [data]);
 
