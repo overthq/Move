@@ -5,3 +5,4 @@ export * from './BusStop';
 export * from './Card';
 export * from './Ticket';
 export * from './Wallet';
+export * from './Payment';

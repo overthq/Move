@@ -1,50 +1,20 @@
 import React from 'react';
-import { View, Text, StyleSheet, Alert, Platform } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { Constants } from 'expo-barcode-scanner';
 import { Camera } from 'expo-camera';
-import * as LocalAuthentication from 'expo-local-authentication';
-import { useUseTicketMutation } from '@move/core';
 import ScannerOverlay from '../components/ScannerOverlay';
-import { UserContext } from '../contexts/UserContext';
-import { ModalsContext } from '../contexts/ModalsContext';
-
-const isAndroid = Platform.OS === 'android';
+import { useNavigation } from '@react-navigation/native';
 
 const Scanner: React.FC = () => {
 	const [success, setSuccess] = React.useState(false);
-	const { settings, user } = React.useContext(UserContext);
-	const { openModal, closeModal } = React.useContext(ModalsContext);
-
-	const [{ data }, executeMutation] = useUseTicketMutation();
-
 	const cameraRef = React.useRef<Camera>(null);
+	const { navigate, goBack } = useNavigation();
 
-	const { _id: userId } = user;
-
-	React.useEffect(() => {
-		if (data?.useTicket) return openModal('Success');
-	}, [data]);
-
-	const onSuccess = (routeId: string) => executeMutation({ routeId, userId });
-
-	const handleBarCodeScanned = async ({ data: routeId }: { data: string }) => {
-		if (routeId) {
+	const handleBarCodeScanned = async ({ data }: { data: string }) => {
+		if (data) {
+			goBack();
+			navigate('ConfirmPayment', { routeId: data });
 			setSuccess(true);
-			// I might still have to find a way to make this function more DRY.
-			if (settings?.localAuth) {
-				if (isAndroid) openModal('Android Fingerprint');
-
-				const {
-					success: authSuccess
-				} = await LocalAuthentication.authenticateAsync();
-
-				if (authSuccess) {
-					if (isAndroid) closeModal('Android Fingerprint');
-					return onSuccess(routeId);
-				}
-				return Alert.alert('You have to be authenticated to use this feature.');
-			}
-			return onSuccess(routeId);
 		}
 	};
 

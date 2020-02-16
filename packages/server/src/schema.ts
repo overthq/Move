@@ -19,26 +19,32 @@ import cardQuery from './cards/query';
 import Wallet from './wallets/types';
 import walletQuery from './wallets/query';
 
+import Payment from './payments/types';
+import paymentMutation from './payments/mutation';
+import paymentQuery from './payments/query';
+
 const RootType = `
 	type Query { default: String }
 	type Mutation { default: String }
 `;
 
-const typeDefs = [RootType, User, Route, BusStop, Card, Wallet];
+const typeDefs = [RootType, User, Route, BusStop, Card, Wallet, Payment];
 
 const resolvers = {
 	Mutation: {
 		...userMutation,
 		...routeMutation,
 		...busStopMutation,
-		...cardMutation
+		...cardMutation,
+		...paymentMutation
 	},
 	Query: {
 		...userQuery,
 		...routeQuery,
 		...busStopQuery,
 		...cardQuery,
-		...walletQuery
+		...walletQuery,
+		...paymentQuery
 	}
 };
 

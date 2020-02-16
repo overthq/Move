@@ -1,7 +1,7 @@
 import { model, Schema, Document } from 'mongoose';
 import { WalletType } from './Wallet';
 
-interface PaymentType extends Document {
+export interface PaymentType extends Document {
 	wallet: WalletType;
 }
 
