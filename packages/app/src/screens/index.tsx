@@ -12,10 +12,10 @@ import Auth from './Auth';
 import { UserContext } from '../contexts/UserContext';
 import ConfirmPayment from '../components/ConfirmPaymentModal';
 
-type MainStackParamList = {
+export type MainStackParamList = {
 	Home: { user: User };
 	Scanner: undefined;
-	ConfirmPayment: { userId: string };
+	ConfirmPayment: { userId: string; routeId?: string };
 };
 
 const Stack = createStackNavigator();

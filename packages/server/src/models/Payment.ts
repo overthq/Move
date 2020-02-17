@@ -1,8 +1,10 @@
 import { model, Schema, Document } from 'mongoose';
 import { WalletType } from './Wallet';
+import { RouteType } from './Route';
 
 export interface PaymentType extends Document {
 	wallet: WalletType;
+	route: RouteType;
 }
 
 const PaymentSchema = new Schema(
@@ -12,8 +14,9 @@ const PaymentSchema = new Schema(
 			ref: 'Wallet',
 			required: true
 		},
-		amount: {
-			type: Number,
+		route: {
+			type: Schema.Types.ObjectId,
+			ref: 'Route',
 			required: true
 		}
 	},

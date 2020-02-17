@@ -1,0 +1,9 @@
+query Wallet($userId: ID!) {
+	wallet(userId: $userId) {
+		_id
+		user {
+			_id
+		}
+		value
+	}
+}

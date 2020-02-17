@@ -1,0 +1,16 @@
+query UserPayments($userId: ID!) {
+	payments(userId: $userId) {
+		_id
+		route {
+			_id
+			origin {
+				_id
+				name
+			}
+			destination {
+				_id
+				name
+			}
+		}
+	}
+}

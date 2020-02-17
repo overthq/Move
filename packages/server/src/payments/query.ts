@@ -1,13 +1,13 @@
 import { Payment, Wallet } from '../models';
 
 const paymentQuery = {
-	walletPayments: async (_, { input }) => {
-		const { walletId } = input;
-		// Should we verify that the user owns the wallet.
-		const wallet = await Wallet.findById(walletId);
-		if (!wallet) throw new Error('');
+	payments: async (_, { input }) => {
+		const { userId } = input;
+		const wallet = await Wallet.findOne({ user: userId });
+		if (!wallet)
+			throw new Error("User either does not exist or doesn't have a wallet");
 
-		const payments = await Payment.find({ wallet: walletId });
+		const payments = await Payment.find({ wallet: wallet.id });
 		return payments;
 	}
 };

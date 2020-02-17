@@ -1,0 +1,16 @@
+mutation MakePayment($userId: ID!, $routeId: ID!) {
+	makePayment(input: { userId: $userId, routeId: $routeId }) {
+		_id
+		route {
+			_id
+			origin {
+				_id
+				name
+			}
+			destination {
+				_id
+				name
+			}
+		}
+	}
+}

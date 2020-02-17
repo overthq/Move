@@ -1,25 +1,52 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Text, Platform } from 'react-native';
 import * as LocalAuthentication from 'expo-local-authentication';
-import { useFocusEffect, useRoute } from '@react-navigation/native';
+import {
+	useFocusEffect,
+	useRoute,
+	useNavigation,
+	RouteProp
+} from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
+import { UserContext } from '../contexts/UserContext';
+import { MainStackParamList } from '../screens';
 
-const ConfirmPaymentModal: React.FC = () => {
-	const { params } = useRoute();
+const ConfirmPayment: React.FC = () => {
+	const { navigate } = useNavigation();
+	const { params } = useRoute<
+		RouteProp<MainStackParamList, 'ConfirmPayment'>
+	>();
+	const { settings } = React.useContext(UserContext);
 
 	useFocusEffect(
 		React.useCallback(() => {
 			(async () => {
-				const { success } = await LocalAuthentication.authenticateAsync();
+				if (settings?.localAuth) {
+					const { success } = await LocalAuthentication.authenticateAsync();
+					if (success) {
+						try {
+							console.log({ params });
+						} finally {
+							navigate('Home');
+						}
+						// Find a way to animate the fingerprint circle thing.
+						// Do the thing
+					}
+				}
 			})();
 		}, [])
 	);
 
 	return (
 		<View>
-			<Ionicons name='ios-fingerprint' size={30} />
+			{Platform.OS === 'android' && (
+				<>
+					<Text>Scan fingerprint to continue</Text>
+					<Ionicons name='ios-fingerprint' size={30} />
+				</>
+			)}
 		</View>
 	);
 };
 
-export default ConfirmPaymentModal;
+export default ConfirmPayment;

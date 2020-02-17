@@ -55,9 +55,8 @@ export type Mutation = {
 	createRoute: Route;
 	createBusStop: BusStop;
 	saveCard: Card;
-	purchaseTicket: Ticket;
-	useTicket?: Maybe<Ticket>;
-	sendTicket: Ticket;
+	createWallet: Wallet;
+	makePayment: Payment;
 };
 
 export type MutationLoginArgs = {
@@ -85,18 +84,24 @@ export type MutationSaveCardArgs = {
 	input: CardInput;
 };
 
-export type MutationPurchaseTicketArgs = {
-	input: TicketInput;
-};
-
-export type MutationUseTicketArgs = {
-	routeId: Scalars['ID'];
+export type MutationCreateWalletArgs = {
 	userId: Scalars['ID'];
 };
 
-export type MutationSendTicketArgs = {
-	ticketId: Scalars['ID'];
-	phoneNumber: Scalars['String'];
+export type MutationMakePaymentArgs = {
+	input?: Maybe<PaymentInput>;
+};
+
+export type Payment = {
+	__typename?: 'Payment';
+	_id: Scalars['ID'];
+	wallet: Wallet;
+	route: Route;
+};
+
+export type PaymentInput = {
+	userId: Scalars['ID'];
+	routeId: Scalars['ID'];
 };
 
 export type Query = {
@@ -108,7 +113,8 @@ export type Query = {
 	busStops: Array<BusStop>;
 	busStop: BusStop;
 	card: Card;
-	tickets: Array<Ticket>;
+	wallet: Wallet;
+	payments: Array<Payment>;
 };
 
 export type QueryRouteArgs = {
@@ -123,7 +129,11 @@ export type QueryCardArgs = {
 	userId: Scalars['ID'];
 };
 
-export type QueryTicketsArgs = {
+export type QueryWalletArgs = {
+	userId: Scalars['ID'];
+};
+
+export type QueryPaymentsArgs = {
 	userId: Scalars['ID'];
 };
 
@@ -147,28 +157,19 @@ export type RouteInput = {
 	fare: Scalars['Int'];
 };
 
-export type Ticket = {
-	__typename?: 'Ticket';
-	_id: Scalars['ID'];
-	userId: Scalars['ID'];
-	route: Route;
-	quantity: Scalars['Int'];
-	reverse: Scalars['Boolean'];
-};
-
-export type TicketInput = {
-	userId: Scalars['ID'];
-	origin: Scalars['ID'];
-	destination: Scalars['ID'];
-	quantity?: Maybe<Scalars['Int']>;
-};
-
 export type User = {
 	__typename?: 'User';
 	_id: Scalars['String'];
 	firstName: Scalars['String'];
 	lastName: Scalars['String'];
 	phoneNumber: Scalars['String'];
+};
+
+export type Wallet = {
+	__typename?: 'Wallet';
+	_id: Scalars['ID'];
+	user: User;
+	value: Scalars['Int'];
 };
 
 export type CreateBusStopMutationVariables = {
@@ -201,43 +202,21 @@ export type SaveCardMutation = { __typename?: 'Mutation' } & {
 	>;
 };
 
-export type TicketFragmentFragment = { __typename?: 'Ticket' } & Pick<
-	Ticket,
-	'_id' | 'userId' | 'quantity' | 'reverse'
-> & {
-		route: { __typename?: 'Route' } & Pick<Route, '_id' | 'fare'> & {
-				origin: { __typename?: 'BusStop' } & Pick<BusStop, '_id' | 'name'>;
-				destination: { __typename?: 'BusStop' } & Pick<BusStop, '_id' | 'name'>;
-			};
-	};
-
-export type PurchaseTicketMutationVariables = {
+export type MakePaymentMutationVariables = {
 	userId: Scalars['ID'];
-	origin: Scalars['ID'];
-	destination: Scalars['ID'];
-	quantity?: Maybe<Scalars['Int']>;
-};
-
-export type PurchaseTicketMutation = { __typename?: 'Mutation' } & {
-	purchaseTicket: { __typename?: 'Ticket' } & TicketFragmentFragment;
-};
-
-export type UseTicketMutationVariables = {
 	routeId: Scalars['ID'];
-	userId: Scalars['ID'];
 };
 
-export type UseTicketMutation = { __typename?: 'Mutation' } & {
-	useTicket: Maybe<{ __typename?: 'Ticket' } & TicketFragmentFragment>;
-};
-
-export type SendTicketMutationVariables = {
-	ticketId: Scalars['ID'];
-	phoneNumber: Scalars['String'];
-};
-
-export type SendTicketMutation = { __typename?: 'Mutation' } & {
-	sendTicket: { __typename?: 'Ticket' } & TicketFragmentFragment;
+export type MakePaymentMutation = { __typename?: 'Mutation' } & {
+	makePayment: { __typename?: 'Payment' } & Pick<Payment, '_id'> & {
+			route: { __typename?: 'Route' } & Pick<Route, '_id'> & {
+					origin: { __typename?: 'BusStop' } & Pick<BusStop, '_id' | 'name'>;
+					destination: { __typename?: 'BusStop' } & Pick<
+						BusStop,
+						'_id' | 'name'
+					>;
+				};
+		};
 };
 
 export type LoginMutationVariables = {
@@ -270,6 +249,16 @@ export type VerifyCodeMutation = { __typename?: 'Mutation' } & {
 		User,
 		'_id' | 'firstName' | 'lastName' | 'phoneNumber'
 	>;
+};
+
+export type CreateWalletMutationVariables = {
+	userId: Scalars['ID'];
+};
+
+export type CreateWalletMutation = { __typename?: 'Mutation' } & {
+	createWallet: { __typename?: 'Wallet' } & Pick<Wallet, '_id' | 'value'> & {
+			user: { __typename?: 'User' } & Pick<User, '_id'>;
+		};
 };
 
 export type BusStopsQueryVariables = {};
@@ -320,6 +309,24 @@ export type CardQuery = { __typename?: 'Query' } & {
 	>;
 };
 
+export type UserPaymentsQueryVariables = {
+	userId: Scalars['ID'];
+};
+
+export type UserPaymentsQuery = { __typename?: 'Query' } & {
+	payments: Array<
+		{ __typename?: 'Payment' } & Pick<Payment, '_id'> & {
+				route: { __typename?: 'Route' } & Pick<Route, '_id'> & {
+						origin: { __typename?: 'BusStop' } & Pick<BusStop, '_id' | 'name'>;
+						destination: { __typename?: 'BusStop' } & Pick<
+							BusStop,
+							'_id' | 'name'
+						>;
+					};
+			}
+	>;
+};
+
 export type RouteQueryVariables = {
 	id: Scalars['ID'];
 };
@@ -333,47 +340,16 @@ export type RouteQuery = { __typename?: 'Query' } & {
 	>;
 };
 
-export type TicketsQueryVariables = {
+export type WalletQueryVariables = {
 	userId: Scalars['ID'];
 };
 
-export type TicketsQuery = { __typename?: 'Query' } & {
-	tickets: Array<
-		{ __typename?: 'Ticket' } & Pick<
-			Ticket,
-			'_id' | 'userId' | 'quantity' | 'reverse'
-		> & {
-				route: { __typename?: 'Route' } & Pick<Route, '_id' | 'fare'> & {
-						origin: { __typename?: 'BusStop' } & Pick<BusStop, '_id' | 'name'>;
-						destination: { __typename?: 'BusStop' } & Pick<
-							BusStop,
-							'_id' | 'name'
-						>;
-					};
-			}
-	>;
+export type WalletQuery = { __typename?: 'Query' } & {
+	wallet: { __typename?: 'Wallet' } & Pick<Wallet, '_id' | 'value'> & {
+			user: { __typename?: 'User' } & Pick<User, '_id'>;
+		};
 };
 
-export const TicketFragmentFragmentDoc = gql`
-	fragment TicketFragment on Ticket {
-		_id
-		userId
-		route {
-			_id
-			origin {
-				_id
-				name
-			}
-			destination {
-				_id
-				name
-			}
-			fare
-		}
-		quantity
-		reverse
-	}
-`;
 export const CreateBusStopDocument = gql`
 	mutation CreateBusStop($name: String!) {
 		createBusStop(input: { name: $name }) {
@@ -423,59 +399,28 @@ export function useSaveCardMutation() {
 		SaveCardDocument
 	);
 }
-export const PurchaseTicketDocument = gql`
-	mutation PurchaseTicket(
-		$userId: ID!
-		$origin: ID!
-		$destination: ID!
-		$quantity: Int
-	) {
-		purchaseTicket(
-			input: {
-				userId: $userId
-				origin: $origin
-				destination: $destination
-				quantity: $quantity
+export const MakePaymentDocument = gql`
+	mutation MakePayment($userId: ID!, $routeId: ID!) {
+		makePayment(input: { userId: $userId, routeId: $routeId }) {
+			_id
+			route {
+				_id
+				origin {
+					_id
+					name
+				}
+				destination {
+					_id
+					name
+				}
 			}
-		) {
-			...TicketFragment
 		}
 	}
-	${TicketFragmentFragmentDoc}
 `;
 
-export function usePurchaseTicketMutation() {
-	return Urql.useMutation<
-		PurchaseTicketMutation,
-		PurchaseTicketMutationVariables
-	>(PurchaseTicketDocument);
-}
-export const UseTicketDocument = gql`
-	mutation UseTicket($routeId: ID!, $userId: ID!) {
-		useTicket(routeId: $routeId, userId: $userId) {
-			...TicketFragment
-		}
-	}
-	${TicketFragmentFragmentDoc}
-`;
-
-export function useUseTicketMutation() {
-	return Urql.useMutation<UseTicketMutation, UseTicketMutationVariables>(
-		UseTicketDocument
-	);
-}
-export const SendTicketDocument = gql`
-	mutation SendTicket($ticketId: ID!, $phoneNumber: String!) {
-		sendTicket(ticketId: $ticketId, phoneNumber: $phoneNumber) {
-			...TicketFragment
-		}
-	}
-	${TicketFragmentFragmentDoc}
-`;
-
-export function useSendTicketMutation() {
-	return Urql.useMutation<SendTicketMutation, SendTicketMutationVariables>(
-		SendTicketDocument
+export function useMakePaymentMutation() {
+	return Urql.useMutation<MakePaymentMutation, MakePaymentMutationVariables>(
+		MakePaymentDocument
 	);
 }
 export const LoginDocument = gql`
@@ -522,6 +467,23 @@ export const VerifyCodeDocument = gql`
 export function useVerifyCodeMutation() {
 	return Urql.useMutation<VerifyCodeMutation, VerifyCodeMutationVariables>(
 		VerifyCodeDocument
+	);
+}
+export const CreateWalletDocument = gql`
+	mutation CreateWallet($userId: ID!) {
+		createWallet(userId: $userId) {
+			_id
+			user {
+				_id
+			}
+			value
+		}
+	}
+`;
+
+export function useCreateWalletMutation() {
+	return Urql.useMutation<CreateWalletMutation, CreateWalletMutationVariables>(
+		CreateWalletDocument
 	);
 }
 export const BusStopsDocument = gql`
@@ -592,6 +554,33 @@ export function useCardQuery(
 ) {
 	return Urql.useQuery<CardQuery>({ query: CardDocument, ...options });
 }
+export const UserPaymentsDocument = gql`
+	query UserPayments($userId: ID!) {
+		payments(userId: $userId) {
+			_id
+			route {
+				_id
+				origin {
+					_id
+					name
+				}
+				destination {
+					_id
+					name
+				}
+			}
+		}
+	}
+`;
+
+export function useUserPaymentsQuery(
+	options: Omit<Urql.UseQueryArgs<UserPaymentsQueryVariables>, 'query'> = {}
+) {
+	return Urql.useQuery<UserPaymentsQuery>({
+		query: UserPaymentsDocument,
+		...options
+	});
+}
 export const RouteDocument = gql`
 	query Route($id: ID!) {
 		route(id: $id) {
@@ -614,31 +603,20 @@ export function useRouteQuery(
 ) {
 	return Urql.useQuery<RouteQuery>({ query: RouteDocument, ...options });
 }
-export const TicketsDocument = gql`
-	query Tickets($userId: ID!) {
-		tickets(userId: $userId) {
+export const WalletDocument = gql`
+	query Wallet($userId: ID!) {
+		wallet(userId: $userId) {
 			_id
-			userId
-			route {
+			user {
 				_id
-				origin {
-					_id
-					name
-				}
-				destination {
-					_id
-					name
-				}
-				fare
 			}
-			quantity
-			reverse
+			value
 		}
 	}
 `;
 
-export function useTicketsQuery(
-	options: Omit<Urql.UseQueryArgs<TicketsQueryVariables>, 'query'> = {}
+export function useWalletQuery(
+	options: Omit<Urql.UseQueryArgs<WalletQueryVariables>, 'query'> = {}
 ) {
-	return Urql.useQuery<TicketsQuery>({ query: TicketsDocument, ...options });
+	return Urql.useQuery<WalletQuery>({ query: WalletDocument, ...options });
 }

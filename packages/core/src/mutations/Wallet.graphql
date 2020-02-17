@@ -1,0 +1,9 @@
+mutation CreateWallet($userId: ID!) {
+	createWallet(userId: $userId) {
+		_id
+		user {
+			_id
+		}
+		value
+	}
+}
