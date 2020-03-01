@@ -13,7 +13,7 @@
 		"@expo/react-native-action-sheet": "^3.5.0",
 		"@expo/vector-icons": "^10.0.0",
 		"@move/core": "0.0.1",
-		"@react-native-community/masked-view": "0.1.5",
+		"@react-native-community/masked-view": "0.1.7",
 		"@react-navigation/native": "^5.0.0",
 		"@react-navigation/stack": "^5.0.0",
 		"@urql/exchange-graphcache": "^2.0.0",
