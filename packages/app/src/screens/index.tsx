@@ -10,8 +10,9 @@ import Home from './Home';
 import Scanner from './Scanner';
 import Auth from './Auth';
 import { UserContext } from '../contexts/UserContext';
-import ConfirmPayment from '../components/ConfirmPaymentModal';
+import ConfirmPayment from '../components/ConfirmPayment';
 
+// I'm only using a type here because there's a weird issue when I try to use interfaces.
 export type MainStackParamList = {
 	Home: { user: User };
 	Scanner: undefined;
