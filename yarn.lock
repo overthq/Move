@@ -11911,10 +11911,12 @@ react-native-modalize@^1.2.3:
   resolved "https://registry.yarnpkg.com/react-native-modalize/-/react-native-modalize-1.3.6.tgz#1a8651f673dbaccb9ebef908688bbd72b7790470"
   integrity sha512-omYD+bPpugO7XPZ4pvPIaltw8d4Es0ZcRfu8VVslYAJT74t5IxSd6NrtL3nw/i+TKZo+CTdK4d0hbgBiyt+mMw==
 
-react-native-reanimated@~1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-1.4.0.tgz#7f1acbf9be08492d834f512700570978052be2f9"
-  integrity sha512-tO7nSNNP+iRLVbkcSS5GXyDBb7tSI02+XuRL3/S39EAr35rnvUy2JfeLUQG+fWSObJjnMVhasUDEUwlENk8IXw==
+react-native-reanimated@~1.8.0:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-1.8.0.tgz#0b5719b20c1fed9aaf8afd9a12e21c9bd46ee428"
+  integrity sha512-vGTt94lE5fsZmfMwERWFIsCr5LHsyllOESeNvlKryLgAg7h4cnJ5XSmVSy4L3qogdgFYCL6HEgY+s7tQmKXiiQ==
+  dependencies:
+    fbjs "^1.0.0"
 
 react-native-redash@^9.6.0:
   version "9.6.0"
