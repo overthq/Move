@@ -17,7 +17,7 @@ const Register = () => {
 	const { navigate } = useNavigation();
 
 	React.useEffect(() => {
-		if (data && data.register) {
+		if (data?.register) {
 			navigate('VerifyCode', { phoneNumber });
 		}
 	}, [data]);

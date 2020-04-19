@@ -37,11 +37,7 @@ const Main = () => {
 					: TransitionPresets.RevealFromBottomAndroid)
 			}}
 		>
-			<MainStack.Screen
-				name='Home'
-				component={Home}
-				initialParams={{ user: user }}
-			/>
+			<MainStack.Screen name='Home' component={Home} initialParams={{ user }} />
 			<MainStack.Screen name='Scanner' component={Scanner} />
 			<MainStack.Screen
 				name='ConfirmPayment'
