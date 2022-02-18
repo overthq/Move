@@ -11,7 +11,7 @@
 	"devDependencies": {
 		"@graphql-codegen/cli": "^1.12.2",
 		"@graphql-codegen/typescript": "^1.12.2",
-		"@graphql-codegen/typescript-operations": "^1.12.2",
+		"@graphql-codegen/typescript-operations": "^2.3.2",
 		"@graphql-codegen/typescript-urql": "^1.12.2",
 		"typescript": "^3.7.5"
 	},
