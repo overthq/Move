@@ -9,7 +9,7 @@
 		"lint": "echo \"Add lint\""
 	},
 	"devDependencies": {
-		"@graphql-codegen/cli": "^1.12.2",
+		"@graphql-codegen/cli": "^2.10.0",
 		"@graphql-codegen/typescript": "^1.12.2",
 		"@graphql-codegen/typescript-operations": "^1.12.2",
 		"@graphql-codegen/typescript-urql": "^1.12.2",
