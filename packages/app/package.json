@@ -44,7 +44,7 @@
 		"babel-preset-expo": "^8.0.0",
 		"eslint": "^6.7.2",
 		"expo-yarn-workspaces": "^1.2.0",
-		"prettier": "^1.19.1",
+		"prettier": "^2.8.0",
 		"typescript": "^3.7.5"
 	},
 	"private": true
